@@ -1,0 +1,15 @@
+export const deposit = {
+  header: 'Deposit',
+  network: 'Network',
+  cinfo: 'Contract Information',
+  address: 'Deposit Address',
+  to: 'Deposit To',
+  min: 'Minimum',
+  allow: 'Transaction Allowed',
+  withdaw: 'Withdrawal Allowed',
+  warn1: 'Do not trade with sanctioned entities.',
+  more1: 'Learn more',
+  warn2: 'Do not send NFTs to this address',
+  more2: 'More details',
+  button: 'Save and share addresses',
+};

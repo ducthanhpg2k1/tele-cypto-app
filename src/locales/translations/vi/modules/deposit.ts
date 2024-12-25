@@ -1,0 +1,15 @@
+export const deposit = {
+  header: 'Nạp',
+  network: 'Mạng lưới',
+  cinfo: 'Thông tin hợp đồng',
+  address: 'Địa chỉ nạp',
+  to: 'Nạp tiền đến',
+  min: 'Số tiền nạp tối thiểu',
+  allow: 'Đã ghi có (Đã cho phép giao dịch)',
+  withdaw: 'Đã mở khoá (Đã cho phép rút tiền)',
+  warn1: 'Không giao dịch với các thực thể bị trừng phạt.',
+  more1: 'Tìm hiểu thêm',
+  warn2: 'Không gửi NFT đến địa chỉ này',
+  more2: 'Thêm chi tiết',
+  button: 'Lưu và chia sẻ địa chỉ',
+};

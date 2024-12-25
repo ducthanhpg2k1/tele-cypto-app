@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-main: #007fff;
+    --primary-light: #66b2ff;
+    --primary-dark: #0059b2;
+  }
+}
+
+#percentage-slider {
+  position: relative;
+}
+
+#percentage-slider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background-color: #e5e7eb;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+#percentage-slider button {
+  z-index: 2;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 20px;
+}
+
+input {
+  position: relative;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+  border-radius: 4px;
+  outline: none;
+  margin: 0;
+  z-index: 999;
+  position: relative;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #177dff;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: -1;
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #177dff;
+  transform: rotate(45deg);
+  border: none;
+  cursor: pointer;
+  z-index: -1;
+  position: relative;
+}
+
+.marks {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.mark {
+  width: 12px;
+  height: 12px;
+  background: transparent;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+  position: relative;
+}
+.mark::after {
+  content: '';
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  background-color: #d9d9d9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.mark::before {
+  content: '';
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: scale(0.75);
+  z-index: 10;
+}
+
+.active::after,
+.active::before {
+  background-color: #177dff;
+}
+
+.process {
+  width: 98%;
+  position: absolute;
+  background-color: #d9d9d9;
+  height: 1px;
+  top: 6px;
+  border-radius: 20px;
+}
+.process-bar {
+  margin-left: 2px;
+  width: 0%;
+  height: 100%;
+  background-color: #177dff;
+}
