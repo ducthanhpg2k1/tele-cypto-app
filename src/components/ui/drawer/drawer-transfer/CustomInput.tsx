@@ -1,10 +1,12 @@
 import { Input, Stack, TextField, Typography } from '@mui/material';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 type Props = {
   subfixBlack?: string;
   subfixBlue?: string;
-  value: string;
+  value?: string;
+  placeholder?: string;
+  endContent?: ReactNode;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement> | undefined;
 };
 const CustomInput = (props: Props) => {
@@ -14,11 +16,17 @@ const CustomInput = (props: Props) => {
         fullWidth
         onChange={props.onChange}
         value={props.value}
+        placeholder={props.placeholder}
+
         variant="outlined"
         sx={{
           color: 'text.secondary',
           backgroundColor: '#F5F5F5',
           borderRadius: '8px',
+          '& .MuiInputBase-input::placeholder': {
+            color: '#9E9E9E',
+            fontWeight: 500
+          },
           '& .MuiOutlinedInput-notchedOutline': {
             border: 'none',
           },
@@ -30,6 +38,11 @@ const CustomInput = (props: Props) => {
           },
         }}
       />
+      {
+        props.endContent && (
+          <div className='min-w-[100px] items-end flex justify-end mr-2'>{props.endContent}</div>
+        )
+      }
       {props.subfixBlack && (
         <Typography
           variant="body1"

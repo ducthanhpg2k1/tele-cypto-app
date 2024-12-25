@@ -8,6 +8,7 @@ import FutureIcon from 'src/assets/icons/FutureIcon';
 import IconBotTrade from 'src/assets/icons/IconBotTrade';
 import IconTransaction from 'src/assets/icons/IconTransaction';
 import IconMarket from 'src/assets/icons/IconMarket';
+import { TAB_BOT_TRADE } from '..';
 
 const NavPaper = styled(Paper)(({ theme }) => ({
   position: 'fixed',
@@ -48,25 +49,20 @@ const StyledBottomNavigationAction = styled(BottomNavigationAction)(({ theme }) 
   opacity: 1,
 }));
 
-export enum TAB_BOT_TRADE {
-  BOT = 'bot',
-  TRANSACTION = 'transaction',
-  ALL_COMMANDS = 'all-commands',
-  MARKET = 'market',
-}
 
-export const BottomNavBotTrade: FC = () => {
+
+const BottomNavBotTrade = ({ activeTab, onChangeTab }: { activeTab: TAB_BOT_TRADE, onChangeTab: (tab: TAB_BOT_TRADE) => void }) => {
   const theme = useTheme();
 
-  const [activeTab, setActiveTab] = useState<TAB_BOT_TRADE>(TAB_BOT_TRADE?.BOT);
+
 
   return (
     <NavPaper elevation={3}>
       <StyledBottomNavigation
         value={activeTab}
-        onChange={(_, newValue) => {
-          setActiveTab(newValue);
-        }}
+        onChange={(_, newValue) =>
+          onChangeTab(newValue)
+        }
       >
         <StyledBottomNavigationAction
           label="Bot giao dịch"
@@ -114,6 +110,8 @@ export const BottomNavBotTrade: FC = () => {
           }
         />
       </StyledBottomNavigation>
-    </NavPaper>
+    </NavPaper >
   );
 };
+
+export default BottomNavBotTrade

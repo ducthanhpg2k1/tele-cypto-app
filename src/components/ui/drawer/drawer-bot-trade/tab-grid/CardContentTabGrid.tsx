@@ -5,7 +5,7 @@ import { TypographyRegular } from '../../../../sections/new-trade/NewTrade';
 import Button from 'src/components/ui/button';
 import IconGroupUser from 'src/assets/icons/IconGroupUser';
 
-const CardContentTabGrid = ({ onClick }: { onClick: VoidFunction }) => {
+const CardContentTabGrid = ({ onClick }: { onClick?: VoidFunction }) => {
   const { t } = useTranslation();
   return (
     <div onClick={onClick}>
