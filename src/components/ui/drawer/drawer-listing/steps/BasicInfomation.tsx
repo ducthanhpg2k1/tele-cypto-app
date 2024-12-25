@@ -108,7 +108,7 @@ const sx = {
     display: 'flex',
     alignItems: 'center',
     backgroundColor: '#F5F5F5',
-    padding: '4px 16px',
+    padding: '12px 16px',
     height: '48px',
     borderRadius: '8px',
     width: '100%',
