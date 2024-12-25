@@ -83,12 +83,13 @@ const ChartPie = () => {
 
     return (
         <div className='flex flex-col gap-2'>
-            <div className='pt-4 flex justify-between items-center h-[130px]'>
-                <div className="w-full h-56 flex justify-center items-center">
+            <div className='pt-4 flex justify-between items-center h-[180px] gap-6'>
+                <div className="w-full h-full flex justify-center items-center">
                     <ReactApexChart
                         options={options}
                         series={series}
                         type="donut"
+                        height={180}
                     />
 
 

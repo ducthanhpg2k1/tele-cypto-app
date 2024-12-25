@@ -114,14 +114,14 @@ const ChartLine = () => {
     return (
         <div className="flex flex-col ">
             <Chart options={options} width={'100%'} series={series} type="area" height={200} />
-            <div className="grid grid-cols-5 items-center gap-4">
+            <div className="grid grid-cols-5 items-center gap-[16px]">
                 {DATA_FILTER.map((item) => {
                     return (
                         <div
                             className={clsx(
                                 'items-center flex justify-center',
                                 {
-                                    'bg-[#F5F5F5] p-1 h-5 rounded ': item?.id === 3,
+                                    'bg-[#F5F5F5] p-[4px] rounded ': item?.id === 3,
                                 },
                             )}
 

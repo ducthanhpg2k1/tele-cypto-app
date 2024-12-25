@@ -43,6 +43,7 @@ const ViewChart = () => {
                     <Tab
                         icon={<IconChartLine isActive={value === TYPE_TAB.CHART_LINE} />}
                         sx={{
+                            width: '34px',
                             borderRadius: "4px",
                             padding: "0 5px",
                             minHeight: '24px !important',
@@ -52,6 +53,7 @@ const ViewChart = () => {
                     <Tab
                         icon={<IconChartPie isActive={value === TYPE_TAB.CHART_PIE} />}
                         sx={{
+                            width: '34px',
                             borderRadius: "4px",
                             padding: "0 5px",
                             minHeight: '24px !important',
@@ -68,9 +70,7 @@ const ViewChart = () => {
 
             {
                 value === TYPE_TAB.CHART_PIE && (
-
                     <ChartPie />
-
                 )
             }
             <Divider variant="fullWidth" sx={{ mt: 3 }} />
