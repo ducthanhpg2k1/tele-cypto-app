@@ -1,4 +1,4 @@
-import { IconButton, Typography } from '@mui/material';
+import {  IconButton, Typography } from '@mui/material';
 import { ArrowDropDownIcon } from '@mui/x-date-pickers';
 import ChartCandlestick from '../TransactionAI/ChartCandlestick';
 import CustomCheckbox from 'src/components/ui/checkbox';
@@ -6,12 +6,13 @@ import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
 import SettingPrice from './SettingPrice';
 import SlideRanger from 'src/components/ui/slide-ranger/SlideRanger';
+import Button from 'src/components/ui/button';
 
 const HandMade = () => {
   const { t } = useTranslation();
 
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='flex flex-col gap-4 relative'>
       <div>
         <div className='flex items-center gap-[2px] mt-1'>
           <Typography variant='body1' color={'#212121'} fontWeight={600}>
@@ -76,6 +77,14 @@ const HandMade = () => {
             classNameWrapper='flex-row items-center text-[#212121] font-normal gap-[4px]'
           />
         </div>
+      </div>
+      <div className='p t-4'>
+        <Button
+          fullWidth
+          className='h-10 font-semibold'
+        >
+          <Typography className='text-[14px]'>Tạo</Typography>
+        </Button>
       </div>
     </div>
   );

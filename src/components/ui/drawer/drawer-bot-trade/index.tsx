@@ -4,6 +4,7 @@ import CustomDrawer, { DrawerHandle } from 'src/components/ui/drawer';
 import Content from './Content';
 import BottomNavBotTrade from './bottom-nav-bot-trade';
 import Transaction from './transaction';
+import AllCommands from './all-commands';
 
 export enum TAB_BOT_TRADE {
   BOT = 'bot',
@@ -48,6 +49,9 @@ const DrawerBotTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
       <div className='pb-20'>
         {activeTab === TAB_BOT_TRADE.BOT && <Content />}
         {activeTab === TAB_BOT_TRADE.TRANSACTION && <Transaction />}
+        {activeTab === TAB_BOT_TRADE.ALL_COMMANDS && <AllCommands />}
+
+
         <BottomNavBotTrade
           onChangeTab={(tab: TAB_BOT_TRADE) => setActiveTab(tab)}
           activeTab={activeTab}

@@ -5,6 +5,7 @@ import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import SlideRanger from 'src/components/ui/slide-ranger/SlideRanger';
 import CardInformation from './CardInformation';
+import CustomInput from '../../drawer-transfer/CustomInput';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -58,7 +59,11 @@ const BottomSheetInvestmentAmount = (_: any, ref: any) => {
           <Typography variant='subtitle2' color={'#212121'} fontWeight={600}>
             {t('bot.titleAmount')}
           </Typography>
-          <CardAmount value='>=5,633' />
+          <CustomInput placeholder='>=5,633' endContent={
+            <Typography variant='body1' className='font-semibold text-[14px]'>
+              USDT
+            </Typography>
+          } />
           <div className='flex items-center gap-1'>
             <Typography className='text-xs underline' color={'#9E9E9E'} fontWeight={400}>
               {t('bot.disponible')}

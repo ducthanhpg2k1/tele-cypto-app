@@ -10,8 +10,9 @@ import { useTranslation } from 'react-i18next';
 interface ITabProps extends TabsProps {
   hideIndicator?: boolean;
   size?: 'medium' | 'large';
+  onChaneTab?: any
 }
-export const Tabs = ({ tabs, defaultTab = 0, children, hideIndicator, size }: ITabProps) => {
+export const Tabs = ({ tabs, defaultTab = 0, onChaneTab, children, hideIndicator, size }: ITabProps) => {
   const { t } = useTranslation();
   const theme = useTheme();
   const [value, setValue] = useState(defaultTab);
@@ -20,6 +21,7 @@ export const Tabs = ({ tabs, defaultTab = 0, children, hideIndicator, size }: IT
   const handleChange = useCallback((event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
     setLoadedTabs((prev: Set<number>) => new Set([...prev, newValue]));
+    onChaneTab && onChaneTab(newValue)
   }, []);
 
   const handleChangeIndex = (index: number) => {
@@ -45,9 +47,11 @@ export const Tabs = ({ tabs, defaultTab = 0, children, hideIndicator, size }: IT
           variant='scrollable'
           scrollButtons='auto'
           aria-label='scrollable tabs'
+
         >
           {tabs.map((tab, index) => (
             <TabCustom
+
               key={tab.key}
               label={t(tab.label)}
               id={`scrollable-tab-${index}`}

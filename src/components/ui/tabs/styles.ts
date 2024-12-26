@@ -21,6 +21,9 @@ export const TabCustom = styled(Tab, {
   rowGap: 2,
   fontSize: size == 'large' ? '16px' : '14px',
   minHeight: 'auto',
+  marginLeft:'0 !important',
+  marginRight:'16px',
+  minWidth:'32px',
   '&.Mui-selected': {
     color: '#212121 !important',
     fontWeight: 600,

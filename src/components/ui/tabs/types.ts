@@ -3,7 +3,7 @@ import { Direction } from '@mui/material';
 import React from 'react';
 
 export interface TabItem {
-  key: string;
+  key: string | number;
   label: string;
   content?: React.ReactNode;
 }
