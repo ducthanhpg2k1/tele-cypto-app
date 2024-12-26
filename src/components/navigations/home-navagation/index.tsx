@@ -58,7 +58,7 @@ import DrawerBotTrade from 'src/components/ui/drawer/drawer-bot-trade';
 import DrawerExchange from 'src/components/ui/drawer/drawer-exchange';
 import DrawerMore from 'src/components/ui/drawer/drawer-more/DrawerMore';
 import DrawerListing from 'src/components/ui/drawer/drawer-listing';
-import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade copy';
+import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade';
 
 const STORAGE_KEY = 'quick_actions';
 export const MAX_ACTIVE_ITEMS = 7;
