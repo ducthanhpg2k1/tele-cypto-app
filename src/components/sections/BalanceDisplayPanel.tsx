@@ -11,7 +11,7 @@ const Container = styled(Box)(({ theme }) => ({
   justifyContent: 'space-between',
   height: 80,
   width: '100%',
-  marginBottom: '24px',
+  marginBottom: '4px',
 }));
 
 export default function BalanceDisplayPanel({
@@ -26,7 +26,7 @@ export default function BalanceDisplayPanel({
       <BalanceCard />
       <Box sx={{ display: 'flex', gap: '8px' }}>
         <ChartMixedAltIcon onClick={handleShowChart} fill={showChart ? '#177DFF' : '#212121'} />
-        <ClockDeskIcon />
+        {/* <ClockDeskIcon /> */}
       </Box>
     </Container>
   );
