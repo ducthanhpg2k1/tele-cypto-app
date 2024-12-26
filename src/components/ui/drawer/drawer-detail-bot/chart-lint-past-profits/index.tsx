@@ -6,38 +6,39 @@ const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 const ChartLintPastProfits = () => {
   const rawData = [10, 20, 50, 150, 500];
   const maxValue = Math.max(...rawData);
-  const percentageData = rawData.map(value => Number(((value / maxValue) * 100).toFixed(1)));
+  const percentageData = rawData.map((value) => Number(((value / maxValue) * 100).toFixed(1)));
   const options: any = {
     chart: {
       type: 'area',
       toolbar: {
         show: false,
       },
-
+      offsetX: 0,
+      parentHeightOffset: 0,
     },
     colors: ['#4AAF57'],
     dataLabels: {
       enabled: false,
-
     },
     stroke: {
       curve: 'smooth',
       width: 2,
     },
     grid: {
-
+      padding: {
+        left: -5,
+        right: 0,
+      },
       show: true,
       borderColor: '#E5E6EB',
       strokeDashArray: 5,
       position: 'back',
       xaxis: {
-
         lines: {
           show: false,
         },
       },
       yaxis: {
-
         lines: {
           show: true,
         },
@@ -50,12 +51,11 @@ const ChartLintPastProfits = () => {
           fontSize: '10px',
           fontWeight: 400,
         },
-
       },
-
     },
     yaxis: {
       labels: {
+        offsetX: -18,
         style: {
           colors: '#9E9E9E',
           fontSize: '10px',
@@ -63,8 +63,8 @@ const ChartLintPastProfits = () => {
         },
         formatter: function (value: number) {
           return value + '%';
-        }
-      }
+        },
+      },
     },
     fill: {
       gradient: {
@@ -90,7 +90,7 @@ const ChartLintPastProfits = () => {
   ];
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col p-0 m-0 w-full">
       <Chart
         options={options}
         width={'100%'}

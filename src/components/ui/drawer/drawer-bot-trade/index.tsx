@@ -1,4 +1,3 @@
-import { t } from 'i18next';
 import { forwardRef, useState } from 'react';
 import CustomDrawer, { DrawerHandle } from 'src/components/ui/drawer';
 import Content from './Content';
@@ -14,28 +13,25 @@ export enum TAB_BOT_TRADE {
 const DrawerBotTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
   const [activeTab, setActiveTab] = useState<TAB_BOT_TRADE>(TAB_BOT_TRADE?.BOT);
 
-  console.log(activeTab, 'activeTab');
-
   const renderTitleBotTrade = () => {
-    let text: string = ''
+    let text: string = '';
 
     switch (activeTab) {
       case TAB_BOT_TRADE.BOT:
-        text = 'Bot giao dịch'
+        text = 'Bot giao dịch';
         break;
       case TAB_BOT_TRADE.ALL_COMMANDS:
-        text = 'Tất cả các lệnh'
+        text = 'Tất cả các lệnh';
         break;
       case TAB_BOT_TRADE.MARKET:
-        text = 'Thị trường'
+        text = 'Thị trường';
         break;
       case TAB_BOT_TRADE.TRANSACTION:
-        text = 'Giao dịch'
+        text = 'Giao dịch';
         break;
     }
-    return text
-  }
-
+    return text;
+  };
 
   return (
     <CustomDrawer
@@ -46,20 +42,14 @@ const DrawerBotTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
       ref={ref}
       label={renderTitleBotTrade()}
     >
-      <div className='pb-20'>
-        {
-          activeTab === TAB_BOT_TRADE.BOT && (
-            <Content />
-          )
-        }
-        {
-          activeTab === TAB_BOT_TRADE.TRANSACTION && (
-            <Transaction />
-          )
-        }
-        <BottomNavBotTrade onChangeTab={(tab: TAB_BOT_TRADE) => setActiveTab(tab)} activeTab={activeTab} />
+      <div className="pb-20">
+        {activeTab === TAB_BOT_TRADE.BOT && <Content />}
+        {activeTab === TAB_BOT_TRADE.TRANSACTION && <Transaction />}
+        <BottomNavBotTrade
+          onChangeTab={(tab: TAB_BOT_TRADE) => setActiveTab(tab)}
+          activeTab={activeTab}
+        />
       </div>
-
     </CustomDrawer>
   );
 });

@@ -9,38 +9,39 @@ import { useTranslation } from 'react-i18next';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const DATA_FILTER = [
-
   {
     id: 2,
-    text: '1 giây'
+    text: '1 giây',
   },
   {
     id: 3,
-    text: '1m'
+    text: '1m',
   },
   {
     id: 4,
-    text: '5m'
+    text: '5m',
   },
   {
     id: 5,
-    text: '15m'
+    text: '15m',
   },
   {
     id: 6,
-    text: '30m'
+    text: '30m',
   },
-]
+];
 
-const Text = styled(Typography)<{ color?: string, fontWeight?: number, fontSize?: string }>(({ color, fontWeight, fontSize }) => ({
-  fontSize: fontSize || '10px',
-  fontWeight: fontWeight || 400,
-  lineHeight: '12px',
-  color: color || '#757575',
-}));
+const Text = styled(Typography)<{ color?: string; fontWeight?: number; fontSize?: string }>(
+  ({ color, fontWeight, fontSize }) => ({
+    fontSize: fontSize || '10px',
+    fontWeight: fontWeight || 400,
+    lineHeight: '12px',
+    color: color || '#757575',
+  })
+);
 
 const ChartPreviewBot = () => {
-  const [activeFilter, setActiveFilter] = useState(2)
+  const [activeFilter, setActiveFilter] = useState(2);
   const { t } = useTranslation();
 
   const series = [
@@ -98,14 +99,6 @@ const ChartPreviewBot = () => {
           x: new Date('2024-01-13').getTime(),
           y: [115.0, 118.0, 114.0, 116.0],
         },
-        {
-          x: new Date('2024-01-14').getTime(),
-          y: [116.0, 119.0, 115.0, 117.0],
-        },
-        {
-          x: new Date('2024-01-15').getTime(),
-          y: [117.0, 120.0, 116.0, 118.0],
-        },
       ],
     },
   ];
@@ -120,6 +113,7 @@ const ChartPreviewBot = () => {
       toolbar: {
         show: false,
       },
+      parentHeightOffset: 0,
     },
     title: {
       text: '',
@@ -141,7 +135,8 @@ const ChartPreviewBot = () => {
 
     grid: {
       padding: {
-        left: 0,
+        left: -8,
+        right:-24,
       },
       show: true,
       borderColor: '#E5E6EB',
@@ -157,10 +152,13 @@ const ChartPreviewBot = () => {
           show: true,
         },
       },
+      
     },
     xaxis: {
       tickAmount: 5,
-      type: 'datetime',
+      axisTicks: {
+        show: false,
+      },
       labels: {
         formatter: function (val: any) {
           return dayjs(val).format('YYYY-MM-DD');
@@ -170,8 +168,7 @@ const ChartPreviewBot = () => {
           fontSize: '10px',
           fontWeight: 400,
         },
-
-      }
+      },
     },
     yaxis: {
       labels: {
@@ -192,40 +189,40 @@ const ChartPreviewBot = () => {
         {t('bot.preview_bot')}
       </Typography>
       <div>
-        <div className='flex items-center gap-6 w-full'>
-          <div className='w-[60px]'>
+        <div className="flex items-center gap-6 w-full">
+          <div className="w-[60px]">
             <Text
               color={'#9E9E9E'}
               fontWeight={400}
-            >Thời gian</Text>
+            >
+              Thời gian
+            </Text>
           </div>
 
-          <div className='grid grid-cols-5 w-full'>
-            {
-              DATA_FILTER?.map((item) => {
-                return (
-                  <div key={item?.id}
-                    onClick={() => {
-                      setActiveFilter(item?.id)
-                    }}
-                    className={clsx(
-                      'justify-center flex transition-all rounded-sm items-center py-[2px] px-[8px] w-max',
-                      {
-                        'bg-[#E8F2FF]': item?.id === activeFilter,
-                      },
-                    )}
+          <div className="grid grid-cols-5 w-full">
+            {DATA_FILTER?.map((item) => {
+              return (
+                <div
+                  key={item?.id}
+                  onClick={() => {
+                    setActiveFilter(item?.id);
+                  }}
+                  className={clsx(
+                    'justify-center flex transition-all rounded-sm items-center py-[2px] px-[8px] w-max',
+                    {
+                      'bg-[#E8F2FF]': item?.id === activeFilter,
+                    }
+                  )}
+                >
+                  <Text
+                    color={item?.id === activeFilter ? '#177DFF' : '#9E9E9E'}
+                    fontWeight={item?.id === activeFilter ? 500 : 400}
                   >
-                    <Text
-                      color={item?.id === activeFilter ? '#177DFF' : '#9E9E9E'}
-                      fontWeight={item?.id === activeFilter ? 500 : 400}
-                    >{item?.text}</Text>
-
-                  </div>
-                )
-
-              })
-            }
-
+                    {item?.text}
+                  </Text>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -235,9 +232,7 @@ const ChartPreviewBot = () => {
           type="candlestick"
           height={300}
         />
-
       </div>
-
     </div>
   );
 };
