@@ -57,9 +57,9 @@ const CustomSelect = ({
           className={className}
         >
           <Typography
-            variant="h6"
-            fontWeight="bold"
-            color="text.primary"
+            variant='h6'
+            fontWeight='bold'
+            color='text.primary'
             className={classNameValue}
           >
             {value}
@@ -73,21 +73,13 @@ const CustomSelect = ({
                 borderRadius: 1,
               }}
             >
-              <Typography
-                variant="caption"
-                color="text.secondary"
-                sx={{ lineHeight: 0 }}
-              >
+              <Typography variant='caption' color='text.secondary' sx={{ lineHeight: 0 }}>
                 {label}
               </Typography>
             </Box>
           )}
           {icon ? (
-            <img
-              src={icon}
-              alt=""
-              className={classNameIcon}
-            />
+            <img src={icon} alt='' className={classNameIcon} />
           ) : (
             <ChevronDownIcon
               className={`w-5 h-5 ${classNameIcon} text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}

@@ -38,7 +38,5 @@ const TabAction = () => {
 export default TabAction;
 
 const TabsContent = () => {
-  return (
-    <></>
-  );
+  return <></>;
 };

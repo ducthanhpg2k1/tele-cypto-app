@@ -15,7 +15,6 @@ const SectionContainer = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
 }));
 
-
 const Title = styled(Typography)({
   fontSize: '14px',
   fontWeight: 500,
@@ -30,15 +29,13 @@ const DetailText = styled(Typography)<{ color?: string }>(({ color }) => ({
   color: color || '#9E9E9E',
 }));
 
-
-
 // Types
 interface SectionItem {
   value: string;
   averageCost?: string;
   percentageChange?: string;
   tetherUS?: string;
-  id: number
+  id: number;
 }
 
 // Mock Data
@@ -57,7 +54,6 @@ const sectionItems: SectionItem[] = [
     tetherUS: '1,627 USDT',
     percentageChange: '-2,342 USDT(-0,51%)',
   },
-
 ];
 
 // Reusable Component for Section Rows
@@ -70,7 +66,13 @@ const SectionItemRow: React.FC<SectionItem> = ({
   <div className='py-2 border-1 border-solid border-b-[#F5F5F5]'>
     <div className='flex justify-between items-center'>
       <div className='flex gap-1'>
-        <Image src={'/images/logo-usdt.png'} alt='logo-usdt' width={24} height={24} className='w-6 h-6' />
+        <Image
+          src={'/images/logo-usdt.png'}
+          alt='logo-usdt'
+          width={24}
+          height={24}
+          className='w-6 h-6'
+        />
         <div className='flex flex-col gap-[2px]'>
           <Title>USDT</Title>
           <DetailText>TetherUS</DetailText>
@@ -86,8 +88,6 @@ const SectionItemRow: React.FC<SectionItem> = ({
       </div>
     </div>
   </div>
-
-
 );
 
 // Main Component
@@ -99,10 +99,7 @@ const FinancialOverview: React.FC = () => {
       content: (
         <Box sx={{ overflowY: 'auto', flex: 1, pt: 1 }}>
           {sectionItems.map((item) => (
-            <SectionItemRow
-              key={`${item.id}`}
-              {...item}
-            />
+            <SectionItemRow key={`${item.id}`} {...item} />
           ))}
         </Box>
       ),
@@ -113,10 +110,7 @@ const FinancialOverview: React.FC = () => {
       content: (
         <Box sx={{ overflowY: 'auto', flex: 1, mt: 1 }}>
           {sectionItems.map((item) => (
-            <SectionItemRow
-              key={`${item.id}`}
-              {...item}
-            />
+            <SectionItemRow key={`${item.id}`} {...item} />
           ))}
         </Box>
       ),
@@ -133,10 +127,7 @@ const FinancialOverview: React.FC = () => {
           justifyContent: 'space-between',
         }}
       >
-        <Tabs
-          tabs={tabs}
-          defaultTab={1}
-        >
+        <Tabs tabs={tabs} defaultTab={1}>
           <SettingIcon />
         </Tabs>
       </Box>

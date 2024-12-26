@@ -53,11 +53,7 @@ const CustomCheckbox: React.FC<Props> = ({
         }}
         {...rest}
       />
-      <Typography
-        className={classNameLabel}
-        variant={variantLabel}
-        color={'#212121'}
-      >
+      <Typography className={classNameLabel} variant={variantLabel} color={'#212121'}>
         {label}
       </Typography>
     </Stack>

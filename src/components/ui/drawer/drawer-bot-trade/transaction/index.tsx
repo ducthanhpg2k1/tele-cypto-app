@@ -7,12 +7,10 @@ import HandMade from './HandMade';
 export enum TYPE_TAB_TRANSACTION {
   AI = 'ai',
   POPULAR = 'popular',
-  HANDMADE = 'handmade'
-
+  HANDMADE = 'handmade',
 }
 
 const Transaction = () => {
-
   const tabGrids: TabItem[] = [
     {
       label: 'AI',
@@ -27,14 +25,14 @@ const Transaction = () => {
     {
       label: 'Thủ công',
       key: TYPE_TAB_TRANSACTION.HANDMADE,
-        content: <HandMade />,
+      content: <HandMade />,
     },
   ];
 
   return (
-    <div className="flex flex-col gap-0">
+    <div className='flex flex-col gap-0'>
       <Tabs tabs={tabGrids} />
     </div>
-  )
-}
-export default Transaction
+  );
+};
+export default Transaction;

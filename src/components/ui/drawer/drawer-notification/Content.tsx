@@ -11,42 +11,23 @@ import InputSearch from 'src/components/ui/input-search/InputSearch';
 const Content = () => {
   return (
     <Box sx={sx.wrapper}>
-      <Stack className="gap-3">
-        <Typography
-          variant="h6"
-          className="text-[16px]"
-        >
+      <Stack className='gap-3'>
+        <Typography variant='h6' className='text-[16px]'>
           {t('notification.topic')}
         </Typography>
-        <Stack className="grid grid-cols-2 gap-1 w-full">
+        <Stack className='grid grid-cols-2 gap-1 w-full'>
           {mockDataTopic.map((e, index) => {
-            return (
-              <ItemTopic
-                img={e.img}
-                title={e.title}
-                key={index}
-              />
-            );
+            return <ItemTopic img={e.img} title={e.title} key={index} />;
           })}
         </Stack>
       </Stack>
-      <Stack className="gap-3">
-        <Typography
-          variant="body1"
-          className="leading-6 font-semibold"
-        >
+      <Stack className='gap-3'>
+        <Typography variant='body1' className='leading-6 font-semibold'>
           {t('notification.artc')}
         </Typography>
-        <Stack className="w-full gap-2">
+        <Stack className='w-full gap-2'>
           {mockDataArct.map((e, index) => {
-            return (
-              <ItemArtc
-                img={e.img}
-                title={e.title}
-                key={index}
-                time={e.time}
-              />
-            );
+            return <ItemArtc img={e.img} title={e.title} key={index} time={e.time} />;
           })}
         </Stack>
       </Stack>

@@ -6,7 +6,7 @@ export const TabPanel: React.FC<TabPanelProps> = (props) => {
   const { children, value, index, dir, ...other } = props;
   return (
     <div
-      role="tabpanel"
+      role='tabpanel'
       hidden={value !== index}
       id={`scrollable-tabpanel-${index}`}
       aria-labelledby={`scrollable-tab-${index}`}

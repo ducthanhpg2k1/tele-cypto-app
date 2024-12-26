@@ -26,11 +26,7 @@ export default function ButtonTrade({
       }}
       onClick={() => onClick && onClick()}
     >
-      <Typography
-        variant="body2"
-        color={'white'}
-        fontWeight={500}
-      >
+      <Typography variant='body2' color={'white'} fontWeight={500}>
         {title}
       </Typography>
     </Button>

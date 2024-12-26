@@ -38,8 +38,8 @@ export function MarketList({ showmore = false }: MarketListProps) {
           <Select
             labelId={`select-${tab.id}-label`}
             id={`select-${tab.id}`}
-            defaultValue="spot"
-            size="small"
+            defaultValue='spot'
+            size='small'
             sx={{
               color: '#9E9E9E',
               backgroundColor: 'transparent',
@@ -60,26 +60,18 @@ export function MarketList({ showmore = false }: MarketListProps) {
                 fontWeight: 400,
               },
             }}
-            IconComponent={() => <img src="/assets/iconly/ic-ad-grey.svg" />}
+            IconComponent={() => <img src='/assets/iconly/ic-ad-grey.svg' />}
           >
-            <MenuItem value="spot">{t('market.spot')}</MenuItem>
+            <MenuItem value='spot'>{t('market.spot')}</MenuItem>
           </Select>
 
           <Box sx={{ width: 80, textAlign: 'right' }}>
-            <Typography
-              variant="body2"
-              color={'#9E9E9E'}
-              className="text-[12px]"
-            >
+            <Typography variant='body2' color={'#9E9E9E'} className='text-[12px]'>
               {t('market.price')}
             </Typography>
           </Box>
           <Box sx={{ width: 80, textAlign: 'center' }}>
-            <Typography
-              variant="body2"
-              color={'#9E9E9E'}
-              className="text-[12px]"
-            >
+            <Typography variant='body2' color={'#9E9E9E'} className='text-[12px]'>
               {t('market.change24h')}
             </Typography>
           </Box>
@@ -107,12 +99,7 @@ export function MarketList({ showmore = false }: MarketListProps) {
   const defaultTabIndex = TABS.findIndex((tab) => tab.id === 'trending');
   const safeDefaultTab = defaultTabIndex !== -1 ? defaultTabIndex : 0;
 
-  return (
-    <Tabs
-      tabs={tabItems}
-      defaultTab={safeDefaultTab}
-    />
-  );
+  return <Tabs tabs={tabItems} defaultTab={safeDefaultTab} />;
 }
 
 export default MarketList;

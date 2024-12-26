@@ -6,9 +6,9 @@ import TabGrid from './tab-grid/TabGrid';
 const Content = () => {
   return (
     <Box sx={sx.wrap}>
-        <CopyTradeCTAButton />
-        <NotificationCopyTrade />
-        <TabGrid />
+      <CopyTradeCTAButton />
+      <NotificationCopyTrade />
+      <TabGrid />
     </Box>
   );
 };
@@ -20,6 +20,6 @@ const sx = {
     // justifyContent: 'space-between',
     height: '100%',
   },
-}
+};
 
 export default Content;

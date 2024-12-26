@@ -5,7 +5,7 @@ import Content from './Content';
 const DrawerListing = forwardRef<DrawerHandle, {}>((_, ref) => {
   return (
     <CustomDrawer
-      anchor="right"
+      anchor='right'
       paperClassName={{
         sx: { width: { xs: '100%', sm: 400 }, pt: 2 },
       }}

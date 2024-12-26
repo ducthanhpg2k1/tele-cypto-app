@@ -9,38 +9,39 @@ import { useTranslation } from 'react-i18next';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const DATA_FILTER = [
-
   {
     id: 2,
-    text: '1 giây'
+    text: '1 giây',
   },
   {
     id: 3,
-    text: '1m'
+    text: '1m',
   },
   {
     id: 4,
-    text: '5m'
+    text: '5m',
   },
   {
     id: 5,
-    text: '15m'
+    text: '15m',
   },
   {
     id: 6,
-    text: '30m'
+    text: '30m',
   },
-]
+];
 
-const Text = styled(Typography)<{ color?: string, fontWeight?: number, fontSize?: string }>(({ color, fontWeight, fontSize }) => ({
-  fontSize: fontSize || '10px',
-  fontWeight: fontWeight || 400,
-  lineHeight: '12px',
-  color: color || '#757575',
-}));
+const Text = styled(Typography)<{ color?: string; fontWeight?: number; fontSize?: string }>(
+  ({ color, fontWeight, fontSize }) => ({
+    fontSize: fontSize || '10px',
+    fontWeight: fontWeight || 400,
+    lineHeight: '12px',
+    color: color || '#757575',
+  }),
+);
 
 const ChartCandlestick = () => {
-  const [activeFilter, setActiveFilter] = useState(2)
+  const [activeFilter, setActiveFilter] = useState(2);
   const { t } = useTranslation();
 
   const series = [
@@ -170,8 +171,7 @@ const ChartCandlestick = () => {
           fontSize: '10px',
           fontWeight: 400,
         },
-
-      }
+      },
     },
     yaxis: {
       labels: {
@@ -186,50 +186,40 @@ const ChartCandlestick = () => {
     <div>
       <div className='flex items-center gap-6 w-full'>
         <div className='w-[60px]'>
-          <Text
-            color={'#9E9E9E'}
-            fontWeight={400}
-          >Thời gian</Text>
+          <Text color={'#9E9E9E'} fontWeight={400}>
+            Thời gian
+          </Text>
         </div>
 
         <div className='grid grid-cols-5 w-full'>
-          {
-            DATA_FILTER?.map((item) => {
-              return (
-                <div key={item?.id}
-                  onClick={() => {
-                    setActiveFilter(item?.id)
-                  }}
-                  className={clsx(
-                    'justify-center flex transition-all rounded-sm items-center py-[2px] px-[8px] w-max',
-                    {
-                      'bg-[#E8F2FF]': item?.id === activeFilter,
-                    },
-                  )}
+          {DATA_FILTER?.map((item) => {
+            return (
+              <div
+                key={item?.id}
+                onClick={() => {
+                  setActiveFilter(item?.id);
+                }}
+                className={clsx(
+                  'justify-center flex transition-all rounded-sm items-center py-[2px] px-[8px] w-max',
+                  {
+                    'bg-[#E8F2FF]': item?.id === activeFilter,
+                  },
+                )}
+              >
+                <Text
+                  color={item?.id === activeFilter ? '#177DFF' : '#9E9E9E'}
+                  fontWeight={item?.id === activeFilter ? 500 : 400}
                 >
-                  <Text
-                    color={item?.id === activeFilter ? '#177DFF' : '#9E9E9E'}
-                    fontWeight={item?.id === activeFilter ? 500 : 400}
-                  >{item?.text}</Text>
-
-                </div>
-              )
-
-            })
-          }
-
+                  {item?.text}
+                </Text>
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      <ReactApexChart
-        options={options}
-        series={series}
-        type="candlestick"
-        height={300}
-      />
-
+      <ReactApexChart options={options} series={series} type='candlestick' height={300} />
     </div>
-
   );
 };
 export default ChartCandlestick;

@@ -55,27 +55,27 @@ const Slide: FC<SlideProps> = ({ open, onClose, title = '', headerActions = [], 
         onClick={onClose}
       />
 
-      <div className="relative ml-auto w-full max-w-md h-full bg-white dark:bg-gray-900 shadow-xl">
-        <div className="sticky top-0 z-10 px-4 py-3 bg-white dark:bg-gray-900 border-b dark:border-gray-800">
-          <div className="flex items-center justify-between">
+      <div className='relative ml-auto w-full max-w-md h-full bg-white dark:bg-gray-900 shadow-xl'>
+        <div className='sticky top-0 z-10 px-4 py-3 bg-white dark:bg-gray-900 border-b dark:border-gray-800'>
+          <div className='flex items-center justify-between'>
             <button
               onClick={onClose}
-              className="p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+              className='p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800'
             >
-              <ArrowLeftIcon className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              <ArrowLeftIcon className='w-5 h-5 text-gray-600 dark:text-gray-300' />
             </button>
 
             {title && (
-              <h2 className="text-base font-medium text-gray-900 dark:text-gray-100">{title}</h2>
+              <h2 className='text-base font-medium text-gray-900 dark:text-gray-100'>{title}</h2>
             )}
 
             {headerActions.length > 0 && (
-              <div className="flex space-x-1">
+              <div className='flex space-x-1'>
                 {headerActions.map((action, index) => (
                   <button
                     key={index}
                     onClick={action.onClick}
-                    className="px-0.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className='px-0.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800'
                   >
                     {action.icon}
                   </button>
@@ -85,7 +85,7 @@ const Slide: FC<SlideProps> = ({ open, onClose, title = '', headerActions = [], 
           </div>
         </div>
 
-        <div className="h-full overflow-y-auto">{children}</div>
+        <div className='h-full overflow-y-auto'>{children}</div>
       </div>
     </div>
   );

@@ -68,14 +68,14 @@ export class TradingService {
       {
         pair,
         limit,
-      }
+      },
     );
     return response.trade_history || [];
   }
 
   static async getMarketStats(
     pair: string,
-    timeframe: number
+    timeframe: number,
   ): Promise<{
     stats: ChartStats[];
     dailyStats: DailyStats;
@@ -86,8 +86,8 @@ export class TradingService {
         timeframe,
         500,
         0.1,
-        1 // Force stats query
-      )
+        1, // Force stats query
+      ),
     );
     return {
       stats: response.stats || [],
@@ -97,7 +97,7 @@ export class TradingService {
 
   static async getOrderBook(
     pair: string,
-    step: number = 0.1
+    step: number = 0.1,
   ): Promise<{
     asks: OrderBookEntry[];
     bids: OrderBookEntry[];
@@ -108,8 +108,8 @@ export class TradingService {
         5, // Default timeframe
         500,
         step,
-        0
-      )
+        0,
+      ),
     );
     const orderbooks = response.orderbooks || [];
     const midPoint = Math.floor(orderbooks.length / 2);

@@ -39,7 +39,7 @@ export default function DrawerMore({
   const { t } = useTranslation();
   return (
     <CustomDrawer
-      anchor="right"
+      anchor='right'
       ref={refMore}
       PaperProps={{
         sx: { width: { xs: '100%', sm: 400 }, pt: 2 },
@@ -73,8 +73,8 @@ export default function DrawerMore({
             })}
           </ActiveActionGrid>
           <Button
-            variant="contained"
-            color="primary"
+            variant='contained'
+            color='primary'
             onClick={() => setIsEditing(!isEditing)}
             aria-label={
               isEditing ? t('navigation.quickActions.done') : t('navigation.quickActions.edit')
@@ -84,11 +84,7 @@ export default function DrawerMore({
           </Button>
         </StyledCard>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-          <Typography
-            variant="subtitle1"
-            sx={{ color: 'text.primary' }}
-            className="text-[14px]"
-          >
+          <Typography variant='subtitle1' sx={{ color: 'text.primary' }} className='text-[14px]'>
             {t('navigation.drawer.suggestedActions')}
           </Typography>
         </Box>
@@ -104,10 +100,7 @@ export default function DrawerMore({
               }}
             >
               <ActionIcon>{getIconComponent(item.iconName)}</ActionIcon>
-              <ActionLabel
-                variant="caption"
-                className="font-normal"
-              >
+              <ActionLabel variant='caption' className='font-normal'>
                 {t(`navigation.quickActions.${item.label}`)}
               </ActionLabel>
               {isEditing && activeItems.length < MAX_ACTIVE_ITEMS && (

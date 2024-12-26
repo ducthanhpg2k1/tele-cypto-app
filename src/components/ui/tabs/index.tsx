@@ -42,9 +42,9 @@ export const Tabs = ({ tabs, defaultTab = 0, children, hideIndicator, size }: IT
           hideIndicator={hideIndicator || false}
           value={value}
           onChange={handleChange}
-          variant="scrollable"
-          scrollButtons="auto"
-          aria-label="scrollable tabs"
+          variant='scrollable'
+          scrollButtons='auto'
+          aria-label='scrollable tabs'
         >
           {tabs.map((tab, index) => (
             <TabCustom
@@ -70,12 +70,7 @@ export const Tabs = ({ tabs, defaultTab = 0, children, hideIndicator, size }: IT
         resistance
       >
         {tabs.map((tab, index) => (
-          <TabPanel
-            key={tab.key}
-            value={value}
-            index={index}
-            dir={theme.direction}
-          >
+          <TabPanel key={tab.key} value={value} index={index} dir={theme.direction}>
             {loadedTabs.has(index) && tab.content}
           </TabPanel>
         ))}

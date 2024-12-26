@@ -17,29 +17,28 @@ const DrawerBotTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
   console.log(activeTab, 'activeTab');
 
   const renderTitleBotTrade = () => {
-    let text: string = ''
+    let text: string = '';
 
     switch (activeTab) {
       case TAB_BOT_TRADE.BOT:
-        text = 'Bot giao dịch'
+        text = 'Bot giao dịch';
         break;
       case TAB_BOT_TRADE.ALL_COMMANDS:
-        text = 'Tất cả các lệnh'
+        text = 'Tất cả các lệnh';
         break;
       case TAB_BOT_TRADE.MARKET:
-        text = 'Thị trường'
+        text = 'Thị trường';
         break;
       case TAB_BOT_TRADE.TRANSACTION:
-        text = 'Giao dịch'
+        text = 'Giao dịch';
         break;
     }
-    return text
-  }
-
+    return text;
+  };
 
   return (
     <CustomDrawer
-      anchor="right"
+      anchor='right'
       paperClassName={{
         sx: { width: { xs: '100%', sm: 400 }, pt: 2 },
       }}
@@ -47,19 +46,13 @@ const DrawerBotTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
       label={renderTitleBotTrade()}
     >
       <div className='pb-20'>
-        {
-          activeTab === TAB_BOT_TRADE.BOT && (
-            <Content />
-          )
-        }
-        {
-          activeTab === TAB_BOT_TRADE.TRANSACTION && (
-            <Transaction />
-          )
-        }
-        <BottomNavBotTrade onChangeTab={(tab: TAB_BOT_TRADE) => setActiveTab(tab)} activeTab={activeTab} />
+        {activeTab === TAB_BOT_TRADE.BOT && <Content />}
+        {activeTab === TAB_BOT_TRADE.TRANSACTION && <Transaction />}
+        <BottomNavBotTrade
+          onChangeTab={(tab: TAB_BOT_TRADE) => setActiveTab(tab)}
+          activeTab={activeTab}
+        />
       </div>
-
     </CustomDrawer>
   );
 });

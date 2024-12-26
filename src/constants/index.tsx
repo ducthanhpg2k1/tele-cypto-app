@@ -90,11 +90,11 @@ export const tableDeposit = [
         value={'Spot'}
         onChange={() => {}}
         options={['Spot', 'Funding', 'Future']}
-        classNameValue="text-[10px] font-normal tracking-[0.2px] text-[#212121]"
-        classNameIcon="w-2 h-2"
-        classNameMenuItem="left-[-30px]"
-        className="gap-0.5"
-        icon="/assets/iconly/ic-arrow-down.svg"
+        classNameValue='text-[10px] font-normal tracking-[0.2px] text-[#212121]'
+        classNameIcon='w-2 h-2'
+        classNameMenuItem='left-[-30px]'
+        className='gap-0.5'
+        icon='/assets/iconly/ic-arrow-down.svg'
       />
     ),
   },
@@ -102,18 +102,15 @@ export const tableDeposit = [
     label: 'deposit.min',
     value: (
       <Typography
-        variant="caption"
-        className="font-normal leading-normal text-[10px]"
+        variant='caption'
+        className='font-normal leading-normal text-[10px]'
       >{`>0,001 USDT`}</Typography>
     ),
   },
   {
     label: 'deposit.allow',
     value: (
-      <Typography
-        variant="caption"
-        className="underline font-normal leading-normal text-[10px]"
-      >
+      <Typography variant='caption' className='underline font-normal leading-normal text-[10px]'>
         Bundle 1
       </Typography>
     ),
@@ -121,10 +118,7 @@ export const tableDeposit = [
   {
     label: 'deposit.withdaw',
     value: (
-      <Typography
-        variant="caption"
-        className="underline font-normal leading-normal text-[10px]"
-      >
+      <Typography variant='caption' className='underline font-normal leading-normal text-[10px]'>
         Bundle 1
       </Typography>
     ),

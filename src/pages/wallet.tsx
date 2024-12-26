@@ -18,7 +18,7 @@ const Section = styled(Box)(({ theme }) => ({
 }));
 
 const WalletPage: NextPage = () => {
-  const [showChart, setShowChart] = useState<boolean>(false)
+  const [showChart, setShowChart] = useState<boolean>(false);
   const tabs: TabItem[] = [
     { key: 'account-overview', label: 'Tổng quan về tài khoản', content: '' },
     { key: 'spot-trading', label: 'Giao ngay', content: '' },
@@ -29,15 +29,14 @@ const WalletPage: NextPage = () => {
   ];
 
   const handleShowChart = () => {
-    setShowChart(!showChart)
-  }
+    setShowChart(!showChart);
+  };
 
   console.log(showChart, 'showChart');
 
-
   return (
     <Box
-      component="main"
+      component='main'
       sx={{
         flexGrow: 1,
         pt: 2,
@@ -50,10 +49,7 @@ const WalletPage: NextPage = () => {
       }}
     >
       <Section>
-        <ScrollableTabsButtonPrevent
-          tabs={tabs}
-          handleChange={(e, v) => console.log(v)}
-        />
+        <ScrollableTabsButtonPrevent tabs={tabs} handleChange={(e, v) => console.log(v)} />
       </Section>
       <BalanceDisplayPanel showChart={showChart} handleShowChart={handleShowChart} />
       <Section
@@ -72,21 +68,9 @@ const WalletPage: NextPage = () => {
         >
           PNL của hôm nay +0 USDT(+0,00%)
         </Typography>
-        <GoBackIcon
-          fill="#212121"
-          width={16}
-          height={16}
-          isFilled={false}
-        />
+        <GoBackIcon fill='#212121' width={16} height={16} isFilled={false} />
       </Section>
-      {
-        showChart ? (
-          <ViewChart />
-        ) : (
-          <TransactionMenu />
-
-        )
-      }
+      {showChart ? <ViewChart /> : <TransactionMenu />}
       <FinancialOverview />
     </Box>
   );

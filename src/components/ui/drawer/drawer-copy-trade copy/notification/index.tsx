@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import VolumnIcon from 'src/assets/icons/VolumeIcon';
 import { Box, Typography } from '@mui/material';
 
-
 const NotificationCopyTrade = () => {
   const { t } = useTranslation();
 
@@ -23,7 +22,7 @@ const sx = {
     gap: '6px',
     // overflow: 'hidden',
     height: 'max-content',
-    margin: '12px 0 24px 0'
+    margin: '12px 0 24px 0',
     // whiteSpace: 'nowrap',
     // overflow: 'hidden',
     // boxSizing: 'border-box',
@@ -51,7 +50,6 @@ const sx = {
     overflow: 'hidden',
     boxSizing: 'border-box',
   },
-  
-}
+};
 
 export default NotificationCopyTrade;

@@ -5,7 +5,7 @@ import Content from './Content';
 const DrawerMoreAirdrop = ({ refMoreAirdrop }: any) => {
   return (
     <CustomDrawer
-      anchor="right"
+      anchor='right'
       paperClassName={{
         sx: { width: { xs: '100%', sm: 400 }, pt: 2 },
       }}

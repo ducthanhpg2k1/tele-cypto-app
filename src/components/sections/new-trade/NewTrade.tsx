@@ -65,7 +65,7 @@ export default function NewTrade() {
   };
   return (
     <Box
-      component="main"
+      component='main'
       sx={{
         flexGrow: 1,
         display: 'flex',
@@ -102,23 +102,13 @@ export default function NewTrade() {
         </Section>
         <CurrencyInfo />
       </Box>
-      <Grid
-        sx={{ py: '12px', px: 2 }}
-        container
-        spacing={'12px'}
-      >
+      <Grid sx={{ py: '12px', px: 2 }} container spacing={'12px'}>
         {valueCustom === 2 && <TagsTrade />}
-        <Grid
-          item
-          xs={6}
-        >
+        <Grid item xs={6}>
           <Transactions />
         </Grid>
-        <Grid
-          item
-          xs={6}
-        >
-          <ActionTrade type="SPOT" />
+        <Grid item xs={6}>
+          <ActionTrade type='SPOT' />
         </Grid>
       </Grid>
       <FooterTrade tabs={tabs} />

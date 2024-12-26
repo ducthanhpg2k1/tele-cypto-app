@@ -27,51 +27,34 @@ const NewsItemSkeleton = ({ animate = true }) => {
         avatar={
           <Skeleton
             animation={animate ? 'wave' : false}
-            variant="circular"
+            variant='circular'
             width={40}
             height={40}
           />
         }
-        title={
-          <Skeleton
-            animation={animate ? 'wave' : false}
-            variant="text"
-            width={120}
-          />
-        }
-        subheader={
-          <Skeleton
-            animation={animate ? 'wave' : false}
-            variant="text"
-            width={160}
-          />
-        }
+        title={<Skeleton animation={animate ? 'wave' : false} variant='text' width={120} />}
+        subheader={<Skeleton animation={animate ? 'wave' : false} variant='text' width={160} />}
       />
       <CardContent>
         {/* Content area */}
         <Box sx={{ mb: 2 }}>
           <Skeleton
             animation={animate ? 'wave' : false}
-            variant="text"
+            variant='text'
             height={20}
             sx={{ mb: 1 }}
           />
           <Skeleton
             animation={animate ? 'wave' : false}
-            variant="text"
+            variant='text'
             height={20}
             sx={{ mb: 1 }}
           />
-          <Skeleton
-            animation={animate ? 'wave' : false}
-            variant="text"
-            height={20}
-            width="80%"
-          />
+          <Skeleton animation={animate ? 'wave' : false} variant='text' height={20} width='80%' />
         </Box>
         <Skeleton
           animation={animate ? 'wave' : false}
-          variant="rectangular"
+          variant='rectangular'
           height={200}
           sx={{
             borderRadius: 1,
@@ -83,7 +66,7 @@ const NewsItemSkeleton = ({ animate = true }) => {
             <Skeleton
               key={i}
               animation={animate ? 'wave' : false}
-              variant="rounded"
+              variant='rounded'
               width={60}
               height={24}
             />
@@ -92,21 +75,14 @@ const NewsItemSkeleton = ({ animate = true }) => {
       </CardContent>
       <ActionContainer>
         {[1, 2, 3, 4, 5].map((i) => (
-          <Box
-            key={i}
-            sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
-          >
+          <Box key={i} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Skeleton
               animation={animate ? 'wave' : false}
-              variant="circular"
+              variant='circular'
               width={32}
               height={32}
             />
-            <Skeleton
-              animation={animate ? 'wave' : false}
-              variant="text"
-              width={24}
-            />
+            <Skeleton animation={animate ? 'wave' : false} variant='text' width={24} />
           </Box>
         ))}
       </ActionContainer>

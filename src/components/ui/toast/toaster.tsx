@@ -8,7 +8,7 @@ export const Toaster: FC = () => {
 
   return (
     <HotToaster
-      position="bottom-right"
+      position='bottom-right'
       toastOptions={{
         style: {
           backdropFilter: 'blur(6px)',

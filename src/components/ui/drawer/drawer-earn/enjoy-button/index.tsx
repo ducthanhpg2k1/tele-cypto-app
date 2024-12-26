@@ -25,12 +25,8 @@ const EnjoyButton: FC<TradeCTAButtonProps> = ({ className, onClick }) => {
     <Container className={className}>
       <ContentContainer>
         <TextContainer>
-          <Title className="text-[14px]">{t('earn.cardHeader')}</Title>
-          <Typography
-            variant="body2"
-            className="text-[#E0E0E0] text-[12px]"
-            width={200}
-          >
+          <Title className='text-[14px]'>{t('earn.cardHeader')}</Title>
+          <Typography variant='body2' className='text-[#E0E0E0] text-[12px]' width={200}>
             {t('earn.cardSub')}
           </Typography>
         </TextContainer>

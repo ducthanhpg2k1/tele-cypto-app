@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Box, Button, TextField, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import MinimaLayout from "src/layouts/MinimaLayout";
-import ArrowIcon from "src/assets/icons/ArrowIcon";
-import SwitchVertical from "src/assets/icons/SwitchVertical";
-import CoinIcon from "src/assets/icons/CoinIcon";
+import React, { useState } from 'react';
+import { Box, Button, TextField, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import MinimaLayout from 'src/layouts/MinimaLayout';
+import ArrowIcon from 'src/assets/icons/ArrowIcon';
+import SwitchVertical from 'src/assets/icons/SwitchVertical';
+import CoinIcon from 'src/assets/icons/CoinIcon';
 
 // Styled Components
 const Container = styled(Box)(({ theme }) => ({
@@ -76,29 +76,13 @@ interface InfoSectionProps {
 }
 
 const InfoSection: React.FC<InfoSectionProps> = ({ label, value, order = 'unset' }) => (
-  <Box
-    display="flex"
-    justifyContent="space-between"
-    alignItems="center"
-    gap={2}
-    order={order}
-  >
-    <Box
-      display="flex"
-      alignItems="center"
-      gap={1}
-    >
+  <Box display='flex' justifyContent='space-between' alignItems='center' gap={2} order={order}>
+    <Box display='flex' alignItems='center' gap={1}>
       <Label>{label}</Label>
       <Value>{value}</Value>
     </Box>
     <IconWrapper>
-      <ArrowIcon
-        width={16}
-        height={16}
-        fill="#9E9E9E"
-        isFilled={false}
-        transform={90}
-      />
+      <ArrowIcon width={16} height={16} fill='#9E9E9E' isFilled={false} transform={90} />
     </IconWrapper>
   </Box>
 );
@@ -121,7 +105,7 @@ const CoinInfo: React.FC = () => (
       >
         <CoinIcon />
         <Typography
-          fontWeight="bold"
+          fontWeight='bold'
           fontSize={14}
           sx={{
             fontSize: '14px',
@@ -145,12 +129,7 @@ const CoinInfo: React.FC = () => (
       </Typography>
     </Box>
     <IconWrapper>
-      <ArrowIcon
-        width={20}
-        height={20}
-        fill="#212121"
-        isFilled={false}
-      />
+      <ArrowIcon width={20} height={20} fill='#212121' isFilled={false} />
     </IconWrapper>
   </SectionWrapper>
 );
@@ -162,77 +141,36 @@ const TransferPage = () => {
     <Container>
       {/* From/To Section */}
       <SectionWrapper>
-        <Box
-          display="flex"
-          flexDirection="column"
-          gap={1.5}
-          flexGrow={1}
-        >
-          <InfoSection
-            label="Từ"
-            value="Funding"
-            order={switchTransfer}
-          />
-          <InfoSection
-            label="Đến"
-            value="Ví giao ngay"
-          />
+        <Box display='flex' flexDirection='column' gap={1.5} flexGrow={1}>
+          <InfoSection label='Từ' value='Funding' order={switchTransfer} />
+          <InfoSection label='Đến' value='Ví giao ngay' />
         </Box>
         <SwitchVertical handleClick={() => setSwitchTransfer(!!switchTransfer ? 0 : 1)} />
       </SectionWrapper>
 
       {/* Coin Section */}
       <Box>
-        <Typography
-          variant="caption"
-          color="text.secondary"
-          gutterBottom
-        >
+        <Typography variant='caption' color='text.secondary' gutterBottom>
           Coin
         </Typography>
         <CoinInfo />
-        <Typography
-          color="error"
-          variant="caption"
-          mt={1}
-        >
+        <Typography color='error' variant='caption' mt={1}>
           Không có sẵn tiền để chuyển, vui lòng chọn đồng coin khác
         </Typography>
       </Box>
 
       {/* Amount Section */}
       <Box>
-        <Typography
-          variant="caption"
-          color="text.secondary"
-        >
+        <Typography variant='caption' color='text.secondary'>
           Số lượng
         </Typography>
-        <Box
-          position="relative"
-          display="flex"
-          alignItems="center"
-          mt={1}
-        >
-          <StyledTextField
-            fullWidth
-            type="number"
-            placeholder="0"
-          />
+        <Box position='relative' display='flex' alignItems='center' mt={1}>
+          <StyledTextField fullWidth type='number' placeholder='0' />
 
           <StyledButton>
-            <Box
-              display="flex"
-              alignItems="center"
-              gap={1}
-            >
+            <Box display='flex' alignItems='center' gap={1}>
               {/* USDT Text */}
-              <Typography
-                fontWeight="600"
-                fontSize="14px"
-                lineHeight="21px"
-                color="text.primary"
-              >
+              <Typography fontWeight='600' fontSize='14px' lineHeight='21px' color='text.primary'>
                 USDT
               </Typography>
 
@@ -256,11 +194,7 @@ const TransferPage = () => {
             </Box>
           </StyledButton>
         </Box>
-        <Typography
-          variant="caption"
-          color="text.secondary"
-          mt={1}
-        >
+        <Typography variant='caption' color='text.secondary' mt={1}>
           Khả dụng 0 USDT
         </Typography>
       </Box>
@@ -269,7 +203,7 @@ const TransferPage = () => {
 };
 
 TransferPage.getLayout = (page: React.ReactElement) => (
-  <MinimaLayout title="Transfer">{page}</MinimaLayout>
+  <MinimaLayout title='Transfer'>{page}</MinimaLayout>
 );
 
 export default TransferPage;

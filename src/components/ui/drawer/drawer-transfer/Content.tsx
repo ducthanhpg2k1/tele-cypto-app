@@ -27,8 +27,8 @@ const Content = () => {
   return (
     <Box sx={sx.wrap}>
       <Box sx={sx.content}>
-        <Stack className="w-full p-3 bg-[#F5F5F5] flex-row gap-3 rounded-lg">
-          <Stack className="w-full">
+        <Stack className='w-full p-3 bg-[#F5F5F5] flex-row gap-3 rounded-lg'>
+          <Stack className='w-full'>
             <CustomSelect
               onChange={(value) => handleChangeFrom(value)}
               value={currencyFrom}
@@ -43,18 +43,15 @@ const Content = () => {
             />
           </Stack>
           <Image
-            src="/assets/iconly/icon-transfer.svg"
+            src='/assets/iconly/icon-transfer.svg'
             width={20}
             height={20}
-            alt=""
+            alt=''
             onClick={handleSwap}
           />
         </Stack>
-        <Stack className="w-full gap-0.5">
-          <Typography
-            variant="body2"
-            className="text-[#9E9E9E] w-8 text-[12px]"
-          >
+        <Stack className='w-full gap-0.5'>
+          <Typography variant='body2' className='text-[#9E9E9E] w-8 text-[12px]'>
             Coin
           </Typography>
           <Box sx={sx.boxSelect}>
@@ -62,42 +59,39 @@ const Content = () => {
               onChange={(value) => handleChangeTo(value)}
               value={'USDT'}
               data={mockDataCoin}
-              prefixIcon="/assets/iconly/icon-usdt.svg"
-              colorIcon="#212121"
+              prefixIcon='/assets/iconly/icon-usdt.svg'
+              colorIcon='#212121'
             />
           </Box>
           <Typography
-            variant="caption"
-            className="text-[#F54336] font-normal text-[10px] tracking-[0.2px]"
+            variant='caption'
+            className='text-[#F54336] font-normal text-[10px] tracking-[0.2px]'
           >
             {t('transfer.error')}
           </Typography>
         </Stack>
-        <Stack className="w-full gap-0.5">
-          <Typography
-            variant="body2"
-            className="text-[#9E9E9E] text-[12px]"
-          >
+        <Stack className='w-full gap-0.5'>
+          <Typography variant='body2' className='text-[#9E9E9E] text-[12px]'>
             {t('transfer.amount')}
           </Typography>
           <Box sx={sx.boxInput}>
             <CustomInput
               value={amount.toString()}
-              subfixBlack="USDT"
+              subfixBlack='USDT'
               subfixBlue={t('transfer.max')}
               onChange={handleChangeAmount}
             />
           </Box>
           <Typography
-            variant="caption"
-            className="text-[#9E9E9E] font-normal text-[10px] tracking-[0.2px]"
+            variant='caption'
+            className='text-[#9E9E9E] font-normal text-[10px] tracking-[0.2px]'
           >
             {t('transfer.available')} 0 USDT
           </Typography>
         </Stack>
       </Box>
       <Button fullWidth>
-        <Typography className="text-[14px]">{t('transfer.confirm')}</Typography>
+        <Typography className='text-[14px]'>{t('transfer.confirm')}</Typography>
       </Button>
     </Box>
   );

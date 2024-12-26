@@ -68,7 +68,7 @@ export default function NewTrade() {
   };
   return (
     <Box
-      component="main"
+      component='main'
       sx={{
         flexGrow: 1,
         display: 'flex',
@@ -103,23 +103,19 @@ export default function NewTrade() {
             handleChange={(e, v) => handleChangeTab(v)}
           />
         </Section>
-        <div className="py-2">
+        <div className='py-2'>
           <TradeCTAButton
             title={
-              <Typography
-                variant="caption"
-                color={'#e0e0e0'}
-                className="font-normal"
-              >
+              <Typography variant='caption' color={'#e0e0e0'} className='font-normal'>
                 Không mất chi phí - Không lỗ
               </Typography>
             }
             description={
               <Typography
-                variant="body2"
+                variant='body2'
                 color={'#ffffff'}
                 fontWeight={700}
-                className="line-clamp-1"
+                className='line-clamp-1'
               >
                 Đặt lệnh giao dịch Hợp đồng Tương lai
               </Typography>
@@ -128,29 +124,16 @@ export default function NewTrade() {
         </div>
         <CurrencyInfo />
       </Box>
-      <Grid
-        sx={{ py: '12px', px: 2 }}
-        container
-        spacing={'12px'}
-      >
+      <Grid sx={{ py: '12px', px: 2 }} container spacing={'12px'}>
         {valueCustom === 2 && <TagsTrade />}
-        <Grid
-          item
-          xs={6}
-        >
+        <Grid item xs={6}>
           <Transactions />
         </Grid>
-        <Grid
-          item
-          xs={6}
-        >
-          <ActionTrade type="FUTURE" />
+        <Grid item xs={6}>
+          <ActionTrade type='FUTURE' />
         </Grid>
       </Grid>
-      <FooterTrade
-        tabs={tabsFuture}
-        type="FUTURE"
-      />
+      <FooterTrade tabs={tabsFuture} type='FUTURE' />
     </Box>
   );
 }

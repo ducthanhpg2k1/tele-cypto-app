@@ -37,10 +37,7 @@ export default function FooterTrade({ tabs, type }: { tabs: TabItem[]; type?: 'F
             my: 1,
           }}
         >
-          <Typography
-            variant="caption"
-            color={'#212121'}
-          >
+          <Typography variant='caption' color={'#212121'}>
             Biểu đồ BTC/USDT
           </Typography>
           <CaretDown style={{ rotate: '180deg' }} />

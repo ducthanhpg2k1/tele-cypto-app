@@ -13,7 +13,7 @@ export const ScrollableTabs = styled(MuiTabs)<{ hideIndicator: boolean }>(
     '& .Mui-selected': {
       color: `${theme.palette.primary.main} !important`,
     },
-  })
+  }),
 );
 export const TabCustom = styled(Tab, {
   shouldForwardProp: (prop) => prop !== 'size',

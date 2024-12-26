@@ -1,13 +1,13 @@
 export const listing = {
   header: 'Listing',
   steps: {
-    stepTitle: "Step Progress",
-    basicInformation: "Basic Information",
-    detail: "Detail",
-    projectEcosystem: "Project Ecosystem",
-    submissionResult: "Submission Result",
-    back: "Back",
-    next: "Next"
+    stepTitle: 'Step Progress',
+    basicInformation: 'Basic Information',
+    detail: 'Detail',
+    projectEcosystem: 'Project Ecosystem',
+    submissionResult: 'Submission Result',
+    back: 'Back',
+    next: 'Next',
   },
   basicInformation: {
     title: 'Channel Information',
@@ -61,18 +61,18 @@ export const listing = {
     exchangesPlaceHolder: 'Enter exchanges',
     otherExchanges: 'Plan for listing on other exchanges',
     otherExchangesPlaceHolder: 'Enter plans, if any',
-    specialListingArrangements: 'Are there any special listing arrangements desired (e.g., Launchpad/ Lanuchpool/ Pre - market) ?',
+    specialListingArrangements:
+      'Are there any special listing arrangements desired (e.g., Launchpad/ Lanuchpool/ Pre - market) ?',
     specialListingArrangementsPlaceHolder: 'Please specify, if any',
     additionalInformation: 'Additional information',
     additionalInformationPlaceHolder: 'Any other information that would assist the review',
   },
   submitsionResult: {
     title: 'Submited',
-    desc: 'Your submitted project is now in our evaluation pool. If it passes our internal review, we’ll contract you via email'
+    desc: 'Your submitted project is now in our evaluation pool. If it passes our internal review, we’ll contract you via email',
   },
   next: 'Next',
   back: 'Back',
   backToHome: 'Back to home',
   submiting: 'Submiting',
 };
-  

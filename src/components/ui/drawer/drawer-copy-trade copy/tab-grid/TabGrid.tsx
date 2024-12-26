@@ -39,18 +39,13 @@ const TabsContent = () => {
   const { t } = useTranslation();
 
   return (
-    <Stack className="flex flex-col w-full mt-6 gap-6">
-      <div className="flex items-center flex-row gap-1">
-        <div className="flex items-center gap-[2px]">
-          <Typography
-            variant="caption"
-            color="#212121"
-            fontWeight={600}
-            className='w-max'
-          >
+    <Stack className='flex flex-col w-full mt-6 gap-6'>
+      <div className='flex items-center flex-row gap-1'>
+        <div className='flex items-center gap-[2px]'>
+          <Typography variant='caption' color='#212121' fontWeight={600} className='w-max'>
             90 ngày
           </Typography>
-          <CaretDown color="#424242" />
+          <CaretDown color='#424242' />
         </div>
         {/* <TabAction /> */}
       </div>

@@ -25,27 +25,16 @@ const CopyTradeCTAButton: FC<TradeCTAButtonProps> = ({ className, onTradeClick }
     <Container className={className}>
       <ContentContainer>
         <TextContainer>
-          <Title className="text-[14px]">{t('copyTrade.cta.title')}</Title>
-          <TradeButton
-            onClick={onTradeClick}
-            disableRipple
-          >
-            <Typography
-              variant="caption"
-              color="#177DFF"
-              className="font-normal"
-            >
+          <Title className='text-[14px]'>{t('copyTrade.cta.title')}</Title>
+          <TradeButton onClick={onTradeClick} disableRipple>
+            <Typography variant='caption' color='#177DFF' className='font-normal'>
               {t('copyTrade.cta.description')}
             </Typography>
           </TradeButton>
         </TextContainer>
       </ContentContainer>
       <CTAButton>
-        <Typography
-          variant="caption"
-          color="#212121"
-          className="font-bold text-sm"
-        >
+        <Typography variant='caption' color='#212121' className='font-bold text-sm'>
           {t('copyTrade.cta.amount')}
         </Typography>
         <Button>{t('copyTrade.cta.button')}</Button>

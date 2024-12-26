@@ -10,7 +10,7 @@ type Props = {
 
 const ItemOption = (props: Props) => {
   return (
-    <Stack className="gap-1 items-center">
+    <Stack className='gap-1 items-center'>
       <Box
         sx={{
           display: 'flex',
@@ -23,17 +23,9 @@ const ItemOption = (props: Props) => {
           justifyContent: 'center',
         }}
       >
-        <Image
-          src={props.img}
-          alt=""
-          width={17.626}
-          height={19.8}
-        />
+        <Image src={props.img} alt='' width={17.626} height={19.8} />
       </Box>
-      <Typography
-        fontSize={11}
-        textAlign={'center'}
-      >
+      <Typography fontSize={11} textAlign={'center'}>
         {t(props.label)}
       </Typography>
     </Stack>

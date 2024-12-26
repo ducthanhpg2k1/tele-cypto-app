@@ -48,12 +48,12 @@ const HomePage: NextPage = () => {
         content: <NewsList />,
       },
     ],
-    []
+    [],
   );
 
   return (
     <Box
-      component="main"
+      component='main'
       sx={{
         flexGrow: 1,
         py: 2,

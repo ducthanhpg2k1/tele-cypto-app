@@ -109,10 +109,7 @@ const ALL_MENU_ITEMS: MenuItem[] = [
 const getIconComponent = (iconName: IconName): JSX.Element => {
   const IconComponent = iconComponents[iconName];
   return IconComponent ? (
-    <IconComponent
-      style={{ width: 24, height: 24 }}
-      color={blue.main}
-    />
+    <IconComponent style={{ width: 24, height: 24 }} color={blue.main} />
   ) : (
     <Box sx={{ width: 24, height: 24 }} />
   );
@@ -317,7 +314,7 @@ const NavigationMenu = (): JSX.Element => {
 
   const updateInactiveItems = (activeOnes: MenuItem[]): void => {
     const inactiveOnes = ALL_MENU_ITEMS.filter(
-      (item) => !activeOnes.some((active) => active.id === item.id)
+      (item) => !activeOnes.some((active) => active.id === item.id),
     );
     setInactiveItems(inactiveOnes);
   };
@@ -340,21 +337,13 @@ const NavigationMenu = (): JSX.Element => {
   };
 
   const filteredInactiveItems = inactiveItems.filter((item) =>
-    t(`navigation.quickActions.${item.label}`).toLowerCase().includes(searchQuery.toLowerCase())
+    t(`navigation.quickActions.${item.label}`).toLowerCase().includes(searchQuery.toLowerCase()),
   );
   return (
     <Box sx={{ my: 2, mb: 0 }}>
-      <Grid
-        container
-        spacing={1}
-        columns={12}
-      >
+      <Grid container spacing={1} columns={12}>
         {activeItems.map((action: MenuItem) => (
-          <Grid
-            item
-            xs={3}
-            key={action.id}
-          >
+          <Grid item xs={3} key={action.id}>
             <Button
               fullWidth
               onClick={() => handleAction(action.id)}
@@ -370,19 +359,13 @@ const NavigationMenu = (): JSX.Element => {
               >
                 {getIconComponent(action.iconName)}
               </Box>
-              <Typography
-                variant="caption"
-                sx={{ mt: 0.5, color: 'text.primary' }}
-              >
+              <Typography variant='caption' sx={{ mt: 0.5, color: 'text.primary' }}>
                 {t(`navigation.quickActions.${action.label}`)}
               </Typography>
             </Button>
           </Grid>
         ))}
-        <Grid
-          item
-          xs={3}
-        >
+        <Grid item xs={3}>
           <Button
             fullWidth
             sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
@@ -393,10 +376,7 @@ const NavigationMenu = (): JSX.Element => {
             >
               <MoreIcon />
             </Box>
-            <Typography
-              variant="caption"
-              sx={{ mt: 0.5, color: 'text.primary' }}
-            >
+            <Typography variant='caption' sx={{ mt: 0.5, color: 'text.primary' }}>
               {t('navigation.more')}
             </Typography>
           </Button>

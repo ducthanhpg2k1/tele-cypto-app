@@ -14,21 +14,13 @@ export default function SlideRanger({
 }) {
   const [value, setValue] = useState<number>(0);
   return (
-    <div className="slider-container">
-      <div className="marks">
-        <div className="process">
-          <div
-            className="process-bar"
-            style={{ width: `${value}%` }}
-          />
+    <div className='slider-container'>
+      <div className='marks'>
+        <div className='process'>
+          <div className='process-bar' style={{ width: `${value}%` }} />
         </div>
         {marks.map((m, key) => {
-          return (
-            <span
-              className={`mark ${value >= m && 'active'}`}
-              key={key}
-            />
-          );
+          return <span className={`mark ${value >= m && 'active'}`} key={key} />;
         })}
       </div>
       <input
@@ -36,8 +28,8 @@ export default function SlideRanger({
           setValue(Number(e.target.value));
           onChange && onChange(Number(e.target.value));
         }}
-        type="range"
-        id="slider"
+        type='range'
+        id='slider'
         min={min}
         max={max}
         value={value}

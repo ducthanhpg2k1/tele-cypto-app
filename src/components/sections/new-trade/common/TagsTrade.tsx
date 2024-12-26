@@ -16,11 +16,7 @@ export const Tag = ({ value }: { value: string }) => {
         minWidth: 52,
       }}
     >
-      <Typography
-        variant="caption"
-        color={'textSecondary'}
-        className="font-normal"
-      >
+      <Typography variant='caption' color={'textSecondary'} className='font-normal'>
         {value}
       </Typography>
     </Box>
@@ -39,14 +35,14 @@ export default function TagsTrade() {
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'start', gap: 1 }}>
-        <Tag value="Cross" />
-        <Tag value="--" />
-        <Tag value="T..ng" />
-        <Tag value="B/R" />
+        <Tag value='Cross' />
+        <Tag value='--' />
+        <Tag value='T..ng' />
+        <Tag value='B/R' />
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
         <TypographyRegular>Mức ký quỹ</TypographyRegular>
-        <div className="flex items-center gap-[4px]">
+        <div className='flex items-center gap-[4px]'>
           <CurrencyIcon />
           <TypographyRegular>999,000</TypographyRegular>
         </div>

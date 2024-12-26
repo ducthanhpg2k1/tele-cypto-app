@@ -5,19 +5,19 @@ export const copyTrade = {
     title: 'Bảo hiểm chống thua lỗ',
     description: 'Nhận sau 11D 11:03',
     button: 'Nhận',
-    amount: '10 USDT'
+    amount: '10 USDT',
   },
   notification: 'Nhiệm vụ giao dịch hợp đồng tương lai mùa 2 : Thăng cấp lên Trader',
   tabs: {
     public: 'Công khai',
     private: 'Riêng Tư',
-    favorites: 'Danh sách yêu thích'
+    favorites: 'Danh sách yêu thích',
   },
   filter: {
     daysFilter: {
       day_90: '90 ngày',
       day_30: '30 ngày',
-      day_7: '7 ngày'
+      day_7: '7 ngày',
     },
     pnl: 'PnL',
     roi: 'ROI',
@@ -33,7 +33,6 @@ export const copyTrade = {
     investTab: 'Danh mục đầu tư',
     note: 'Chỉ hiển thị các danh mục đầu tư đã đóng trong 90 ngày...',
     amountCopy: 'Số tiền sao chép ròng',
-    unrealizedProfitAndLoss: 'Lãi lỗ chưa ghi nhận (USDT)'
-  }
+    unrealizedProfitAndLoss: 'Lãi lỗ chưa ghi nhận (USDT)',
+  },
 };
-  

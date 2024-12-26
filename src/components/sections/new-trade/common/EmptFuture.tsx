@@ -32,24 +32,18 @@ export const EmptFuture = () => {
             alignItems: 'center',
           }}
         >
-          <CustomBox
-            active={action === 'basic'}
-            onClick={() => setAction('basic')}
-          >
+          <CustomBox active={action === 'basic'} onClick={() => setAction('basic')}>
             <Typography
-              variant="caption"
+              variant='caption'
               color={action === 'basic' ? '#212121' : '#9e9e9e'}
               fontWeight={action === 'basic' ? 500 : 400}
             >
               Cơ bản(0)
             </Typography>
           </CustomBox>
-          <CustomBox
-            active={action === 'condition'}
-            onClick={() => setAction('condition')}
-          >
+          <CustomBox active={action === 'condition'} onClick={() => setAction('condition')}>
             <Typography
-              variant="caption"
+              variant='caption'
               color={action === 'condition' ? '#212121' : '#9e9e9e'}
               fontWeight={action === 'condition' ? 500 : 400}
             >
@@ -61,10 +55,7 @@ export const EmptFuture = () => {
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: 1, my: 1 }}>
         <EmptyFuture />
-        <Typography
-          variant="caption"
-          color={'#212121'}
-        >
+        <Typography variant='caption' color={'#212121'}>
           Không đủ tiền
         </Typography>
       </Box>

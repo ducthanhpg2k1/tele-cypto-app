@@ -46,5 +46,5 @@ const sx = {
     textAlign: 'center',
     color: '#9E9E9E',
     maxWidth: '80%',
-  }
+  },
 };

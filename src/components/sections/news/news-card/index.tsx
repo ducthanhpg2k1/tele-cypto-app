@@ -52,46 +52,39 @@ const NewsCard: FC<NewsCardProps> = ({
 
   return (
     <StyledCard>
-      <div className="flex items-center gap-3">
+      <div className='flex items-center gap-3'>
         <Image
           src={'/images/fake-avatar.svg'}
           alt={item.author.username}
           width={40}
           height={40}
-          className="w-10 h-10"
-          objectFit="cover"
+          className='w-10 h-10'
+          objectFit='cover'
         />
-        <div className="flex flex-col">
-          <Typography
-            variant="body2"
-            fontWeight={700}
-          >
+        <div className='flex flex-col'>
+          <Typography variant='body2' fontWeight={700}>
             {item.author.username}
           </Typography>
-          <div className="flex items-center gap-[4px]">
+          <div className='flex items-center gap-[4px]'>
             <ClockIcon />
-            <Typography
-              variant="caption"
-              fontWeight={400}
-              color={'#9E9E9E'}
-            >
+            <Typography variant='caption' fontWeight={400} color={'#9E9E9E'}>
               {getRelativeTime(item.publishedAt)}
             </Typography>
           </div>
         </div>
-        <div className="flex flex-1 items-center justify-end">
+        <div className='flex flex-1 items-center justify-end'>
           <ThreeDotIcon />
         </div>
       </div>
-      <div className="flex flex-col gap-3 mt-3">
-        <p className="color-[#424242] text-[14px] line-clamp-2">
+      <div className='flex flex-col gap-3 mt-3'>
+        <p className='color-[#424242] text-[14px] line-clamp-2'>
           {item?.content || 'Participate in the Corra Finance Airdrop on CoinMarketCap'}
         </p>
         {/* {item.media && item.media.length > 0 && ( */}
         <Box
-          component="img"
+          component='img'
           src={'/assets/news/bl.png'}
-          alt="Content media"
+          alt='Content media'
           sx={{
             width: '100%',
             borderRadius: 1,
@@ -104,47 +97,29 @@ const NewsCard: FC<NewsCardProps> = ({
         <StatItem>
           <IconButton
             onClick={handleLike}
-            size="small"
+            size='small'
             style={{ color: liked ? '#F54336' : '#BDBDBD' }}
           >
-            {liked ? <HeartSolidIcon className="w-5 h-5" /> : <HeartIcon className="w-5 h-5" />}
+            {liked ? <HeartSolidIcon className='w-5 h-5' /> : <HeartIcon className='w-5 h-5' />}
           </IconButton>
-          <Typography
-            variant="caption"
-            color={'#BDBDBD'}
-            fontWeight={400}
-          >
+          <Typography variant='caption' color={'#BDBDBD'} fontWeight={400}>
             {item.stats.likes}
           </Typography>
         </StatItem>
 
         <StatItem>
-          <IconButton
-            onClick={() => onComment?.(item.id)}
-            size="small"
-          >
-            <IconComment className="w-5 h-5" />
+          <IconButton onClick={() => onComment?.(item.id)} size='small'>
+            <IconComment className='w-5 h-5' />
           </IconButton>
-          <Typography
-            variant="caption"
-            color={'#BDBDBD'}
-            fontWeight={400}
-          >
+          <Typography variant='caption' color={'#BDBDBD'} fontWeight={400}>
             {item.stats.comments}
           </Typography>
         </StatItem>
         <StatItem>
-          <IconButton
-            onClick={() => onShare?.(item.id)}
-            size="small"
-          >
-            <BookmarkIcon className="w-5 h-5" />
+          <IconButton onClick={() => onShare?.(item.id)} size='small'>
+            <BookmarkIcon className='w-5 h-5' />
           </IconButton>
-          <Typography
-            variant="caption"
-            color={'#BDBDBD'}
-            fontWeight={400}
-          >
+          <Typography variant='caption' color={'#BDBDBD'} fontWeight={400}>
             {item.stats.shares}
           </Typography>
         </StatItem>

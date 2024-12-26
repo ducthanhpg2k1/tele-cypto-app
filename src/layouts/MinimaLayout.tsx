@@ -30,7 +30,7 @@ const MinimaLayout = ({ children, title }: LayoutProps) => {
     >
       <MobileContainer>
         <Box
-          component="header"
+          component='header'
           sx={{
             display: 'flex',
             alignItems: 'center',

@@ -16,14 +16,14 @@ export default function TagsFuture() {
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'start', gap: 1 }}>
-        <Tag value="Cross" />
-        <Tag value="20" />
-        <Tag value="S" />
+        <Tag value='Cross' />
+        <Tag value='20' />
+        <Tag value='S' />
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '2px' }}>
-        <TypographyRegular color="#757575">Funding/Đếm ngược</TypographyRegular>
-        <div className="flex items-center gap-[4px]">
-          <TypographyRegular className="text-[#212121] text-[12px] font-normal leading-[20px]">
+        <TypographyRegular color='#757575'>Funding/Đếm ngược</TypographyRegular>
+        <div className='flex items-center gap-[4px]'>
+          <TypographyRegular className='text-[#212121] text-[12px] font-normal leading-[20px]'>
             0,0100%/ 01:51:40
           </TypographyRegular>
         </div>

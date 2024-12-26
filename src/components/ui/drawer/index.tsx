@@ -38,7 +38,7 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
       showEllipseCircle,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -86,18 +86,14 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
                     ref.current.onClose();
                   }
                 }}
-                className="absolute left-[4px]"
+                className='absolute left-[4px]'
               >
                 <ArrowBackIcon />
               </IconButton>
-              <Typography
-                variant="body2"
-                fontWeight={700}
-                color={'#212121'}
-              >
+              <Typography variant='body2' fontWeight={700} color={'#212121'}>
                 {label}
               </Typography>
-              <div className="flex items-center gap-1 absolute right-[12px]">
+              <div className='flex items-center gap-1 absolute right-[12px]'>
                 {showHelpIcon && (
                   <div
                     onClick={() => {
@@ -139,7 +135,7 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
                   px: 2,
                 }}
               >
-                <InputSearch placeholder="Search" />
+                <InputSearch placeholder='Search' />
               </Box>
             )}
           </DrawerHeader>
@@ -147,7 +143,7 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
         <DrawerWrapperContent showSearch={showSearch || false}>{children}</DrawerWrapperContent>
       </Drawer>
     );
-  }
+  },
 );
 
 export default CustomDrawer;

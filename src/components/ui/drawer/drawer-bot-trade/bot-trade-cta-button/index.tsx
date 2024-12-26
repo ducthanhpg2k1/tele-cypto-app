@@ -23,16 +23,9 @@ const BotTradeCTAButton: FC<TradeCTAButtonProps> = ({ className, onTradeClick })
     <Container className={className}>
       <ContentContainer>
         <TextContainer>
-          <Title className="text-[14px]">{t('bot.cta.title')}</Title>
-          <TradeButton
-            onClick={onTradeClick}
-            disableRipple
-          >
-            <Typography
-              variant="caption"
-              color="#E0E0E0"
-              className="font-normal"
-            >
+          <Title className='text-[14px]'>{t('bot.cta.title')}</Title>
+          <TradeButton onClick={onTradeClick} disableRipple>
+            <Typography variant='caption' color='#E0E0E0' className='font-normal'>
               {t('bot.cta.description')}
             </Typography>
           </TradeButton>

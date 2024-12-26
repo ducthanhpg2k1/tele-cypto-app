@@ -14,7 +14,13 @@ const Container = styled(Box)(({ theme }) => ({
   marginBottom: '24px',
 }));
 
-export default function BalanceDisplayPanel({ handleShowChart, showChart }: { showChart: boolean, handleShowChart?: VoidFunction }) {
+export default function BalanceDisplayPanel({
+  handleShowChart,
+  showChart,
+}: {
+  showChart: boolean;
+  handleShowChart?: VoidFunction;
+}) {
   return (
     <Container>
       <BalanceCard />

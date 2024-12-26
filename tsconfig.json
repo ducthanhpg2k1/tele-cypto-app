@@ -8,11 +8,7 @@
     "incremental": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "paths": {
       "react": ["./node_modules/@types/react"]
     },
@@ -31,13 +27,6 @@
     "target": "es6",
     "useUnknownInCatchVariables": false
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "next.d.ts",
-    "next-env.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", "next.d.ts", "next-env.d.ts"],
+  "exclude": ["node_modules"]
 }

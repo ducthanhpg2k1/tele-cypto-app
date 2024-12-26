@@ -15,39 +15,22 @@ interface CustomDocumentProps extends DocumentProps {
 
 const CustomDocument = ({ emotionStyleTags }: CustomDocumentProps) => {
   return (
-    <Html lang="en">
+    <Html lang='en'>
       <Head>
         <meta
-          name="viewport"
-          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
+          name='viewport'
+          content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi'
         />
+        <link rel='icon' href='/favicon.ico' type='image/x-icon' />
+        <link rel='icon' href='/favicon-16x16.png' type='image/png' sizes='16x16' />
+        <link rel='icon' href='/favicon-32x32.png' type='image/png' sizes='32x32' />
         <link
-          rel="icon"
-          href="/favicon.ico"
-          type="image/x-icon"
+          rel='apple-touch-icon.png'
+          href='/apple-touch-icon.png'
+          type='image/png'
+          sizes='180x180'
         />
-        <link
-          rel="icon"
-          href="/favicon-16x16.png"
-          type="image/png"
-          sizes="16x16"
-        />
-        <link
-          rel="icon"
-          href="/favicon-32x32.png"
-          type="image/png"
-          sizes="32x32"
-        />
-        <link
-          rel="apple-touch-icon.png"
-          href="/apple-touch-icon.png"
-          type="image/png"
-          sizes="180x180"
-        />
-        <meta
-          name="emotion-insertion-point"
-          content=""
-        />
+        <meta name='emotion-insertion-point' content='' />
         {emotionStyleTags}
       </Head>
       <body>
@@ -67,12 +50,7 @@ CustomDocument.getInitialProps = async (ctx: DocumentContext) => {
     originalRenderPage({
       enhanceApp: (App: ComponentType<ComponentProps<AppType> & CustomAppProps>) =>
         function EnhanceApp(props) {
-          return (
-            <App
-              emotionCache={cache}
-              {...props}
-            />
-          );
+          return <App emotionCache={cache} {...props} />;
         },
     });
 

@@ -72,7 +72,7 @@ class HttpClient {
       };
       const response: AxiosResponse<GraphQLResponse<T>> = await axiosInstance.post(
         GRAPHQL_URL,
-        request
+        request,
       );
       if (response.data.errors) {
         throw new Error(response.data.errors[0].message);

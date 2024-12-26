@@ -11,22 +11,12 @@ const Content = () => {
   return (
     <Box>
       <CurrencyInfo />
-      <Grid
-        sx={{ py: '12px', px: 1 }}
-        container
-        spacing={'12px'}
-      >
-        <Grid
-          item
-          xs={6}
-        >
+      <Grid sx={{ py: '12px', px: 1 }} container spacing={'12px'}>
+        <Grid item xs={6}>
           <Transactions />
         </Grid>
-        <Grid
-          item
-          xs={6}
-        >
-          <ActionTrade type="SPOT" />
+        <Grid item xs={6}>
+          <ActionTrade type='SPOT' />
         </Grid>
       </Grid>
     </Box>
