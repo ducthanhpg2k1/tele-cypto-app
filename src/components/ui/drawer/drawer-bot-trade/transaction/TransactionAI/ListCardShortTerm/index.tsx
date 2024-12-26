@@ -94,8 +94,8 @@ const ListCardShortTerm = () => {
                   </Typography>
                 </div>
               </div>
-              <Button>
-                <Typography fontWeight={700} className='text-[12px] h-[32px]'>
+              <Button className=' h-[32px]'>
+                <Typography fontWeight={700} className='text-[12px]'>
                   Sao chép
                 </Typography>
               </Button>
