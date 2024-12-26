@@ -8,7 +8,7 @@ const SurfSpot = () => {
   return (
     <div className='flex justify-between items-center'>
       <div>
-        <Typography variant='body1' color={'#212121'} fontWeight={700}>
+        <Typography variant='body1' color={'#212121'} fontWeight={600}>
           LDO/ USDT
         </Typography>
         <div className='flex items-center gap-[6px]'>

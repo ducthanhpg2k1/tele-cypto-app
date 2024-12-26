@@ -61,7 +61,7 @@ const BasicInformation = () => {
             />
           )}
 
-          <Text fontWeight={400} color={'#9E9E9E'}>
+          <Text fontWeight={400} color={'#757575'}>
             {expanded ? t('bot.collapse') : t('bot.extend')}
           </Text>
         </div>
@@ -84,7 +84,7 @@ const Text = styled(Typography)<{ color?: string; fontWeight?: number; fontSize?
 const ItemInformation = ({ label, value }: { label: string; value: string }) => {
   return (
     <div className='flex justify-between items-center'>
-      <Text color={'#757575'} fontWeight={400}>
+      <Text color={'#9E9E9E'} fontWeight={400}>
         {label}
       </Text>
       <div className='text-end'>

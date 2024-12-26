@@ -25,7 +25,7 @@ const TabGrid = () => {
   ];
   return (
     <div>
-      <Typography variant='body1' color={'#212121'} fontWeight={700}>
+      <Typography variant='body1' color={'#212121'} fontWeight={600}>
         {t('bot.marketBot')}
       </Typography>
       <Tabs tabs={tabGrids} />
@@ -41,7 +41,7 @@ const TabsContent = () => {
 
   return (
     <>
-      <Stack className='flex flex-col w-full mt-6 gap-6'>
+      <Stack className='flex flex-col w-full mt-6 gap-4'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center gap-[2px]'>
             <Typography variant='caption' color='#212121' fontWeight={600}>
@@ -52,6 +52,7 @@ const TabsContent = () => {
           <CustomCheckbox
             label={t('bot.trailing')}
             variantLabel='caption'
+            classNameLabel='font-normal'
             classNameWrapper='flex-row items-center gap-1'
           />
         </div>

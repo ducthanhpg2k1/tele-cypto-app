@@ -22,7 +22,7 @@ const DrawerDetailBot = forwardRef<DrawerHandle, {}>((_, ref) => {
       ref={ref}
       label={t('bot.detail_header')}
     >
-      <div className='flex flex-col gap-8'>
+      <div className='flex flex-col gap-6'>
         <SurfSpot />
         <div className='flex flex-col gap-2'>
           <PastProfits />
@@ -32,7 +32,11 @@ const DrawerDetailBot = forwardRef<DrawerHandle, {}>((_, ref) => {
           <SpotGridIntroduction />
         </div>
         <div className='sticky bottom-0'>
-          <Button onClick={() => refBottomSheetInvestmentAmount.current.onOpen()} fullWidth>
+          <Button
+            onClick={() => refBottomSheetInvestmentAmount.current.onOpen()}
+            fullWidth
+            className='h-10 font-semibold'
+          >
             <Typography className='text-[14px]'>{t('bot.copy')}</Typography>
           </Button>
         </div>

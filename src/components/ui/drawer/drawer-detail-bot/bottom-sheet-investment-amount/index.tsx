@@ -53,7 +53,7 @@ const BottomSheetInvestmentAmount = (_: any, ref: any) => {
         },
       }}
     >
-      <DialogContent className='min-h-[85dvh]'>
+      <DialogContent className='min-h-[65dvh]'>
         <div className='flex flex-col gap-4 py-6 px-4'>
           <Typography variant='subtitle2' color={'#212121'} fontWeight={600}>
             {t('bot.titleAmount')}

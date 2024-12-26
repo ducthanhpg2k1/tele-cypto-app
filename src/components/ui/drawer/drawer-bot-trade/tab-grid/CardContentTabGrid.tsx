@@ -30,10 +30,10 @@ const CardContentTabGrid = ({ onClick }: { onClick?: VoidFunction }) => {
         </div>
         <div className='flex justify-between items-center'>
           <div>
-            <Typography variant='caption' color={'#757575'}>
+            <Typography variant='caption' color={'#757575'} fontWeight={400}>
               PNL (USD)
             </Typography>
-            <Typography variant='body1' color={'#4AAF57'} fontWeight={700}>
+            <Typography variant='body1' color={'#4AAF57'} fontWeight={600}>
               69.464,12
             </Typography>
           </div>
@@ -53,7 +53,7 @@ const CardContentTabGrid = ({ onClick }: { onClick?: VoidFunction }) => {
         </div>
         <div className='flex items-center justify-between'>
           <Information label={t('bot.card.addTraded')} value='146/625' />
-          <Button>Sao Chép</Button>
+          <Button className='h-8 !p-0 text-xs font-bold'>Sao Chép</Button>
         </div>
       </Box>
     </div>
@@ -64,7 +64,7 @@ export default CardContentTabGrid;
 const Information = ({ label, value }: { label: string; value: string }) => {
   return (
     <div className='flex flex-col gap-[2px]'>
-      <TypographyRegular color={'#757575'}>{label}</TypographyRegular>
+      <TypographyRegular style={{ color: '#757575' }}>{label}</TypographyRegular>
       <Typography variant='caption' color={'#212121'}>
         {value}
       </Typography>

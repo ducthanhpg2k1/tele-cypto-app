@@ -52,7 +52,7 @@ const CardInformation = ({ handleCopy }: { handleCopy: VoidFunction }) => {
             <ItemInformation label={t('bot.total_transactions')} value='90' />
             <ItemInformation label={t('bot.regime')} value='Số học' />
             <ItemInformation label={t('bot.profit')} value='0,26% - 0,58%' />
-            <Divider variant='fullWidth' />
+            <Divider variant='fullWidth' className='my-1' />
 
             <div className='flex justify-between items-center'>
               <Typography className='text-xs' color={'#212121'} fontWeight={500}>
@@ -65,22 +65,26 @@ const CardInformation = ({ handleCopy }: { handleCopy: VoidFunction }) => {
               <CustomCheckbox
                 variantLabel='caption'
                 label={t('bot.trailing_up')}
-                classNameWrapper='flex-row items-center text-[#212121] font-normal gap-[4px]'
+                classNameLabel='font-normal'
+                classNameWrapper='flex-row items-center text-[#212121] gap-[4px]'
               />
 
               <CustomCheckbox
                 variantLabel='caption'
                 label={t('bot.activate_grid')}
+                classNameLabel='font-normal'
                 classNameWrapper='flex-row items-center text-[#212121] font-normal gap-[4px]'
               />
               <CustomCheckbox
                 variantLabel='caption'
                 label={t('bot.activate_stop')}
+                classNameLabel='font-normal'
                 classNameWrapper='flex-row items-center text-[#212121] font-normal gap-[4px]'
               />
               <CustomCheckbox
                 variantLabel='caption'
                 label={t('bot.sellAll')}
+                classNameLabel='font-normal'
                 classNameWrapper='flex-row items-center text-[#212121] font-normal gap-[4px]'
               />
             </div>
@@ -88,7 +92,7 @@ const CardInformation = ({ handleCopy }: { handleCopy: VoidFunction }) => {
         </Collapse>
       </Card>
       <Button onClick={handleCopy} className='h-[48px]' fullWidth>
-        <Typography className='text-[14px]'>{t('bot.create')}</Typography>
+        <Typography className='text-[14px] font-semibold'>{t('bot.create')}</Typography>
       </Button>
     </div>
   );

@@ -11,7 +11,7 @@ const PastProfits = () => {
       </Typography>
       <div className='flex items-center justify-between'>
         <div>
-          <Typography variant='caption' color={'#757575'} fontWeight={600}>
+          <Typography variant='caption' color={'#757575'} fontWeight={400}>
             ROI
           </Typography>
           <Typography variant='body2' color={'#4AAF57'} fontWeight={600}>
@@ -19,7 +19,7 @@ const PastProfits = () => {
           </Typography>
         </div>
         <div className='text-end'>
-          <Typography variant='caption' color={'#757575'} fontWeight={600}>
+          <Typography variant='caption' color={'#757575'} fontWeight={400}>
             PNL (USD)
           </Typography>
           <Typography variant='body2' color={'#4AAF57'} fontWeight={600}>

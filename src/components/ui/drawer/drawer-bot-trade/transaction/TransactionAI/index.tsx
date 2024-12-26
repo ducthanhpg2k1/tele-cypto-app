@@ -11,7 +11,7 @@ const TransactionAI = () => {
           <Typography variant='body1' color={'#212121'} fontWeight={600}>
             ADA/ BNB
           </Typography>
-          <IconButton size='small'>
+          <IconButton size='small' className='p-0'>
             <ArrowDropDownIcon />
           </IconButton>
         </div>
