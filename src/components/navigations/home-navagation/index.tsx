@@ -58,6 +58,7 @@ import DrawerBotTrade from 'src/components/ui/drawer/drawer-bot-trade';
 import DrawerExchange from 'src/components/ui/drawer/drawer-exchange';
 import DrawerMore from 'src/components/ui/drawer/drawer-more/DrawerMore';
 import DrawerListing from 'src/components/ui/drawer/drawer-listing';
+import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade copy';
 
 const STORAGE_KEY = 'quick_actions';
 export const MAX_ACTIVE_ITEMS = 7;
@@ -128,6 +129,7 @@ const NavigationMenu = (): JSX.Element => {
   const refBotTrade = useRef<DrawerHandle | null>(null);
   const refExchange = useRef<DrawerHandle | null>(null);
   const refListing = useRef<DrawerHandle | null>(null);
+  const refCopyTrade = useRef<DrawerHandle | null>(null);
   const router = useRouter();
 
   const [isEditing, setIsEditing] = useState<boolean>(false);
@@ -152,6 +154,11 @@ const NavigationMenu = (): JSX.Element => {
       iconName: 'list',
       label: 'listing',
       id: 'listing',
+    },
+    {
+      iconName: 'copy',
+      label: 'copytrade',
+      id: 'copytrade',
     },
   ]);
   const [inactiveItems, setInactiveItems] = useState<MenuItem[]>([]);
@@ -196,7 +203,7 @@ const NavigationMenu = (): JSX.Element => {
         return refListing.current?.onOpen();
       }
       case ALL_MENU_ITEMS[12].id: {
-        return console.log('copy trade');
+        return refCopyTrade.current?.onOpen();
       }
       case ALL_MENU_ITEMS[13].id: {
         return console.log('mega drop');
@@ -414,6 +421,7 @@ const NavigationMenu = (): JSX.Element => {
       <DrawerBotTrade ref={refBotTrade} />
       <DrawerExchange ref={refExchange} />
       <DrawerListing ref={refListing} />
+      <DrawerCopyTrade ref={refCopyTrade} />
     </Box>
   );
 };

@@ -17,6 +17,7 @@ import { moreairdrop } from './modules/moreairdrop';
 import { tradeairdrop } from './modules/tradeAirdrop';
 import { listing } from './modules/listing';
 import { wallet } from './modules/wallet';
+import { copyTrade } from './modules/copyTrade';
 
 export const en = {
   balance,
@@ -38,4 +39,5 @@ export const en = {
   tradeairdrop,
   listing,
   wallet,
+  copyTrade,
 };
