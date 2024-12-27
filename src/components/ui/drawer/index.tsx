@@ -30,6 +30,9 @@ type Props = Omit<DrawerProps, 'open'> & {
   isCopyTrade?: boolean
   contentCenter?: ReactNode
   isProfile?: boolean
+  handleClickIconProfile?: VoidFunction,
+  isMyProfile?: boolean
+
 };
 
 const CustomDrawer = forwardRef<DrawerHandle, Props>(
@@ -47,6 +50,8 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
       isCopyTrade,
       contentCenter,
       isProfile,
+      isMyProfile,
+      handleClickIconProfile,
       ...rest
     },
     ref,
@@ -135,12 +140,23 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
                     <HeaderTimeIcon />
                   </div>
                 )}
+                {isMyProfile && (
+                  <div
+                    className='flex items-center gap-1'
+                  >
+                    <HeaderIconSearch />
+                    <HeaderIconShare />
+                  </div>
+                )}
                 {isProfile && (
                   <div
                     className='flex items-center gap-1'
                   >
                     <HeaderIconShare />
-                    <HeaderIconProfile />
+                    <div onClick={handleClickIconProfile}>
+                      <HeaderIconProfile />
+
+                    </div>
 
                   </div>
                 )}
