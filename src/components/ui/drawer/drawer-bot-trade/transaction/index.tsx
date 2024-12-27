@@ -47,7 +47,7 @@ const Transaction = () => {
   }
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col pb-20'>
       <div
         style={{
           marginBottom: '22px'

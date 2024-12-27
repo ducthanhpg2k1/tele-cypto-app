@@ -25,7 +25,7 @@ const AllCommands = () => {
     ];
 
     return (
-        <div className='flex flex-col'>
+        <div className='flex flex-col pb-20'>
             <Tabs tabs={tabGrids} />
         </div>
     )

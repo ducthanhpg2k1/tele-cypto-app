@@ -5,6 +5,7 @@ import Content from './Content';
 import BottomNavBotTrade from './bottom-nav-bot-trade';
 import Transaction from './transaction';
 import AllCommands from './all-commands';
+import Market from './market';
 
 export enum TAB_BOT_TRADE {
   BOT = 'bot',
@@ -46,10 +47,12 @@ const DrawerBotTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
       ref={ref}
       label={renderTitleBotTrade()}
     >
-      <div className='pb-20'>
+      <div>
         {activeTab === TAB_BOT_TRADE.BOT && <Content />}
         {activeTab === TAB_BOT_TRADE.TRANSACTION && <Transaction />}
         {activeTab === TAB_BOT_TRADE.ALL_COMMANDS && <AllCommands />}
+        {activeTab === TAB_BOT_TRADE.MARKET && <Market />}
+
 
 
         <BottomNavBotTrade
