@@ -31,7 +31,11 @@ const CustomSelect = (props: Props) => {
         fullWidth
         renderValue={(value: any) => {
           if (!value) {
-            return <Typography color='gray'>{props.placeholder}</Typography>;
+            return (
+              <Typography color='gray' className='text-sm'>
+                {props.placeholder}
+              </Typography>
+            );
           }
           return value;
         }}
