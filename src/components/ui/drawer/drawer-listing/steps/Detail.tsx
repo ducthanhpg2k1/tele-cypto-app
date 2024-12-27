@@ -334,6 +334,10 @@ const sx = {
   groupRadio: {
     display: 'flex',
     flexDirection: 'row',
+
+    '& .MuiTypography-root': {
+      fontSize: '14px',
+    },
   },
   radio: {
     color: '#E0E0E0',
