@@ -61,3 +61,13 @@ export const bigNumberText = (n: number): string => {
   if (n < 1000000000) return `${(n / 1000000).toFixed(1)}M`;
   return `${(n / 1000000000).toFixed(1)}B`;
 };
+
+
+export const shuffleArray = (array: any) => {
+  let shuffled = array
+    .map((value: any) => ({ value, sort: Math.random() }))
+    .sort((a: any, b: any) => a.sort - b.sort)
+    .map(({ value }: any) => value)
+
+    return shuffled;
+}
