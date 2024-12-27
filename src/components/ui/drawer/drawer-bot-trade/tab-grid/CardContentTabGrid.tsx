@@ -37,14 +37,7 @@ const CardContentTabGrid = ({ onClick }: { onClick?: VoidFunction }) => {
               69.464,12
             </Typography>
           </div>
-          <Image
-            src={'/assets/chart_line.png'}
-            width={114}
-            height={57}
-            alt='chart'
-            objectFit='cover'
-            className='w-auto h-auto'
-          />
+          <img src={'/assets/chart_line.png'} width={115} height={57} alt='chart' />
         </div>
         <div className='flex items-center justify-between'>
           <Information label={t('bot.card.roi')} value='42,66%' />
