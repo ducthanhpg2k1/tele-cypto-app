@@ -1,57 +1,48 @@
-import { Stack, Typography } from '@mui/material';
-import { useTranslation } from 'react-i18next';
-import CaretDown from 'src/assets/icons/CaretDown';
-import CustomCheckbox from 'src/components/ui/checkbox';
 import { Tabs } from 'src/components/ui/tabs';
 import { TabItem } from 'src/components/ui/tabs/types';
-import CardContentTabGrid from './CardContentTabGrid';
-import TabAction from '../tab-action/TabAction';
+import Image from 'next/image';
+import PublicContract from './PublicContract';
+import PopoverMenuFilter from './PopoverMenuFilter';
+import { useState } from 'react';
 
-const TabGrid = () => {
-  const { t } = useTranslation();
+const TabGrid = ({ type }: { type?: string }) => {
+
+  const tabDeliveredImmediately: TabItem[] = [
+    {
+      label: 'Danh mục đầu tư',
+      key: 'copyTrade.tabs.public',
+      content: <PublicContract type={type}/>,
+    },
+    {
+      label: 'Yêu thích',
+      key: 'copyTrade.tabs.private',
+      content: <PublicContract type={type}/>,
+    },
+  ];
   const tabGrids: TabItem[] = [
     {
       label: 'copyTrade.tabs.public',
       key: 'copyTrade.tabs.public',
-      content: <TabsContent />,
+      content: <PublicContract type={type}/>,
     },
     {
       label: 'copyTrade.tabs.private',
       key: 'copyTrade.tabs.private',
-      content: <TabsContent />,
+      content: <PublicContract type={type}/>,
     },
     {
       label: 'copyTrade.tabs.favorites',
       key: 'copyTrade.tabs.favorites',
-      content: <TabsContent />,
+      content: <PublicContract type={type}/>,
     },
   ];
   return (
     <div>
-      <Tabs tabs={tabGrids} />
+      <Tabs tabs={type === "deliveredImmediately" ? tabDeliveredImmediately : tabGrids}>
+        <PopoverMenuFilter />
+      </Tabs >
     </div>
   );
 };
 
 export default TabGrid;
-
-const TabsContent = () => {
-  const { t } = useTranslation();
-
-  return (
-    <Stack className='flex flex-col w-full mt-6 gap-6'>
-      <div className='flex items-center flex-row gap-1'>
-        <div className='flex items-center gap-[2px]'>
-          <Typography variant='caption' color='#212121' fontWeight={600} className='w-max'>
-            90 ngày
-          </Typography>
-          <CaretDown color='#424242' />
-        </div>
-        {/* <TabAction /> */}
-      </div>
-      {/* {Array.from({ length: 10 }).map((_, key) => {
-        return <CardContentTabGrid key={key + 'card content'} />;
-      })} */}
-    </Stack>
-  );
-};

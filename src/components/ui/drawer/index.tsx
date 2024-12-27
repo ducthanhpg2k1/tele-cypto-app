@@ -1,11 +1,16 @@
 import { Box, Drawer, DrawerProps, IconButton, PaperProps, Typography } from '@mui/material';
-import React, { useState, useImperativeHandle, forwardRef } from 'react';
+import React, { useState, useImperativeHandle, forwardRef, ReactNode } from 'react';
 import { DrawerHeader, DrawerWrapperContent } from './style';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import HelpInfoIcon from 'src/assets/icons/HelpInfoIcon';
 import HeaderTimeIcon from 'src/assets/icons/HeaderTimeIcon';
 import InputSearch from '../input-search/InputSearch';
 import EllipseCircleIcon from 'src/assets/icons/EllipseCircleIcon';
+import HeaderIconSearch from 'src/assets/icons/HeaderIconSearch';
+import HeaderIconNote from 'src/assets/icons/HeaderIconNote';
+import CustomTab from '../custom-tab';
+import HeaderIconShare from 'src/assets/icons/HeaderIconShare';
+import HeaderIconProfile from 'src/assets/icons/HeaderIconProfile';
 
 export type DrawerHandle = {
   onOpen: () => void;
@@ -22,6 +27,9 @@ type Props = Omit<DrawerProps, 'open'> & {
   showTimeIcon?: boolean;
   isCustomHeader?: boolean;
   showEllipseCircle?: boolean;
+  isCopyTrade?: boolean
+  contentCenter?: ReactNode
+  isProfile?: boolean
 };
 
 const CustomDrawer = forwardRef<DrawerHandle, Props>(
@@ -36,6 +44,9 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
       showTimeIcon,
       isCustomHeader,
       showEllipseCircle,
+      isCopyTrade,
+      contentCenter,
+      isProfile,
       ...rest
     },
     ref,
@@ -90,9 +101,19 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
               >
                 <ArrowBackIcon />
               </IconButton>
-              <Typography variant='body2' fontWeight={700} color={'#212121'}>
-                {label}
-              </Typography>
+              {
+                isCopyTrade && (
+                  <>{contentCenter}</>
+                )
+              }
+              {
+                !isCopyTrade && (
+                  <Typography variant='body2' fontWeight={700} color={'#212121'}>
+                    {label}
+                  </Typography>
+                )
+              }
+
               <div className='flex items-center gap-1 absolute right-[12px]'>
                 {showHelpIcon && (
                   <div
@@ -112,6 +133,24 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
                     }}
                   >
                     <HeaderTimeIcon />
+                  </div>
+                )}
+                {isProfile && (
+                  <div
+                    className='flex items-center gap-1'
+                  >
+                    <HeaderIconShare />
+                    <HeaderIconProfile />
+
+                  </div>
+                )}
+                {isCopyTrade && (
+                  <div
+                    className='flex items-center gap-1'
+                  >
+                    <HeaderIconSearch />
+                    <HeaderIconNote />
+
                   </div>
                 )}
                 {showEllipseCircle && (

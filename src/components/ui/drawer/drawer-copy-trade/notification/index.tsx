@@ -22,7 +22,7 @@ const sx = {
     gap: '6px',
     // overflow: 'hidden',
     height: 'max-content',
-    margin: '12px 0 24px 0',
+    margin: '12px 0 8px 0',
     // whiteSpace: 'nowrap',
     // overflow: 'hidden',
     // boxSizing: 'border-box',
