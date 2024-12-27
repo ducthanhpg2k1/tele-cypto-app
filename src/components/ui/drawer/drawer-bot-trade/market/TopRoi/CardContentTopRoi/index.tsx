@@ -6,7 +6,7 @@ import IconGroupUser from 'src/assets/icons/IconGroupUser';
 import styled from '@emotion/styled';
 import clsx from 'clsx';
 
-export const TypographyRegular = styled(Typography)(({ theme }) => ({
+export const TypographyRegular = styled(Typography)(() => ({
   fontSize: '10px',
   lineHeight: '12.1px',
   fontWeight: 400,
@@ -14,7 +14,7 @@ export const TypographyRegular = styled(Typography)(({ theme }) => ({
   letterSpacing: 0.2,
 }));
 
-const DATA_OPTIONS = ['Vĩnh cửu', 'Long 10x', 'Traling Up']
+const DATA_OPTIONS = ['Vĩnh cửu', 'Long 10x', 'Traling Up'];
 const CardContentTopRoi = ({ onClick }: { onClick?: VoidFunction }) => {
   const { t } = useTranslation();
   return (
@@ -35,24 +35,24 @@ const CardContentTopRoi = ({ onClick }: { onClick?: VoidFunction }) => {
               1000PEPPER
             </Typography>
             <div className='flex items-center gap-0.5'>
-              {
-                DATA_OPTIONS?.map((item) => {
-                  return (
-                    <div key={item}
-                      className={clsx(
-                        'py-[2px] px-[6px] bg-[#F5F5F5] rounded',
-                        {
-                          'bg-[#06C14914]': item === 'Long 10x',
-                        },
-                      )}
+              {DATA_OPTIONS?.map((item) => {
+                return (
+                  <div
+                    key={item}
+                    className={clsx('py-[2px] px-[6px] bg-[#F5F5F5] rounded', {
+                      'bg-[#06C14914]': item === 'Long 10x',
+                    })}
+                  >
+                    <Typography
+                      className='text-[10px] leading-3'
+                      color={item === 'Long 10x' ? '#4AAF57' : '#212121'}
+                      fontWeight={400}
                     >
-                      <Typography className='text-[10px] leading-3' color={item === 'Long 10x' ? '#4AAF57' : '#212121'} fontWeight={400}>
-                        {item}
-                      </Typography>
-                    </div>
-                  )
-                })
-              }
+                      {item}
+                    </Typography>
+                  </div>
+                );
+              })}
             </div>
           </div>
 

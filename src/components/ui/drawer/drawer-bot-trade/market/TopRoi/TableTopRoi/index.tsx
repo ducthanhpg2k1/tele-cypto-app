@@ -29,18 +29,6 @@ const FixedTableCell = styled(TableCell)({
   padding: '8px 16px 8px 0 !important',
 });
 
-const FixedHeaderTableCell = styled(TableCell)({
-  position: 'sticky',
-  left: 0,
-  backgroundColor: '#ffffff !important',
-  zIndex: 3,
-  fontSize: '10px !important',
-  color: '#757575 !important',
-  fontWeight: '400 !important',
-  padding: '8px 0 0 0 !important',
-  textTransform: 'unset !important',
-});
-
 const TableHeaderCellCustom = styled(TableCell)({
   backgroundColor: '#ffffff !important',
   fontSize: '10px !important',
@@ -57,6 +45,18 @@ const TableBodyCell = styled(TableCell)({
   fontWeight: '500 !important',
   padding: '12px !important',
 });
+
+// const FixedHeaderTableCell = styled(TableCell)({
+//   position: 'sticky',
+//   left: 0,
+//   backgroundColor: '#ffffff !important',
+//   zIndex: 3,
+//   fontSize: '10px !important',
+//   color: '#757575 !important',
+//   fontWeight: '400 !important',
+//   padding: '8px 0 0 0 !important',
+//   textTransform: 'unset !important',
+// });
 
 const TableTopRoi = () => {
   const trades = Array(15).fill({
@@ -78,7 +78,9 @@ const TableTopRoi = () => {
       <StyledTable stickyHeader>
         <TableHead>
           <TableRow>
-            <FixedHeaderTableCell>Thị trường</FixedHeaderTableCell>
+            <TableCell component='th' scope='row' sx={sx.tableCell}>
+              Thị trường
+            </TableCell>
             <TableHeaderCellCustom align='left'>PNL(USD)</TableHeaderCellCustom>
             <TableHeaderCellCustom align='left'>Mức đầu tư tối thiểu</TableHeaderCellCustom>
             <TableHeaderCellCustom align='left'>Thời gian hoạt động</TableHeaderCellCustom>
@@ -134,6 +136,20 @@ const TableTopRoi = () => {
       </StyledTable>
     </StyledTableContainer>
   );
+};
+
+const sx = {
+  tableCell: {
+    position: 'sticky',
+    left: 0,
+    backgroundColor: '#ffffff !important',
+    zIndex: 3,
+    fontSize: '10px !important',
+    color: '#757575 !important',
+    fontWeight: '400 !important',
+    padding: '8px 0 0 0 !important',
+    textTransform: 'unset !important',
+  },
 };
 
 export default TableTopRoi;
