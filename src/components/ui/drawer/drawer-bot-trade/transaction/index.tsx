@@ -68,8 +68,8 @@ const Transaction = () => {
           </Typography>
 
 
-          <div className='w-5 h-5 flex justify-center items-center'>
-            <Image src={'/images/img-arrow-down.png'} width={20} height={20} alt='' />
+          <div className='w-5 h-5 flex justify-center items-center border border-[#F5F5F5] rounded'>
+            <Image src={'/images/img-down.png'} width={8} height={8} alt='' />
           </div>
         </div>
         {activeTab === TYPE_TAB_TRANSACTION.POPULAR && (
@@ -90,7 +90,7 @@ const Transaction = () => {
         </>
       } isFixedTab onChaneTab={onChaneTab} tabs={tabGrids}>
         {activeTab === TYPE_TAB_TRANSACTION.AI && (
-          <Image src={'/images/image-note.png'} alt='' width={18} height={18} />
+          <Image src={'/images/img-note-new.png'} alt='' width={18} height={18} />
         )}
       </Tabs >
       <ModalTradingBot ref={refModalTradingBot} />

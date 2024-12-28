@@ -81,11 +81,11 @@ const TableTopRoi = () => {
             <TableCell component='th' scope='row' sx={sx.tableCell}>
               Thị trường
             </TableCell>
-            <TableHeaderCellCustom align='left'>PNL(USD)</TableHeaderCellCustom>
-            <TableHeaderCellCustom align='left'>Mức đầu tư tối thiểu</TableHeaderCellCustom>
-            <TableHeaderCellCustom align='left'>Thời gian hoạt động</TableHeaderCellCustom>
-            <TableHeaderCellCustom align='left'>ROI</TableHeaderCellCustom>
-            <TableHeaderCellCustom align='left'>Đã sao chép</TableHeaderCellCustom>
+            <TableHeaderCellCustom className='normal-case' align='left'>PNL(USD)</TableHeaderCellCustom>
+            <TableHeaderCellCustom className='normal-case' align='left'>Mức đầu tư tối thiểu</TableHeaderCellCustom>
+            <TableHeaderCellCustom  className='normal-case' align='left'>Thời gian hoạt động</TableHeaderCellCustom>
+            <TableHeaderCellCustom className='normal-case' align='left'>ROI</TableHeaderCellCustom>
+            <TableHeaderCellCustom className='normal-case' align='left'>Đã sao chép</TableHeaderCellCustom>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -148,7 +148,7 @@ const sx = {
     color: '#757575 !important',
     fontWeight: '400 !important',
     padding: '8px 0 0 0 !important',
-    textTransform: 'unset !important',
+    textTransform: 'none !important',
   },
 };
 

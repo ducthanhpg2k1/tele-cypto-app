@@ -76,13 +76,13 @@ const TableTradingPair = ({ valueFilter }: { valueFilter: number }) => {
             <StyledTable stickyHeader>
                 <TableHead>
                     <TableRow>
-                        <FixedHeaderTableCell >Thị trường</FixedHeaderTableCell>
+                        <FixedHeaderTableCell  className='normal-case'>Thị trường</FixedHeaderTableCell>
 
-                        <TableHeaderCellCustom align={valueFilter === 2 ? 'left' : "right"}>Đang chạy</TableHeaderCellCustom>
+                        <TableHeaderCellCustom  className='normal-case' align={valueFilter === 2 ? 'left' : "right"}>Đang chạy</TableHeaderCellCustom>
                         {
                             valueFilter === 2 && (
 
-                                <TableHeaderCellCustom align="right">Tỷ lệ bình thường Long/ Short</TableHeaderCellCustom>
+                                <TableHeaderCellCustom  className='normal-case' align="right">Tỷ lệ bình thường Long/ Short</TableHeaderCellCustom>
                             )
                         }
 

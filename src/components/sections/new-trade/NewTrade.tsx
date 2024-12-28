@@ -12,6 +12,7 @@ import TagsTrade from './common/TagsTrade';
 import DrawerBotTrade from 'src/components/ui/drawer/drawer-bot-trade';
 import DrawerExchange from 'src/components/ui/drawer/drawer-exchange';
 import { DrawerHandle } from 'src/components/ui/drawer';
+import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade';
 
 export const Section = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -31,6 +32,8 @@ export default function NewTrade() {
   const [valueCustom, setValueCustom] = useState(1);
   const refBotTrade = useRef<DrawerHandle | null>(null);
   const refExchange = useRef<DrawerHandle | null>(null);
+  const refDrawerCopyTrade = useRef<DrawerHandle | null>(null);
+
   const tabs: TabItem[] = [
     {
       key: 'crypto',
@@ -53,12 +56,16 @@ export default function NewTrade() {
   };
 
   const handleChangeTab = (value: number) => {
-    if (value === 0) {
+    if (value === 3) {
       refBotTrade.current?.onOpen();
       return;
     }
-    if (value === 3) {
+    if (value === 0) {
       refExchange.current?.onOpen();
+      return;
+    }
+    if (value === 4) {
+      refDrawerCopyTrade.current?.onOpen();
       return;
     }
     setValueCustom(value);
@@ -78,6 +85,8 @@ export default function NewTrade() {
     >
       <DrawerBotTrade ref={refBotTrade} />
       <DrawerExchange ref={refExchange} />
+      <DrawerCopyTrade ref={refDrawerCopyTrade} />
+
       <Box
         sx={{
           px: 1,

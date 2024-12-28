@@ -30,6 +30,11 @@ export const TAB_TRADES: TabItem[] = [
 
 export const TAB_FUTURES: TabItem[] = [
   {
+    label: 'Future',
+    key: 'future',
+    content: <></>,
+  },
+  {
     label: 'Sao chép',
     key: 'copy',
     content: <></>,

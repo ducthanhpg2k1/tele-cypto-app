@@ -84,10 +84,10 @@ const TableVolatility = () => {
             <StyledTable stickyHeader>
                 <TableHead>
                     <TableRow>
-                        <FixedHeaderTableCell >Thị trường</FixedHeaderTableCell>
-                        <TableHeaderCellCustom align="left">Biến động</TableHeaderCellCustom>
-                        <TableHeaderCellCustom align="left">Giá gần nhất</TableHeaderCellCustom>
-                        <TableHeaderCellCustom align="left">24H %</TableHeaderCellCustom>
+                        <FixedHeaderTableCell  className='normal-case'>Thị trường</FixedHeaderTableCell>
+                        <TableHeaderCellCustom  className='normal-case' align="left">Biến động</TableHeaderCellCustom>
+                        <TableHeaderCellCustom   className='normal-case' align="left">Giá gần nhất</TableHeaderCellCustom>
+                        <TableHeaderCellCustom  className='normal-case' align="left">24H %</TableHeaderCellCustom>
                     </TableRow>
                 </TableHead>
                 <TableBody>

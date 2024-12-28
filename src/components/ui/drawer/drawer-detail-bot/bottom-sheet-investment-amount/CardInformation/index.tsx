@@ -58,7 +58,7 @@ const CardInformation = ({ handleCopy }: { handleCopy: VoidFunction }) => {
               <Typography className='text-xs' color={'#212121'} fontWeight={500}>
                 {t('bot.advanced')}
               </Typography>
-              <Image src={'/images/image-note.png'} alt='' width={18} height={18} />
+              <Image src={'/images/img-note-new.png'} alt='' width={18} height={18} />
             </div>
 
             <div className='flex flex-col gap-1'>

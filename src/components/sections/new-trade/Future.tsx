@@ -14,6 +14,7 @@ import DrawerExchange from 'src/components/ui/drawer/drawer-exchange';
 import { DrawerHandle } from 'src/components/ui/drawer';
 import { EmptFuture } from './common/EmptFuture';
 import TradeCTAButton from 'src/components/ui/button/TradeCTAButton';
+import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade';
 
 export const Section = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -30,9 +31,12 @@ export const TypographyRegular = styled(Typography)(({ theme }) => ({
 
 export default function NewTrade() {
   const [showSection, setShowSection] = useState(true);
-  const [valueCustom, setValueCustom] = useState(1);
+  const [valueCustom, setValueCustom] = useState(0);
   const refBotTrade = useRef<DrawerHandle | null>(null);
   const refExchange = useRef<DrawerHandle | null>(null);
+  const refDrawerCopyTrade = useRef<DrawerHandle | null>(null);
+
+
   const tabsFuture: TabItem[] = [
     {
       key: 'crypto',
@@ -61,9 +65,15 @@ export default function NewTrade() {
 
   const handleChangeTab = (value: number) => {
     if (value === 1) {
+      refDrawerCopyTrade.current?.onOpen();
+      return;
+
+    }
+    if (value === 2) {
       refBotTrade.current?.onOpen();
       return;
     }
+  
     setValueCustom(value);
   };
   return (
@@ -80,6 +90,7 @@ export default function NewTrade() {
       onScroll={handleScroll}
     >
       <DrawerBotTrade ref={refBotTrade} />
+      <DrawerCopyTrade ref={refDrawerCopyTrade} />
       <DrawerExchange ref={refExchange} />
       <Box
         sx={{
@@ -87,7 +98,7 @@ export default function NewTrade() {
           position: 'sticky',
           top: 0,
           background: '#ffffff',
-          zIndex: 9999,
+          zIndex: 1000,
         }}
       >
         <Section
