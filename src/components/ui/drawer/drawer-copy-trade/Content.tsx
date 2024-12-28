@@ -9,7 +9,7 @@ export const Section = styled(Box)(({ theme }) => ({
   transition: 'transform 0.3s ease, opacity 0.3s ease',
 }));
 
-const Content = ({ type, showSection }: { type?: string, showSection: boolean }) => {
+const Content = ({ type, showSection }: { type?: string, showSection?: boolean }) => {
   return (
     <div className='pb-14'
     >
