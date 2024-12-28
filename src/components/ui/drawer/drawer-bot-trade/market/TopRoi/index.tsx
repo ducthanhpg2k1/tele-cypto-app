@@ -1,47 +1,17 @@
 import { Collapse, Typography } from "@mui/material"
 import clsx from "clsx"
-import { useState } from "react"
-import IconFilter from "src/assets/icons/IconFilter"
-import IconMenu from "src/assets/icons/IconMenu"
-import IconSetting from "src/assets/icons/IconSetting"
 import ContentFilter from "./ContentFilter"
 import CustomCheckbox from "src/components/ui/checkbox"
 import CardContentTopRoi from "./CardContentTopRoi"
-import IconList from "src/assets/icons/IconList"
 import TableTopRoi from "./TableTopRoi"
 import SwipeableViews from "react-swipeable-views"
 
 
-const TopRoi = () => {
-    const [valueFilter, setValueFilter] = useState<number>(2)
-    const [activeFilter, setActiveFilter] = useState<boolean>(false)
-    const [index, setIndex] = useState(0);
-
-    const handleChangeIndex = (index: number) => {
-
-        setIndex(index);
-    };
-    const handleClickFilter = () => {
-        setActiveFilter(!activeFilter)
-    }
+const TopRoi = ({ index, activeFilter, handleChangeIndex }: any) => {
 
     return (
         <div className="flex flex-col gap-4 pt-4 h-max">
-            <div className="flex justify-between items-center">
-                <FilterAction value={valueFilter} handleChangeFilter={(value) => setValueFilter(value)} />
-                <div className="flex items-center gap-1">
-                    <IconSetting />
-                    <IconFilter color={activeFilter ? '#177DFF' : '#9E9E9E'} onClick={handleClickFilter} />
-                    {
-                        index === 0 ? (
-                            <IconList onClick={() => setIndex(1)} />
-                        ) : (
-                            <IconMenu onClick={() => setIndex(0)} />
-                        )
-                    }
 
-                </div>
-            </div>
             <Collapse in={activeFilter} timeout='auto' unmountOnExit>
                 <ContentFilter />
             </Collapse>

@@ -4,21 +4,18 @@ import ModalSurfSpot from "./ModalSurfSpot"
 import { Divider, Typography } from "@mui/material"
 
 
-const Running = () => {
-    const [valueTop, setValueTop] = useState<string>('Lưới Spot')
-    const refModalSurfSpot: any = useRef()
+const Running = ({ handleClickMarketBot }: { handleClickMarketBot: VoidFunction }) => {
+
 
     return (
         <div className="flex flex-col gap-4 pt-4">
-            <TagAction handleClick={() => refModalSurfSpot.current.onOpen()} label={valueTop} />
-            <CardRunning />
-            <ModalSurfSpot value={valueTop} handleClickSurf={(value: string) => setValueTop(value)} ref={refModalSurfSpot} />
+            <CardRunning handleClickMarketBot={handleClickMarketBot} />
         </div>
     )
 }
 export default Running
 
-const CardRunning = () => {
+const CardRunning = ({ handleClickMarketBot }: { handleClickMarketBot: VoidFunction }) => {
     return (
         <div className="border border-[#EEEEEE] p-4 flex flex-col gap-5 rounded-2xl">
 
@@ -54,9 +51,12 @@ const CardRunning = () => {
             </div>
 
             <Divider variant='fullWidth' />
-            <Typography className="text-xs text-center" color={'#177DFF'} fontWeight={500}>
-                Tìm hiểu thị trường Bot
-            </Typography>
+            <div onClick={handleClickMarketBot}>
+                <Typography className="text-xs text-center" color={'#177DFF'} fontWeight={500}>
+                    Tìm hiểu thị trường Bot
+                </Typography>
+            </div>
+
         </div>
     )
 }

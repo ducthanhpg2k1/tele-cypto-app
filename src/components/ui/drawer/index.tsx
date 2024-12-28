@@ -11,6 +11,7 @@ import HeaderIconNote from 'src/assets/icons/HeaderIconNote';
 import CustomTab from '../custom-tab';
 import HeaderIconShare from 'src/assets/icons/HeaderIconShare';
 import HeaderIconProfile from 'src/assets/icons/HeaderIconProfile';
+import HeaderIconFilter from 'src/assets/icons/HeaderIconFilter';
 
 export type DrawerHandle = {
   onOpen: () => void;
@@ -31,7 +32,10 @@ type Props = Omit<DrawerProps, 'open'> & {
   contentCenter?: ReactNode
   isProfile?: boolean
   handleClickIconProfile?: VoidFunction,
-  isMyProfile?: boolean
+  isMyProfile?: boolean,
+  onScrollContent?: any,
+  isFilter?:boolean,
+  handleClickFilter?:VoidFunction
 
 };
 
@@ -51,7 +55,10 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
       contentCenter,
       isProfile,
       isMyProfile,
+      onScrollContent,
       handleClickIconProfile,
+      handleClickFilter,
+      isFilter,
       ...rest
     },
     ref,
@@ -160,6 +167,14 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
 
                   </div>
                 )}
+                {isFilter && (
+                  <div
+                  onClick={handleClickFilter}
+                  >
+                    <HeaderIconFilter />
+
+                  </div>
+                )}
                 {isCopyTrade && (
                   <div
                     className='flex items-center gap-1'
@@ -195,7 +210,7 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
             )}
           </DrawerHeader>
         )}
-        <DrawerWrapperContent showSearch={showSearch || false}>{children}</DrawerWrapperContent>
+        <DrawerWrapperContent onScroll={onScrollContent} showSearch={showSearch || false}>{children}</DrawerWrapperContent>
       </Drawer>
     );
   },

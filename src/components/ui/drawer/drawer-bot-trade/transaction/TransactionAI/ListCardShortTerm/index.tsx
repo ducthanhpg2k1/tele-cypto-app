@@ -1,5 +1,7 @@
 import { Card, Typography } from '@mui/material';
+import { useRef } from 'react';
 import Button from 'src/components/ui/button';
+import BottomSheetInvestmentAmount from 'src/components/ui/drawer/drawer-detail-bot/bottom-sheet-investment-amount';
 
 const DATA_CARD = [
   {
@@ -68,12 +70,14 @@ const DATA_CARD = [
   },
 ];
 const ListCardShortTerm = () => {
+  const refBottomSheetInvestmentAmount: any = useRef()
   return (
     <div className='flex flex-col gap-[16px]'>
       {DATA_CARD?.map((item) => {
         return (
           <Card
             key={item?.id}
+            onClick={() => refBottomSheetInvestmentAmount.current.onOpen()}
             sx={{
               border: '1px solid #EEEEEE',
             }}
@@ -112,6 +116,8 @@ const ListCardShortTerm = () => {
           </Card>
         );
       })}
+      <BottomSheetInvestmentAmount ref={refBottomSheetInvestmentAmount} />
+
     </div>
   );
 };

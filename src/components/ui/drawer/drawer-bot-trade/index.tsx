@@ -1,11 +1,12 @@
 import { t } from 'i18next';
-import { forwardRef, useState } from 'react';
+import { forwardRef, useRef, useState } from 'react';
 import CustomDrawer, { DrawerHandle } from 'src/components/ui/drawer';
 import Content from './Content';
 import BottomNavBotTrade from './bottom-nav-bot-trade';
 import Transaction from './transaction';
 import AllCommands from './all-commands';
 import Market from './market';
+import ModalFilter from './all-commands/ModalFilter';
 
 export enum TAB_BOT_TRADE {
   BOT = 'bot',
@@ -15,9 +16,8 @@ export enum TAB_BOT_TRADE {
 }
 const DrawerBotTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
   const [activeTab, setActiveTab] = useState<TAB_BOT_TRADE>(TAB_BOT_TRADE?.BOT);
-
-  console.log(activeTab, 'activeTab');
-
+  const [showSection, setShowSection] = useState(true)
+  const refModalFilter: any = useRef()
   const renderTitleBotTrade = () => {
     let text: string = '';
 
@@ -37,7 +37,21 @@ const DrawerBotTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
     }
     return text;
   };
+  const handleClickMarketBot = () => {
+    setActiveTab(TAB_BOT_TRADE.MARKET)
+  }
+  const handleScroll = (e: any) => {
+    console.log(e.target.scrollTop, 'e.target.scrollTop');
 
+    if (e.target.scrollTop <= 0) {
+      setShowSection(true);
+    } else {
+      setShowSection(false);
+    }
+  };
+  const handleClickFilter = () => {
+    refModalFilter.current.onOpen()
+  }
   return (
     <CustomDrawer
       anchor='right'
@@ -46,11 +60,14 @@ const DrawerBotTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
       }}
       ref={ref}
       label={renderTitleBotTrade()}
+      onScrollContent={handleScroll}
+      isFilter={activeTab === TAB_BOT_TRADE.ALL_COMMANDS ? true : false}
+      handleClickFilter={handleClickFilter}
     >
       <div>
-        {activeTab === TAB_BOT_TRADE.BOT && <Content />}
+        {activeTab === TAB_BOT_TRADE.BOT && <Content showSection={showSection} />}
         {activeTab === TAB_BOT_TRADE.TRANSACTION && <Transaction />}
-        {activeTab === TAB_BOT_TRADE.ALL_COMMANDS && <AllCommands />}
+        {activeTab === TAB_BOT_TRADE.ALL_COMMANDS && <AllCommands handleClickMarketBot={handleClickMarketBot} />}
         {activeTab === TAB_BOT_TRADE.MARKET && <Market />}
 
 
@@ -59,6 +76,7 @@ const DrawerBotTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
           onChangeTab={(tab: TAB_BOT_TRADE) => setActiveTab(tab)}
           activeTab={activeTab}
         />
+        <ModalFilter ref={refModalFilter} />
       </div>
     </CustomDrawer>
   );
