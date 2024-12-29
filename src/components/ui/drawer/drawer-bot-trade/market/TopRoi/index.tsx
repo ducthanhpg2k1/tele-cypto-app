@@ -5,6 +5,7 @@ import CustomCheckbox from "src/components/ui/checkbox"
 import CardContentTopRoi from "./CardContentTopRoi"
 import TableTopRoi from "./TableTopRoi"
 import SwipeableViews from "react-swipeable-views"
+import { useTranslation } from "react-i18next"
 
 
 const TopRoi = ({ index, activeFilter, handleChangeIndex }: any) => {
@@ -50,14 +51,16 @@ export default TopRoi
 
 
 export const FilterAction = ({ value, handleChangeFilter }: { value: number, handleChangeFilter: (id: number) => void }) => {
+    const { t } = useTranslation();
+  
     const DATA_FILTER = [
         {
             id: 1,
-            title: "Lưới Spot"
+            title: t('bot.gridSpot')
         },
         {
             id: 2,
-            title: "Lưới Hợp đồng tương lai"
+            title:  t('bot.gridFuture')
         }
     ]
     return (

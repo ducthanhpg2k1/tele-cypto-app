@@ -6,10 +6,7 @@ import ListCardPopular from './ListCardPopular';
 const Popular = () => {
   return (
     <div className='flex flex-col gap-4 mt-2'>
-
       <ListCardPopular />
-
-
     </div>
   );
 };

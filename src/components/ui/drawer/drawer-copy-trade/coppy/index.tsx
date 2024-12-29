@@ -6,38 +6,30 @@ import Image from 'next/image';
 import InProgress from './InProgress';
 import SwipeableViews from 'react-swipeable-views';
 import Simulation from './Simulation';
+import { useTranslation } from 'react-i18next';
 
-const DATA_FILTER = [
-    {
-        id: 1,
-        title: 'Đang tiến hành (0)',
-    },
-    {
-        id: 2,
-        title: 'Đã đóng (0)',
-    },
-    {
-        id: 3,
-        title: 'Mô phỏng(0)',
-    },
-];
 
-export const DATA_COPPY = [
-    {
-        id: 1,
-        title: 'Tổng số dư ví (USDT)',
-        value: '0,0000',
-        icon: '/images/img-wallet.png',
-    },
-    {
-        id: 2,
-        title: 'Lợi nhuận dòng(USDT)',
-        value: '0,0000',
-        icon: '/images/img-profit.png',
-    },
-];
+
 const Coppy = () => {
     const [activeFilter, setActiveFilter] = useState(0);
+    const { t } = useTranslation()
+
+    const DATA_FILTER = [
+        {
+            id: 1,
+            title: `${t('copyTrade.in_progress')} (0)`,
+        },
+        {
+            id: 2,
+            title: `${t('copyTrade.close')} (0)`,
+        },
+        {
+            id: 3,
+            title: `${t('copyTrade.simulationBtn')} (0)`,
+        },
+    ];
+    
+
     const handleChangeIndex = (index: number) => {
         setActiveFilter(index);
     };
@@ -71,6 +63,8 @@ const Coppy = () => {
 export default Coppy;
 
 export const NoData = ({ label, isProfile }: { label?: string, isProfile?: boolean }) => {
+    const { t } = useTranslation()
+
     return (
         <div
             className={clsx(
@@ -83,12 +77,12 @@ export const NoData = ({ label, isProfile }: { label?: string, isProfile?: boole
             <Image src={'/images/img-nodata-search.png'} width={85} height={64} alt='' />
             {isProfile ? (
                 <Typography className='text-xs' color={'#424242'} fontWeight={400}>
-                    {label || 'Xem danh mục đầu tư'}
+                    {label || t('copyTrade.view_portfolio')}
                 </Typography>
             ) : (
                 <div className='bg-[#F5F5F5] rounded py-0.5 px-1 flex justify-center items-center'>
                     <Typography className='text-xs' color={'#212121'} fontWeight={500}>
-                        {label || 'Xem danh mục đầu tư'}
+                        {label || t('copyTrade.view_portfolio')}
                     </Typography>
                 </div>
             )}

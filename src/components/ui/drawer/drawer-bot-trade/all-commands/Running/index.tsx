@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import { TagAction } from "../../transaction/TransactionAI/Popular"
 import ModalSurfSpot from "./ModalSurfSpot"
 import { Divider, Typography } from "@mui/material"
+import { useTranslation } from "react-i18next"
 
 
 const Running = ({ handleClickMarketBot }: { handleClickMarketBot: VoidFunction }) => {
@@ -16,6 +17,8 @@ const Running = ({ handleClickMarketBot }: { handleClickMarketBot: VoidFunction 
 export default Running
 
 const CardRunning = ({ handleClickMarketBot }: { handleClickMarketBot: VoidFunction }) => {
+    const { t } = useTranslation();
+
     return (
         <div className="border border-[#EEEEEE] p-4 flex flex-col gap-5 rounded-2xl">
 
@@ -37,7 +40,7 @@ const CardRunning = ({ handleClickMarketBot }: { handleClickMarketBot: VoidFunct
                                 </div>
                                 <div className="flex flex-col gap-[2px]">
                                     <Typography className="text-xs" color={'#757575'} fontWeight={400}>
-                                        Thời gian hoạt động
+                                        {t('bot.card.activateDate')}
                                     </Typography>
                                     <Typography className="text-xs" color={'#212121'} fontWeight={500}>
                                         3 ngày 17 giờ 56ph
@@ -53,7 +56,7 @@ const CardRunning = ({ handleClickMarketBot }: { handleClickMarketBot: VoidFunct
             <Divider variant='fullWidth' />
             <div onClick={handleClickMarketBot}>
                 <Typography className="text-xs text-center" color={'#177DFF'} fontWeight={500}>
-                    Tìm hiểu thị trường Bot
+                    {t('bot.aboutBotMarket')}
                 </Typography>
             </div>
 

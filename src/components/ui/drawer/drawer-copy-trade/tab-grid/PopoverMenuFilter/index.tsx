@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Image from 'next/image';
 import CustomCheckbox from 'src/components/ui/checkbox';
+import { useTranslation } from 'react-i18next';
 
 export default function PopoverMenuFilter() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
@@ -11,6 +12,7 @@ export default function PopoverMenuFilter() {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+  const { t } = useTranslation()
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -37,13 +39,13 @@ export default function PopoverMenuFilter() {
         <div className='flex flex-col gap-3 p-3'>
           <CustomCheckbox
             variantLabel='caption'
-            label={'Ẩn danh mục đã đầy'}
+            label={t('copyTrade.hide_full_category')}
             classNameLabel='font-normal'
             classNameWrapper='flex-row items-center text-[#212121] font-normal gap-[4px]'
           />
           <CustomCheckbox
             variantLabel='caption'
-            label={'API'}
+            label={t('copyTrade.api')}
             classNameLabel='font-normal'
             classNameWrapper='flex-row items-center text-[#212121] font-normal gap-[4px]'
           />

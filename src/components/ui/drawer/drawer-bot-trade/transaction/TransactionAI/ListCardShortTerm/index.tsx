@@ -1,5 +1,6 @@
 import { Card, Typography } from '@mui/material';
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'src/components/ui/button';
 import BottomSheetInvestmentAmount from 'src/components/ui/drawer/drawer-detail-bot/bottom-sheet-investment-amount';
 
@@ -70,6 +71,8 @@ const DATA_CARD = [
   },
 ];
 const ListCardShortTerm = () => {
+  const { t } = useTranslation();
+
   const refBottomSheetInvestmentAmount: any = useRef()
   return (
     <div className='flex flex-col gap-[16px]'>
@@ -94,13 +97,14 @@ const ListCardShortTerm = () => {
                     fontWeight={400}
                     className='text-[8px] leading-[10px]'
                   >
-                    3-7 ngày
+                    {t('bot.threeArrive7days')}
+
                   </Typography>
                 </div>
               </div>
               <Button className=' h-[32px]'>
                 <Typography fontWeight={700} className='text-[12px]'>
-                  Sao chép
+                  {t('bot.card.copy')}
                 </Typography>
               </Button>
             </div>
@@ -111,7 +115,7 @@ const ListCardShortTerm = () => {
             </div>
 
             <Typography color={'#177DFF'} fontWeight={500} className='text-xs'>
-              Tuỳ chỉnh thông số
+              {t('bot.custom_parameters')}
             </Typography>
           </Card>
         );

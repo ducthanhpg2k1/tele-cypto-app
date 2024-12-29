@@ -1,4 +1,4 @@
-import {  IconButton, Typography } from '@mui/material';
+import { IconButton, Typography } from '@mui/material';
 import { ArrowDropDownIcon } from '@mui/x-date-pickers';
 import ChartCandlestick from '../TransactionAI/ChartCandlestick';
 import CustomCheckbox from 'src/components/ui/checkbox';
@@ -36,7 +36,7 @@ const HandMade = () => {
       <SlideRanger min={0} max={100} step={1} />
       <div className='flex justify-between items-center'>
         <Typography className='text-xs' color={'#9E9E9E'} fontWeight={400}>
-          Khả dụng
+          {t('bot.available')}
         </Typography>
         <div className='flex items-center gap-[4px]'>
           <Typography className='text-xs' color={'#212121'} fontWeight={400}>
@@ -50,7 +50,7 @@ const HandMade = () => {
       <div className='flex flex-col gap-3'>
         <div className='flex justify-between items-center'>
           <Typography className='text-xs' color={'#212121'} fontWeight={500}>
-            Nâng cao (Không bắt buộc)
+            {t('bot.advanced')}
           </Typography>
           <Image src={'/images/img-note-new.png'} alt='' width={18} height={18} />
         </div>
@@ -83,7 +83,7 @@ const HandMade = () => {
           fullWidth
           className='h-10 font-semibold'
         >
-          <Typography className='text-[14px]'>Tạo</Typography>
+          <Typography className='text-[14px]'>{t('bot.create')}</Typography>
         </Button>
       </div>
     </div>

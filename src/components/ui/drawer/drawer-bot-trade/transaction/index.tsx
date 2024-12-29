@@ -11,6 +11,7 @@ import ModalTradingBot from './TransactionAI/ModalTradingBot';
 import ModalFilter from './TransactionAI/ModalFilter';
 import ModalTop from './TransactionAI/ModalTop';
 import ModalTradingPair from './TransactionAI/ModalTradingPair';
+import { useTranslation } from 'react-i18next';
 
 export enum TYPE_TAB_TRANSACTION {
   AI = 0,
@@ -26,6 +27,7 @@ const Transaction = () => {
   const refModalFilter: any = useRef()
   const refModalTop: any = useRef()
   const refModalTradingPair: any = useRef()
+  const { t } = useTranslation();
 
 
   const [valueTop, setValueTop] = useState<string>('Top PNL')
@@ -64,7 +66,7 @@ const Transaction = () => {
 
         <div onClick={() => refModalTradingBot.current.onOpen()} className='flex items-center gap-3'>
           <Typography variant='body2' color={'#212121'} fontWeight={700}>
-            Giao dịch
+           {t('bot.transaction')}
           </Typography>
 
 
@@ -83,7 +85,7 @@ const Transaction = () => {
             activeTab === TYPE_TAB_TRANSACTION.POPULAR && (
               <div className='flex items-center gap-3 mt-4'>
                 <TagAction handleClick={() => refModalTop.current.onOpen()} label={valueTop} />
-                <TagAction handleClick={() => refModalTradingPair.current.onOpen()} label={valueTradingPair?.title ? valueTradingPair?.title : 'Mã'} />
+                <TagAction handleClick={() => refModalTradingPair.current.onOpen()} label={valueTradingPair?.title ? valueTradingPair?.title : t('bot.code')} />
               </div>
             )
           }

@@ -259,7 +259,7 @@ const ChartCandlestick = () => {
       <div className='flex items-center gap-6 w-full'>
         <div className='w-[60px]'>
           <Text color={'#9E9E9E'} fontWeight={400}>
-            Thời gian
+            {t('bot.time')}
           </Text>
         </div>
 

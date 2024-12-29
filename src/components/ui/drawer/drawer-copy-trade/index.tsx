@@ -8,6 +8,7 @@ import BottomNavCoppyTrade from './bottom-nav-coppy-trade';
 import DeliveredImmediately from './delivered-immediately';
 import Coppy from './coppy';
 import CopyTradeCTAButton from './copy-trade-cta-button';
+import { useTranslation } from 'react-i18next';
 
 const enum TYPE_TAB {
   CONTRACT = 0,
@@ -25,6 +26,8 @@ const DrawerCopyTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
     setValueTab(value)
 
   }
+
+  const { t } = useTranslation()
 
   const handleScroll = (e: any) => {
     console.log(e.target.scrollTop, 'e.target.scrollTop');
@@ -50,11 +53,11 @@ const DrawerCopyTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
         <CustomTab value={valueTab} options={[
           {
             key: 1,
-            label: "Hợp đồng"
+            label: t('copyTrade.contractTab')
           },
           {
             key: 2,
-            label: "Giao ngay"
+            label: t('copyTrade.spotTab')
           }
         ]} handleChange={handleChange} />
       }
@@ -66,7 +69,7 @@ const DrawerCopyTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
             <>
               {
                 valueTab === TYPE_TAB.CONTRACT && (
-                  <Content showSection={showSection}/>
+                  <Content showSection={showSection} />
                 )
               }
               {

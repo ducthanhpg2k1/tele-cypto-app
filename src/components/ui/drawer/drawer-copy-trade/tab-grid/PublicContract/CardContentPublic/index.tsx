@@ -63,9 +63,9 @@ const CardContentPublic = ({ onClick, type }: { onClick?: VoidFunction, type?: s
                     <img src={'/images/img-chart-line.png'} width={110} height={76} alt='chart' />
                 </div>
                 <div className='flex items-center justify-between'>
-                    <Information label={'ANUM'} value='333,593' />
-                    <Information label={'MMD trong 7 ngày'} value='1,42%' />
-                    <Information label={'Hệ số Shape'} value='21,32' />
+                    <Information label={t('copyTrade.aum')} value='333,593' />
+                    <Information label={t('copyTrade.mmd7day')} value='1,42%' />
+                    <Information label={t('copyTrade.shape_factor')} value='21,32' />
                 </div>
                 {
                     type === 'deliveredImmediately' ? (
@@ -75,14 +75,14 @@ const CardContentPublic = ({ onClick, type }: { onClick?: VoidFunction, type?: s
                                 variant='blue'
                                 className='h-9 font-semibold'
                             >
-                                <Typography className='text-[14px]'>Mô phỏng</Typography>
+                                <Typography className='text-[14px]'>{t('copyTrade.filter.simulationBtn')}</Typography>
                             </Button>
                             <Button
                                 fullWidth
                                 variant='pink'
                                 className='h-9 font-semibold'
                             >
-                                <Typography className='text-[14px]'>Đầy</Typography>
+                                <Typography className='text-[14px]'>{t('copyTrade.filter.fullBtn')}</Typography>
                             </Button>
 
                         </div>
@@ -93,13 +93,13 @@ const CardContentPublic = ({ onClick, type }: { onClick?: VoidFunction, type?: s
                                 variant='blue'
                                 className='h-9 font-semibold'
                             >
-                                <Typography className='text-[14px]'>Đặt lại</Typography>
+                                <Typography className='text-[14px]'>{t('copyTrade.reset')}</Typography>
                             </Button>
                             <Button
                                 fullWidth
                                 className='h-9 font-semibold'
                             >
-                                <Typography className='text-[14px]'>Xác nhận</Typography>
+                                <Typography className='text-[14px]'>{t('copyTrade.save')}</Typography>
                             </Button>
 
                         </div>

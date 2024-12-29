@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 
 // Styled components
 const StyledTableContainer = styled(TableContainer)({
@@ -70,19 +71,20 @@ const TableTradingPair = ({ valueFilter }: { valueFilter: number }) => {
         crossCopied: '10923',
         long_short: '10923'
     });
+    const { t } = useTranslation();
 
     return (
         <StyledTableContainer>
             <StyledTable stickyHeader>
                 <TableHead>
                     <TableRow>
-                        <FixedHeaderTableCell  className='normal-case'>Thị trường</FixedHeaderTableCell>
+                        <FixedHeaderTableCell  className='normal-case'>{t('bot.market')}</FixedHeaderTableCell>
 
-                        <TableHeaderCellCustom  className='normal-case' align={valueFilter === 2 ? 'left' : "right"}>Đang chạy</TableHeaderCellCustom>
+                        <TableHeaderCellCustom  className='normal-case' align={valueFilter === 2 ? 'left' : "right"}>{t('bot.running')}</TableHeaderCellCustom>
                         {
                             valueFilter === 2 && (
 
-                                <TableHeaderCellCustom  className='normal-case' align="right">Tỷ lệ bình thường Long/ Short</TableHeaderCellCustom>
+                                <TableHeaderCellCustom  className='normal-case' align="right">{t('bot.longorshort')}</TableHeaderCellCustom>
                             )
                         }
 

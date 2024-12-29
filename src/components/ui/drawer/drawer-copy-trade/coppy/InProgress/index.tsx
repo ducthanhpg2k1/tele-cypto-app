@@ -1,10 +1,27 @@
 import { Typography } from "@mui/material"
-import { DATA_COPPY, NoData } from ".."
+import { NoData } from ".."
 import TotalBalance from "../TotalBalance"
 import Image from "next/image"
 import clsx from "clsx"
+import { useTranslation } from "react-i18next"
 
 const InProgress = () => {
+    const { t } = useTranslation()
+
+    const DATA_COPPY = [
+        {
+            id: 1,
+            title: t('copyTrade.total_balance'),
+            value: '0,0000',
+            icon: '/images/img-wallet.png',
+        },
+        {
+            id: 2,
+            title: t('copyTrade.profit'),
+            value: '0,0000',
+            icon: '/images/img-profit.png',
+        },
+    ];
     return (
         <div className="flex flex-col gap-6">
 

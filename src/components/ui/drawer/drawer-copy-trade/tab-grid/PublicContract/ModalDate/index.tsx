@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -14,24 +15,27 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction='up' ref={ref} {...props} />;
 });
 
-const DATA_SURF = [
-  {
-    id: 1,
-    title: '7 Ngày',
-  },
-  {
-    id: 2,
-    title: '30 Ngày',
-  },
-  {
-    id: 3,
-    title: '90 Ngày',
-  },
-];
+
 
 const ModalDate = (props: any, ref: any) => {
   const { handleClick, value } = props;
+  const { t } = useTranslation()
   const [open, setOpen] = useState<boolean>(false);
+
+  const DATA_SURF = [
+    {
+      id: 1,
+      title: t('copyTrade.filter.daysFilter.day_7'),
+    },
+    {
+      id: 2,
+      title: t('copyTrade.filter.daysFilter.day_30'),
+    },
+    {
+      id: 3,
+      title: t('copyTrade.filter.daysFilter.day_90'),
+    },
+  ];
 
   const handleClose = () => {
     setOpen(false);
@@ -70,7 +74,7 @@ const ModalDate = (props: any, ref: any) => {
       <DialogContent className='h-max'>
         <div className='flex flex-col gap-6 py-6 px-4'>
           <Typography variant='body1' color={'#212121'} fontWeight={600}>
-            Chọn ngày
+           {t('copyTrade.select_date')}
           </Typography>
           <div className='grid grid-cols-2 gap-y-4 gap-x-3'>
             {DATA_SURF?.map((item) => {

@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 
 // Styled components
 const StyledTableContainer = styled(TableContainer)({
@@ -78,16 +79,17 @@ const TableVolatility = () => {
         crossCopied: '1',
         operatingTime: '1 ngày'
     });
+    const { t } = useTranslation();
 
     return (
         <StyledTableContainer>
             <StyledTable stickyHeader>
                 <TableHead>
                     <TableRow>
-                        <FixedHeaderTableCell  className='normal-case'>Thị trường</FixedHeaderTableCell>
-                        <TableHeaderCellCustom  className='normal-case' align="left">Biến động</TableHeaderCellCustom>
-                        <TableHeaderCellCustom   className='normal-case' align="left">Giá gần nhất</TableHeaderCellCustom>
-                        <TableHeaderCellCustom  className='normal-case' align="left">24H %</TableHeaderCellCustom>
+                        <FixedHeaderTableCell className='normal-case'>{t('bot.market')}</FixedHeaderTableCell>
+                        <TableHeaderCellCustom className='normal-case' align="left">{t('bot.fluctuation')}</TableHeaderCellCustom>
+                        <TableHeaderCellCustom className='normal-case' align="left">{t('bot.nearest_price')}</TableHeaderCellCustom>
+                        <TableHeaderCellCustom className='normal-case' align="left">{t('bot.day')}</TableHeaderCellCustom>
                     </TableRow>
                 </TableHead>
                 <TableBody>

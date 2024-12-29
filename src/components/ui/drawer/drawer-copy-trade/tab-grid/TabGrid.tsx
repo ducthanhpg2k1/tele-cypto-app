@@ -8,19 +8,21 @@ import { useRef, useState } from 'react';
 import { TagAction } from '../../drawer-bot-trade/transaction/TransactionAI/Popular';
 import ModalDate from './PublicContract/ModalDate';
 import { clsx } from 'clsx';
+import { useTranslation } from 'react-i18next';
 
-const DATA_CONTRACT = ['PnL', 'ROI', 'MMD', 'AUM', 'Copy Trader']
 
 const TabGrid = ({ type }: { type?: string }) => {
+  const { t } = useTranslation()
+  const DATA_CONTRACT = [t('copyTrade.filter.pnl'), t('copyTrade.filter.roi'), t('copyTrade.filter.mmd'), t('copyTrade.filter.aum'), t('copyTrade.filter.copyTradeR')]
 
   const tabDeliveredImmediately: TabItem[] = [
     {
-      label: 'Danh mục đầu tư',
+      label: t('copyTrade.investTab'),
       key: 'copyTrade.tabs.public',
       content: <PublicContract type={type} />,
     },
     {
-      label: 'Yêu thích',
+      label: t('copyTrade.favorites'),
       key: 'copyTrade.tabs.private',
       content: <PublicContract type={type} />,
     },
@@ -44,8 +46,8 @@ const TabGrid = ({ type }: { type?: string }) => {
   ];
   const refModalDate: any = useRef()
 
-  const [valueDate, setValueDate] = useState<string>('90 ngày')
-  const [activeFilter, setActiveFilter] = useState<string>('ROI')
+  const [valueDate, setValueDate] = useState<string>(t('copyTrade.filter.daysFilter.day_90'))
+  const [activeFilter, setActiveFilter] = useState<string>(t('copyTrade.filter.roi'))
 
   const handleActiveFilter = (value: string) => {
     setActiveFilter(value)

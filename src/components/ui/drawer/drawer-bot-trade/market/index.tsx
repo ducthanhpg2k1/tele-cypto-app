@@ -8,6 +8,7 @@ import IconSetting from "src/assets/icons/IconSetting";
 import IconFilter from "src/assets/icons/IconFilter";
 import IconList from "src/assets/icons/IconList";
 import IconMenu from "src/assets/icons/IconMenu";
+import { useTranslation } from "react-i18next";
 
 export enum TYPE_TAB {
     TOP_ROI = 0,
@@ -20,6 +21,7 @@ const Market = () => {
     const [activeTab, setActiveTab] = useState<TYPE_TAB>(0)
     const [valueFilter, setValueFilter] = useState<number>(2)
     const [valueFilterTransaction, setValueTransaction] = useState<number>(1)
+    const { t } = useTranslation();
 
 
     const [activeFilter, setActiveFilter] = useState<boolean>(false)
@@ -37,17 +39,17 @@ const Market = () => {
     }
     const tabGrids: TabItem[] = [
         {
-            label: 'Top ROI',
+            label: t('bot.topToi'),
             key: TYPE_TAB.TOP_ROI,
             content: <TopRoi index={index} activeFilter={activeFilter} handleChangeIndex={handleChangeIndex} />,
         },
         {
-            label: 'Cặp giao dịch',
+            label: t('bot.trading_pair'),
             key: TYPE_TAB.TRANSACTION,
             content: <TradingPair valueFilterTransaction={valueFilterTransaction} />,
         },
         {
-            label: 'Biến động',
+            label: t('bot.fluctuation'),
             key: TYPE_TAB.FLUCTUATIONS,
             content: <Volatility />,
         },

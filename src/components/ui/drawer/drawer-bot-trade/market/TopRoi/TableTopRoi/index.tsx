@@ -2,6 +2,7 @@ import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 
 // Styled components
 const StyledTableContainer = styled(TableContainer)({
@@ -59,6 +60,8 @@ const TableBodyCell = styled(TableCell)({
 // });
 
 const TableTopRoi = () => {
+  const { t } = useTranslation();
+
   const trades = Array(15).fill({
     pair: 'BTC/USDT',
     price: '10923',
@@ -79,13 +82,13 @@ const TableTopRoi = () => {
         <TableHead>
           <TableRow>
             <TableCell component='th' scope='row' sx={sx.tableCell}>
-              Thị trường
+              {t('bot.market')}
             </TableCell>
-            <TableHeaderCellCustom className='normal-case' align='left'>PNL(USD)</TableHeaderCellCustom>
-            <TableHeaderCellCustom className='normal-case' align='left'>Mức đầu tư tối thiểu</TableHeaderCellCustom>
-            <TableHeaderCellCustom  className='normal-case' align='left'>Thời gian hoạt động</TableHeaderCellCustom>
-            <TableHeaderCellCustom className='normal-case' align='left'>ROI</TableHeaderCellCustom>
-            <TableHeaderCellCustom className='normal-case' align='left'>Đã sao chép</TableHeaderCellCustom>
+            <TableHeaderCellCustom className='normal-case' align='left'>{t('bot.usd')}</TableHeaderCellCustom>
+            <TableHeaderCellCustom className='normal-case' align='left'>{t('bot.minimum_investment')}</TableHeaderCellCustom>
+            <TableHeaderCellCustom className='normal-case' align='left'>{t('bot.card.minTrade')}</TableHeaderCellCustom>
+            <TableHeaderCellCustom className='normal-case' align='left'>{t('bot.card.roi')}</TableHeaderCellCustom>
+            <TableHeaderCellCustom className='normal-case' align='left'>{t('bot.copied')}</TableHeaderCellCustom>
           </TableRow>
         </TableHead>
         <TableBody>

@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import ModalTradingPair from "../transaction/TransactionAI/ModalTradingPair";
 import ModalStatus from "./ModalStatus";
 import ModalTrailingUp from "./ModalTrailingUp";
+import { useTranslation } from "react-i18next";
 
 export enum TYPE_TAB {
     RUNNING = 0,
@@ -19,6 +20,7 @@ const AllCommands = ({ handleClickMarketBot }: { handleClickMarketBot: VoidFunct
     const [activeTab, setActiveTab] = useState<TYPE_TAB>(0)
     const [valueStatus, setValueStatus] = useState<string>('');
     const [valueTrailingUp, setValueTrailingUp] = useState<string>('');
+    const { t } = useTranslation();
 
     const [valueTradingPair, setValueTopTradingPair] = useState<any>({
         title: '',
@@ -30,12 +32,12 @@ const AllCommands = ({ handleClickMarketBot }: { handleClickMarketBot: VoidFunct
     const refModalSurfSpot: any = useRef()
     const tabGrids: TabItem[] = [
         {
-            label: 'Đang chạy',
+            label: t('bot.running'),
             key: TYPE_TAB.RUNNING,
             content: <Running handleClickMarketBot={handleClickMarketBot} />,
         },
         {
-            label: 'Lịch sử',
+            label: t('bot.history'),
             key: TYPE_TAB.HISTORY,
             content: <History />,
         },
@@ -63,15 +65,15 @@ const AllCommands = ({ handleClickMarketBot }: { handleClickMarketBot: VoidFunct
                                     <TagAction handleClick={() => refModalSurfSpot.current.onOpen()} label={valueTop} />
                                     <TagAction
                                         handleClick={() => refModalTradingPair.current.onOpen()}
-                                        label={valueTradingPair?.title || 'Cặp'}
+                                        label={valueTradingPair?.title || t('bot.bag')}
                                     />
                                     <TagAction
                                         handleClick={() => refModalStatus.current.onOpen()}
-                                        label={valueStatus || 'Trạng thái'}
+                                        label={valueStatus || t('bot.status')}
                                     />
                                     <TagAction
                                         handleClick={() => refModalTrailingUp.current.onOpen()}
-                                        label={valueTrailingUp || 'Trailing Up'}
+                                        label={valueTrailingUp || t('bot.trailing_up')}
                                     />
                                 </div>
                             )

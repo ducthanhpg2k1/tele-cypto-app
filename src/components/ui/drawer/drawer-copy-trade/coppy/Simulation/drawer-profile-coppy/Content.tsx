@@ -10,40 +10,44 @@ import { Tabs } from 'src/components/ui/tabs';
 import { TabItem } from 'src/components/ui/tabs/types';
 import { NoData } from '../..';
 import Button from 'src/components/ui/button';
-const DATA_PROFILE = [
-  {
-    id: 1,
-    label: 'Đòn bẩy cao'
-  }, {
-    id: 2,
-    label: 'Hiệu suất cao nhất'
-  },
-  {
-    id: 3,
-    label: 'Người kiếm tiền'
-  }
-]
+import { useTranslation } from 'react-i18next';
+
 
 const Content = () => {
+  const { t } = useTranslation()
+
+  const DATA_PROFILE = [
+    {
+      id: 1,
+      label: t('copyTrade.high_leverage')
+    }, {
+      id: 2,
+      label: t('copyTrade.highest_performance')
+    },
+    {
+      id: 3,
+      label: t('copyTrade.money_maker')
+    }
+  ]
 
   const tabGrids: TabItem[] = [
     {
-      label: 'Vị thế',
+      label: t('copyTrade.position'),
       key: 'copyTrade.tabs.public',
       // content: <PublicContract type={type}/>,
     },
     {
-      label: 'Lịch sử vị thế',
+      label: t('copyTrade.transaction_history'),
       key: 'copyTrade.tabs.private',
       // content: <PublicContract type={type}/>,
     },
     {
-      label: 'Lịch sử vị thế',
+      label: t('copyTrade.position_history'),
       key: 'copyTrade.tabs.favorites',
       // content: <PublicContract type={type}/>,
     },
     {
-      label: 'Lịch sử số dư',
+      label: t('copyTrade.balance_history'),
       key: 'copyTrade.tabs.favorites',
       // content: <PublicContract type={type}/>,
     },
@@ -65,7 +69,7 @@ const Content = () => {
             <Typography color={'#212121'} fontWeight={600} variant='body1'>Master Chef</Typography>
             <div className='bg-[#F5F5F5] rounded py-0.5 px-1 flex items-center gap-0.5 w-max'>
               <Image src={'/assets/iconly/ic-lock.svg'} width={18} height={18} alt='' />
-              <Typography color={'#212121'} fontWeight={500} className='text-[10px] leading-3'>Riêng tư</Typography>
+              <Typography color={'#212121'} fontWeight={500} className='text-[10px] leading-3'>{t('copyTrade.private')}</Typography>
 
             </div>
           </div>
@@ -76,11 +80,11 @@ const Content = () => {
 
       <div>
         <div className='bg-[#F5F5F5] w-max rounded-full text-[10px] text-[#212121] leading-3 py-[2px] px-0.5 flex justify-center items-center'>
-          Riêng tư
+          {t('copyTrade.private')}
         </div>
 
         <div className='flex flex-col gap-1 justify-center w-max items-center'>
-          <Typography color={'#212121'} fontWeight={600} variant='body2'>Futures</Typography>
+          <Typography color={'#212121'} fontWeight={600} variant='body2'>{t('copyTrade.futures')}</Typography>
           <div className='bg-[#177DFF] w-8 h-0.5 rounded-full' />
         </div>
       </div>
@@ -105,7 +109,7 @@ const Content = () => {
       <div className='grid grid-cols-4 gap-1'>
         <div className='flex flex-col gap-0.5'>
           <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-            Số ngày tham gia
+            {t('copyTrade.number_of_days')}
           </Typography>
           <Typography className='text-[12px] leading-3' color={'#212121'} fontWeight={500}>
             130
@@ -113,7 +117,7 @@ const Content = () => {
         </div>
         <div className='flex flex-col gap-0.5'>
           <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-            Người sao chép
+            {t('copyTrade.person_copy')}
           </Typography>
           <Typography className='text-[12px] leading-3' color={'#212121'} fontWeight={500}>
             12/100
@@ -121,7 +125,7 @@ const Content = () => {
         </div>
         <div className='flex flex-col gap-0.5'>
           <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-            Tổng số người sao chép
+            {t('copyTrade.total_person_copy')}
           </Typography>
           <Typography className='text-[12px] leading-3' color={'#212121'} fontWeight={500}>
             19
@@ -129,7 +133,7 @@ const Content = () => {
         </div>
         <div className='flex flex-col gap-0.5'>
           <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-            Danh mục
+            {t('copyTrade.category')}
           </Typography>
           <Typography className='text-[12px] leading-3' color={'#212121'} fontWeight={500}>
             1
@@ -141,7 +145,8 @@ const Content = () => {
         <div className='grid grid-cols-2'>
           <div className='flex flex-col gap-0.5'>
             <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-              Số dư ký quỹ định hướng(USDT)
+              {t('copyTrade.directional_margin_balance')}
+
             </Typography>
             <Typography className='text-[12px] leading-3' color={'#212121'} fontWeight={500}>
               220,33
@@ -149,7 +154,7 @@ const Content = () => {
           </div>
           <div className='flex flex-col gap-0.5'>
             <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-              AUM(USDT)
+              {`${t('copyTrade.aum')}(USDT)`}
             </Typography>
             <Typography className='text-[12px] leading-3' color={'#212121'} fontWeight={500}>
               220,33
@@ -159,7 +164,7 @@ const Content = () => {
         <div className='grid grid-cols-2'>
           <div className='flex flex-col gap-0.5'>
             <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-              Số dư ký quỹ định hướng(USDT)
+              {t('copyTrade.directional_margin_balance')}
             </Typography>
             <Typography className='text-[12px] leading-3' color={'#4AAF57'} fontWeight={500}>
               + 220,33
@@ -167,7 +172,7 @@ const Content = () => {
           </div>
           <div className='flex flex-col gap-0.5'>
             <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-              Số tiền sao chép tối thiểu(USDT)
+              {t('copyTrade.copy_amount')}
             </Typography>
             <Typography className='text-[12px] leading-3' color={'#212121'} fontWeight={500}>
               10/10
@@ -177,7 +182,7 @@ const Content = () => {
         </div>
         <div className='flex flex-col gap-0.5'>
           <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-            Chia lợi nhuận
+            {t('copyTrade.profit_sharing')}
           </Typography>
           <Typography className='text-[12px] leading-3' color={'#212121'} fontWeight={500}>
             0.00%
@@ -189,7 +194,8 @@ const Content = () => {
         <div className='flex justify-between items-center'>
           <div className='flex items-center gap-1'>
             <Typography variant='body2' color={'#212121'} fontWeight={600}>
-              Hiệu suất
+              {t('copyTrade.efficiency')}
+
             </Typography>
             <IconNote />
           </div>
@@ -206,7 +212,7 @@ const Content = () => {
           <div className='grid grid-cols-2'>
             <div className='flex flex-col gap-0.5'>
               <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-                ROI
+                {t('copyTrade.filter.roi')}
               </Typography>
               <Typography className='text-[12px] leading-3' color={'#4AAF57'} fontWeight={500}>
                 10,73%
@@ -214,7 +220,7 @@ const Content = () => {
             </div>
             <div className='flex flex-col gap-0.5'>
               <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-                PnL(USDT)
+                {`${t('copyTrade.filter.pnl')}(USDT)`}
               </Typography>
               <Typography className='text-[12px] leading-3' color={'#4AAF57'} fontWeight={500}>
                 220,33
@@ -225,7 +231,7 @@ const Content = () => {
           <div className='grid grid-cols-2'>
             <div className='flex flex-col gap-0.5'>
               <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-                Hệ số Shape
+                {t('copyTrade.shape_factor')}
               </Typography>
               <Typography className='text-[12px] leading-3' color={'#212121'} fontWeight={500}>
                 20,08
@@ -233,7 +239,7 @@ const Content = () => {
             </div>
             <div className='flex flex-col gap-0.5'>
               <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-                Tỷ lệ thắng
+                {t('copyTrade.win_rate')}
               </Typography>
               <Typography className='text-[12px] leading-3' color={'#212121'} fontWeight={500}>
                 75%
@@ -244,7 +250,7 @@ const Content = () => {
           <div className='grid grid-cols-2'>
             <div className='flex flex-col gap-0.5'>
               <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-                Số vị thế sinh lời
+              {t('copyTrade.number_of_profitable')}
               </Typography>
               <Typography className='text-[12px] leading-3' color={'#212121'} fontWeight={500}>
                 12
@@ -252,7 +258,7 @@ const Content = () => {
             </div>
             <div className='flex flex-col gap-0.5'>
               <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
-                Tổng số vị thuế
+              {t('copyTrade.total_tax')}
               </Typography>
               <Typography className='text-[12px] leading-3' color={'#212121'} fontWeight={500}>
                 16
@@ -276,13 +282,13 @@ const Content = () => {
           variant='blue'
           className='h-9 font-semibold'
         >
-          <Typography className='text-[14px]'>Mô phỏng</Typography>
+          <Typography className='text-[14px]'>{t('copyTrade.filter.simulationBtn')}</Typography>
         </Button>
         <Button
           fullWidth
           className='h-9 font-semibold'
         >
-          <Typography className='text-[14px]'>Sao chép</Typography>
+          <Typography className='text-[14px]'>{t('copyTrade.filter.copyBtn')}</Typography>
         </Button>
 
       </div>

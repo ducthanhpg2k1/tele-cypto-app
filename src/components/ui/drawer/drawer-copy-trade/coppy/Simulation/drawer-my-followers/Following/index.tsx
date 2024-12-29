@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material"
 import Image from "next/image"
+import { useTranslation } from "react-i18next"
 import Button from "src/components/ui/button"
 
 const DATA_FOLLOWING = [{
@@ -34,6 +35,8 @@ const DATA_FOLLOWING = [{
 }
 ]
 const Following = () => {
+  const { t } = useTranslation()
+
     return (
         <div className="flex flex-col gap-6 mt-6">
             {DATA_FOLLOWING?.map((item) => {
@@ -62,7 +65,7 @@ const Following = () => {
 
                             className='max-h-7 flex justify-center items-center font-semibold'
                         >
-                            <Typography className='text-[14px]'>Theo dõi</Typography>
+                            <Typography className='text-[14px]'>{t('copyTrade.monitor')}</Typography>
                         </Button>
                     </div>
                 )

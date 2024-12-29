@@ -6,23 +6,13 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Button from 'src/components/ui/button';
 import { NoData } from '../..';
 import DrawerMyFollowers from '../drawer-my-followers';
-const DATA_PROFILE = [
-  {
-    id: 1,
-    label: 'Đòn bẩy cao'
-  }, {
-    id: 2,
-    label: 'Hiệu suất cao nhất'
-  },
-  {
-    id: 3,
-    label: 'Người kiếm tiền'
-  }
-]
+import { useTranslation } from 'react-i18next';
+
 
 const Content = () => {
 
   const refMyFollowers:any = useRef()
+  const { t } = useTranslation()
 
 
 
@@ -41,7 +31,7 @@ const Content = () => {
             >
               <div className='flex items-center gap-0.5'>
                 <IconUser />
-                <Typography className='text-[14px]'>Theo dõi</Typography>
+                <Typography className='text-[14px]'>{t('copyTrade.monitor')}</Typography>
               </div>
 
             </Button>
@@ -57,10 +47,10 @@ const Content = () => {
       </div>
 
       <div className='flex items-center gap-6'>
-        <ItemProfile onClick={()=>refMyFollowers.current.onOpen()} label='Đang theo dõi' value='1' />
-        <ItemProfile onClick={()=>refMyFollowers.current.onOpen()} label='Người theo dõi' value='1' />
-        <ItemProfile label='Đã thích' value='0' />
-        <ItemProfile label='Đã chia sẻ' value='0' />
+        <ItemProfile onClick={()=>refMyFollowers.current.onOpen()} label={t('copyTrade.following')} value='1' />
+        <ItemProfile onClick={()=>refMyFollowers.current.onOpen()} label={t('copyTrade.followers')} value='1' />
+        <ItemProfile label={t('copyTrade.liked')} value='0' />
+        <ItemProfile label={t('copyTrade.shared')}  value='0' />
       </div>
 
       <Button
@@ -70,13 +60,13 @@ const Content = () => {
       >
         <div className='flex items-center gap-0.5'>
           <IconCoppy />
-          <Typography className='text-[14px]'>Sao chép giao dịch</Typography>
+          <Typography className='text-[14px]'>{t('copyTrade.copy_trading')}</Typography>
         </div>
 
       </Button>
       <Divider variant='fullWidth' />
 
-      <NoData isProfile label='Không tìm được dữ liệu'/>
+      <NoData isProfile label={t('copyTrade.no_data_found')}/>
 
       <DrawerMyFollowers refMyFollowers={refMyFollowers}/>
     </div>

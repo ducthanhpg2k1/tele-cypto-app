@@ -7,6 +7,7 @@ import Transaction from './transaction';
 import AllCommands from './all-commands';
 import Market from './market';
 import ModalFilter from './all-commands/ModalFilter';
+import { useTranslation } from 'react-i18next';
 
 export enum TAB_BOT_TRADE {
   BOT = 'bot',
@@ -18,21 +19,24 @@ const DrawerBotTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
   const [activeTab, setActiveTab] = useState<TAB_BOT_TRADE>(TAB_BOT_TRADE?.BOT);
   const [showSection, setShowSection] = useState(true)
   const refModalFilter: any = useRef()
+  const { t } = useTranslation();
+
   const renderTitleBotTrade = () => {
+
     let text: string = '';
 
     switch (activeTab) {
       case TAB_BOT_TRADE.BOT:
-        text = 'Bot giao dịch';
+        text = t('bot.trading_bot');
         break;
       case TAB_BOT_TRADE.ALL_COMMANDS:
-        text = 'Tất cả các lệnh';
+        text =  t('bot.all_commands');
         break;
       case TAB_BOT_TRADE.MARKET:
-        text = 'Thị trường';
+        text = t('bot.market');
         break;
       case TAB_BOT_TRADE.TRANSACTION:
-        text = 'Giao dịch';
+        text = t('bot.transaction');
         break;
     }
     return text;
@@ -41,8 +45,6 @@ const DrawerBotTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
     setActiveTab(TAB_BOT_TRADE.MARKET)
   }
   const handleScroll = (e: any) => {
-    console.log(e.target.scrollTop, 'e.target.scrollTop');
-
     if (e.target.scrollTop <= 0) {
       setShowSection(true);
     } else {

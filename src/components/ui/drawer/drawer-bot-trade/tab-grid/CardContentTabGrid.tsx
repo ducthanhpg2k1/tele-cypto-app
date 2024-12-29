@@ -46,7 +46,7 @@ const CardContentTabGrid = ({ onClick }: { onClick?: VoidFunction }) => {
         </div>
         <div className='flex items-center justify-between'>
           <Information label={t('bot.card.addTraded')} value='146/625' />
-          <Button className='h-8 !p-0 text-xs font-bold'>Sao Chép</Button>
+          <Button className='h-8 !p-0 text-xs font-bold'>{t('bot.card.copy')}</Button>
         </div>
       </Box>
     </div>
