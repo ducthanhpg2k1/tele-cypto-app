@@ -5,8 +5,10 @@ import clsx from "clsx";
 import Button from "src/components/ui/button";
 import DrawerProfileCoppy from "./drawer-profile-coppy";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 const Simulation = () => {
     const refDrawerProfileCoppy: any = useRef()
+    const { t } = useTranslation()
 
     return (
         <>
@@ -21,21 +23,21 @@ const Simulation = () => {
                                 </Typography>
                                 <div className="bg-[#E8F2FF] rounded py-0.5 px-1 flex justify-center items-center">
                                     <Typography className="text-[10px] leading-3" color={'#177DFF'} fontWeight={400}>
-                                        Sao chép mô phỏng
+                                       {t('copyTrade.copy_simulation')}
                                     </Typography>
                                 </div>
                             </div>
                             <Typography className="text-[10px] leading-3" color={'#757575'} fontWeight={400}>
-                                Ngày sao chép: 24/10/2024
+                               {`${t('copyTrade.copy_date')}: 24/10/2024`}
                             </Typography>
                         </div>
                     </div>
                     <ChevronRightIcon className="text-[#757575]" />
                 </div>
                 <div className="flex flex-col gap-1">
-                    <ItemCard label="Số tiền sao chép ròng" value="10,000,000" />
-                    <ItemCard textUnderline label="ROI" value="0%" />
-                    <ItemCard textUnderline label="Lãi lỗ chưa ghi nhận (USDT)" value="0,000" />
+                    <ItemCard label={t('copyTrade.filter.amountCopy')} value="10,000,000" />
+                    <ItemCard textUnderline label={t('copyTrade.filter.roi')} value="0%" />
+                    <ItemCard textUnderline label={t('copyTrade.filter.unrealizedProfitAndLoss')} value="0,000" />
 
                 </div>
                 <div className='flex items-center gap-3'>
@@ -44,14 +46,14 @@ const Simulation = () => {
                         variant='blue'
                         className='h-9 font-semibold'
                     >
-                        <Typography className='text-[14px]'>Dừng sao chép</Typography>
+                        <Typography className='text-[14px]'>{t('copyTrade.stop_copy')}</Typography>
                     </Button>
                     <Button
                         fullWidth
                         onClick={() => refDrawerProfileCoppy.current.onOpen()}
                         className='h-9 font-semibold'
                     >
-                        <Typography className='text-[14px]'>Sao chép</Typography>
+                        <Typography className='text-[14px]'>{t('copyTrade.filter.copyBtn')}</Typography>
                     </Button>
                 </div>
             </div>

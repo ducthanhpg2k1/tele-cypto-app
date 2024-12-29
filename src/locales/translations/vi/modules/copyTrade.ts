@@ -80,5 +80,11 @@ export const copyTrade = {
   liked:'Đã thích',
   shared:'Đã chia sẻ',
   copy_trading:'Sao chép giao dịch',
-  no_data_found:'Không tìm được dữ liệu'
+  no_data_found:'Không tìm được dữ liệu',
+
+  copy_simulation:'Sao chép mô phỏng',
+  copy_date:'Ngày sao chép',
+  stop_copy: 'Dừng sao chép'
+
+
 };
