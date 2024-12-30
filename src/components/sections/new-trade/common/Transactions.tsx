@@ -6,17 +6,18 @@ import CustomSelect from '../../../ui/drawer/drawer-transfer/CustomSelect';
 import { mockDataCoin } from 'src/constants';
 import MenuRateIcon from 'src/assets/icons/MenuRateIcon';
 import ButtonBottomSheet from 'src/components/ui/button-bottomsheet/ButtonBottomSheet';
+import { t } from 'i18next';
 
 export default function Transactions() {
   return (
     <Box>
       <Grid container className='mb-1'>
         <Grid item xs={6}>
-          <TypographyRegular>Giá</TypographyRegular>
+          <TypographyRegular>{t('trade.price')}</TypographyRegular>
           <TypographyRegular>(USDT)</TypographyRegular>
         </Grid>
         <Grid item xs={6} className='text-right'>
-          <TypographyRegular>Số lượng</TypographyRegular>
+          <TypographyRegular>{t('trade.amount')}</TypographyRegular>
           <TypographyRegular>(BTC)</TypographyRegular>
         </Grid>
       </Grid>

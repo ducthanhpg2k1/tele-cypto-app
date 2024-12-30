@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Typography } from '@mui/material';
+import { t } from 'i18next';
 import { useState } from 'react';
 import EmptyFuture from 'src/assets/icons/EmptyFuture';
 import IconOctagonExclamation from 'src/assets/icons/IconOctagonExclamation';
@@ -38,7 +39,7 @@ export const EmptFuture = () => {
               color={action === 'basic' ? '#212121' : '#9e9e9e'}
               fontWeight={action === 'basic' ? 500 : 400}
             >
-              Cơ bản(0)
+              {t('trade.history.orderTabs.basic')}(0)
             </Typography>
           </CustomBox>
           <CustomBox active={action === 'condition'} onClick={() => setAction('condition')}>
@@ -47,7 +48,7 @@ export const EmptFuture = () => {
               color={action === 'condition' ? '#212121' : '#9e9e9e'}
               fontWeight={action === 'condition' ? 500 : 400}
             >
-              Có điều kiện(0)
+              {t('trade.history.orderTabs.condition')}(0)
             </Typography>
           </CustomBox>
         </Box>
@@ -56,7 +57,7 @@ export const EmptFuture = () => {
       <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: 1, my: 1 }}>
         <EmptyFuture />
         <Typography variant='caption' color={'#212121'}>
-          Không đủ tiền
+          {t('trade.history.orderTabs.noMoney')}
         </Typography>
       </Box>
     </>

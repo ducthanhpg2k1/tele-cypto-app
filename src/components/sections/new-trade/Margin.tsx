@@ -5,6 +5,7 @@ import CurrencyInfo from './common/CurrencyInfo';
 import { EmptySpotTrade } from './common/EmptySpotTrade';
 import FooterTrade from './common/FooterTrade';
 import Transactions from './common/Transactions';
+import { t } from 'i18next';
 
 export const Section = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -22,12 +23,12 @@ export default function NewTrade() {
   const tabs: TabItem[] = [
     {
       key: 'crypto',
-      label: 'Lệnh chờ (0)',
+      label: t('trade.history.tabs.orders') + ' (0)',
       content: <EmptySpotTrade />,
     },
     {
       key: 'account',
-      label: 'Tài sản',
+      label: t('trade.history.tabs.asset'),
       content: <EmptySpotTrade />,
     },
   ];

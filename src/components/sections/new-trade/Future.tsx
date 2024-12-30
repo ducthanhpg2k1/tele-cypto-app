@@ -15,6 +15,7 @@ import { DrawerHandle } from 'src/components/ui/drawer';
 import { EmptFuture } from './common/EmptFuture';
 import TradeCTAButton from 'src/components/ui/button/TradeCTAButton';
 import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade';
+import { t } from 'i18next';
 
 export const Section = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -36,21 +37,20 @@ export default function NewTrade() {
   const refExchange = useRef<DrawerHandle | null>(null);
   const refDrawerCopyTrade = useRef<DrawerHandle | null>(null);
 
-
   const tabsFuture: TabItem[] = [
     {
       key: 'crypto',
-      label: 'Lệnh chờ (0)',
+      label: t('trade.history.tabs.orders') + ' (0)',
       content: <EmptFuture />,
     },
     {
       key: 'account',
-      label: 'Vị thế (0)',
+      label: t('trade.history.tabs.positions') + ' (0)',
       content: <EmptFuture />,
     },
     {
       key: 'account',
-      label: 'Lưới hợp đồng',
+      label: t('trade.history.tabs.grid'),
       content: <EmptFuture />,
     },
   ];
@@ -69,7 +69,6 @@ export default function NewTrade() {
     }
     if (value === 2) {
       refBotTrade.current?.onOpen();
-
     }
 
     setValueCustom(value);
@@ -116,7 +115,7 @@ export default function NewTrade() {
           <TradeCTAButton
             title={
               <Typography variant='caption' color={'#e0e0e0'} className='font-normal'>
-                Không mất chi phí - Không lỗ
+                {t('trade.header.noCostNoLoss')}
               </Typography>
             }
             description={
@@ -126,7 +125,7 @@ export default function NewTrade() {
                 fontWeight={700}
                 className='line-clamp-1'
               >
-                Đặt lệnh giao dịch Hợp đồng Tương lai
+                {t('trade.header.placeFutureOrder')}
               </Typography>
             }
           />

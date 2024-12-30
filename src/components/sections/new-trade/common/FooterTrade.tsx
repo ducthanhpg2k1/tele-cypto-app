@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Button, Typography } from '@mui/material';
+import { t } from 'i18next';
 import CaretDown from 'src/assets/icons/CaretDown';
 import SecurityTime from 'src/assets/icons/SecurityTime';
 import { Tabs } from 'src/components/ui/tabs';
@@ -38,7 +39,7 @@ export default function FooterTrade({ tabs, type }: { tabs: TabItem[]; type?: 'F
           }}
         >
           <Typography variant='caption' color={'#212121'}>
-            Biểu đồ BTC/USDT
+            {t('trade.header.chart')} BTC/USDT
           </Typography>
           <CaretDown style={{ rotate: '180deg' }} />
         </Box>

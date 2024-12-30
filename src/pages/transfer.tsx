@@ -5,6 +5,7 @@ import MinimaLayout from 'src/layouts/MinimaLayout';
 import ArrowIcon from 'src/assets/icons/ArrowIcon';
 import SwitchVertical from 'src/assets/icons/SwitchVertical';
 import CoinIcon from 'src/assets/icons/CoinIcon';
+import { t } from 'i18next';
 
 // Styled Components
 const Container = styled(Box)(({ theme }) => ({
@@ -189,13 +190,13 @@ const TransferPage = () => {
                   },
                 }}
               >
-                Tối đa
+                max
               </Button>
             </Box>
           </StyledButton>
         </Box>
         <Typography variant='caption' color='text.secondary' mt={1}>
-          Khả dụng 0 USDT
+          {t('transfer.available')} 0 USDT
         </Typography>
       </Box>
     </Container>

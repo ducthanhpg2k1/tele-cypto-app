@@ -9,6 +9,7 @@ import StackBalance from './StackBalance';
 import ButtonTrade from './ButtonTrade';
 import SlideRanger from 'src/components/ui/slide-ranger/SlideRanger';
 import BottomSheetBalanceSection from 'src/components/ui/bottomsheet/bottom-sheet-balance-section/BottomSheetBalanceSection';
+import { t } from 'i18next';
 function valuetext(value: number) {
   return `${value}%`;
 }
@@ -67,7 +68,7 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
           sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: 'space-between' }}
         >
           <Typography variant='caption' color={'#9e9e9e'} className='font-normal'>
-            Khả dụng
+            {t('exchange.available')}
           </Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
             <Typography variant='caption' color='#212121' className='font-normal'>
@@ -104,7 +105,7 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
               color={isAction === 'buy' ? '#ffffff' : '#9E9E9E'}
               fontWeight={500}
             >
-              Mua
+              {t('trade.buy')}
             </Typography>
           </Box>
           <Box
@@ -126,7 +127,7 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
               color={isAction === 'sell' ? '#ffffff' : '#9E9E9E'}
               fontWeight={500}
             >
-              Bán
+              {t('trade.sell')}
             </Typography>
           </Box>
         </Box>
@@ -158,7 +159,7 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
             color='#9E9E9E'
             className='text-[10px] text-[#9E9E9E] font-normal'
           >
-            Giá (USDT)
+            {t('trade.price')} (USDT)
           </Typography>
           <Typography variant='body2' className='font-semibold'>
             {price.toFixed(2)}
@@ -178,7 +179,7 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
         sx={{ height: 42, position: 'relative', mt: 1.5 }}
       >
         <Typography variant='body2' color='#9e9e9e' fontWeight={500}>
-          Số lượng (BTC)
+          {t('trade.amount')} (BTC)
         </Typography>
         <IconButton size='small' className='absolute right-[4px]'>
           <PlusIcon style={{ height: '16px', width: '16px' }} color='#9E9E9E' />
@@ -201,7 +202,7 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
           }}
         >
           <Typography variant='body2' color={'#9E9E9E'} fontWeight={500}>
-            Tổng (USDT)
+            {t('trade.total')} (USDT)
           </Typography>
         </Button>
       )}
@@ -214,7 +215,7 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
           classNameLabel='font-normal'
         />
         <CustomCheckbox
-          label={'TẢNG BĂNG'}
+          label={t('trade.ice')}
           variantLabel='caption'
           classNameWrapper='flex-row items-center gap-[4px]'
           classNameLabel='font-normal'
@@ -223,7 +224,7 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
 
       <StackBalance type={type} />
       <ButtonTrade
-        title={type === 'FUTURE' ? 'Mua ký quỹ' : 'Mua CELR'}
+        title={type === 'FUTURE' ? t('trade.buy') : t('trade.buy') + ' ' + 'CELR'}
         style={{
           background: isAction === 'buy' ? '#4AAF57' : '#F54336',
         }}
@@ -234,7 +235,7 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
         <>
           <StackBalance type={type} />
           <ButtonTrade
-            title={'Bán/Short'}
+            title={t('trade.sell')}
             onClick={() => refDrawerBalanceSection.current.onOpen()}
             style={{
               background: '#F54336',

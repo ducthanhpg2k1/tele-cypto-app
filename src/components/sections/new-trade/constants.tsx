@@ -1,13 +1,14 @@
+import { t } from 'i18next';
 import { TabItem } from 'src/components/ui/tabs/types';
 
 export const TAB_TRADES: TabItem[] = [
   {
-    label: 'Chuyển đổi',
+    label: t('navigation.quickActions.convert'),
     key: 'transfer',
     content: <></>,
   },
   {
-    label: 'Giao ngay',
+    label: t('navigation.quickActions.spot'),
     key: 'Giao ngay',
     content: <></>,
   },
@@ -22,7 +23,7 @@ export const TAB_TRADES: TabItem[] = [
     content: <></>,
   },
   {
-    label: 'Sao chép',
+    label: t('navigation.quickActions.copytrade'),
     key: 'copy',
     content: <></>,
   },
@@ -35,7 +36,7 @@ export const TAB_FUTURES: TabItem[] = [
     content: <></>,
   },
   {
-    label: 'Sao chép',
+    label: t('navigation.quickActions.copytrade'),
     key: 'copy',
     content: <></>,
   },
@@ -45,7 +46,7 @@ export const TAB_FUTURES: TabItem[] = [
     content: <></>,
   },
   {
-    label: 'Bảng xếp hạng',
+    label: 'Rank',
     key: 'rank',
     content: <></>,
   },

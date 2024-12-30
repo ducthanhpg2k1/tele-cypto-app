@@ -100,7 +100,7 @@ const options: any = {
 
 const series = [
   {
-    name: 'Dữ liệu',
+    name: t('bot.data'),
     data: [10, 20, 50, 150, 500],
   },
 ];
@@ -113,7 +113,7 @@ const ChartLine = () => {
   useEffect(() => {
     setDataSeries([
       {
-        name: 'Dữ liệu',
+        name: t('bot.data'),
         data: shuffleArray([10, 20, 50, 150, 500]),
       },
     ]);

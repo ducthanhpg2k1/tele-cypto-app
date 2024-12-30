@@ -18,19 +18,19 @@ const BasicInformation = () => {
         {t('bot.basic_information')}
       </Typography>
       <div className='flex flex-col gap-3'>
-        <ItemInformation label={t('bot.uptime')} value='3 ngày 12 giờ 10 phút' />
+        <ItemInformation label={t('bot.uptime')} value={t('bot.days32')} />
         <ItemInformation label={t('bot.total_transactions')} value='47/198' />
         <ItemInformation label={t('bot.usdt_price')} value='2,038 - 3,500' />
         <ItemInformation label={t('bot.number_of_meshes')} value='47/198' />
-        <ItemInformation label={t('bot.regime')} value='Số học' />
+        <ItemInformation label={t('bot.regime')} value={t('bot.arithmetic')} />
         <ItemInformation label={t('bot.profit')} value='47/198' />
 
         <Collapse in={expanded} timeout='auto' unmountOnExit>
           <div className='flex flex-col gap-3'>
             <Divider variant='fullWidth' />
 
-            <ItemInformation label={t('bot.trailing_up')} value='3 ngày 12 giờ 10 phút' />
-            <ItemInformation label={t('bot.activation_price')} value='Huỷ kích hoạt' />
+            <ItemInformation label={t('bot.trailing_up')} value={t('bot.days32')} />
+            <ItemInformation label={t('bot.activation_price')} value={t('bot.cancel')} />
             <ItemInformation label={t('bot.stop_loss_price')} value='--' />
             <ItemInformation label={t('bot.stop_loss_price')} value='--' />
             <ItemInformation label={t('bot.take_profit_price')} value='--' />

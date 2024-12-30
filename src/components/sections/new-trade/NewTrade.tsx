@@ -13,6 +13,7 @@ import DrawerBotTrade from 'src/components/ui/drawer/drawer-bot-trade';
 import DrawerExchange from 'src/components/ui/drawer/drawer-exchange';
 import { DrawerHandle } from 'src/components/ui/drawer';
 import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade';
+import { t } from 'i18next';
 
 export const Section = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -37,12 +38,12 @@ export default function NewTrade() {
   const tabs: TabItem[] = [
     {
       key: 'crypto',
-      label: 'Lệnh chờ (0)',
+      label: t('trade.history.tabs.orders') + ' (0)',
       content: <EmptySpotTrade />,
     },
     {
       key: 'account',
-      label: 'Tài sản',
+      label: t('trade.history.tabs.asset'),
       content: <EmptySpotTrade />,
     },
   ];

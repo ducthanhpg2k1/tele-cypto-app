@@ -41,7 +41,7 @@ const CardContentTabGrid = ({ onClick }: { onClick?: VoidFunction }) => {
         </div>
         <div className='flex items-center justify-between'>
           <Information label={t('bot.card.roi')} value='42,66%' />
-          <Information label={t('bot.card.activateDate')} value='3 ngày 17 giờ 56ph' />
+          <Information label={t('bot.card.activateDate')} value={t('bot.days3')} />
           <Information label={t('bot.card.minTrade')} value='193,64719 USDT' />
         </div>
         <div className='flex items-center justify-between'>

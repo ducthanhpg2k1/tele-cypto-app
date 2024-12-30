@@ -9,6 +9,7 @@ import IconBotTrade from 'src/assets/icons/IconBotTrade';
 import IconTransaction from 'src/assets/icons/IconTransaction';
 import IconMarket from 'src/assets/icons/IconMarket';
 import { TAB_BOT_TRADE } from '..';
+import { t } from 'i18next';
 
 const NavPaper = styled(Paper)(({ theme }) => ({
   position: 'fixed',
@@ -62,7 +63,7 @@ const BottomNavBotTrade = ({
     <NavPaper elevation={3}>
       <StyledBottomNavigation value={activeTab} onChange={(_, newValue) => onChangeTab(newValue)}>
         <StyledBottomNavigationAction
-          label='Bot giao dịch'
+          label={t('bot.header')}
           value={TAB_BOT_TRADE.BOT}
           showLabel
           icon={

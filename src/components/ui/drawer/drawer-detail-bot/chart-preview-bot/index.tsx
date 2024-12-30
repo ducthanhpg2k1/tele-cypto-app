@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
+import { t } from 'i18next';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,23 +13,23 @@ const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 const DATA_FILTER = [
   {
     id: 2,
-    text: '1 giây',
+    text: t('bot.one_s'),
   },
   {
     id: 3,
-    text: '1m',
+    text: t('bot.min_1'),
   },
   {
     id: 4,
-    text: '5m',
+    text: t('bot.min_5'),
   },
   {
     id: 5,
-    text: '15m',
+    text: t('bot.min_15'),
   },
   {
     id: 6,
-    text: '30m',
+    text: t('bot.min_30'),
   },
 ];
 

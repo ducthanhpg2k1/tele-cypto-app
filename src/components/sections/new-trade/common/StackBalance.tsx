@@ -1,4 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material';
+import { t } from 'i18next';
 import Image from 'next/image';
 import React from 'react';
 
@@ -7,14 +8,14 @@ export default function StackBalance({ type }: { type: 'FUTURE' | 'SPOT' }) {
     <Stack className='gap-[2px] my-1'>
       {type !== 'FUTURE' && (
         <BalanceSection
-          title='Khả dụng'
+          title={t('transfer.available')}
           value='0 USDT'
           icon='/assets/iconly/icon-circle-plus.svg'
         />
       )}
-      <BalanceSection title='Tối đa' value='0 USDT' />
-      {type === 'FUTURE' && <BalanceSection title='Chi phí' value='0 USDT' />}
-      {type !== 'FUTURE' && <BalanceSection title='Vay' value='0 USDT' />}
+      <BalanceSection title={t('exchange.max')} value='0 USDT' />
+      {type === 'FUTURE' && <BalanceSection title={t('trade.form.cost')} value='0 USDT' />}
+      {type !== 'FUTURE' && <BalanceSection title={t('exchange.loan')} value='0 USDT' />}
     </Stack>
   );
 }

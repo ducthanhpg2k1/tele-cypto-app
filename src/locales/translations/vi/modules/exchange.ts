@@ -6,4 +6,5 @@ export const exchange = {
   end: 'Đến',
   available: 'Khả dụng',
   max: 'Tối đa',
+  loan: 'Vay',
 };

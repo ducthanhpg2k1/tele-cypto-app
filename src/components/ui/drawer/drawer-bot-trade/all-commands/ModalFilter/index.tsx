@@ -5,6 +5,7 @@ import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import clsx from 'clsx';
 import Button from 'src/components/ui/button';
+import { t } from 'i18next';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -35,11 +36,10 @@ const DATA_SURF = [
 ];
 
 const ModalFilter = (props: any, ref: any) => {
-  const { } = props;
+  const {} = props;
   const [open, setOpen] = useState<boolean>(false);
-  const [valueFilter, setValueFilter] = useState(1)
-  const [activeDate, setActiveDate] = useState(2)
-
+  const [valueFilter, setValueFilter] = useState(1);
+  const [activeDate, setActiveDate] = useState(2);
 
   const handleClose = () => {
     setOpen(false);
@@ -118,7 +118,6 @@ const ModalFilter = (props: any, ref: any) => {
                 style={{
                   background: activeDate === 1 ? '#E8F2FF' : '#F5F5F5',
                 }}
-
                 className={clsx('w-full min-h-9 rounded-md flex justify-center items-center')}
               >
                 <Typography
@@ -144,7 +143,6 @@ const ModalFilter = (props: any, ref: any) => {
                 <Typography
                   className='text-xs'
                   color={activeDate === 2 ? '#177DFF' : '#212121'}
-
                   fontWeight={400}
                 >
                   20-2-2025
@@ -158,24 +156,15 @@ const ModalFilter = (props: any, ref: any) => {
               *
             </Typography>
             <Typography className='text-xs' color={'#9E9E9E'} fontWeight={400}>
-              Hệ thống chỉ hỗ trợ hiển thị lịch sử giao dịch trong vòng 3 tháng qua. Để biết thêm dữ liệu, hãy truy cập web và xuất báo cáo.
+              {t('bot.no_sup')}
             </Typography>
           </div>
 
           <div className='flex items-center gap-4'>
-            <Button
-              onClick={handleClose}
-              fullWidth
-              variant='blue'
-              className='h-12 font-semibold'
-            >
+            <Button onClick={handleClose} fullWidth variant='blue' className='h-12 font-semibold'>
               <Typography className='text-[14px]'>Đặt lại</Typography>
             </Button>
-            <Button
-              onClick={handleClose}
-              fullWidth
-              className='h-12 font-semibold'
-            >
+            <Button onClick={handleClose} fullWidth className='h-12 font-semibold'>
               <Typography className='text-[14px]'>Xác nhận</Typography>
             </Button>
           </div>

@@ -5,4 +5,11 @@ export const wallet = {
   halfAYear: '180 Ngày',
   oneYear: '360 Ngày',
   dataReloaded: '*Số liệu được tải lại 1-2 giờ một lần',
+  overview: 'Tổng quan về tài khoản',
+  today: 'của hôm nay',
+  crypto: 'Tiền mã hóa',
+  account: 'Tài khoản',
+  totalBalance: 'Tổng số dư',
+  aver: 'Chi phí trung bình',
+  mar_lev: 'Mức kí quỹ',
 };

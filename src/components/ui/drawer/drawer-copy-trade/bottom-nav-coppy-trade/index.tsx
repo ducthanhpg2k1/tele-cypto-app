@@ -6,6 +6,7 @@ import { styled, useTheme } from '@mui/material/styles';
 import { TAB_COPPY_TRADE } from '..';
 import IconInvestmentPortfolio from 'src/assets/icons/IconInvestmentPortfolio';
 import IconCoppy from 'src/assets/icons/IconCoppy';
+import { t } from 'i18next';
 
 const NavPaper = styled(Paper)(({ theme }) => ({
   position: 'fixed',
@@ -59,29 +60,29 @@ const BottomNavCoppyTrade = ({
     <NavPaper elevation={3}>
       <StyledBottomNavigation value={activeTab} onChange={(_, newValue) => onChangeTab(newValue)}>
         <StyledBottomNavigationAction
-          label='Danh mục đầu tư'
+          label={t('copyTrade.investTab')}
           value={TAB_COPPY_TRADE.investmentPortfolio}
           showLabel
           icon={
             <IconInvestmentPortfolio
-              color={activeTab === TAB_COPPY_TRADE.investmentPortfolio ? theme.palette.primary.main : '#9E9E9E'}
-            />
-          }
-        />
-        <StyledBottomNavigationAction
-          label='Sao chép'
-          value={TAB_COPPY_TRADE.coppy}
-          showLabel
-          icon={
-            <IconCoppy
               color={
-                activeTab === TAB_COPPY_TRADE.coppy ? theme.palette.primary.main : '#9E9E9E'
+                activeTab === TAB_COPPY_TRADE.investmentPortfolio
+                  ? theme.palette.primary.main
+                  : '#9E9E9E'
               }
             />
           }
         />
-
-
+        <StyledBottomNavigationAction
+          label={t('copyTrade.filter.copyBtn')}
+          value={TAB_COPPY_TRADE.coppy}
+          showLabel
+          icon={
+            <IconCoppy
+              color={activeTab === TAB_COPPY_TRADE.coppy ? theme.palette.primary.main : '#9E9E9E'}
+            />
+          }
+        />
       </StyledBottomNavigation>
     </NavPaper>
   );

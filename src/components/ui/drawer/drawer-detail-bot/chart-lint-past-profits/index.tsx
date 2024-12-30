@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import dynamic from 'next/dynamic';
 import React from 'react';
 
@@ -77,7 +78,7 @@ const ChartLintPastProfits = () => {
 
   const series = [
     {
-      name: 'Dữ liệu',
+      name: t('bot.data'),
       data: percentageData,
     },
   ];

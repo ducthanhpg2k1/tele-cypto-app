@@ -50,7 +50,7 @@ const CardInformation = ({ handleCopy }: { handleCopy: VoidFunction }) => {
           <div className='flex flex-col gap-1'>
             <ItemInformation label={t('bot.usdt_price')} value='2,305 - 3,433' />
             <ItemInformation label={t('bot.total_transactions')} value='90' />
-            <ItemInformation label={t('bot.regime')} value='Số học' />
+            <ItemInformation label={t('bot.regime')} value={t('bot.rithmetic')} />
             <ItemInformation label={t('bot.profit')} value='0,26% - 0,58%' />
             <Divider variant='fullWidth' className='my-1' />
 

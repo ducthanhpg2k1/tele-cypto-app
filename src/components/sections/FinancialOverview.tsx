@@ -6,6 +6,7 @@ import ScrollableTabsButtonPrevent from '../ui/ScrollableTabsButtonPrevent';
 import { TabItem } from '../ui/tabs/types';
 import { Tabs } from '../ui/tabs';
 import Image from 'next/image';
+import { t } from 'i18next';
 
 // Styled Components
 const SectionContainer = styled(Box)(({ theme }) => ({
@@ -76,8 +77,8 @@ const SectionItemRow: React.FC<SectionItem> = ({
         <div className='flex flex-col gap-[2px]'>
           <Title>USDT</Title>
           <DetailText>TetherUS</DetailText>
-          <DetailText>PNL của hôm nay</DetailText>
-          <DetailText>Chi phí trung bình</DetailText>
+          <DetailText>PNL {t('wallet.today')}</DetailText>
+          <DetailText>{t('wallet.aver')}</DetailText>
         </div>
       </div>
       <div className='flex flex-col gap-[2px] text-end'>
@@ -95,7 +96,7 @@ const FinancialOverview: React.FC = () => {
   const tabs: TabItem[] = [
     {
       key: 'crypto',
-      label: 'Tiền mã hoá',
+      label: t('wallet.crypto'),
       content: (
         <Box sx={{ overflowY: 'auto', flex: 1, pt: 1 }}>
           {sectionItems.map((item) => (
@@ -106,7 +107,7 @@ const FinancialOverview: React.FC = () => {
     },
     {
       key: 'account',
-      label: 'Tài khoản',
+      label: t('wallet.account'),
       content: (
         <Box sx={{ overflowY: 'auto', flex: 1, mt: 1 }}>
           {sectionItems.map((item) => (
