@@ -354,7 +354,7 @@ const NavigationMenu = (): JSX.Element => {
                   p: 1,
                   borderRadius: 1,
                   color: 'primary.main',
-                  backgroundColor: 'neutral.200',
+                  backgroundColor: '#F5F5F5',
                 }}
               >
                 {getIconComponent(action.iconName)}
@@ -371,9 +371,7 @@ const NavigationMenu = (): JSX.Element => {
             sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
             onClick={() => refMore.current?.onOpen()}
           >
-            <Box
-              sx={{ p: 1, borderRadius: 1, color: 'primary.main', backgroundColor: 'neutral.200' }}
-            >
+            <Box sx={{ p: 1, borderRadius: 1, color: 'primary.main', backgroundColor: '#F5F5F5' }}>
               <MoreIcon />
             </Box>
             <Typography variant='caption' sx={{ mt: 0.5, color: 'text.primary' }}>

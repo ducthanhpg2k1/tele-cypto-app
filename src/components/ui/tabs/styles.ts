@@ -9,6 +9,7 @@ export const ScrollableTabs = styled(MuiTabs)<{ hideIndicator: boolean }>(
       borderRadius: 1000,
       height: '4px',
       transform: 'scaleX(0.7)',
+      marginBottom: '4px',
     },
     '& .Mui-selected': {
       color: `${theme.palette.primary.main} !important`,
@@ -21,9 +22,9 @@ export const TabCustom = styled(Tab, {
   rowGap: 2,
   fontSize: size == 'large' ? '16px' : '14px',
   minHeight: 'auto',
-  marginLeft:'0 !important',
-  marginRight:'16px',
-  minWidth:'32px',
+  marginLeft: '0 !important',
+  marginRight: '16px',
+  minWidth: '32px',
   '&.Mui-selected': {
     color: '#212121 !important',
     fontWeight: 600,

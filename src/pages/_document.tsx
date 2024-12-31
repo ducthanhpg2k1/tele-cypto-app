@@ -30,6 +30,12 @@ const CustomDocument = ({ emotionStyleTags }: CustomDocumentProps) => {
           type='image/png'
           sizes='180x180'
         />
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link rel='preconnect' href='https://fonts.gstatic.com' />
+        <link
+          href='https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'
+          rel='stylesheet'
+        />
         <meta name='emotion-insertion-point' content='' />
         {emotionStyleTags}
       </Head>
