@@ -20,6 +20,7 @@ type Props = {
   prefixIcon?: string;
   error?: string;
   colorIcon?: string;
+  fontWeight?: number;
 };
 
 const CustomSelect = (props: Props) => {
@@ -46,6 +47,7 @@ const CustomSelect = (props: Props) => {
         sx={{
           color: '#212121',
           backgroundColor: '#F5F5F5',
+          fontWeight: props.fontWeight ?? 500,
           lineHeight: '21px',
           '& .MuiOutlinedInput-notchedOutline': {
             border: 'none',
@@ -60,6 +62,8 @@ const CustomSelect = (props: Props) => {
             backgroundColor: '#F5F5F5',
             height: '21px',
             padding: 0,
+            fontWeight: props.fontWeight ?? 500,
+            lineHeight: '21px',
           },
         }}
       >

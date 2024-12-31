@@ -95,7 +95,9 @@ const Content = () => {
           />
         </Box>
       </Box>
-      <Button fullWidth>{t('exchange.trade')}</Button>
+      <Button fullWidth className='h-[48px] p-[10px]'>
+        <Typography className='text-[14px] font-semibold'>{t('exchange.trade')}</Typography>
+      </Button>
     </Box>
   );
 };

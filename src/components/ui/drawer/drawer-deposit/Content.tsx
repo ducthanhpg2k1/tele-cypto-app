@@ -52,8 +52,8 @@ const Content = () => {
         </Typography>
         <Image src='/assets/iconly/icon-arrow-up-grey.svg' alt='' width={16} height={16} />
       </Stack>
-      <Box position={'sticky'} bottom={'0px'} height={32} bgcolor={'#FFF'} paddingBottom={'20px'}>
-        <Button fullWidth className='sticky bottom-0.5'>
+      <Box position={'sticky'} bottom={'10px'} height={32} bgcolor={'#FFF'} paddingBottom={'20px'}>
+        <Button fullWidth className='sticky bottom-0.5 !h-[48px] !p-[10px]'>
           <Typography className='text-[14px]'>{t('deposit.button')}</Typography>
         </Button>
       </Box>

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { t } from 'i18next';
 import CustomCheckbox from 'src/components/ui/checkbox';
 import Info from '../drawer-airdrop/card/Info';
+import Button from '../../button';
 
 const step = ['myairdrop.visit', 'myairdrop.visit', 'myairdrop.visit', 'myairdrop.visit'];
 const Content = () => {
@@ -34,6 +35,9 @@ const Content = () => {
           })}
         </Stack>
       </Stack>
+      <Button fullWidth className='fixed bottom-10 max-w-[343px] h-[48px] p-[10px]'>
+        <Typography className='text-[14px] font-semibold'>Claim</Typography>
+      </Button>
     </Stack>
   );
 };

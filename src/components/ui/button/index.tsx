@@ -19,8 +19,8 @@ const Button: React.FC<ButtonProps> = ({
   const widthStyles = fullWidth ? 'w-full' : '';
 
   const variantStyles = {
-    pink:'bg-[#FFF5F5] text-[#F54336]',
-    primary: 'bg-blue-500 hover:bg-blue-600 text-white',
+    pink: 'bg-[#FFF5F5] text-[#F54336]',
+    primary: 'bg-[#177DFF] hover:bg-blue-600 text-white',
     blue: 'bg-[#E8F2FF] text-[#177DFF]',
     secondary: 'bg-green-500 hover:bg-green-600 text-white',
     danger: 'bg-red-500 hover:bg-red-600 text-white',

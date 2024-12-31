@@ -9,7 +9,7 @@ export const ScrollableTabs = styled(MuiTabs)<{ hideIndicator: boolean }>(
       borderRadius: 1000,
       height: '4px',
       transform: 'scaleX(0.7)',
-      marginBottom: '4px',
+      marginBottom: '8px',
     },
     '& .Mui-selected': {
       color: `${theme.palette.primary.main} !important`,

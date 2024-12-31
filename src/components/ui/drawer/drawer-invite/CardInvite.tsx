@@ -28,7 +28,7 @@ const CardInvite = () => {
           <CopyInviteIcon />
         </Stack>
       </Stack>
-      <Button fullWidth onClick={handleCopy}>
+      <Button fullWidth onClick={handleCopy} className='!h-fit'>
         <Typography className='text-[14px]'>{t('invite.button')}</Typography>
       </Button>
     </Stack>

@@ -92,7 +92,7 @@ export const tableDeposit = [
         options={['Spot', 'Funding', 'Future']}
         classNameValue='text-[10px] font-normal tracking-[0.2px] text-[#212121]'
         classNameIcon='w-2 h-2'
-        classNameMenuItem='left-[-30px]'
+        classNameMenuItem='left-[-40px]'
         className='gap-0.5'
         icon='/assets/iconly/ic-arrow-down.svg'
       />
