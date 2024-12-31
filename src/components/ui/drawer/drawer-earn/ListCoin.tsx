@@ -170,7 +170,7 @@ const ListCoin: React.FC = () => {
 
   return (
     <>
-      <Tabs tabs={tabList} defaultTab={0} />
+      <Tabs hideIndicator tabs={tabList} defaultTab={0} />
     </>
   );
 };

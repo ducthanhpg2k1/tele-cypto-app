@@ -93,7 +93,7 @@ const Content = () => {
         </Stack>
       </Box>
       <Button fullWidth className='!h-[48px] !p-[10px]'>
-        <Typography className='text-[14px]'>{t('transfer.confirm')}</Typography>
+        <Typography className='text-[14px] font-semibold'>{t('transfer.confirm')}</Typography>
       </Button>
     </Box>
   );
