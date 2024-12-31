@@ -1,11 +1,12 @@
 import { Dialog, DialogContent, Slide, Typography } from '@mui/material';
 import { TransitionProps } from '@mui/material/transitions';
 import Image from 'next/image';
-import React, { forwardRef, useImperativeHandle, useState } from 'react';
+import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import clsx from 'clsx';
 import Button from 'src/components/ui/button';
 import { t } from 'i18next';
+import DatePicker from 'react-datepicker';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -34,6 +35,122 @@ const DATA_SURF = [
     title: '3 Tháng',
   },
 ];
+
+const CustomPickerWheel = ({ items, selectedItem, onSelect }: any) => {
+  const containerRef: any = useRef(null);
+  const [itemHeight] = useState(40); // Chiều cao mỗi item (cố định)
+  const visibleItems = 5; // Số lượng item hiển thị (luôn là số lẻ để có item trung tâm)
+  const bufferSize = items.length; // Số lượng item buffer
+
+  const handleScroll = () => {
+    if (containerRef.current) {
+      const scrollTop = containerRef.current.scrollTop;
+
+      // Tính toán index của item trung tâm
+      const middleIndex = Math.round(scrollTop / itemHeight);
+
+      // Cập nhật item được chọn
+      if (items[middleIndex] !== selectedItem) {
+        onSelect(items[middleIndex]);
+      }
+
+      // Đảm bảo dừng cuộn chính xác tại item trung tâm
+      containerRef.current.scrollTo({
+        top: middleIndex * itemHeight,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  // Đảm bảo item được chọn luôn ở giữa khi khởi tạo
+  useEffect(() => {
+    if (containerRef.current) {
+      const index = items.indexOf(selectedItem);
+      containerRef.current.scrollTo({
+        top: index * itemHeight,
+        behavior: 'smooth',
+      });
+    }
+  }, [selectedItem, items, itemHeight]);
+
+  return (
+    <div
+      className='relative w-1/3 h-[200px] overflow-hidden'
+      style={{
+        perspective: '800px', // Tạo hiệu ứng chiều sâu
+      }}
+    >
+      {/* Hiệu ứng mờ trên */}
+      <div className='absolute top-0 w-full h-[50px] bg-gradient-to-b from-white to-transparent pointer-events-none z-10'></div>
+
+      <div
+        ref={containerRef}
+        onScroll={() => setTimeout(handleScroll, 100)} // Giảm tải số lần xử lý
+        className='overflow-y-scroll h-full w-full scrollbar-none'
+        style={{
+          scrollSnapType: 'y mandatory',
+        }}
+      >
+        {/* Khoảng trống trên */}
+        <div style={{ height: `${itemHeight * Math.floor(visibleItems / 2)}px` }}></div>
+
+        {items.map((item: any, index: number) => (
+          <div
+            key={index}
+            className={`h-[${itemHeight}px] flex justify-center items-center text-center ${
+              item === selectedItem ? 'font-bold text-blue-500' : 'text-gray-600'
+            }`}
+            style={{
+              scrollSnapAlign: 'center',
+            }}
+          >
+            {item}
+          </div>
+        ))}
+
+        {/* Khoảng trống dưới */}
+        <div style={{ height: `${itemHeight * Math.floor(visibleItems / 2)}px` }}></div>
+      </div>
+
+      {/* Hiệu ứng mờ dưới */}
+      <div className='absolute bottom-0 w-full h-[50px] bg-gradient-to-t from-white to-transparent pointer-events-none z-10'></div>
+
+      {/* Đường viền item trung tâm */}
+      <div className='absolute top-1/2 left-0 transform -translate-y-1/2 w-full h-[40px] text-[#323232] pointer-events-none z-20'></div>
+    </div>
+  );
+};
+
+const CustomScrollDatePicker = () => {
+  const [day, setDay] = useState('5');
+  const [month, setMonth] = useState('Tháng 5');
+  const [year, setYear] = useState('2024');
+
+  const days = Array.from({ length: 31 }, (_, i) => `${i + 1}`);
+  const months = [
+    'Tháng 1',
+    'Tháng 2',
+    'Tháng 3',
+    'Tháng 4',
+    'Tháng 5',
+    'Tháng 6',
+    'Tháng 7',
+    'Tháng 8',
+    'Tháng 9',
+    'Tháng 10',
+    'Tháng 11',
+    'Tháng 12',
+  ];
+  const years = Array.from({ length: 50 }, (_, i) => `${2020 + i}`);
+
+  return (
+    <div className='flex justify-center items-center'>
+      <CustomPickerWheel items={days} selectedItem={day} onSelect={setDay} />
+      <CustomPickerWheel items={months} selectedItem={month} onSelect={setMonth} />
+      <CustomPickerWheel items={years} selectedItem={year} onSelect={setYear} />
+    </div>
+  );
+};
 
 const ModalFilter = (props: any, ref: any) => {
   const {} = props;
@@ -149,6 +266,7 @@ const ModalFilter = (props: any, ref: any) => {
                 </Typography>
               </div>
             </div>
+            <CustomScrollDatePicker />
           </div>
 
           <div className='flex gap-0.5'>
