@@ -84,7 +84,11 @@ export default function DrawerMore({
           </Button>
         </StyledCard>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-          <Typography variant='subtitle1' sx={{ color: 'text.primary' }} className='text-[14px]'>
+          <Typography
+            variant='subtitle1'
+            sx={{ color: 'text.primary' }}
+            className='text-[14px] font-semibold'
+          >
             {t('navigation.drawer.suggestedActions')}
           </Typography>
         </Box>
