@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+
+//@ts-ignore
 import DatePicker from "react-mobile-datepicker";
 
 const CustomPickerWheel = () => {
-    const [time, setTime] = useState(new Date());
-    const [isOpen, setIsOpen] = useState(false);
 
     const monthMap: any = {
         "1": "Tháng 1",
@@ -40,23 +40,10 @@ const CustomPickerWheel = () => {
 
     };
 
-    //   const handleCancel = () => {
-    //     setIsOpen(false);
-    //   };
-
-    //   const handleSelect = (time: Date) => {
-    //     setTime(time);
-    //     setIsOpen(false);
-    //     console.log(time);
-    //   };
-
-
     return (
         <>
 
             <DatePicker
-                value={time}
-                isOpen={isOpen}
                 theme="ios"
                 isPopup={false}
                 showHeader={false}
@@ -64,7 +51,6 @@ const CustomPickerWheel = () => {
                 dateConfig={dateConfig}
             // dateFormat={[`${testMonth}/DD`, "MM", "mm"]}
             />
-            {/* <div className='absolute bottom-0 w-full h-[50px] bg-gradient-to-t from-white to-transparent pointer-events-none z-10'></div> */}
 
         </>
     );
