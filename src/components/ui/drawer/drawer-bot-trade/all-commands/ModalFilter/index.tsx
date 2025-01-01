@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import Button from 'src/components/ui/button';
 import { t } from 'i18next';
 import CustomPickerWheel from 'src/components/ui/picker-wheel';
+import dayjs from 'dayjs';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -38,42 +39,16 @@ const DATA_SURF = [
 
 
 
-const CustomScrollDatePicker = () => {
-  const [day, setDay] = useState('5');
-  const [month, setMonth] = useState('Tháng 5');
-  const [year, setYear] = useState('2024');
 
-  const days = Array.from({ length: 31 }, (_, i) => `${i + 1}`);
-  const months = [
-    'Tháng 1',
-    'Tháng 2',
-    'Tháng 3',
-    'Tháng 4',
-    'Tháng 5',
-    'Tháng 6',
-    'Tháng 7',
-    'Tháng 8',
-    'Tháng 9',
-    'Tháng 10',
-    'Tháng 11',
-    'Tháng 12',
-  ];
-  const years = Array.from({ length: 50 }, (_, i) => `${2020 + i}`);
-
-  return (
-    <div className='flex justify-center items-center'>
-      <CustomPickerWheel />
-      {/* <CustomPickerWheel items={months} selectedItem={month} onSelect={setMonth} />
-      <CustomPickerWheel items={years} selectedItem={year} onSelect={setYear} /> */}
-    </div>
-  );
-};
 
 const ModalFilter = (props: any, ref: any) => {
-  const {} = props;
+  const { } = props;
   const [open, setOpen] = useState<boolean>(false);
   const [valueFilter, setValueFilter] = useState(1);
   const [activeDate, setActiveDate] = useState(2);
+
+  const [valueDateOne, setValueDateOne] = useState(new Date())
+  const [valueDateTwo, setValueDateTwo] = useState(new Date())
 
   const handleClose = () => {
     setOpen(false);
@@ -88,6 +63,14 @@ const ModalFilter = (props: any, ref: any) => {
     },
   }));
 
+  const handleDateChange = (newDate: Date) => {
+    if (activeDate === 1) {
+      setValueDateOne(newDate)
+    } else {
+      setValueDateTwo(newDate)
+
+    }
+  };
   return (
     <Dialog
       fullWidth
@@ -159,7 +142,7 @@ const ModalFilter = (props: any, ref: any) => {
                   color={activeDate === 1 ? '#177DFF' : '#212121'}
                   fontWeight={400}
                 >
-                  28-12-2024
+                  {dayjs(valueDateOne).format('DD-MM-YYYY')}
                 </Typography>
               </div>
               <Typography className='text-xs' color={'#757575'} fontWeight={400}>
@@ -179,11 +162,12 @@ const ModalFilter = (props: any, ref: any) => {
                   color={activeDate === 2 ? '#177DFF' : '#212121'}
                   fontWeight={400}
                 >
-                  20-2-2025
+                  {dayjs(valueDateTwo).format('DD-MM-YYYY')}
+
                 </Typography>
               </div>
             </div>
-            <CustomScrollDatePicker />
+            <CustomPickerWheel value={activeDate === 1 ? valueDateOne : valueDateTwo} handleDateChange={handleDateChange} />
           </div>
 
           <div className='flex gap-0.5'>

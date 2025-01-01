@@ -3,7 +3,9 @@ import React, { useState } from "react";
 //@ts-ignore
 import DatePicker from "react-mobile-datepicker";
 
-const CustomPickerWheel = () => {
+const CustomPickerWheel = ({ value, handleDateChange }: { value: any, handleDateChange: any }) => {
+
+
 
     const monthMap: any = {
         "1": "Tháng 1",
@@ -46,9 +48,11 @@ const CustomPickerWheel = () => {
             <DatePicker
                 theme="ios"
                 isPopup={false}
+                value={value}
                 showHeader={false}
                 dateFormat={["DD", "MM", "YYYY"]}
                 dateConfig={dateConfig}
+                onChange={handleDateChange}
             // dateFormat={[`${testMonth}/DD`, "MM", "mm"]}
             />
 
