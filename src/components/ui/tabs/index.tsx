@@ -12,10 +12,19 @@ interface ITabProps extends TabsProps {
   hideIndicator?: boolean;
   size?: 'medium' | 'large';
   onChaneTab?: any;
-  contentHeaderTab?: ReactNode
-  isFixedTab?: boolean
+  contentHeaderTab?: ReactNode;
+  isFixedTab?: boolean;
 }
-export const Tabs = ({ contentHeaderTab, isFixedTab, tabs, defaultTab = 0, onChaneTab, children, hideIndicator, size }: ITabProps) => {
+export const Tabs = ({
+  contentHeaderTab,
+  isFixedTab,
+  tabs,
+  defaultTab = 0,
+  onChaneTab,
+  children,
+  hideIndicator,
+  size,
+}: ITabProps) => {
   const { t } = useTranslation();
   const theme = useTheme();
   const [value, setValue] = useState(defaultTab);
@@ -24,7 +33,7 @@ export const Tabs = ({ contentHeaderTab, isFixedTab, tabs, defaultTab = 0, onCha
   const handleChange = useCallback((event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
     setLoadedTabs((prev: Set<number>) => new Set([...prev, newValue]));
-    onChaneTab && onChaneTab(newValue)
+    onChaneTab && onChaneTab(newValue);
   }, []);
 
   const handleChangeIndex = (index: number) => {
@@ -33,14 +42,12 @@ export const Tabs = ({ contentHeaderTab, isFixedTab, tabs, defaultTab = 0, onCha
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%', height: '100%' }}>
       <div
         className={clsx('transition-all duration-300', {
           'sticky z-[9999] bg-white pb-1 top-[-18px]': isFixedTab,
           'pb-0': !isFixedTab,
-
-        }
-        )}
+        })}
       >
         <Box
           sx={{
@@ -49,6 +56,7 @@ export const Tabs = ({ contentHeaderTab, isFixedTab, tabs, defaultTab = 0, onCha
             justifyContent: 'space-between',
             gap: 2,
             width: '100%',
+            height: '100%',
           }}
         >
           <ScrollableTabs
@@ -58,7 +66,6 @@ export const Tabs = ({ contentHeaderTab, isFixedTab, tabs, defaultTab = 0, onCha
             variant='scrollable'
             scrollButtons='auto'
             aria-label='scrollable tabs'
-
           >
             {tabs.map((tab, index) => (
               <TabCustom
@@ -72,9 +79,7 @@ export const Tabs = ({ contentHeaderTab, isFixedTab, tabs, defaultTab = 0, onCha
           </ScrollableTabs>
           <div>{children}</div>
         </Box>
-        <>
-          {contentHeaderTab && contentHeaderTab}
-        </>
+        <>{contentHeaderTab && contentHeaderTab}</>
       </div>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -85,6 +90,7 @@ export const Tabs = ({ contentHeaderTab, isFixedTab, tabs, defaultTab = 0, onCha
           transition: 'transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s',
         }}
         resistance
+        style={{ height: '100%' }}
       >
         {tabs.map((tab, index) => (
           <TabPanel key={tab.key} value={value} index={index} dir={theme.direction}>

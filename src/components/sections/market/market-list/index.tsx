@@ -26,7 +26,7 @@ export function MarketList({ showmore = false }: MarketListProps) {
     key: tab.id,
     label: t(tab.label),
     content: (
-      <Box sx={{ display: 'flex', flexDirection: 'column', padding: 0 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', padding: 0, height: '100%' }}>
         <Box
           sx={{
             display: 'flex',
@@ -82,7 +82,7 @@ export function MarketList({ showmore = false }: MarketListProps) {
           {processMarketData(tab.id)
             .slice(0, showmore ? maxHomeCoinList : undefined)
             .map((coinId) => {
-              const coin = market.find((c) => c.pairInfo.id === coinId);
+              const coin = market.find((c: any) => c.pairInfo.id === coinId);
               if (!coin) return null;
               const dollarEquivalent = prices[coin.pairInfo.baseToken.toLowerCase()] || 100;
               return (
