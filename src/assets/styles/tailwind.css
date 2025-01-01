@@ -166,3 +166,52 @@ input::placeholder {
   scrollbar-width: none;
   scrollbar-color: transparent transparent;
 }
+
+.datepicker.ios {
+  position: relative !important;
+}
+
+.datepicker-content  {
+  padding: 0 !important;
+  background: white !important;
+
+}
+
+.datepicker .datepicker-navbar {
+  display: none;
+}
+
+.datepicker.default {
+  background: white !important;
+  position: unset !important;
+  z-index: 100;
+}
+
+.datepicker .datepicker-col-1 {
+  margin: 0 !important;
+}
+
+.datepicker.default .datepicker-wheel {
+  background: #F5F5F5;
+  border: none !important;
+
+}
+
+.datepicker .datepicker-scroll>li {
+  font-size: 20px !important;
+  color: #323232 !important;
+}
+
+.datepicker {
+  background-color: white;
+}
+
+.datepicker.ios .datepicker-viewport::after {
+  background: linear-gradient(#ffffff, rgba(245, 245, 245, 0) 52%, rgba(245, 245, 245, 0) 48%, #ffffff) !important;
+}
+
+
+.datepicker.ios .datepicker-wheel {
+  border: none !important;
+  background: #F5F5F5;
+}
