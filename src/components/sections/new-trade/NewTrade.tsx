@@ -39,12 +39,12 @@ export default function NewTrade() {
     {
       key: 'crypto',
       label: t('trade.history.tabs.orders') + ' (0)',
-      content: <EmptySpotTrade />,
+      content: <EmptySpotTrade isMargin={valueCustom === 2} />,
     },
     {
       key: 'account',
       label: t('trade.history.tabs.asset'),
-      content: <EmptySpotTrade />,
+      content: <EmptySpotTrade isMargin={valueCustom === 2} />,
     },
   ];
 

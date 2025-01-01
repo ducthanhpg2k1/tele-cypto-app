@@ -22,6 +22,8 @@ export const trade = {
     chart: 'Chart',
   },
   history: {
+    transfer: 'Transfer',
+    learn: 'Learn',
     openOrders: 'Open Orders',
     history: 'History',
     noOrders: 'No Orders',
