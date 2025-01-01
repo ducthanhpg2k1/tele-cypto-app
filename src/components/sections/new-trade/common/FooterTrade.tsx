@@ -14,7 +14,7 @@ const SectionContainer = styled(Box)(({ theme }) => ({
 
 export default function FooterTrade({ tabs, type }: { tabs: TabItem[]; type?: 'FUTURE' | 'SPOT' }) {
   return (
-    <SectionContainer>
+    <SectionContainer flex={1}>
       {/* Tabs Section */}
       <Box
         sx={{
@@ -22,6 +22,7 @@ export default function FooterTrade({ tabs, type }: { tabs: TabItem[]; type?: 'F
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          flex: 1,
         }}
       >
         <Tabs tabs={tabs}>
