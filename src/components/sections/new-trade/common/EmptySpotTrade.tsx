@@ -5,12 +5,25 @@ export const EmptySpotTrade = ({ isMargin }: { isMargin?: boolean }) => {
   console.log(isMargin, 'isMargin');
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: 1, my: 1 }}>
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column',
+        gap: 1,
+        my: 1,
+        justifyContent: 'center',
+      }}
+    >
       <Typography variant='caption' color={'#212121'}>
-        {t('trade.history.noOrders')}
+        {isMargin ? t('trade.history.noMoney') : t('trade.history.noOrders')}
       </Typography>
-      <Typography variant='caption' color={'#9E9E9E'} className='font-normal'>
-        {t('trade.history.letTopTradersHelp')}
+      <Typography
+        variant='caption'
+        color={'#9E9E9E'}
+        className='font-normal max-w-[70%] text-center'
+      >
+        {isMargin ? t('trade.history.marginNote') : t('trade.history.letTopTradersHelp')}
       </Typography>
       {isMargin ? (
         <Box

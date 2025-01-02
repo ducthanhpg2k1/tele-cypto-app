@@ -37,6 +37,7 @@ export default function FooterTrade({ tabs, type }: { tabs: TabItem[]; type?: 'F
             alignItems: 'center',
             justifyContent: 'space-between',
             my: 1,
+            marginBottom: '24px',
           }}
         >
           <Typography variant='caption' color={'#212121'}>

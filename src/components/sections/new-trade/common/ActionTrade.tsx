@@ -180,7 +180,7 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
           <PlusIcon style={{ height: '16px', width: '16px' }} color='#9E9E9E' />
         </IconButton>
       </Box>
-      <Box sx={{ my: 1 }}>
+      <Box sx={{ mb: 1, marginTop: '20px' }}>
         <SlideRanger min={0} max={100} step={1} />
       </Box>
       {type !== 'FUTURE' && (

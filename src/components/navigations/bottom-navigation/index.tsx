@@ -33,6 +33,7 @@ const StyledBottomNavigation = styled(BottomNavigation)({
 });
 
 const CenterButton = styled(Box)(({ theme }) => ({
+  marginTop: '8px',
   position: 'absolute',
   top: '0px',
   left: '50%',

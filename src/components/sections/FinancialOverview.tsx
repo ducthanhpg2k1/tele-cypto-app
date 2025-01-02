@@ -175,7 +175,7 @@ const ItemContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  padding: theme.spacing(0, 0, 2),
+  padding: '8px 0 14px 0',
   height: 77,
   borderBottom: `1px solid ${theme.palette.divider}`,
   '&:last-child': {
