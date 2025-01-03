@@ -30,7 +30,10 @@ const StyledBottomNavigation = styled(BottomNavigation)({
 
 const StyledBottomNavigationAction = styled(BottomNavigationAction)(({ theme }) => ({
   color: '#9E9E9E',
-
+  flexDirection: 'row', 
+  alignItems: 'center', 
+  justifyContent: 'center',
+  gap:'4px',
   '&.Mui-selected': {
     color: theme.palette.primary.main,
     fontSize: '12px !important',

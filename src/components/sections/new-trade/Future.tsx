@@ -65,14 +65,17 @@ export default function NewTrade() {
   };
 
   const handleChangeTab = (value: number) => {
+    console.log(value, 'value');
+
     if (value === 1) {
       refDrawerCopyTrade.current?.onOpen();
     }
     if (value === 2) {
       refBotTrade.current?.onOpen();
     }
-
-    setValueCustom(value);
+    if (![1, 2].includes(value)) {
+      setValueCustom(value);
+    }
   };
   return (
     <Box

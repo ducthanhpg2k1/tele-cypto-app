@@ -140,7 +140,8 @@ const options: any = {
 
   grid: {
     padding: {
-      left: 0,
+      left: -8,
+      right: -24,
     },
     show: true,
     borderColor: '#E5E6EB',
@@ -157,9 +158,15 @@ const options: any = {
       },
     },
   },
+  show: true,
+  borderColor: '#E5E6EB',
+  strokeDashArray: 5,
+  position: 'back',
   xaxis: {
     tickAmount: 5,
-    type: 'datetime',
+    axisTicks: {
+      show: false,
+    },
     labels: {
       formatter: function (val: any) {
         return dayjs(val).format('YYYY-MM-DD');
@@ -174,9 +181,6 @@ const options: any = {
   yaxis: {
     labels: {
       show: false,
-    },
-    title: {
-      text: undefined,
     },
   },
 };

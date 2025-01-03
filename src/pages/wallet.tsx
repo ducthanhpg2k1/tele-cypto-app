@@ -9,6 +9,7 @@ import GoBackIcon from 'src/assets/icons/ArrowIcon';
 import BalanceDisplayPanel from 'src/components/sections/BalanceDisplayPanel';
 import FinancialOverview from 'src/components/sections/FinancialOverview';
 import TransactionMenu from 'src/components/sections/TransactionMenu';
+import PopoverMenuSetting from 'src/components/ui/popover-menu-setting';
 import ScrollableTabsButtonPrevent from 'src/components/ui/ScrollableTabsButtonPrevent';
 import { TabItem } from 'src/components/ui/tabs/types';
 import ViewChart from 'src/components/view-chart';
@@ -32,8 +33,6 @@ const WalletPage: NextPage = () => {
   const handleShowChart = () => {
     setShowChart(!showChart);
   };
-
-  console.log(showChart, 'showChart');
 
   return (
     <Box
@@ -74,6 +73,7 @@ const WalletPage: NextPage = () => {
       {showChart && <ViewChart />}
       <TransactionMenu />
       <FinancialOverview />
+   
     </Box>
   );
 };

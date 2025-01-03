@@ -10,7 +10,7 @@ import DrawerProfileCoppy from "../../coppy/Simulation/drawer-profile-coppy"
 const PublicContract = ({ type }: { type?: string }) => {
     const refProfileCoppy: any = useRef()
     return (
-        <div className="flex flex-col gap-1 mt-5 pb-5">
+        <div className="flex flex-col gap-1">
           
             {Array.from({ length: 5 }).map((_, key) => {
                 return (

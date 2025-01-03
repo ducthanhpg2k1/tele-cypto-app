@@ -14,6 +14,8 @@ const ChartLintPastProfits = () => {
       toolbar: {
         show: false,
       },
+      offsetX: 0,
+      parentHeightOffset: 0,
     },
     colors: ['#4AAF57'],
     dataLabels: {
@@ -24,6 +26,10 @@ const ChartLintPastProfits = () => {
       width: 2,
     },
     grid: {
+      padding: {
+        left: -5,
+        right: 0,
+      },
       show: true,
       borderColor: '#E5E6EB',
       strokeDashArray: 5,
@@ -50,6 +56,7 @@ const ChartLintPastProfits = () => {
     },
     yaxis: {
       labels: {
+        offsetX: -18,
         style: {
           colors: '#9E9E9E',
           fontSize: '10px',
@@ -84,7 +91,7 @@ const ChartLintPastProfits = () => {
   ];
 
   return (
-    <div className='flex flex-col '>
+    <div className='flex flex-col p-0 m-0 w-full'>
       <Chart options={options} width={'100%'} series={series} type='area' height={200} />
     </div>
   );

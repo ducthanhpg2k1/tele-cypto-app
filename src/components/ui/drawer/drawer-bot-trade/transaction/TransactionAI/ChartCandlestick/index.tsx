@@ -123,6 +123,8 @@ const ChartCandlestick = () => {
       toolbar: {
         show: false,
       },
+      parentHeightOffset: 0,
+
     },
     title: {
       text: '',
@@ -145,6 +147,7 @@ const ChartCandlestick = () => {
     grid: {
       padding: {
         left: 0,
+        right:-12,
       },
       show: true,
       borderColor: '#E5E6EB',
@@ -163,7 +166,9 @@ const ChartCandlestick = () => {
     },
     xaxis: {
       tickAmount: 5,
-      type: 'datetime',
+      axisTicks: {
+        show: false,
+      },
       labels: {
         formatter: function (val: any) {
           return dayjs(val).format('YYYY-MM-DD');

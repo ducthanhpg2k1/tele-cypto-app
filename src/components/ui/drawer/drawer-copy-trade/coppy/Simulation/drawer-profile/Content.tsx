@@ -71,7 +71,7 @@ const Content = () => {
       >
         <div className='flex items-center gap-0.5'>
           <IconCoppy />
-          <Typography className='text-[14px]'>{t('copyTrade.copy_trading')}</Typography>
+          <Typography className='text-[10px] leading-3' fontWeight={500}>{t('copyTrade.copy_trading')}</Typography>
         </div>
       </Button>
       <Divider variant='fullWidth' />
