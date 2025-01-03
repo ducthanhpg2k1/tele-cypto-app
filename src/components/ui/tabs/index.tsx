@@ -14,6 +14,7 @@ interface ITabProps extends TabsProps {
   onChaneTab?: any;
   contentHeaderTab?: ReactNode;
   isFixedTab?: boolean;
+  onSwipeTab?: (index: number) => void;
 }
 export const Tabs = ({
   contentHeaderTab,
@@ -22,6 +23,7 @@ export const Tabs = ({
   defaultTab = 0,
   onChaneTab,
   children,
+  onSwipeTab,
   hideIndicator,
   size,
 }: ITabProps) => {
@@ -39,6 +41,7 @@ export const Tabs = ({
   const handleChangeIndex = (index: number) => {
     setValue(index);
     setLoadedTabs((prev: Set<number>) => new Set([...prev, index]));
+    onSwipeTab && onSwipeTab(index);
   };
 
   return (

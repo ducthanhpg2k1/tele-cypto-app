@@ -7,40 +7,34 @@ const Closed = () => {
   const { t } = useTranslation();
 
   return (
-    <div className='flex flex-col gap-6'>
-      <TotalBalance />
-      {/* <ReadMoreText /> */}
+    <>
+      <div className='flex flex-col gap-6'>
+        <TotalBalance />
+        <ReadMoreText text='* Chỉ hiển thị các danh mục đầu tư đã đóng trong 90 ngày .Chỉ hiển thị các danh mục đầu tư đã đóng trong 90 ngày .Chỉ hiển thị các danh mục đầu tư đã đóng trong 90 ngày Chỉ hiển thị các danh mục đầu tư đã đóng trong 90 ngày .Chỉ hiển thị các danh mục đầu tư đã đóng trong 90 ngày .Chỉ hiển thị các danh mục đầu tư đã đóng trong 90 ngày' />
+      </div>
       <NoData />
-    </div>
+    </>
   );
 };
 export default Closed;
 
-// const ReadMoreText = () => {
-//   const [isExpanded, setIsExpanded] = useState(false);
+const ReadMoreText = ({ text }: { text: string }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
-//   const handleToggle = () => {
-//     setIsExpanded(!isExpanded);
-//   };
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
+  };
 
-//   return (
-//     <div className='w-full flex items-center gap-1 max-w-md'>
-//       <p
-//         className={`text-[10px] w-11/12 text-[#9E9E9E] ${isExpanded ? 'line-clamp-none' : 'line-clamp-1'} font-normal leading-3 overflow-hidden`}
-//       >
-//         * Chỉ hiển thị các danh mục đầu tư đã đóng trong 90 ngày Chỉ hiển thị các danh mục đầu tư đã
-//         đóng trong 90 ngày Chỉ hiển thị các danh mục đầu tư đã đóng trong 90 ngày Chỉ hiển thị các
-//         danh mục đầu tư đã đóng trong 90 ngàyChỉ hiển thị các danh mục đầu tư đã đóng trong 90
-//         ngàyChỉ hiển thị các danh mục đầu tư đã đóng trong 90 ngày
-//       </p>
-//       {!isExpanded && (
-//         <button
-//           onClick={handleToggle}
-//           className='text-[#177DFF] w-[60px] !text-[10px] font-normal leading-3 text-sm'
-//         >
-//           {isExpanded ? 'See less' : 'See more'}
-//         </button>
-//       )}
-//     </div>
-//   );
-// };
+  return (
+    <div className='w-full max-w-md'>
+      <div className='inline text-[10px]'>
+        <span className='text-[#9E9E9E]'>
+          {!isExpanded ? <>{text.substring(0, 70)}...</> : text}
+        </span>{' '}
+        <button onClick={handleToggle} className='text-[#177DFF] inline-block ml-1'>
+          {isExpanded ? 'See less' : 'See more'}
+        </button>
+      </div>
+    </div>
+  );
+};

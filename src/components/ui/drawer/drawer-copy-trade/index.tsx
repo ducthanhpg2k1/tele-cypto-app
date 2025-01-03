@@ -29,9 +29,7 @@ const DrawerCopyTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
   const { t } = useTranslation();
 
   const handleScroll = (e: any) => {
-    console.log(e.target.scrollTop, 'e.target.scrollTop');
-
-    if (e.target.scrollTop <= 0) {
+    if (e.target.scrollTop <= 6) {
       setShowSection(true);
     } else {
       setShowSection(false);

@@ -57,7 +57,7 @@ const TabGrid = ({ type }: { type?: string }) => {
       <Tabs
         isFixedTab
         contentHeaderTab={
-          <div className="flex items-center gap-1 justify-center mt-4 mb-1 h-max relative">
+          <div className="flex items-center gap-1 justify-center mt-4 mb-1 h-max relative pb-3">
             <div className="sticky left-0">
               <TagAction handleClick={() => refModalDate.current.onOpen()} label={valueDate} />
             </div>

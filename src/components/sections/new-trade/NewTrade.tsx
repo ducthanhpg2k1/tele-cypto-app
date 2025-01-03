@@ -66,7 +66,9 @@ export default function NewTrade() {
     if (value === 4) {
       refDrawerCopyTrade.current?.onOpen();
     }
-    setValueCustom(value);
+    if (![0, 3, 4].includes(value)) {
+      setValueCustom(value);
+    }
   };
   return (
     <Box

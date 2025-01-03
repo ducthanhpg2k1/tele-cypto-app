@@ -7,6 +7,7 @@ import { TabItem } from '../ui/tabs/types';
 import { Tabs } from '../ui/tabs';
 import Image from 'next/image';
 import { t } from 'i18next';
+import PopoverMenuSetting from '../ui/popover-menu-setting';
 
 // Types
 interface SectionItem {
@@ -155,7 +156,7 @@ const FinancialOverview: React.FC = () => {
         }}
       >
         <Tabs tabs={tabs} defaultTab={1}>
-          <SettingIcon />
+          <PopoverMenuSetting />
         </Tabs>
       </Box>
 

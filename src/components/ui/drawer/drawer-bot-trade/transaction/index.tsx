@@ -19,23 +19,19 @@ export enum TYPE_TAB_TRANSACTION {
   HANDMADE = 2,
 }
 
-
-
 const Transaction = () => {
-  const [activeTab, setActiveTab] = useState<TYPE_TAB_TRANSACTION>(0)
-  const refModalTradingBot: any = useRef()
-  const refModalFilter: any = useRef()
-  const refModalTop: any = useRef()
-  const refModalTradingPair: any = useRef()
+  const [activeTab, setActiveTab] = useState<TYPE_TAB_TRANSACTION>(0);
+  const refModalTradingBot: any = useRef();
+  const refModalFilter: any = useRef();
+  const refModalTop: any = useRef();
+  const refModalTradingPair: any = useRef();
   const { t } = useTranslation();
 
-
-  const [valueTop, setValueTop] = useState<string>('Top PNL')
+  const [valueTop, setValueTop] = useState<string>('Top PNL');
   const [valueTradingPair, setValueTopTradingPair] = useState<any>({
     title: '',
-    id: 0
-  })
-
+    id: 0,
+  });
 
   const tabGrids: TabItem[] = [
     {
@@ -56,53 +52,77 @@ const Transaction = () => {
   ];
 
   const onChaneTab = (tab: any) => {
-    setActiveTab(tab)
-  }
+    setActiveTab(tab);
+  };
 
+  const onSwipeTab = (index: number) => {
+    setActiveTab(index);
+  };
   return (
     <div className='flex flex-col pb-20'>
-      <div
-        className='flex justify-between items-center'>
-
-        <div onClick={() => refModalTradingBot.current.onOpen()} className='flex items-center gap-3'>
+      <div className='flex justify-between items-center'>
+        <div
+          onClick={() => refModalTradingBot.current.onOpen()}
+          className='flex items-center gap-3'
+        >
           <Typography variant='body2' color={'#212121'} fontWeight={700}>
-           {t('bot.transaction')}
+            {t('bot.transaction')}
           </Typography>
-
 
           <div className='w-5 h-5 flex justify-center items-center border border-[#F5F5F5] rounded'>
             <Image src={'/images/img-down.png'} width={8} height={8} alt='' />
           </div>
         </div>
         {activeTab === TYPE_TAB_TRANSACTION.POPULAR && (
-          <Image onClick={() => refModalFilter.current.onOpen()} src={'/images/ic-filter-list.png'} width={24} height={24} alt='' />
-
+          <Image
+            onClick={() => refModalFilter.current.onOpen()}
+            src={'/images/ic-filter-list.png'}
+            width={24}
+            height={24}
+            alt=''
+          />
         )}
       </div>
-      <Tabs contentHeaderTab={
-        <>
-          {
-            activeTab === TYPE_TAB_TRANSACTION.POPULAR && (
-              <div className='flex items-center gap-3 mt-4'>
+      <Tabs
+        onSwipeTab={onSwipeTab}
+        contentHeaderTab={
+          <>
+            {activeTab === TYPE_TAB_TRANSACTION.POPULAR && (
+              <div className='flex items-center gap-3 mt-4 pb-2'>
                 <TagAction handleClick={() => refModalTop.current.onOpen()} label={valueTop} />
-                <TagAction handleClick={() => refModalTradingPair.current.onOpen()} label={valueTradingPair?.title ? valueTradingPair?.title : t('bot.code')} />
+                <TagAction
+                  handleClick={() => refModalTradingPair.current.onOpen()}
+                  label={valueTradingPair?.title ? valueTradingPair?.title : t('bot.code')}
+                />
               </div>
-            )
-          }
-        </>
-      } isFixedTab onChaneTab={onChaneTab} tabs={tabGrids}>
+            )}
+          </>
+        }
+        isFixedTab
+        onChaneTab={onChaneTab}
+        tabs={tabGrids}
+      >
         {activeTab === TYPE_TAB_TRANSACTION.AI && (
           <Image src={'/images/img-note-new.png'} alt='' width={18} height={18} />
         )}
-      </Tabs >
+      </Tabs>
       <ModalTradingBot ref={refModalTradingBot} />
       <ModalFilter ref={refModalFilter} />
-      <ModalTop value={valueTop} handleClickTop={(value: string) => setValueTop(value)} ref={refModalTop} />
-      <ModalTradingPair value={valueTradingPair?.id} handleClickTop={(title: string, id: number) => setValueTopTradingPair({
-        title,
-        id
-
-      })} ref={refModalTradingPair} />
+      <ModalTop
+        value={valueTop}
+        handleClickTop={(value: string) => setValueTop(value)}
+        ref={refModalTop}
+      />
+      <ModalTradingPair
+        value={valueTradingPair?.id}
+        handleClickTop={(title: string, id: number) =>
+          setValueTopTradingPair({
+            title,
+            id,
+          })
+        }
+        ref={refModalTradingPair}
+      />
     </div>
   );
 };
