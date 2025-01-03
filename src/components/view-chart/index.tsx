@@ -16,7 +16,7 @@ const ViewChart = () => {
     setValue(newValue);
   };
   return (
-    <div className='flex flex-col pb-4'>
+    <div className='flex flex-col pb-6'>
       <Box
         sx={{
           display: 'flex',

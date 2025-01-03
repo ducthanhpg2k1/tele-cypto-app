@@ -37,7 +37,7 @@ const DrawerDetailBot = forwardRef<DrawerHandle, {}>((_, ref) => {
             fullWidth
             className='!h-[48px] p-[10px] font-semibold'
           >
-            <Typography className='text-[14px]'>{t('bot.copy')}</Typography>
+            <Typography className='text-[14px] font-semibold'>{t('bot.copy')}</Typography>
           </Button>
         </div>
         <BottomSheetInvestmentAmount ref={refBottomSheetInvestmentAmount} />

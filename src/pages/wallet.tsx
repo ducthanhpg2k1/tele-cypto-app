@@ -71,7 +71,8 @@ const WalletPage: NextPage = () => {
         </Typography>
         <GoBackIcon fill='#212121' width={16} height={16} isFilled={false} />
       </Section>
-      {showChart ? <ViewChart /> : <TransactionMenu />}
+      {showChart && <ViewChart />}
+      <TransactionMenu />
       <FinancialOverview />
     </Box>
   );

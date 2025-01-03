@@ -10,9 +10,9 @@ import { shuffleArray } from 'src/utils/helpers';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const Title = styled(Typography)<{ color?: string }>(({ color }) => ({
-  fontSize: '12px',
-  fontWeight: 400,
-  lineHeight: '20px',
+  fontSize: '10px',
+  fontWeight: 500,
+  lineHeight: '12px',
   color: color || '#9E9E9E',
 }));
 
