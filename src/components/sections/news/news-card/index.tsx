@@ -1,5 +1,5 @@
 import { BookmarkIcon, ChatBubbleLeftIcon, HeartIcon } from '@heroicons/react/24/outline';
-import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
+import { BookmarkSlashIcon, HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -13,6 +13,7 @@ import { StatItem, StatsContainer, StyledCard } from './styles';
 import { Box } from '@mui/material';
 import IconComment from 'src/assets/icons/IconComment';
 import Image from 'next/image';
+import BookIcon from 'src/assets/icons/BookIcon';
 
 interface NewsCardProps {
   item: NewsItem;
@@ -34,6 +35,7 @@ const NewsCard: FC<NewsCardProps> = ({
   onShare,
 }) => {
   const [liked, setLiked] = useState(false);
+  const [book, setBook] = useState(false);
   const [disliked, setDisliked] = useState(false);
 
   const handleLike = () => {
@@ -49,6 +51,11 @@ const NewsCard: FC<NewsCardProps> = ({
   };
 
   const content = truncate ? truncateMarkdownSafely(item.content, maxLength) : item.content;
+
+  const handleBook = () => {
+    setBook(!book);
+    onShare?.(item.id);
+  };
 
   return (
     <StyledCard>
@@ -116,8 +123,12 @@ const NewsCard: FC<NewsCardProps> = ({
           </Typography>
         </StatItem>
         <StatItem>
-          <IconButton onClick={() => onShare?.(item.id)} size='small'>
-            <BookmarkIcon className='w-5 h-5' />
+          <IconButton
+            onClick={handleBook}
+            size='small'
+            style={{ color: book ? '#F54336' : '#BDBDBD' }}
+          >
+            {book ? <BookIcon /> : <BookmarkIcon className='w-5 h-5' />}
           </IconButton>
           <Typography variant='caption' color={'#BDBDBD'} fontWeight={400}>
             {item.stats.shares}

@@ -35,7 +35,7 @@ const DrawerDetailBot = forwardRef<DrawerHandle, {}>((_, ref) => {
           <Button
             onClick={() => refBottomSheetInvestmentAmount.current.onOpen()}
             fullWidth
-            className='h-10 font-semibold'
+            className='!h-[48px] p-[10px] font-semibold'
           >
             <Typography className='text-[14px]'>{t('bot.copy')}</Typography>
           </Button>

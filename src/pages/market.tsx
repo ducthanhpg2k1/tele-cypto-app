@@ -26,7 +26,7 @@ const MarketScreen = () => {
   }
 
   return (
-    <Box sx={{ px: 2 }}>
+    <Box sx={{ px: 2, height: '100%' }}>
       <MarketList />
     </Box>
   );

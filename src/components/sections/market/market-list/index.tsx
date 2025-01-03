@@ -26,7 +26,7 @@ export function MarketList({ showmore = false }: MarketListProps) {
     key: tab.id,
     label: t(tab.label),
     content: (
-      <Box sx={{ display: 'flex', flexDirection: 'column', padding: 0 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', padding: 0, height: '100%' }}>
         <Box
           sx={{
             display: 'flex',
@@ -41,6 +41,7 @@ export function MarketList({ showmore = false }: MarketListProps) {
             defaultValue='spot'
             size='small'
             sx={{
+              minWidth: '71px',
               color: '#9E9E9E',
               backgroundColor: 'transparent',
               fontSize: '12px',
@@ -58,6 +59,7 @@ export function MarketList({ showmore = false }: MarketListProps) {
                 paddingRight: '5px !important',
                 fontSize: '12px',
                 fontWeight: 400,
+                width: 'fit-content',
               },
             }}
             IconComponent={() => <img src='/assets/iconly/ic-ad-grey.svg' />}
@@ -70,7 +72,7 @@ export function MarketList({ showmore = false }: MarketListProps) {
               {t('market.price')}
             </Typography>
           </Box>
-          <Box sx={{ width: 80, textAlign: 'center' }}>
+          <Box sx={{ width: 80, textAlign: 'right' }}>
             <Typography variant='body2' color={'#9E9E9E'} className='text-[12px]'>
               {t('market.change24h')}
             </Typography>
@@ -80,7 +82,7 @@ export function MarketList({ showmore = false }: MarketListProps) {
           {processMarketData(tab.id)
             .slice(0, showmore ? maxHomeCoinList : undefined)
             .map((coinId) => {
-              const coin = market.find((c) => c.pairInfo.id === coinId);
+              const coin = market.find((c: any) => c.pairInfo.id === coinId);
               if (!coin) return null;
               const dollarEquivalent = prices[coin.pairInfo.baseToken.toLowerCase()] || 100;
               return (

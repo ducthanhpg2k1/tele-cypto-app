@@ -4,11 +4,12 @@ import Image from 'next/image';
 import { t } from 'i18next';
 import CustomCheckbox from 'src/components/ui/checkbox';
 import Info from '../drawer-airdrop/card/Info';
+import Button from '../../button';
 
 const step = ['myairdrop.visit', 'myairdrop.visit', 'myairdrop.visit', 'myairdrop.visit'];
 const Content = () => {
   return (
-    <Stack className='gap-4'>
+    <Stack className='gap-4 h-full'>
       <Stack className='w-full p-2 rounded-xl border-[1px] border-solid border-[#EEE]'>
         <Info showToken token='CHZ Token' imageHeight={70} imageWidth={70} des={'10/2024'} />
       </Stack>
@@ -20,7 +21,7 @@ const Content = () => {
       <Typography variant='caption' color='#212121' className='font-normal'>
         {t('myairdrop.desc')}
       </Typography>
-      <Stack className='gap-1.5'>
+      <Stack className='gap-1.5 flex-1'>
         <Typography className='text-[16px] font-semibold leading-6'>
           {t('myairdrop.step')}
         </Typography>
@@ -34,6 +35,9 @@ const Content = () => {
           })}
         </Stack>
       </Stack>
+      <Button fullWidth className='h-[48px] p-[10px]'>
+        <Typography className='text-[14px] font-semibold'>Claim</Typography>
+      </Button>
     </Stack>
   );
 };

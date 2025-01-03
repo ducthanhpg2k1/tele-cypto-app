@@ -1,11 +1,13 @@
 import { Dialog, DialogContent, Slide, Typography } from '@mui/material';
 import { TransitionProps } from '@mui/material/transitions';
 import Image from 'next/image';
-import React, { forwardRef, useImperativeHandle, useState } from 'react';
+import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import clsx from 'clsx';
 import Button from 'src/components/ui/button';
 import { t } from 'i18next';
+import CustomPickerWheel from 'src/components/ui/picker-wheel';
+import dayjs from 'dayjs';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -35,11 +37,18 @@ const DATA_SURF = [
   },
 ];
 
+
+
+
+
 const ModalFilter = (props: any, ref: any) => {
-  const {} = props;
+  const { } = props;
   const [open, setOpen] = useState<boolean>(false);
   const [valueFilter, setValueFilter] = useState(1);
   const [activeDate, setActiveDate] = useState(2);
+
+  const [valueDateOne, setValueDateOne] = useState(new Date())
+  const [valueDateTwo, setValueDateTwo] = useState(new Date())
 
   const handleClose = () => {
     setOpen(false);
@@ -54,6 +63,14 @@ const ModalFilter = (props: any, ref: any) => {
     },
   }));
 
+  const handleDateChange = (newDate: Date) => {
+    if (activeDate === 1) {
+      setValueDateOne(newDate)
+    } else {
+      setValueDateTwo(newDate)
+
+    }
+  };
   return (
     <Dialog
       fullWidth
@@ -125,7 +142,7 @@ const ModalFilter = (props: any, ref: any) => {
                   color={activeDate === 1 ? '#177DFF' : '#212121'}
                   fontWeight={400}
                 >
-                  28-12-2024
+                  {dayjs(valueDateOne).format('DD-MM-YYYY')}
                 </Typography>
               </div>
               <Typography className='text-xs' color={'#757575'} fontWeight={400}>
@@ -145,10 +162,12 @@ const ModalFilter = (props: any, ref: any) => {
                   color={activeDate === 2 ? '#177DFF' : '#212121'}
                   fontWeight={400}
                 >
-                  20-2-2025
+                  {dayjs(valueDateTwo).format('DD-MM-YYYY')}
+
                 </Typography>
               </div>
             </div>
+            <CustomPickerWheel value={activeDate === 1 ? valueDateOne : valueDateTwo} handleDateChange={handleDateChange} />
           </div>
 
           <div className='flex gap-0.5'>

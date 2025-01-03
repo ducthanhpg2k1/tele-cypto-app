@@ -55,20 +55,22 @@ const Content = () => {
       <Steps activeStep={activeStep} setActiveStep={setActiveStep} steps={STEPS} />
       {renderStep()}
       <Box sx={sx.action}>
-        {activeStep > 0 && (
+        {activeStep > 1 && (
           <Button
             onClick={prevStep}
-            className='!bg-[#E8F2FF] !text-[#177DFF] !outline-0 !border-0 font-semibold'
-            variant='outline'
+            className='bg-[#E8F2FF] !outline-0 !border-0 font-semibold'
+            // variant='outline'
             fullWidth
           >
-            <Typography className='text-[14px]'>
+            <Typography className='!text-[#177DFF] text-[12px]'>
               {activeStep == STEPS.length ? t('listing.backToHome') : t('listing.back')}
             </Typography>
           </Button>
         )}
-        <Button fullWidth onClick={nextStep} className='font-semibold'>
-          <Typography className='text-[14px]'>
+        <Button fullWidth onClick={nextStep} className='font-semibold h-12 bg-[#177DFF]'>
+          <Typography
+            className={activeStep === 1 ? 'text-[14px] font-semibold' : 'text-[12px] font-semibold'}
+          >
             {activeStep == STEPS.length ? t('listing.submiting') : t('listing.next')}
           </Typography>
         </Button>

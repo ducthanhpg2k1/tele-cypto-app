@@ -26,13 +26,14 @@ const NavPaper = styled(Paper)(({ theme }) => ({
 
 const StyledBottomNavigation = styled(BottomNavigation)({
   backgroundColor: 'transparent',
-  height: 70,
+  height: 80,
   width: '100%',
   position: 'relative',
   padding: '10px 0',
 });
 
 const CenterButton = styled(Box)(({ theme }) => ({
+  marginTop: '8px',
   position: 'absolute',
   top: '0px',
   left: '50%',
@@ -49,7 +50,11 @@ const CenterButton = styled(Box)(({ theme }) => ({
 
 const StyledBottomNavigationAction = styled(BottomNavigationAction)(({ theme }) => ({
   color: '#9E9E9E', // Default color from theme
-
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '4px',
   '&.Mui-selected': {
     color: theme.palette.primary.main,
     fontSize: '12px !important',
@@ -139,7 +144,7 @@ export const BottomNav: FC = () => {
         />
       </StyledBottomNavigation>
       <CenterButton onClick={handleProfileClick}>
-        <CenterIcon color={currentValue === 'trade' ? theme.palette.primary.main : '#9E9E9E'} />
+        <CenterIcon color={currentValue === 'trade' ? theme.palette.primary.main : '#757575'} />
       </CenterButton>
     </NavPaper>
   );

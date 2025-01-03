@@ -1,34 +1,29 @@
-import { Button, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import React from 'react';
+import { ButtonTradeStyled } from './styles';
 
 export default function ButtonTrade({
   style,
   title,
   onClick,
+  background,
 }: {
   style?: React.CSSProperties;
   title: string;
   onClick?: () => void;
+  background: string;
 }) {
   return (
-    <Button
+    <ButtonTradeStyled
       sx={{
-        width: '100%',
-        py: '10px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyItems: 'center',
-        background: '#4AAF57',
-        borderRadius: '6px',
-        mt: 1,
-        height: 40,
         ...style,
       }}
+      background={background}
       onClick={() => onClick && onClick()}
     >
       <Typography variant='body2' color={'white'} fontWeight={500}>
         {title}
       </Typography>
-    </Button>
+    </ButtonTradeStyled>
   );
 }

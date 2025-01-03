@@ -94,6 +94,7 @@ const ContentFilter = () => {
                 <Typography className='text-[10px] leading-3' color={'#757575'} fontWeight={400}>
                     Thời gian chạy:
                 </Typography>
+
                 <div className="flex items-center gap-3">
                     {
                         DATA_RUNNING_TIME?.map((item) => {
@@ -160,7 +161,7 @@ const ItemFilter = ({ item, handleChange, value }: { value: number, item: any, h
                 maxHeight: '20px'
             }}
             className={clsx(
-                'transition-all flex justify-center items-center duration-100 rounded-md py-0.5 px-0.5',
+                'transition-all w-max flex justify-center items-center duration-100 rounded-md py-0.5 px-0.5',
                 {
                     'bg-[#F5F5F5]': item?.id === value,
                 },

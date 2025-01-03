@@ -16,6 +16,7 @@ import { EmptFuture } from './common/EmptFuture';
 import TradeCTAButton from 'src/components/ui/button/TradeCTAButton';
 import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade';
 import { t } from 'i18next';
+import TagsFuture from './common/TagsFuture';
 
 export const Section = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -134,6 +135,7 @@ export default function NewTrade() {
       </Box>
       <Grid sx={{ py: '12px', px: 2 }} container spacing={'12px'}>
         {valueCustom === 2 && <TagsTrade />}
+        {valueCustom === 0 && <TagsFuture />}
         <Grid item xs={6}>
           <Transactions />
         </Grid>

@@ -26,8 +26,8 @@ const Content = () => {
           })}
         </Stack>
       </Stack>
-      <Stack className='gap-3'>
-        <Typography variant='h6' className='text-[16px]'>
+      <Stack>
+        <Typography variant='h6' className='text-[16px] !mb-[4px]'>
           {t('academy.trend')}
         </Typography>
         <Stack className='w-full gap-0'>

@@ -12,7 +12,7 @@ const ItemArtc = (props: Props) => {
     <Stack className='flex-row items-center gap-3 rounded-lg py-3'>
       <Image src={props.img} alt='' width={114} height={65} />
       <Stack className='gap-[2px]'>
-        <Typography variant='subtitle2' className='leading-[21px] font-medium'>
+        <Typography variant='subtitle2' className='leading-[21px] font-semibold'>
           {t(props.title)}
         </Typography>
         <Stack className='flex-row gap-0.5'>

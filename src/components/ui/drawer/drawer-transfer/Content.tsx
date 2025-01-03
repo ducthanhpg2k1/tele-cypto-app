@@ -28,14 +28,16 @@ const Content = () => {
     <Box sx={sx.wrap}>
       <Box sx={sx.content}>
         <Stack className='w-full p-3 bg-[#F5F5F5] flex-row gap-3 rounded-lg'>
-          <Stack className='w-full'>
+          <Stack className='w-full gap-1.5'>
             <CustomSelect
               onChange={(value) => handleChangeFrom(value)}
+              fontWeight={600}
               value={currencyFrom}
               data={mockDataWaleet}
               prefix={t('transfer.from')}
             />
             <CustomSelect
+              fontWeight={600}
               onChange={(value) => handleChangeTo(value)}
               value={currencyTo}
               data={mockDataWaleet}
@@ -90,8 +92,8 @@ const Content = () => {
           </Typography>
         </Stack>
       </Box>
-      <Button fullWidth>
-        <Typography className='text-[14px]'>{t('transfer.confirm')}</Typography>
+      <Button fullWidth className='!h-[48px] !p-[10px]'>
+        <Typography className='text-[14px] font-semibold'>{t('transfer.confirm')}</Typography>
       </Button>
     </Box>
   );
@@ -110,7 +112,7 @@ const sx = {
     paddingBottom: '24px',
     alignItems: 'center',
     flexDirection: 'column',
-    gap: '24px',
+    gap: '16px',
     flex: 1,
   },
   boxSelect: {

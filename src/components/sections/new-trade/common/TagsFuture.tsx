@@ -13,6 +13,7 @@ export default function TagsFuture() {
         justifyContent: 'space-between',
         px: 1,
         gap: 1,
+        width: '100%',
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'start', gap: 1 }}>
@@ -20,7 +21,15 @@ export default function TagsFuture() {
         <Tag value='20' />
         <Tag value='S' />
       </Box>
-      <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '2px' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
+          gap: '2px',
+          justifyContent: 'end',
+        }}
+      >
         <TypographyRegular color='#757575'>Funding/Đếm ngược</TypographyRegular>
         <div className='flex items-center gap-[4px]'>
           <TypographyRegular className='text-[#212121] text-[12px] font-normal leading-[20px]'>

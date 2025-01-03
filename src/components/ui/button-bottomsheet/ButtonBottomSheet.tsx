@@ -12,6 +12,7 @@ interface IButtonBottomSheet {
   color?: string;
   styleLabel?: React.CSSProperties;
   sxBox?: React.CSSProperties;
+  onClick?: () => void;
 }
 export default function ButtonBottomSheet({
   iconPrefix,
@@ -21,6 +22,7 @@ export default function ButtonBottomSheet({
   variant,
   color,
   sxBox,
+  onClick,
 }: IButtonBottomSheet) {
   return (
     <Box
@@ -33,6 +35,7 @@ export default function ButtonBottomSheet({
         borderRadius: '8px',
         ...sxBox,
       }}
+      onClick={onClick}
     >
       {iconPrefix && (
         <Image src={iconPrefix} width={20} height={20} className='w-5 h-5 object-cover' alt='' />

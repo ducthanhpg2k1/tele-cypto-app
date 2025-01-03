@@ -1,58 +1,27 @@
 import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
-import { Box, Button, IconButton, Slider, Stack, Typography } from '@mui/material';
-import Image from 'next/image';
+import { Box, Button, IconButton, Stack, Typography } from '@mui/material';
+import { t } from 'i18next';
 import { useRef, useState } from 'react';
 import SwitchHorizontal from 'src/assets/icons/SwitchHorizontal';
+import BottomSheetBalanceSection from 'src/components/ui/bottomsheet/bottom-sheet-balance-section/BottomSheetBalanceSection';
 import ButtonBottomSheet from 'src/components/ui/button-bottomsheet/ButtonBottomSheet';
 import CustomCheckbox from 'src/components/ui/checkbox';
-import StackBalance from './StackBalance';
-import ButtonTrade from './ButtonTrade';
 import SlideRanger from 'src/components/ui/slide-ranger/SlideRanger';
-import BottomSheetBalanceSection from 'src/components/ui/bottomsheet/bottom-sheet-balance-section/BottomSheetBalanceSection';
-import { t } from 'i18next';
+import ButtonTrade from './ButtonTrade';
+import StackBalance from './StackBalance';
+import { InputCustomStyled } from './styles';
+import BottomSheetFilterSelection from 'src/components/ui/bottomsheet/bottom-sheet-filter-selection/BottomSheetFilterSelection';
+import { DATA_LIMIT } from '../constants';
 function valuetext(value: number) {
   return `${value}%`;
 }
-const marks = [
-  {
-    value: 0,
-    alt: 'step1',
-  },
-  {
-    value: 20,
-    activeImage: 'active2.png',
-    defaultImage: 'image2.png',
-    alt: 'step2',
-  },
-  {
-    value: 40,
-    activeImage: 'active3.png',
-    defaultImage: 'image3.png',
-    alt: 'step3',
-  },
-  {
-    value: 60,
-    activeImage: 'active4.png',
-    defaultImage: 'image4.png',
-    alt: 'step4',
-  },
-  {
-    value: 80,
-    activeImage: 'active4.png',
-    defaultImage: 'image4.png',
-    alt: 'step4',
-  },
-  {
-    value: 100,
-    activeImage: 'active4.png',
-    defaultImage: 'image4.png',
-    alt: 'step4',
-  },
-];
-
 export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
   const refDrawerBalanceSection = useRef<any>();
+  const refBottomSheetFilter = useRef<any>();
+  const [filterLimit, setFilterLimit] = useState(DATA_LIMIT[0].value);
   const [price, setPrice] = useState<number>(69464);
+  const [quantity, setQuantity] = useState<number>(0);
+
   const [isAction, setIsAction] = useState<'sell' | 'buy'>('buy');
   const [sliderValue, setSliderValue] = useState<number>(0);
   const handlePriceChange = (value: number) => {
@@ -132,13 +101,19 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
           </Box>
         </Box>
       )}
-
+      <BottomSheetFilterSelection
+        ref={refBottomSheetFilter}
+        data={DATA_LIMIT}
+        value={filterLimit}
+        handleClickTop={setFilterLimit}
+      />
       <ButtonBottomSheet
         title='Limit'
         iconPrefix='/assets/iconly/iconly-octagon-exclamation.svg'
         variant='body2'
         sxBox={{ marginTop: 1 }}
         styleLabel={{ fontWeight: 500 }}
+        onClick={() => refBottomSheetFilter.current.onOpen()}
       />
       <Box
         display='flex'
@@ -153,7 +128,13 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
         <IconButton size='small' onClick={() => handlePriceChange(price - 0.1)}>
           <MinusIcon style={{ height: '16px', width: '16px' }} color='#9E9E9E' />
         </IconButton>
-        <Box textAlign='center'>
+        <Box
+          textAlign='center'
+          display={'flex'}
+          alignItems={'center'}
+          justifyContent={'center'}
+          flexDirection={'column'}
+        >
           <Typography
             variant='caption'
             color='#9E9E9E'
@@ -161,11 +142,13 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
           >
             {t('trade.price')} (USDT)
           </Typography>
-          <Typography variant='body2' className='font-semibold'>
-            {price.toFixed(2)}
-          </Typography>
+          <InputCustomStyled
+            type='number'
+            value={price}
+            onChange={(e) => handlePriceChange(+e.target.value)}
+          />
         </Box>
-        <IconButton size='small' onClick={() => handlePriceChange(price + 0.1)}>
+        <IconButton size='small' onClick={() => handlePriceChange(price + 1)}>
           <PlusIcon style={{ height: '16px', width: '16px' }} color='#9E9E9E' />
         </IconButton>
       </Box>
@@ -176,16 +159,28 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
         justifyContent='center'
         bgcolor='action.hover'
         borderRadius={1}
-        sx={{ height: 42, position: 'relative', mt: 1.5 }}
+        sx={{
+          height: 42,
+          position: 'relative',
+          mt: 1.5,
+        }}
+        overflow={'hidden'}
       >
-        <Typography variant='body2' color='#9e9e9e' fontWeight={500}>
-          {t('trade.amount')} (BTC)
-        </Typography>
-        <IconButton size='small' className='absolute right-[4px]'>
+        <InputCustomStyled
+          type='number'
+          placeholder='Số lượng (BTC)'
+          value={quantity}
+          onChange={(e) => setQuantity(+e.target.value)}
+        />
+        <IconButton
+          size='small'
+          className='absolute right-[4px]'
+          onClick={() => setQuantity((prev) => prev + 1)}
+        >
           <PlusIcon style={{ height: '16px', width: '16px' }} color='#9E9E9E' />
         </IconButton>
       </Box>
-      <Box sx={{ my: 1 }}>
+      <Box sx={{ mb: 1, marginTop: '20px' }}>
         <SlideRanger min={0} max={100} step={1} />
       </Box>
       {type !== 'FUTURE' && (
@@ -229,6 +224,7 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
           background: isAction === 'buy' ? '#4AAF57' : '#F54336',
         }}
         onClick={() => refDrawerBalanceSection.current.onOpen()}
+        background={isAction === 'buy' ? '#4AAF57' : '#F54336'}
       />
 
       {type === 'FUTURE' && (
@@ -240,6 +236,7 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
             style={{
               background: '#F54336',
             }}
+            background='#F54336'
           />
         </>
       )}

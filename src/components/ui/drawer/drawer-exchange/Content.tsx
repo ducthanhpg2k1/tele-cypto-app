@@ -1,4 +1,4 @@
-import { Box, IconButton, SelectChangeEvent, Typography } from '@mui/material';
+import { Box, IconButton, SelectChangeEvent, TextField, Typography } from '@mui/material';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -43,6 +43,15 @@ const Content = () => {
   const onMaxValue = () => {
     // to do logic set max and change value from
   };
+
+  const onChangeValueExchange = (type: 'TO' | 'FROM', value: string) => {
+    if (type === 'TO') {
+      setData((prev) => ({ ...prev, to: { ...prev.to, value } }));
+    }
+    if (type === 'FROM') {
+      setData((prev) => ({ ...prev, form: { ...prev.form, value } }));
+    }
+  };
   return (
     <Box sx={sx.wrap}>
       <Box>
@@ -79,12 +88,13 @@ const Content = () => {
             </IconButton>
           </Box>
           <CardExchange
-            type='FORM'
+            type='FROM'
             currency={data?.form.currency}
             value={data?.form.value}
             icon={data?.form.icon}
             maxValue={data.form.maxValue}
             onMaxValue={onMaxValue}
+            onChangeValueExchange={onChangeValueExchange}
           />
           <CardExchange
             type='TO'
@@ -92,10 +102,13 @@ const Content = () => {
             value={data?.to.value}
             icon={data?.to.icon}
             onMaxValue={onMaxValue}
+            onChangeValueExchange={onChangeValueExchange}
           />
         </Box>
       </Box>
-      <Button fullWidth>{t('exchange.trade')}</Button>
+      <Button fullWidth className='h-[48px] p-[10px]'>
+        <Typography className='text-[14px] font-semibold'>{t('exchange.trade')}</Typography>
+      </Button>
     </Box>
   );
 };
@@ -109,22 +122,24 @@ const CardExchange = ({
   value = '',
   maxValue = '',
   onMaxValue,
+  onChangeValueExchange,
 }: {
-  type: 'FORM' | 'TO';
+  type: 'FROM' | 'TO';
   icon: string;
   currency: string;
   value: string;
   maxValue?: string;
   onMaxValue?: () => void;
+  onChangeValueExchange: (type: 'FROM' | 'TO', value: string) => void;
 }) => {
   const { t } = useTranslation();
   return (
     <Box sx={sx.card}>
       <Box sx={sx.cardHeader}>
         <Typography variant='caption' color={'#9E9E9E'} className='font-normal'>
-          {type === 'FORM' ? t('exchange.to') : t('exchange.end')}
+          {type === 'FROM' ? t('exchange.to') : t('exchange.end')}
         </Typography>
-        {type === 'FORM' && (
+        {type === 'FROM' && (
           <div className='flex items-center gap-[4px]'>
             <Typography variant='caption' color='#9e9e9e' fontWeight={400}>
               {t('exchange.available')}
@@ -145,11 +160,23 @@ const CardExchange = ({
           </Typography>
           <CaretDown color='#424242' />
         </div>
-        <Typography variant='h5' fontWeight={600} color={'#212121'}>
-          {value}
-        </Typography>
+        <input
+          type='text'
+          value={value}
+          onChange={(e) => onChangeValueExchange(type, e.target.value)}
+          style={{
+            fontSize: '1.5rem',
+            fontWeight: 600,
+            color: '#212121',
+            width: `fit-content`,
+            border: 'none',
+            outline: 'none',
+            background: 'transparent',
+            textAlign: 'right',
+          }}
+        />
       </Box>
-      {type === 'FORM' && (
+      {type === 'FROM' && (
         <div
           className='w-full flex items-center justify-end'
           onClick={() => onMaxValue && onMaxValue()}

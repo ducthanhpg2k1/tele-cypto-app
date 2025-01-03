@@ -8,28 +8,6 @@ import { Tabs } from '../ui/tabs';
 import Image from 'next/image';
 import { t } from 'i18next';
 
-// Styled Components
-const SectionContainer = styled(Box)(({ theme }) => ({
-  height: '100%',
-  overflow: 'hidden',
-  display: 'flex',
-  flexDirection: 'column',
-}));
-
-const Title = styled(Typography)({
-  fontSize: '14px',
-  fontWeight: 500,
-  lineHeight: '21px',
-  color: '#212121',
-});
-
-const DetailText = styled(Typography)<{ color?: string }>(({ color }) => ({
-  fontSize: '12px',
-  fontWeight: 400,
-  lineHeight: '20px',
-  color: color || '#9E9E9E',
-}));
-
 // Types
 interface SectionItem {
   value: string;
@@ -37,6 +15,14 @@ interface SectionItem {
   percentageChange?: string;
   tetherUS?: string;
   id: number;
+}
+
+interface AccountItem {
+  name: string;
+  detail?: string;
+  value: string;
+  conversionValue?: string;
+  percentageChange?: string;
 }
 
 // Mock Data
@@ -55,6 +41,25 @@ const sectionItems: SectionItem[] = [
     tetherUS: '1,627 USDT',
     percentageChange: '-2,342 USDT(-0,51%)',
   },
+];
+
+const accountItems: AccountItem[] = [
+  {
+    name: 'Spot',
+    detail: 'PNL% hàng ngày',
+    value: '1.219,00 USDT',
+    conversionValue: '1.219 $',
+    percentageChange: '+0 USDT (+0,00%)',
+  },
+  {
+    name: 'Funding',
+    detail: 'PNL% hàng ngày',
+    value: '1.219,00 USDT',
+    conversionValue: '1.219 $',
+    percentageChange: '+0 USDT (+0,00%)',
+  },
+  { name: 'Cross Margin', value: '0.00 USDT' },
+  { name: 'Isolate Margin', value: '0.00 USDT' },
 ];
 
 // Reusable Component for Section Rows
@@ -91,6 +96,27 @@ const SectionItemRow: React.FC<SectionItem> = ({
   </div>
 );
 
+// Reusable Component for Section Rows
+const AccountTab: React.FC<AccountItem> = ({
+  name,
+  detail,
+  value,
+  conversionValue,
+  percentageChange,
+}) => (
+  <ItemContainer>
+    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+      <Title>{name}</Title>
+      {detail && <DetailText>{detail}</DetailText>}
+    </Box>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'end' }}>
+      <Title>{value}</Title>
+      {conversionValue && <ValueText>{conversionValue}</ValueText>}
+      {percentageChange && <DetailText className='!text-[#424242]'>{percentageChange}</DetailText>}
+    </Box>
+  </ItemContainer>
+);
+
 // Main Component
 const FinancialOverview: React.FC = () => {
   const tabs: TabItem[] = [
@@ -110,8 +136,8 @@ const FinancialOverview: React.FC = () => {
       label: t('wallet.account'),
       content: (
         <Box sx={{ overflowY: 'auto', flex: 1, mt: 1 }}>
-          {sectionItems.map((item) => (
-            <SectionItemRow key={`${item.id}`} {...item} />
+          {accountItems.map((item, index) => (
+            <AccountTab key={`${item.name}-${index}`} {...item} />
           ))}
         </Box>
       ),
@@ -137,5 +163,46 @@ const FinancialOverview: React.FC = () => {
     </SectionContainer>
   );
 };
+
+const ValueText = styled(Typography)({
+  fontSize: '12px',
+  fontWeight: 400,
+  lineHeight: '20px',
+  color: '#9E9E9E',
+});
+
+const ItemContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  padding: '8px 0 14px 0',
+  height: 77,
+  borderBottom: `1px solid ${theme.palette.divider}`,
+  '&:last-child': {
+    borderBottom: 'none',
+  },
+}));
+
+// Styled Components
+const SectionContainer = styled(Box)(({ theme }) => ({
+  height: '100%',
+  overflow: 'hidden',
+  display: 'flex',
+  flexDirection: 'column',
+}));
+
+const Title = styled(Typography)({
+  fontSize: '14px',
+  fontWeight: 500,
+  lineHeight: '21px',
+  color: '#212121',
+});
+
+const DetailText = styled(Typography)<{ color?: string }>(({ color }) => ({
+  fontSize: '12px',
+  fontWeight: 400,
+  lineHeight: '20px',
+  color: color || '#9E9E9E',
+}));
 
 export default FinancialOverview;
