@@ -37,7 +37,9 @@ const CopyTradeCTAButton: FC<TradeCTAButtonProps> = ({ className, onTradeClick }
         <Typography variant='caption' color='#212121' className='font-bold text-sm'>
           {t('copyTrade.cta.amount')}
         </Typography>
-        <Button>{t('copyTrade.cta.button')}</Button>
+        <Button className='text-xs h-7 flex justify-center items-center'>
+          {t('copyTrade.cta.button')}
+        </Button>
       </CTAButton>
     </Container>
   );

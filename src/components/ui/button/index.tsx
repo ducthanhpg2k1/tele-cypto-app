@@ -34,11 +34,11 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={`
+        ${className}
         ${baseStyles}
         ${widthStyles}
         ${variantStyles[variant]}
         ${disabledStyles}
-        ${className}
       `}
       disabled={disabled}
       {...props}

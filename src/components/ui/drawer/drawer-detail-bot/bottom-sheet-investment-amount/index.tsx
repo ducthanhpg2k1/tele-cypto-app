@@ -54,16 +54,19 @@ const BottomSheetInvestmentAmount = (_: any, ref: any) => {
         },
       }}
     >
-      <DialogContent className='min-h-[65dvh]'>
+      <DialogContent className='max-h-max'>
         <div className='flex flex-col gap-4 py-6 px-4'>
           <Typography variant='subtitle2' color={'#212121'} fontWeight={600}>
             {t('bot.titleAmount')}
           </Typography>
-          <CustomInput placeholder='>=5,633' endContent={
-            <Typography variant='body1' className='font-semibold text-[14px]'>
-              USDT
-            </Typography>
-          } />
+          <CustomInput
+            placeholder='>=5,633'
+            endContent={
+              <Typography variant='body1' className='font-semibold text-[14px]'>
+                USDT
+              </Typography>
+            }
+          />
           <div className='flex items-center gap-1'>
             <Typography className='text-xs underline' color={'#9E9E9E'} fontWeight={400}>
               {t('bot.disponible')}

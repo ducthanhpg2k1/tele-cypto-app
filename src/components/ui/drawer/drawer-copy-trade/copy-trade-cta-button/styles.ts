@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import { Box, Button, Typography } from '@mui/material';
 
 export const Container = styled(Box)(({ theme }) => ({
-  padding: '24px 12px',
+  padding: '18px 12px',
   borderRadius: theme.shape.borderRadius,
   // padding: theme.spacing(2),
   display: 'flex',

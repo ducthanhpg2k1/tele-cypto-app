@@ -10,10 +10,14 @@ export const Section = styled(Box)(({ theme }) => ({
 
 const Content = ({ type, showSection }: { type?: string; showSection?: boolean }) => {
   return (
+<<<<<<< HEAD
     <div className='pb-20'>
+=======
+    <div className='pb-14'>
+>>>>>>> 39eeb95f0133cbc708e28797066b0615273f76e3
       <Section
         sx={{
-          height: showSection ? '110px' : 0,
+          height: showSection ? '135px' : 0,
           overflow: 'hidden',
           transition: 'height 0.2s ease',
           animationDuration: 100,
@@ -21,11 +25,17 @@ const Content = ({ type, showSection }: { type?: string; showSection?: boolean }
       >
         <>
           <CopyTradeCTAButton />
+<<<<<<< HEAD
         
           <NotificationCopyTrade />
         </>
       </Section>
 
+=======
+          <NotificationCopyTrade />
+        </>
+      </Section>
+>>>>>>> 39eeb95f0133cbc708e28797066b0615273f76e3
       <TabGrid type={type} />
     </div>
   );

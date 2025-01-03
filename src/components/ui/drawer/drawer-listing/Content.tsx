@@ -58,8 +58,8 @@ const Content = () => {
         {activeStep > 1 && (
           <Button
             onClick={prevStep}
-            className='bg-[#E8F2FF] !outline-0 !border-0 font-semibold'
-            // variant='outline'
+            className='bg-[#E8F2FF] !outline-0 !border-0 font-semibold hover:bg-[#E8F2FF]'
+            variant='blue'
             fullWidth
           >
             <Typography className='!text-[#177DFF] text-[12px]'>
