@@ -7,6 +7,7 @@ import InProgress from './InProgress';
 import SwipeableViews from 'react-swipeable-views';
 import Simulation from './Simulation';
 import { useTranslation } from 'react-i18next';
+import Closed from './Closed';
 
 
 
@@ -54,7 +55,7 @@ const Coppy = () => {
             </div>
             <SwipeableViews index={activeFilter} onChangeIndex={handleChangeIndex}>
                 <InProgress />
-                <InProgress />
+                <Closed />
                 <Simulation />
             </SwipeableViews>
         </div>

@@ -21,13 +21,12 @@ export enum TAB_COPPY_TRADE {
 const DrawerCopyTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
   const [valueTab, setValueTab] = useState<TYPE_TAB>(0);
   const [activeTab, setActiveTab] = useState<TAB_COPPY_TRADE>(TAB_COPPY_TRADE?.investmentPortfolio);
-  const [showSection, setShowSection] = useState(true)
+  const [showSection, setShowSection] = useState(true);
   const handleChange = (value: any) => {
-    setValueTab(value)
+    setValueTab(value);
+  };
 
-  }
-
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const handleScroll = (e: any) => {
     console.log(e.target.scrollTop, 'e.target.scrollTop');
@@ -50,54 +49,36 @@ const DrawerCopyTrade = forwardRef<DrawerHandle, {}>((_, ref) => {
       label={t('copyTrade.contractTab')}
       isCopyTrade
       contentCenter={
-        <CustomTab value={valueTab} options={[
-          {
-            key: 1,
-            label: t('copyTrade.contractTab')
-          },
-          {
-            key: 2,
-            label: t('copyTrade.spotTab')
-          }
-        ]} handleChange={handleChange} />
+        <CustomTab
+          value={valueTab}
+          options={[
+            {
+              key: 1,
+              label: t('copyTrade.contractTab'),
+            },
+            {
+              key: 2,
+              label: t('copyTrade.spotTab'),
+            },
+          ]}
+          handleChange={handleChange}
+        />
       }
     >
-
       <div>
-        {
-          activeTab === TAB_COPPY_TRADE.investmentPortfolio && (
-            <>
-              {
-                valueTab === TYPE_TAB.CONTRACT && (
-                  <Content showSection={showSection} />
-                )
-              }
-              {
-                valueTab === TYPE_TAB.DELIVER && (
-                  <DeliveredImmediately />
-
-
-                )
-              }
-            </>
-          )
-        }
-        {
-          activeTab === TAB_COPPY_TRADE.coppy && (
-            <Coppy />
-
-          )
-        }
-
+        {activeTab === TAB_COPPY_TRADE.investmentPortfolio && (
+          <>
+            {valueTab === TYPE_TAB.CONTRACT && <Content showSection={showSection} />}
+            {valueTab === TYPE_TAB.DELIVER && <DeliveredImmediately />}
+          </>
+        )}
+        {activeTab === TAB_COPPY_TRADE.coppy && <Coppy />}
 
         <BottomNavCoppyTrade
           onChangeTab={(tab: TAB_COPPY_TRADE) => setActiveTab(tab)}
           activeTab={activeTab}
         />
-
       </div>
-
-
     </CustomDrawer>
   );
 });
