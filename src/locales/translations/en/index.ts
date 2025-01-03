@@ -10,7 +10,7 @@ import { notification } from './modules/notification';
 import { academy } from './modules/academy';
 import { sheetTrade } from './modules/sheetTrade';
 import { airdrop } from './modules/airdrop';
-import { bot } from '../vi/modules/bot';
+import { bot } from './modules/bot';
 import { exchange } from './modules/exchange';
 import { myairdrop } from './modules/myairdrop';
 import { moreairdrop } from './modules/moreairdrop';
@@ -18,6 +18,7 @@ import { tradeairdrop } from './modules/tradeAirdrop';
 import { listing } from './modules/listing';
 import { wallet } from './modules/wallet';
 import { copyTrade } from './modules/copyTrade';
+import { depositView } from './modules/depositView';
 
 export const en = {
   balance,
@@ -40,4 +41,5 @@ export const en = {
   listing,
   wallet,
   copyTrade,
+  depositView,
 };

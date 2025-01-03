@@ -24,30 +24,20 @@ type Props = {
 
 const CustomSelect = (props: Props) => {
   return (
-    <Stack className="w-full flex-row bg-[#F5F5F5] items-center gap-[6px]">
+    <Stack className='w-full flex-row bg-[#F5F5F5] items-center gap-[6px]'>
       {props.prefix && (
-        <Typography
-          variant="body2"
-          className="text-[#9E9E9E] min-w-8 text-[12px]"
-        >
+        <Typography variant='body2' className='text-[#9E9E9E] min-w-8 text-[12px]'>
           {props.prefix}
         </Typography>
       )}
-      {props.prefixIcon && (
-        <Image
-          src={props.prefixIcon}
-          alt=""
-          width={20}
-          height={20}
-        />
-      )}
+      {props.prefixIcon && <Image src={props.prefixIcon} alt='' width={20} height={20} />}
       <Select
         value={props.value}
         onChange={props.onChange}
         displayEmpty
         IconComponent={() => (
           <ChevronDownIcon
-            className="w-4 h-4"
+            className='w-4 h-4'
             color={props.colorIcon ? props.colorIcon : '#9E9E9E'}
           />
         )}
@@ -75,11 +65,7 @@ const CustomSelect = (props: Props) => {
       >
         {props.data.map((e, index) => {
           return (
-            <MenuItem
-              value={e.value}
-              key={'menu-from-' + index}
-              className="w-full"
-            >
+            <MenuItem value={e.value} key={'menu-from-' + index} className='w-full'>
               {e.label}
             </MenuItem>
           );

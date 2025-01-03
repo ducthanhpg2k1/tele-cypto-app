@@ -62,17 +62,11 @@ const EyeIcon: React.FC<EyeIconProps> = ({
       onClick={handleIconClick}
       width={size}
       height={size}
-      viewBox="0 0 28 28"
-      xmlns="http://www.w3.org/2000/svg"
+      viewBox='0 0 28 28'
+      xmlns='http://www.w3.org/2000/svg'
       style={{ cursor: 'pointer' }}
     >
-      <path
-        {...renderIcon()}
-        fillRule="evenodd"
-        clipRule="evenodd"
-        fill={color}
-        stroke={color}
-      />
+      <path {...renderIcon()} fillRule='evenodd' clipRule='evenodd' fill={color} stroke={color} />
     </svg>
   );
 };

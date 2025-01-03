@@ -44,15 +44,9 @@ export default TabAction;
 
 const TabsContent = () => {
   return (
-    <Stack className="grid grid-cols-4 w-full mt-6">
+    <Stack className='grid grid-cols-4 w-full mt-6'>
       {mockDataBotTradeOptions.map((e, index) => {
-        return (
-          <ItemOption
-            img={e.img}
-            label={e.label}
-            key={index}
-          />
-        );
+        return <ItemOption img={e.img} label={e.label} key={index} />;
       })}
     </Stack>
   );

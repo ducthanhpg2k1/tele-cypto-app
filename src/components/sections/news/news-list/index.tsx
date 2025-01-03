@@ -35,7 +35,7 @@ const NewsList = () => {
         observer.current.observe(node);
       }
     },
-    [isFetching, hasMore]
+    [isFetching, hasMore],
   );
 
   useEffect(() => {
@@ -75,10 +75,7 @@ const NewsList = () => {
   return (
     <NewsListContainer>
       {items.map((item, index) => (
-        <div
-          key={item.id}
-          ref={index === items.length - 1 ? lastItemRef : undefined}
-        >
+        <div key={item.id} ref={index === items.length - 1 ? lastItemRef : undefined}>
           <NewsCard
             item={item}
             onLike={handleLike}

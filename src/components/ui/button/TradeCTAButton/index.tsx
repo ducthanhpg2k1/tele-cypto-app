@@ -36,19 +36,12 @@ const TradeCTAButton: FC<TradeCTAButtonProps> = ({
         </IconContainer>
 
         <TextContainer>
-          {title ? title : <Title className="text-[14px]">{t('trade.start')}</Title>}
-          <TradeButton
-            onClick={onTradeClick}
-            disableRipple
-          >
+          {title ? title : <Title className='text-[14px]'>{t('trade.start')}</Title>}
+          <TradeButton onClick={onTradeClick} disableRipple>
             {description ? (
               description
             ) : (
-              <Typography
-                variant="caption"
-                color="#E0E0E0"
-                className="font-normal"
-              >
+              <Typography variant='caption' color='#E0E0E0' className='font-normal'>
                 {t('trade.now')}
               </Typography>
             )}

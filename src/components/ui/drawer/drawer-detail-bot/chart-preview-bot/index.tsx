@@ -2,32 +2,34 @@ import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
 import clsx from 'clsx';
 import dayjs from 'dayjs';
+import { t } from 'i18next';
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { shuffleArray } from 'src/utils/helpers';
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const DATA_FILTER = [
   {
     id: 2,
-    text: '1 giây',
+    text: t('bot.one_s'),
   },
   {
     id: 3,
-    text: '1m',
+    text: t('bot.min_1'),
   },
   {
     id: 4,
-    text: '5m',
+    text: t('bot.min_5'),
   },
   {
     id: 5,
-    text: '15m',
+    text: t('bot.min_15'),
   },
   {
     id: 6,
-    text: '30m',
+    text: t('bot.min_30'),
   },
 ];
 
@@ -37,169 +39,240 @@ const Text = styled(Typography)<{ color?: string; fontWeight?: number; fontSize?
     fontWeight: fontWeight || 400,
     lineHeight: '12px',
     color: color || '#757575',
-  })
+  }),
 );
+
+const series = [
+  {
+    data: [
+      {
+        x: new Date('2024-01-01').getTime(),
+        y: [100.0, 105.0, 98.0, 102.0],
+      },
+      {
+        x: new Date('2024-01-02').getTime(),
+        y: [102.0, 107.0, 100.0, 105.0],
+      },
+      {
+        x: new Date('2024-01-03').getTime(),
+        y: [105.0, 108.0, 102.0, 103.0],
+      },
+      {
+        x: new Date('2024-01-04').getTime(),
+        y: [103.0, 106.0, 101.0, 104.0],
+      },
+      {
+        x: new Date('2024-01-05').getTime(),
+        y: [104.0, 109.0, 103.0, 108.0],
+      },
+      {
+        x: new Date('2024-01-06').getTime(),
+        y: [108.0, 110.0, 105.0, 106.0],
+      },
+      {
+        x: new Date('2024-01-07').getTime(),
+        y: [106.0, 112.0, 105.0, 111.0],
+      },
+      {
+        x: new Date('2024-01-08').getTime(),
+        y: [111.0, 115.0, 110.0, 112.0],
+      },
+      {
+        x: new Date('2024-01-09').getTime(),
+        y: [112.0, 113.0, 108.0, 109.0],
+      },
+      {
+        x: new Date('2024-01-10').getTime(),
+        y: [109.0, 114.0, 108.0, 113.0],
+      },
+      {
+        x: new Date('2024-01-11').getTime(),
+        y: [113.0, 116.0, 111.0, 114.0],
+      },
+      {
+        x: new Date('2024-01-12').getTime(),
+        y: [114.0, 117.0, 113.0, 115.0],
+      },
+      {
+        x: new Date('2024-01-13').getTime(),
+        y: [115.0, 118.0, 114.0, 116.0],
+      },
+      {
+        x: new Date('2024-01-14').getTime(),
+        y: [116.0, 119.0, 115.0, 117.0],
+      },
+      {
+        x: new Date('2024-01-15').getTime(),
+        y: [117.0, 120.0, 116.0, 118.0],
+      },
+    ],
+  },
+];
+
+const options: any = {
+  dataLabels: {
+    enabled: false,
+  },
+  chart: {
+    type: 'candlestick',
+    height: 350,
+    toolbar: {
+      show: false,
+    },
+  },
+  title: {
+    text: '',
+    show: false,
+  },
+  plotOptions: {
+    candlestick: {
+      colors: {
+        upward: '#00B42A',
+        downward: '#F53F3F',
+      },
+      barWidth: '10%',
+      wick: {
+        useFillColor: true,
+        width: 1,
+      },
+    },
+  },
+
+  grid: {
+    padding: {
+      left: -8,
+      right: -24,
+    },
+    show: true,
+    borderColor: '#E5E6EB',
+    strokeDashArray: 5,
+    position: 'back',
+    xaxis: {
+      lines: {
+        show: false,
+      },
+    },
+    yaxis: {
+      lines: {
+        show: true,
+      },
+    },
+  },
+  show: true,
+  borderColor: '#E5E6EB',
+  strokeDashArray: 5,
+  position: 'back',
+  xaxis: {
+    tickAmount: 5,
+    axisTicks: {
+      show: false,
+    },
+    labels: {
+      formatter: function (val: any) {
+        return dayjs(val).format('YYYY-MM-DD');
+      },
+      style: {
+        colors: '#9E9E9E',
+        fontSize: '10px',
+        fontWeight: 400,
+      },
+    },
+  },
+  yaxis: {
+    labels: {
+      show: false,
+    },
+  },
+};
 
 const ChartPreviewBot = () => {
   const [activeFilter, setActiveFilter] = useState(2);
   const { t } = useTranslation();
+  const [dataSeries, setDataSeries] = useState(series);
 
-  const series = [
-    {
-      data: [
-        {
-          x: new Date('2024-01-01').getTime(),
-          y: [100.0, 105.0, 98.0, 102.0],
-        },
-        {
-          x: new Date('2024-01-02').getTime(),
-          y: [102.0, 107.0, 100.0, 105.0],
-        },
-        {
-          x: new Date('2024-01-03').getTime(),
-          y: [105.0, 108.0, 102.0, 103.0],
-        },
-        {
-          x: new Date('2024-01-04').getTime(),
-          y: [103.0, 106.0, 101.0, 104.0],
-        },
-        {
-          x: new Date('2024-01-05').getTime(),
-          y: [104.0, 109.0, 103.0, 108.0],
-        },
-        {
-          x: new Date('2024-01-06').getTime(),
-          y: [108.0, 110.0, 105.0, 106.0],
-        },
-        {
-          x: new Date('2024-01-07').getTime(),
-          y: [106.0, 112.0, 105.0, 111.0],
-        },
-        {
-          x: new Date('2024-01-08').getTime(),
-          y: [111.0, 115.0, 110.0, 112.0],
-        },
-        {
-          x: new Date('2024-01-09').getTime(),
-          y: [112.0, 113.0, 108.0, 109.0],
-        },
-        {
-          x: new Date('2024-01-10').getTime(),
-          y: [109.0, 114.0, 108.0, 113.0],
-        },
-        {
-          x: new Date('2024-01-11').getTime(),
-          y: [113.0, 116.0, 111.0, 114.0],
-        },
-        {
-          x: new Date('2024-01-12').getTime(),
-          y: [114.0, 117.0, 113.0, 115.0],
-        },
-        {
-          x: new Date('2024-01-13').getTime(),
-          y: [115.0, 118.0, 114.0, 116.0],
-        },
-      ],
-    },
-  ];
+  useEffect(() => {
+    setDataSeries([
+      {
+        data: shuffleArray([
+          {
+            x: new Date('2024-01-01').getTime(),
+            y: [100.0, 105.0, 98.0, 102.0],
+          },
+          {
+            x: new Date('2024-01-02').getTime(),
+            y: [102.0, 107.0, 100.0, 105.0],
+          },
+          {
+            x: new Date('2024-01-03').getTime(),
+            y: [105.0, 108.0, 102.0, 103.0],
+          },
+          {
+            x: new Date('2024-01-04').getTime(),
+            y: [103.0, 106.0, 101.0, 104.0],
+          },
+          {
+            x: new Date('2024-01-05').getTime(),
+            y: [104.0, 109.0, 103.0, 108.0],
+          },
+          {
+            x: new Date('2024-01-06').getTime(),
+            y: [108.0, 110.0, 105.0, 106.0],
+          },
+          {
+            x: new Date('2024-01-07').getTime(),
+            y: [106.0, 112.0, 105.0, 111.0],
+          },
+          {
+            x: new Date('2024-01-08').getTime(),
+            y: [111.0, 115.0, 110.0, 112.0],
+          },
+          {
+            x: new Date('2024-01-09').getTime(),
+            y: [112.0, 113.0, 108.0, 109.0],
+          },
+          {
+            x: new Date('2024-01-10').getTime(),
+            y: [109.0, 114.0, 108.0, 113.0],
+          },
+          {
+            x: new Date('2024-01-11').getTime(),
+            y: [113.0, 116.0, 111.0, 114.0],
+          },
+          {
+            x: new Date('2024-01-12').getTime(),
+            y: [114.0, 117.0, 113.0, 115.0],
+          },
+          {
+            x: new Date('2024-01-13').getTime(),
+            y: [115.0, 118.0, 114.0, 116.0],
+          },
+          {
+            x: new Date('2024-01-14').getTime(),
+            y: [116.0, 119.0, 115.0, 117.0],
+          },
+          {
+            x: new Date('2024-01-15').getTime(),
+            y: [117.0, 120.0, 116.0, 118.0],
+          },
+        ]),
+      },
+    ]);
+  }, [activeFilter]);
 
-  const options: any = {
-    dataLabels: {
-      enabled: false,
-    },
-    chart: {
-      type: 'candlestick',
-      height: 350,
-      toolbar: {
-        show: false,
-      },
-      parentHeightOffset: 0,
-    },
-    title: {
-      text: '',
-      show: false,
-    },
-    plotOptions: {
-      candlestick: {
-        colors: {
-          upward: '#00B42A',
-          downward: '#F53F3F',
-        },
-        barWidth: '10%',
-        wick: {
-          useFillColor: true,
-          width: 1,
-        },
-      },
-    },
-
-    grid: {
-      padding: {
-        left: -8,
-        right:-24,
-      },
-      show: true,
-      borderColor: '#E5E6EB',
-      strokeDashArray: 5,
-      position: 'back',
-      xaxis: {
-        lines: {
-          show: false,
-        },
-      },
-      yaxis: {
-        lines: {
-          show: true,
-        },
-      },
-      
-    },
-    xaxis: {
-      tickAmount: 5,
-      axisTicks: {
-        show: false,
-      },
-      labels: {
-        formatter: function (val: any) {
-          return dayjs(val).format('YYYY-MM-DD');
-        },
-        style: {
-          colors: '#9E9E9E',
-          fontSize: '10px',
-          fontWeight: 400,
-        },
-      },
-    },
-    yaxis: {
-      labels: {
-        show: false,
-      },
-      title: {
-        text: undefined,
-      },
-    },
-  };
   return (
-    <div className="flex flex-col gap-4">
-      <Typography
-        variant="body1"
-        color={'#212121'}
-        fontWeight={600}
-      >
+    <div className='flex flex-col gap-4'>
+      <Typography variant='body1' color={'#212121'} fontWeight={600}>
         {t('bot.preview_bot')}
       </Typography>
       <div>
-        <div className="flex items-center gap-6 w-full">
-          <div className="w-[60px]">
-            <Text
-              color={'#9E9E9E'}
-              fontWeight={400}
-            >
-              Thời gian
+        <div className='flex items-center gap-6 w-full'>
+          <div className='w-[60px]'>
+            <Text color={'#9E9E9E'} fontWeight={400}>
+              {t('bot.time')}
             </Text>
           </div>
 
-          <div className="grid grid-cols-5 w-full">
+          <div className='grid grid-cols-5 w-full'>
             {DATA_FILTER?.map((item) => {
               return (
                 <div
@@ -211,7 +284,7 @@ const ChartPreviewBot = () => {
                     'justify-center flex transition-all rounded-sm items-center py-[2px] px-[8px] w-max',
                     {
                       'bg-[#E8F2FF]': item?.id === activeFilter,
-                    }
+                    },
                   )}
                 >
                   <Text
@@ -226,12 +299,7 @@ const ChartPreviewBot = () => {
           </div>
         </div>
 
-        <ReactApexChart
-          options={options}
-          series={series}
-          type="candlestick"
-          height={300}
-        />
+        <ReactApexChart options={options} series={dataSeries} type='candlestick' height={300} />
       </div>
     </div>
   );

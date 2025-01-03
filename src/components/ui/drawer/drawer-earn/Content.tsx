@@ -12,17 +12,10 @@ import InputSearch from 'src/components/ui/input-search/InputSearch';
 const Invite = () => {
   return (
     <>
-      <EnjoyButton className="w-full" />
-      <Stack className="flex-row overflow-auto w-full gap-3 pb-0 min-h-[125px]">
+      <EnjoyButton className='w-full' />
+      <Stack className='flex-row overflow-auto w-full gap-3 pb-0 min-h-[125px]'>
         {mockDataCardEarn.map((e, index) => {
-          return (
-            <CardEarn
-              name={e.name}
-              img={e.img}
-              profit={e.profit}
-              key={index}
-            />
-          );
+          return <CardEarn name={e.name} img={e.img} profit={e.profit} key={index} />;
         })}
       </Stack>
       <ListCoin />

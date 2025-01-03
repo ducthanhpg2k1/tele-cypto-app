@@ -88,7 +88,7 @@ export const formatPrice = (price: number | null | undefined, step: number): str
 export const validateBalance = (
   amount: number,
   balance: number,
-  fee: number = spotFee
+  fee: number = spotFee,
 ): { isValid: boolean; required: number; shortfall: number } => {
   const totalRequired = amount * (1 + fee);
   return {

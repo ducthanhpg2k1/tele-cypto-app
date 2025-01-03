@@ -22,7 +22,7 @@ export class MarketService {
         acc[item.name] = item.price;
         return acc;
       },
-      {} as Record<string, number>
+      {} as Record<string, number>,
     );
 
     return prices;

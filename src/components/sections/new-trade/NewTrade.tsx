@@ -12,6 +12,8 @@ import TagsTrade from './common/TagsTrade';
 import DrawerBotTrade from 'src/components/ui/drawer/drawer-bot-trade';
 import DrawerExchange from 'src/components/ui/drawer/drawer-exchange';
 import { DrawerHandle } from 'src/components/ui/drawer';
+import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade';
+import { t } from 'i18next';
 
 export const Section = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -31,15 +33,17 @@ export default function NewTrade() {
   const [valueCustom, setValueCustom] = useState(1);
   const refBotTrade = useRef<DrawerHandle | null>(null);
   const refExchange = useRef<DrawerHandle | null>(null);
+  const refDrawerCopyTrade = useRef<DrawerHandle | null>(null);
+
   const tabs: TabItem[] = [
     {
       key: 'crypto',
-      label: 'Lệnh chờ (0)',
+      label: t('trade.history.tabs.orders') + ' (0)',
       content: <EmptySpotTrade />,
     },
     {
       key: 'account',
-      label: 'Tài sản',
+      label: t('trade.history.tabs.asset'),
       content: <EmptySpotTrade />,
     },
   ];
@@ -53,19 +57,20 @@ export default function NewTrade() {
   };
 
   const handleChangeTab = (value: number) => {
-    if (value === 0) {
-      refBotTrade.current?.onOpen();
-      return;
-    }
     if (value === 3) {
+      refBotTrade.current?.onOpen();
+    }
+    if (value === 0) {
       refExchange.current?.onOpen();
-      return;
+    }
+    if (value === 4) {
+      refDrawerCopyTrade.current?.onOpen();
     }
     setValueCustom(value);
   };
   return (
     <Box
-      component="main"
+      component='main'
       sx={{
         flexGrow: 1,
         display: 'flex',
@@ -78,6 +83,8 @@ export default function NewTrade() {
     >
       <DrawerBotTrade ref={refBotTrade} />
       <DrawerExchange ref={refExchange} />
+      <DrawerCopyTrade ref={refDrawerCopyTrade} />
+
       <Box
         sx={{
           px: 1,
@@ -102,23 +109,13 @@ export default function NewTrade() {
         </Section>
         <CurrencyInfo />
       </Box>
-      <Grid
-        sx={{ py: '12px', px: 2 }}
-        container
-        spacing={'12px'}
-      >
+      <Grid sx={{ py: '12px', px: 2 }} container spacing={'12px'}>
         {valueCustom === 2 && <TagsTrade />}
-        <Grid
-          item
-          xs={6}
-        >
+        <Grid item xs={6}>
           <Transactions />
         </Grid>
-        <Grid
-          item
-          xs={6}
-        >
-          <ActionTrade type="SPOT" />
+        <Grid item xs={6}>
+          <ActionTrade type='SPOT' />
         </Grid>
       </Grid>
       <FooterTrade tabs={tabs} />

@@ -14,6 +14,8 @@ import DrawerExchange from 'src/components/ui/drawer/drawer-exchange';
 import { DrawerHandle } from 'src/components/ui/drawer';
 import { EmptFuture } from './common/EmptFuture';
 import TradeCTAButton from 'src/components/ui/button/TradeCTAButton';
+import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade';
+import { t } from 'i18next';
 
 export const Section = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -30,23 +32,25 @@ export const TypographyRegular = styled(Typography)(({ theme }) => ({
 
 export default function NewTrade() {
   const [showSection, setShowSection] = useState(true);
-  const [valueCustom, setValueCustom] = useState(1);
+  const [valueCustom, setValueCustom] = useState(0);
   const refBotTrade = useRef<DrawerHandle | null>(null);
   const refExchange = useRef<DrawerHandle | null>(null);
+  const refDrawerCopyTrade = useRef<DrawerHandle | null>(null);
+
   const tabsFuture: TabItem[] = [
     {
       key: 'crypto',
-      label: 'Lệnh chờ (0)',
+      label: t('trade.history.tabs.orders') + ' (0)',
       content: <EmptFuture />,
     },
     {
       key: 'account',
-      label: 'Vị thế (0)',
+      label: t('trade.history.tabs.positions') + ' (0)',
       content: <EmptFuture />,
     },
     {
       key: 'account',
-      label: 'Lưới hợp đồng',
+      label: t('trade.history.tabs.grid'),
       content: <EmptFuture />,
     },
   ];
@@ -61,14 +65,17 @@ export default function NewTrade() {
 
   const handleChangeTab = (value: number) => {
     if (value === 1) {
-      refBotTrade.current?.onOpen();
-      return;
+      refDrawerCopyTrade.current?.onOpen();
     }
+    if (value === 2) {
+      refBotTrade.current?.onOpen();
+    }
+
     setValueCustom(value);
   };
   return (
     <Box
-      component="main"
+      component='main'
       sx={{
         flexGrow: 1,
         display: 'flex',
@@ -80,6 +87,7 @@ export default function NewTrade() {
       onScroll={handleScroll}
     >
       <DrawerBotTrade ref={refBotTrade} />
+      <DrawerCopyTrade ref={refDrawerCopyTrade} />
       <DrawerExchange ref={refExchange} />
       <Box
         sx={{
@@ -87,7 +95,7 @@ export default function NewTrade() {
           position: 'sticky',
           top: 0,
           background: '#ffffff',
-          zIndex: 9999,
+          zIndex: 1000,
         }}
       >
         <Section
@@ -103,54 +111,37 @@ export default function NewTrade() {
             handleChange={(e, v) => handleChangeTab(v)}
           />
         </Section>
-        <div className="py-2">
+        <div className='py-2'>
           <TradeCTAButton
             title={
-              <Typography
-                variant="caption"
-                color={'#e0e0e0'}
-                className="font-normal"
-              >
-                Không mất chi phí - Không lỗ
+              <Typography variant='caption' color={'#e0e0e0'} className='font-normal'>
+                {t('trade.header.noCostNoLoss')}
               </Typography>
             }
             description={
               <Typography
-                variant="body2"
+                variant='body2'
                 color={'#ffffff'}
                 fontWeight={700}
-                className="line-clamp-1"
+                className='line-clamp-1'
               >
-                Đặt lệnh giao dịch Hợp đồng Tương lai
+                {t('trade.header.placeFutureOrder')}
               </Typography>
             }
           />
         </div>
         <CurrencyInfo />
       </Box>
-      <Grid
-        sx={{ py: '12px', px: 2 }}
-        container
-        spacing={'12px'}
-      >
+      <Grid sx={{ py: '12px', px: 2 }} container spacing={'12px'}>
         {valueCustom === 2 && <TagsTrade />}
-        <Grid
-          item
-          xs={6}
-        >
+        <Grid item xs={6}>
           <Transactions />
         </Grid>
-        <Grid
-          item
-          xs={6}
-        >
-          <ActionTrade type="FUTURE" />
+        <Grid item xs={6}>
+          <ActionTrade type='FUTURE' />
         </Grid>
       </Grid>
-      <FooterTrade
-        tabs={tabsFuture}
-        type="FUTURE"
-      />
+      <FooterTrade tabs={tabsFuture} type='FUTURE' />
     </Box>
   );
 }

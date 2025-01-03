@@ -23,11 +23,11 @@ const DefaultTab: FC<TabsProps> = ({ items, defaultActiveTab, onChange }) => {
   };
 
   return (
-    <div className="w-full relative">
-      <div className="mb-2  relative">
+    <div className='w-full relative'>
+      <div className='mb-2  relative'>
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scrollbar-hide -mb-px"
+          className='flex overflow-x-auto scrollbar-hide -mb-px'
           style={{
             scrollBehavior: 'smooth',
             msOverflowStyle: 'none' /* IE and Edge */,
@@ -52,7 +52,7 @@ const DefaultTab: FC<TabsProps> = ({ items, defaultActiveTab, onChange }) => {
           ))}
         </div>
       </div>
-      <div className="tab-content">{items.find((tab) => tab.id === activeTab)?.content}</div>
+      <div className='tab-content'>{items.find((tab) => tab.id === activeTab)?.content}</div>
     </div>
   );
 };

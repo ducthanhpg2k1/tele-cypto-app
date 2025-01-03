@@ -17,7 +17,7 @@ import { moreairdrop } from './modules/moreairdrop';
 import { tradeairdrop } from './modules/tradeAirdrop';
 import { wallet } from './modules/wallet';
 import { copyTrade } from './modules/copyTrade';
-
+import { depositView } from './modules/depositView';
 
 export const vi = {
   balance,
@@ -38,5 +38,6 @@ export const vi = {
   moreairdrop,
   tradeairdrop,
   wallet,
-  copyTrade
+  copyTrade,
+  depositView,
 };

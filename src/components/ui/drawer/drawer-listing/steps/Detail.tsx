@@ -1,4 +1,12 @@
-import { Box, FormControl, FormControlLabel, Radio, RadioGroup, SelectChangeEvent, Typography } from '@mui/material';
+import {
+  Box,
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  SelectChangeEvent,
+  Typography,
+} from '@mui/material';
 import React, { useState } from 'react';
 import { t } from 'i18next';
 import CustomSelect from '../CustomSelect';
@@ -27,26 +35,32 @@ const BLOCKCHAIN_TYPES = [
   },
 ];
 
-const keyBooleanValues = ['hasOfficalWebsite', 'hasCmcLink', 'hasXLink', 'hasTeleCommunity', 'hasBlockchainType']
+const keyBooleanValues = [
+  'hasOfficalWebsite',
+  'hasCmcLink',
+  'hasXLink',
+  'hasTeleCommunity',
+  'hasBlockchainType',
+];
 
 const Detail = () => {
   const [formValues, setFormValues] = useState({
-    project: "",
-    token: "",
+    project: '',
+    token: '',
     hasOfficalWebsite: true,
-    officalWebsite: "",
+    officalWebsite: '',
     hasCmcLink: true,
-    cmcLink: "",
+    cmcLink: '',
     hasXLink: true,
-    xLink: "",
+    xLink: '',
     hasTeleCommunity: true,
-    teleCommunity: "",
+    teleCommunity: '',
     hasBlockchainType: true,
-    blockchainType: "",
-    contractAddress: "",
-    discord: "",
-    marketMakerPlan: "",
-    tgeTime: "",
+    blockchainType: '',
+    contractAddress: '',
+    discord: '',
+    marketMakerPlan: '',
+    tgeTime: '',
   });
 
   const handleChange = (e: any) => {
@@ -63,7 +77,7 @@ const Detail = () => {
     <Box sx={sx.wrap}>
       <Box sx={sx.content}>
         <Typography sx={sx.title}>{t('listing.detail.title')}</Typography>
-        
+
         <Box sx={sx.form}>
           <FormControl sx={sx.formItem}>
             <Typography sx={sx.label}>{t('listing.detail.projectName')}</Typography>
@@ -91,112 +105,122 @@ const Detail = () => {
             <Typography sx={sx.label}>{t('listing.detail.officalWebsiteQuestion')}</Typography>
             <Box>
               <RadioGroup
-                name="hasOfficalWebsite"
+                name='hasOfficalWebsite'
                 value={formValues.hasOfficalWebsite}
                 onChange={handleChange}
                 sx={sx.groupRadio}
               >
-                <FormControlLabel value={true} control={<Radio sx={sx.radio}/>} label="Yes" />
-                <FormControlLabel value={false} control={<Radio sx={sx.radio}/>} label="No" />
+                <FormControlLabel value={true} control={<Radio sx={sx.radio} />} label='Yes' />
+                <FormControlLabel value={false} control={<Radio sx={sx.radio} />} label='No' />
               </RadioGroup>
             </Box>
-            {formValues.hasOfficalWebsite && <Box sx={sx.boxSelect}>
-              <CustomInput
-                value={formValues.officalWebsite}
-                onChange={handleChange}
-                name="officalWebsite"
-                placeholder={t('listing.detail.officalWebsiteQuestionPlaceHolder')}
-              />
-            </Box>}
+            {formValues.hasOfficalWebsite && (
+              <Box sx={sx.boxSelect}>
+                <CustomInput
+                  value={formValues.officalWebsite}
+                  onChange={handleChange}
+                  name='officalWebsite'
+                  placeholder={t('listing.detail.officalWebsiteQuestionPlaceHolder')}
+                />
+              </Box>
+            )}
           </FormControl>
           <FormControl sx={sx.formItem}>
             <Typography sx={sx.label}>{t('listing.detail.cmcLinkQuestion')}</Typography>
             <Box>
               <RadioGroup
-                name="hasCmcLink"
+                name='hasCmcLink'
                 value={formValues.hasCmcLink}
                 onChange={handleChange}
-                 sx={sx.groupRadio}
+                sx={sx.groupRadio}
               >
-                <FormControlLabel value={true} control={<Radio sx={sx.radio}/>} label="Yes" />
-                <FormControlLabel value={false} control={<Radio sx={sx.radio}/>} label="No" />
+                <FormControlLabel value={true} control={<Radio sx={sx.radio} />} label='Yes' />
+                <FormControlLabel value={false} control={<Radio sx={sx.radio} />} label='No' />
               </RadioGroup>
             </Box>
-            {formValues.hasCmcLink && <Box sx={sx.boxSelect}>
-              <CustomInput
-                value={formValues.cmcLink}
-                onChange={handleChange}
-                name="cmcLink"
-                placeholder={t('listing.detail.cmcLinkQuestionPlaceHolder')}
-              />
-            </Box>}
+            {formValues.hasCmcLink && (
+              <Box sx={sx.boxSelect}>
+                <CustomInput
+                  value={formValues.cmcLink}
+                  onChange={handleChange}
+                  name='cmcLink'
+                  placeholder={t('listing.detail.cmcLinkQuestionPlaceHolder')}
+                />
+              </Box>
+            )}
           </FormControl>
           <FormControl sx={sx.formItem}>
             <Typography sx={sx.label}>{t('listing.detail.xLinkQuestion')}</Typography>
             <Box>
               <RadioGroup
-                name="hasXLink"
+                name='hasXLink'
                 value={formValues.hasXLink}
                 onChange={handleChange}
-                 sx={sx.groupRadio}
+                sx={sx.groupRadio}
               >
-                <FormControlLabel value={true} control={<Radio sx={sx.radio}/>} label="Yes" />
-                <FormControlLabel value={false} control={<Radio sx={sx.radio}/>} label="No" />
+                <FormControlLabel value={true} control={<Radio sx={sx.radio} />} label='Yes' />
+                <FormControlLabel value={false} control={<Radio sx={sx.radio} />} label='No' />
               </RadioGroup>
             </Box>
-            {formValues.hasXLink && <Box sx={sx.boxSelect}>
-              <CustomInput
-                value={formValues.xLink}
-                onChange={handleChange}
-                name="xLink"
-                placeholder={t('listing.detail.xLinkQuestionPlaceHolder')}
-              />
-            </Box>}
+            {formValues.hasXLink && (
+              <Box sx={sx.boxSelect}>
+                <CustomInput
+                  value={formValues.xLink}
+                  onChange={handleChange}
+                  name='xLink'
+                  placeholder={t('listing.detail.xLinkQuestionPlaceHolder')}
+                />
+              </Box>
+            )}
           </FormControl>
           <FormControl sx={sx.formItem}>
             <Typography sx={sx.label}>{t('listing.detail.teleCommunityQuestion')}</Typography>
             <Box>
               <RadioGroup
-                name="hasTeleCommunity"
+                name='hasTeleCommunity'
                 value={formValues.hasTeleCommunity}
                 onChange={handleChange}
-                 sx={sx.groupRadio}
+                sx={sx.groupRadio}
               >
-                <FormControlLabel value={true} control={<Radio sx={sx.radio}/>} label="Yes" />
-                <FormControlLabel value={false} control={<Radio sx={sx.radio}/>} label="No" />
+                <FormControlLabel value={true} control={<Radio sx={sx.radio} />} label='Yes' />
+                <FormControlLabel value={false} control={<Radio sx={sx.radio} />} label='No' />
               </RadioGroup>
             </Box>
-            {formValues.hasTeleCommunity && <Box sx={sx.boxSelect}>
-              <CustomInput
-                value={formValues.teleCommunity}
-                onChange={handleChange}
-                name="teleCommunity"
-                placeholder={t('listing.detail.teleCommunityPlaceHolder')}
-              />
-            </Box>}
+            {formValues.hasTeleCommunity && (
+              <Box sx={sx.boxSelect}>
+                <CustomInput
+                  value={formValues.teleCommunity}
+                  onChange={handleChange}
+                  name='teleCommunity'
+                  placeholder={t('listing.detail.teleCommunityPlaceHolder')}
+                />
+              </Box>
+            )}
           </FormControl>
           <FormControl sx={sx.formItem}>
             <Typography sx={sx.label}>{t('listing.detail.blockChainType')}</Typography>
             <Box>
               <RadioGroup
-                name="hasBlockchainType"
+                name='hasBlockchainType'
                 value={formValues.hasBlockchainType}
                 onChange={handleChange}
                 sx={sx.groupRadio}
               >
-                <FormControlLabel value={true} control={<Radio sx={sx.radio}/>} label="Yes" />
-                <FormControlLabel value={false} control={<Radio sx={sx.radio}/>} label="No" />
+                <FormControlLabel value={true} control={<Radio sx={sx.radio} />} label='Yes' />
+                <FormControlLabel value={false} control={<Radio sx={sx.radio} />} label='No' />
               </RadioGroup>
             </Box>
-            {formValues.hasBlockchainType && <Box sx={sx.boxSelect}>
-              <CustomSelect
-                name='blockchainType'
-                onChange={handleChange}
-                value={formValues.blockchainType}
-                data={BLOCKCHAIN_TYPES}
-                placeholder={t('listing.detail.blockChainTypePlaceHolder')}
-              />
-            </Box>}
+            {formValues.hasBlockchainType && (
+              <Box sx={sx.boxSelect}>
+                <CustomSelect
+                  name='blockchainType'
+                  onChange={handleChange}
+                  value={formValues.blockchainType}
+                  data={BLOCKCHAIN_TYPES}
+                  placeholder={t('listing.detail.blockChainTypePlaceHolder')}
+                />
+              </Box>
+            )}
           </FormControl>
           <FormControl sx={sx.formItem}>
             <Typography sx={sx.label}>{t('listing.detail.contractAdress')}</Typography>
@@ -285,7 +309,7 @@ const sx = {
   title: {
     fontWeight: 600,
     fontSize: 16,
-    lineHeight: 1.5
+    lineHeight: 1.5,
   },
   form: {
     display: 'flex',
@@ -305,13 +329,17 @@ const sx = {
     fontSize: 12,
     fontWeight: 400,
     lineHeight: 1.5,
-    color: '#757575'
+    color: '#757575',
   },
   groupRadio: {
     display: 'flex',
     flexDirection: 'row',
+
+    '& .MuiTypography-root': {
+      fontSize: '14px',
+    },
   },
   radio: {
     color: '#E0E0E0',
-  }
+  },
 };

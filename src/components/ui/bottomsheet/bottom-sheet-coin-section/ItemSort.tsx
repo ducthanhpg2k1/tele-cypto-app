@@ -30,28 +30,22 @@ const ItemSort = (props: Props) => {
   };
 
   return (
-    <Stack
-      className="flex-row gap-[2px]"
-      onClick={onClick}
-    >
-      <Typography
-        variant="body2"
-        color="#9E9E9E"
-      >
+    <Stack className='flex-row gap-[2px]' onClick={onClick}>
+      <Typography variant='body2' color='#9E9E9E'>
         {t(props.name)}
       </Typography>
-      <Stack className="relative gap-[0px] w-[10px]">
+      <Stack className='relative gap-[0px] w-[10px]'>
         <CaretDown
           width={10}
           height={10}
-          className="rotate-180 absolute top-[5px]"
+          className='rotate-180 absolute top-[5px]'
           color={up ? '#212121' : '#BDBDBD'}
         />
         <CaretDown
           width={10}
           height={10}
           color={down ? '#212121' : '#BDBDBD'}
-          className="absolute top-[10px]"
+          className='absolute top-[10px]'
         />
       </Stack>
     </Stack>

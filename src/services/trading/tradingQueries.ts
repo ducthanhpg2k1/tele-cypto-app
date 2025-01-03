@@ -4,7 +4,7 @@ export const tradingQueries = {
     timeframe: number,
     limit: number,
     step: number,
-    requestCount: number
+    requestCount: number,
   ) => `
     query {
       pair(id: "${pair}") {

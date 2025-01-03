@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import dynamic from 'next/dynamic';
 import React from 'react';
 
@@ -84,20 +85,14 @@ const ChartLintPastProfits = () => {
 
   const series = [
     {
-      name: 'Dữ liệu',
+      name: t('bot.data'),
       data: percentageData,
     },
   ];
 
   return (
-    <div className="flex flex-col p-0 m-0 w-full">
-      <Chart
-        options={options}
-        width={'100%'}
-        series={series}
-        type="area"
-        height={200}
-      />
+    <div className='flex flex-col p-0 m-0 w-full'>
+      <Chart options={options} width={'100%'} series={series} type='area' height={200} />
     </div>
   );
 };

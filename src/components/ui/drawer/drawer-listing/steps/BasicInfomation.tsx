@@ -1,4 +1,12 @@
-import { Box, FormControl, FormControlLabel, Radio, RadioGroup, SelectChangeEvent, Typography } from '@mui/material';
+import {
+  Box,
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  SelectChangeEvent,
+  Typography,
+} from '@mui/material';
 import React, { useState } from 'react';
 import { t } from 'i18next';
 import CustomSelect from '../CustomSelect';
@@ -17,15 +25,15 @@ const CHANNELS_REFER = [
 
 const BasicInformation = () => {
   const [formValues, setFormValues] = useState({
-    channelRefer: "",
-    whoRefer: "",
-    email: "",
+    channelRefer: '',
+    whoRefer: '',
+    email: '',
   });
 
   const handleChange = (e: any) => {
     const { name, value } = e.target; // Get the field name and value
     console.log('nameee', value, value);
-    
+
     setFormValues({
       ...formValues, // Preserve other fields
       [name]: value, // Update the changed field
@@ -45,10 +53,12 @@ const BasicInformation = () => {
     <Box sx={sx.wrap}>
       <Box sx={sx.content}>
         <Typography sx={sx.title}>{t('listing.basicInformation.title')}</Typography>
-        
+
         <Box sx={sx.form}>
           <FormControl sx={sx.formItem}>
-            <Typography sx={sx.label}>{t('listing.basicInformation.basicInfoFirstQuestion')}</Typography>
+            <Typography sx={sx.label}>
+              {t('listing.basicInformation.basicInfoFirstQuestion')}
+            </Typography>
             <Box sx={sx.boxSelect}>
               <CustomSelect
                 onChange={handleChange}
@@ -60,7 +70,9 @@ const BasicInformation = () => {
             </Box>
           </FormControl>
           <FormControl sx={sx.formItem}>
-            <Typography sx={sx.label}>{t('listing.basicInformation.basicInfoSecondQuestion')}</Typography>
+            <Typography sx={sx.label}>
+              {t('listing.basicInformation.basicInfoSecondQuestion')}
+            </Typography>
             <Box sx={sx.boxSelect}>
               <CustomInput
                 value={formValues.whoRefer}
@@ -71,7 +83,9 @@ const BasicInformation = () => {
             </Box>
           </FormControl>
           <FormControl sx={sx.formItem}>
-            <Typography sx={sx.label}>{t('listing.basicInformation.basicInfoThirdQuestion')}</Typography>
+            <Typography sx={sx.label}>
+              {t('listing.basicInformation.basicInfoThirdQuestion')}
+            </Typography>
             <Box sx={sx.boxSelect}>
               <CustomInput
                 name='email'
@@ -124,7 +138,7 @@ const sx = {
   title: {
     fontWeight: 600,
     fontSize: 16,
-    lineHeight: 1.5
+    lineHeight: 1.5,
   },
   form: {
     display: 'flex',
@@ -144,10 +158,10 @@ const sx = {
     fontSize: 12,
     fontWeight: 400,
     lineHeight: 1.5,
-    color: '#757575'
+    color: '#757575',
   },
   groupRadio: {
     display: 'flex',
     flexDirection: 'row',
-  }
+  },
 };

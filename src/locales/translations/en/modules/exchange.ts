@@ -1,9 +1,10 @@
 export const exchange = {
-  header: 'Chuyển đổi',
+  header: 'Exchange',
   market: 'Market',
-  trade: 'Giao dịch',
-  to: 'Từ',
-  end: 'Đến',
-  available: 'Khả dụng',
-  max: 'Tối đa',
+  trade: 'Trade',
+  to: 'From',
+  end: 'To',
+  available: 'Available',
+  max: 'Max',
+  loan: 'Loan',
 };

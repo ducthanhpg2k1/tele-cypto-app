@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Typography } from '@mui/material';
+import { t } from 'i18next';
 import { useState } from 'react';
 import EmptyFuture from 'src/assets/icons/EmptyFuture';
 import IconOctagonExclamation from 'src/assets/icons/IconOctagonExclamation';
@@ -32,28 +33,22 @@ export const EmptFuture = () => {
             alignItems: 'center',
           }}
         >
-          <CustomBox
-            active={action === 'basic'}
-            onClick={() => setAction('basic')}
-          >
+          <CustomBox active={action === 'basic'} onClick={() => setAction('basic')}>
             <Typography
-              variant="caption"
+              variant='caption'
               color={action === 'basic' ? '#212121' : '#9e9e9e'}
               fontWeight={action === 'basic' ? 500 : 400}
             >
-              Cơ bản(0)
+              {t('trade.history.orderTabs.basic')}(0)
             </Typography>
           </CustomBox>
-          <CustomBox
-            active={action === 'condition'}
-            onClick={() => setAction('condition')}
-          >
+          <CustomBox active={action === 'condition'} onClick={() => setAction('condition')}>
             <Typography
-              variant="caption"
+              variant='caption'
               color={action === 'condition' ? '#212121' : '#9e9e9e'}
               fontWeight={action === 'condition' ? 500 : 400}
             >
-              Có điều kiện(0)
+              {t('trade.history.orderTabs.condition')}(0)
             </Typography>
           </CustomBox>
         </Box>
@@ -61,11 +56,8 @@ export const EmptFuture = () => {
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: 1, my: 1 }}>
         <EmptyFuture />
-        <Typography
-          variant="caption"
-          color={'#212121'}
-        >
-          Không đủ tiền
+        <Typography variant='caption' color={'#212121'}>
+          {t('trade.history.orderTabs.noMoney')}
         </Typography>
       </Box>
     </>

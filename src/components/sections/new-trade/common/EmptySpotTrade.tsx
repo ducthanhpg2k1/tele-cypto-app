@@ -1,20 +1,14 @@
 import { Box, Button, Typography } from '@mui/material';
+import { t } from 'i18next';
 
 export const EmptySpotTrade = () => {
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', gap: 1, my: 1 }}>
-      <Typography
-        variant="caption"
-        color={'#212121'}
-      >
-        Không có lệnh
+      <Typography variant='caption' color={'#212121'}>
+        {t('trade.history.noOrders')}
       </Typography>
-      <Typography
-        variant="caption"
-        color={'#9E9E9E'}
-        className="font-normal"
-      >
-        Hãy để các nhà giao dịch hàng đầu giúp bạn
+      <Typography variant='caption' color={'#9E9E9E'} className='font-normal'>
+        {t('trade.history.letTopTradersHelp')}
       </Typography>
       <Button
         sx={{
@@ -27,11 +21,8 @@ export const EmptySpotTrade = () => {
           border: '1px solid #E0E0E0',
         }}
       >
-        <Typography
-          color={'#9e9e9e'}
-          variant="caption"
-        >
-          Sao chép giao dịch
+        <Typography color={'#9e9e9e'} variant='caption'>
+          {t('trade.history.copyTrade')}
         </Typography>
       </Button>
     </Box>

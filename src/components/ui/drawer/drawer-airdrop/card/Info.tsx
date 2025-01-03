@@ -18,19 +18,11 @@ const Info = ({
   des?: string;
 }) => {
   return (
-    <Stack className="flex-row gap-1.5 items-center">
-      <Image
-        src="/images/pepper.png"
-        alt=" "
-        width={imageWidth ?? 36}
-        height={imageHeight ?? 36}
-      />
-      <Stack className="gap-[2px] items-start">
-        <Stack className="gap-1 flex-row items-center">
-          <Typography
-            variant="body1"
-            className="font-semibold text-[16px]"
-          >
+    <Stack className='flex-row gap-1.5 items-center'>
+      <Image src='/images/pepper.png' alt=' ' width={imageWidth ?? 36} height={imageHeight ?? 36} />
+      <Stack className='gap-[2px] items-start'>
+        <Stack className='gap-1 flex-row items-center'>
+          <Typography variant='body1' className='font-semibold text-[16px]'>
             1000PEPPER
           </Typography>
           <Box
@@ -43,30 +35,18 @@ const Info = ({
               background: '#EBFAF0',
             }}
           >
-            <Typography
-              variant="body2"
-              color={'#4AAF57'}
-              className="text-[12px]"
-            >
+            <Typography variant='body2' color={'#4AAF57'} className='text-[12px]'>
               {t('airdrop.progress')}
             </Typography>
           </Box>
         </Stack>
-        <Typography
-          variant="caption"
-          color="#757575"
-        >
+        <Typography variant='caption' color='#757575'>
           {des ?? 'PEPPER'}
         </Typography>
         {showToken && (
-          <Stack className="flex-row gap-0.5">
-            <Image
-              src="/assets/iconly/ic-token.svg"
-              alt=""
-              width={16}
-              height={16}
-            />
-            <Typography variant="body2">{token}</Typography>
+          <Stack className='flex-row gap-0.5'>
+            <Image src='/assets/iconly/ic-token.svg' alt='' width={16} height={16} />
+            <Typography variant='body2'>{token}</Typography>
           </Stack>
         )}
       </Stack>

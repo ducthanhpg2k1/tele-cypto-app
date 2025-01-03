@@ -13,84 +13,70 @@ const Card = () => {
   const refMoreAirdrop = useRef<DrawerHandle | null>(null);
   const refTradeAirdrop = useRef<DrawerHandle | null>(null);
   return (
-    <Stack className="p-2 items-start gap-2 rounded-xl border-[1px] border-solid border-[#EEE] w-full">
+    <Stack className='p-2 items-start gap-2 rounded-xl border-[1px] border-solid border-[#EEE] w-full'>
       <Info />
-      <Stack className="w-max gap-1 items-start">
-        <Stack className="gap-[2px] items-start">
+      <Stack className='w-max gap-1 items-start'>
+        <Stack className='gap-[2px] items-start'>
           <Typography
-            variant="caption"
-            color="#757575"
-            className="font-normal text-[10px] tracking-[0.2px]"
+            variant='caption'
+            color='#757575'
+            className='font-normal text-[10px] tracking-[0.2px]'
           >
             {t('airdrop.time')}
           </Typography>
-          <Typography
-            variant="subtitle2"
-            className="text-[12px]"
-          >
+          <Typography variant='subtitle2' className='text-[12px]'>
             {t('airdrop.timevalue')}
           </Typography>
         </Stack>
-        <Stack className="gap-[2px] items-start">
+        <Stack className='gap-[2px] items-start'>
           <Typography
-            variant="caption"
-            color="#757575"
-            className="font-normal text-[10px] tracking-[0.2px]"
+            variant='caption'
+            color='#757575'
+            className='font-normal text-[10px] tracking-[0.2px]'
           >
             {t('airdrop.sum')}
           </Typography>
-          <Typography
-            variant="subtitle2"
-            className="text-[12px]"
-          >
+          <Typography variant='subtitle2' className='text-[12px]'>
             {t('airdrop.timevalue')}
           </Typography>
         </Stack>
-        <Stack className="gap-[2px] items-start">
+        <Stack className='gap-[2px] items-start'>
           <Typography
-            variant="caption"
-            color="#757575"
-            className="font-normal text-[10px] tracking-[0.2px]"
+            variant='caption'
+            color='#757575'
+            className='font-normal text-[10px] tracking-[0.2px]'
           >
             {t('airdrop.snap')}
           </Typography>
-          <Stack className="flex-row gap-0.5">
-            <Image
-              src="/assets/iconly/ic-token.svg"
-              alt=""
-              width={16}
-              height={16}
-            />
-            <Typography
-              variant="caption"
-              className="font-normal"
-            >
+          <Stack className='flex-row gap-0.5'>
+            <Image src='/assets/iconly/ic-token.svg' alt='' width={16} height={16} />
+            <Typography variant='caption' className='font-normal'>
               CHZ
             </Typography>
           </Stack>
         </Stack>
       </Stack>
-      <Stack className="flex-row gap-1.5 items-center">
+      <Stack className='flex-row gap-1.5 items-center'>
         <Typography
-          variant="body2"
-          color="#177DFF"
-          className="text-[12px]"
+          variant='body2'
+          color='#177DFF'
+          className='text-[12px]'
           onClick={() => refMyAirdrop.current?.onOpen()}
         >
           {t('airdrop.my')}
         </Typography>
         <Typography
-          variant="body2"
-          color="#177DFF"
-          className="text-[12px]"
+          variant='body2'
+          color='#177DFF'
+          className='text-[12px]'
           onClick={() => refTradeAirdrop.current?.onOpen()}
         >
           {t('airdrop.trade')}
         </Typography>
         <Typography
-          variant="body2"
-          color="#177DFF"
-          className="text-[12px]"
+          variant='body2'
+          color='#177DFF'
+          className='text-[12px]'
           onClick={() => refMoreAirdrop.current?.onOpen()}
         >
           {t('airdrop.more')}

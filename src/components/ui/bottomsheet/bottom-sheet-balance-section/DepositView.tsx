@@ -2,20 +2,21 @@ import { styled } from '@mui/material/styles';
 import DepositIcon from 'src/assets/icons/DepositIcon';
 import TransferIcon from 'src/assets/icons/TransferIcon';
 import TransactionCard from './TransactionCard';
+import { t } from 'i18next';
 
 const transactionData = [
   {
     icon: <TransferIcon />,
-    title: 'Chuyển',
-    description: 'Tổng số có sẵn 56,324 USDT',
+    title: t('depositView.transfer'),
+    description: t('depositView.total') + ' 56,324 USDT',
     altText: 'Transfer icon',
     type: 'TRANSFER',
-    subDesc: 'Có thể chuyển từ ví',
+    subDesc: t('depositView.wallet'),
   },
   {
     icon: <DepositIcon />,
-    title: 'Nạp tiền',
-    description: 'Gửi tiền đến tài khoản',
+    title: t('depositView.header'),
+    description: t('depositView.to'),
     altText: 'Deposit icon',
     type: 'DEPOSIT',
   },
@@ -25,7 +26,7 @@ export const DepositView = ({ onAction }: { onAction?: (data: string) => void })
   return (
     <>
       <Container>
-        <Title>Nạp tiền</Title>
+        <Title> {t('depositView.header')}</Title>
         <CardsContainer>
           {transactionData.map((transaction, index) => (
             <TransactionCard
@@ -39,10 +40,7 @@ export const DepositView = ({ onAction }: { onAction?: (data: string) => void })
         </CardsContainer>
         <AlertContainer>
           <AlertSymbol>* </AlertSymbol>
-          <AlertMessage>
-            Không thể đặt lệnh vì số dư không đủ. Hãy chuyển tài sản từ ví khác sang hoặc nạp tiền
-            để đặt lệnh.
-          </AlertMessage>
+          <AlertMessage>{t('depositView.no')}</AlertMessage>
         </AlertContainer>
       </Container>
     </>

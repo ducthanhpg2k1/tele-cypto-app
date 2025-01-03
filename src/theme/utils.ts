@@ -15,7 +15,7 @@ export const getPrimary = (preset?: ColorPreset): PaletteColor => {
       return purple;
     default:
       console.error(
-        'Invalid color preset, accepted values: "blue", "green", "indigo" or "purple"".'
+        'Invalid color preset, accepted values: "blue", "green", "indigo" or "purple"".',
       );
       return blue;
   }

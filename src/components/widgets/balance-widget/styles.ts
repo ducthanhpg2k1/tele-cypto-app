@@ -52,5 +52,5 @@ export const StyledIcon = styled(KeyboardArrowUpIcon)<{ $isexpanded: number }>(
   ({ $isexpanded }) => ({
     transition: 'transform 200ms',
     transform: $isexpanded ? 'rotate(0deg)' : 'rotate(180deg)',
-  })
+  }),
 );

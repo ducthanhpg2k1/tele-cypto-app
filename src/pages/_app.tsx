@@ -41,10 +41,7 @@ const CustomApp = (props: CustomAppProps) => {
     <CacheProvider value={emotionCache}>
       <Head>
         <title>Telegrex</title>
-        <meta
-          name="viewport"
-          content="initial-scale=1, width=device-width"
-        />
+        <meta name='viewport' content='initial-scale=1, width=device-width' />
       </Head>
       <QueryProvider>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -68,14 +65,8 @@ const CustomApp = (props: CustomAppProps) => {
                       }}
                     >
                       <Head>
-                        <meta
-                          name="color-scheme"
-                          content={settings.paletteMode}
-                        />
-                        <meta
-                          name="theme-color"
-                          content={theme.palette.neutral[900]}
-                        />
+                        <meta name='color-scheme' content={settings.paletteMode} />
+                        <meta name='theme-color' content={theme.palette.neutral[900]} />
                       </Head>
                       <CssBaseline />
                       {getLayout(<Component {...pageProps} />)}

@@ -13,33 +13,14 @@ const ListTransactions = ({
     <>
       {data.map((item, key) => {
         return (
-          <Grid
-            key={'down' + key}
-            container
-            style={{ background }}
-          >
-            <Grid
-              item
-              xs={6}
-            >
-              <Typography
-                variant="caption"
-                color={colorText}
-                className="font-normal"
-              >
+          <Grid key={'down' + key} container style={{ background }}>
+            <Grid item xs={6}>
+              <Typography variant='caption' color={colorText} className='font-normal'>
                 {item.price}
               </Typography>
             </Grid>
-            <Grid
-              item
-              xs={6}
-              className="text-right"
-            >
-              <Typography
-                variant="caption"
-                color={'textSecondary'}
-                className="font-normal"
-              >
+            <Grid item xs={6} className='text-right'>
+              <Typography variant='caption' color={'textSecondary'} className='font-normal'>
                 {item.value}
               </Typography>
             </Grid>

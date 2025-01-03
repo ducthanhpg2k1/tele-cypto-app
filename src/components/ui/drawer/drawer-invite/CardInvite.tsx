@@ -14,35 +14,22 @@ const CardInvite = () => {
     }
   };
   return (
-    <Stack className="w-full flex p-3 flex-col gap-4 items-start border-[1px] border-solid rounded-lg border-gray-200">
-      <Stack className="flex flex-row justify-between items-center self-stretch">
-        <Stack className="flex flex-col items-start gap-0.5 justify-center">
-          <Typography
-            variant="caption"
-            color="#757575"
-            className="font-normal"
-          >
+    <Stack className='w-full flex p-3 flex-col gap-4 items-start border-[1px] border-solid rounded-lg border-gray-200'>
+      <Stack className='flex flex-row justify-between items-center self-stretch'>
+        <Stack className='flex flex-col items-start gap-0.5 justify-center'>
+          <Typography variant='caption' color='#757575' className='font-normal'>
             {t('invite.sub')}
           </Typography>
-          <Typography
-            variant="body2"
-            className="font-medium leading-[21px]"
-          >
+          <Typography variant='body2' className='font-medium leading-[21px]'>
             https://www...EIYEs
           </Typography>
         </Stack>
-        <Stack
-          className="rounded-full w-10 p-2.5 bg-[#E8F2FF]"
-          onClick={handleCopy}
-        >
+        <Stack className='rounded-full w-10 p-2.5 bg-[#E8F2FF]' onClick={handleCopy}>
           <CopyInviteIcon />
         </Stack>
       </Stack>
-      <Button
-        fullWidth
-        onClick={handleCopy}
-      >
-        <Typography className="text-[14px]">{t('invite.button')}</Typography>
+      <Button fullWidth onClick={handleCopy}>
+        <Typography className='text-[14px]'>{t('invite.button')}</Typography>
       </Button>
     </Stack>
   );

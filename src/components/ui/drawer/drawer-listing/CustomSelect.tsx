@@ -1,11 +1,5 @@
 import { ArrowDownIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
-import {
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { MenuItem, Select, SelectChangeEvent, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
 import React, { ReactNode } from 'react';
 
@@ -21,7 +15,7 @@ type Props = {
 
 const CustomSelect = (props: Props) => {
   return (
-    <Stack className="w-full flex-row bg-[#F5F5F5] items-center gap-[6px]">
+    <Stack className='w-full flex-row bg-[#F5F5F5] items-center gap-[6px]'>
       <Select
         name={props.name}
         value={props.value}
@@ -29,7 +23,7 @@ const CustomSelect = (props: Props) => {
         displayEmpty
         IconComponent={() => (
           <ChevronDownIcon
-            className="w-4 h-4"
+            className='w-4 h-4'
             color={props.colorIcon ? props.colorIcon : '#9E9E9E'}
           />
         )}
@@ -37,7 +31,11 @@ const CustomSelect = (props: Props) => {
         fullWidth
         renderValue={(value: any) => {
           if (!value) {
-            return <Typography color="gray">{props.placeholder}</Typography>;
+            return (
+              <Typography color='gray' className='text-sm'>
+                {props.placeholder}
+              </Typography>
+            );
           }
           return value;
         }}
@@ -63,11 +61,7 @@ const CustomSelect = (props: Props) => {
       >
         {props.data.map((e, index) => {
           return (
-            <MenuItem
-              value={e.value}
-              key={'menu-from-' + index}
-              className="w-full"
-            >
+            <MenuItem value={e.value} key={'menu-from-' + index} className='w-full'>
               {e.label}
             </MenuItem>
           );

@@ -19,54 +19,58 @@ const STEPS = [
 
 const Content = () => {
   const [activeStep, setActiveStep] = useState(1);
-  const router = useRouter()
-  
+  const router = useRouter();
+
   const renderStep = () => {
     switch (activeStep) {
       case 1:
-        return <BasicInformation />
+        return <BasicInformation />;
       case 2:
-        return <Detail />
+        return <Detail />;
       case 3:
-        return <ProjectEcosystem />
+        return <ProjectEcosystem />;
       case 4:
-        return <SubmitsionResult />
+        return <SubmitsionResult />;
       default:
         break;
     }
-  }
-  console.log('activeStep',activeStep);
-  
+  };
+  console.log('activeStep', activeStep);
+
   const nextStep = () => {
     if (activeStep == STEPS.length) {
-      return router.push('/wallet')
+      return router.push('/wallet');
     }
-    setActiveStep(activeStep + 1)
-  }
+    setActiveStep(activeStep + 1);
+  };
 
   const prevStep = () => {
     if (activeStep == STEPS.length) {
-      return router.push('/wallet')
+      return router.push('/wallet');
     }
-    setActiveStep(activeStep - 1)
-  }
+    setActiveStep(activeStep - 1);
+  };
   return (
     <Box sx={sx.wrap}>
-      <Steps
-        activeStep={activeStep}
-        setActiveStep={setActiveStep}
-        steps={STEPS}
-      />
+      <Steps activeStep={activeStep} setActiveStep={setActiveStep} steps={STEPS} />
       {renderStep()}
       <Box sx={sx.action}>
-        {activeStep > 0 && <Button onClick={prevStep} className='!bg-[#E8F2FF] !text-[#177DFF] !outline-0 !border-0 font-semibold' variant="outline" fullWidth>
-          <Typography className="text-[14px]">{activeStep == STEPS.length ? t('listing.backToHome') : t('listing.back')}</Typography>
-        </Button>}
-        <Button
-          fullWidth
-          onClick={nextStep}
-          className='font-semibold'>
-          <Typography className="text-[14px]">{activeStep == STEPS.length ? t('listing.submiting') : t('listing.next')}</Typography>
+        {activeStep > 0 && (
+          <Button
+            onClick={prevStep}
+            className='!bg-[#E8F2FF] !text-[#177DFF] !outline-0 !border-0 font-semibold'
+            variant='outline'
+            fullWidth
+          >
+            <Typography className='text-[14px]'>
+              {activeStep == STEPS.length ? t('listing.backToHome') : t('listing.back')}
+            </Typography>
+          </Button>
+        )}
+        <Button fullWidth onClick={nextStep} className='font-semibold'>
+          <Typography className='text-[14px]'>
+            {activeStep == STEPS.length ? t('listing.submiting') : t('listing.next')}
+          </Typography>
         </Button>
       </Box>
     </Box>
@@ -109,7 +113,7 @@ const sx = {
   title: {
     fontWeight: 600,
     fontSize: 16,
-    lineHeight: 1.5
+    lineHeight: 1.5,
   },
   form: {
     display: 'flex',
@@ -129,7 +133,7 @@ const sx = {
     fontSize: 12,
     fontWeight: 400,
     lineHeight: 1.5,
-    color: '#757575'
+    color: '#757575',
   },
   action: {
     display: 'flex',

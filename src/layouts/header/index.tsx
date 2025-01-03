@@ -56,35 +56,28 @@ export const Header: React.FC<HeaderProps> = ({ onSearch }) => {
   return (
     <HeaderRoot>
       <DrawerNotification ref={refNoti} />
-      <Logo
-        src="/logo.svg"
-        alt="Telegrex Logo"
-      />
+      <Logo src='/logo.svg' alt='Telegrex Logo' />
       <InputSearch onSearch={onSearch} />
-      <Box
-        sx={{ padding: 0, gap: '4px' }}
-        display="flex"
-        alignItems="center"
-      >
+      <Box sx={{ padding: 0, gap: '4px' }} display='flex' alignItems='center'>
         {isShowChat ? (
           <>
-            <ChatIcon className="w-6 h-6 " />
+            <ChatIcon className='w-6 h-6 ' />
             <Image
-              src="/assets/iconly/ic-avatar.svg"
-              className="w-8 h-8 rounded-full object-cover"
+              src='/assets/iconly/ic-avatar.svg'
+              className='w-8 h-8 rounded-full object-cover'
               width={36}
               height={36}
-              alt="avatar"
+              alt='avatar'
               quality={100}
             />
           </>
         ) : (
           <>
             <QrCodeIcon />
-            <StyledIconButton size="medium">
+            <StyledIconButton size='medium'>
               <Badge
-                badgeContent=""
-                color="error"
+                badgeContent=''
+                color='error'
                 sx={{
                   '& .MuiBadge-badge': {
                     right: 4,

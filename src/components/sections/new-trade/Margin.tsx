@@ -5,6 +5,7 @@ import CurrencyInfo from './common/CurrencyInfo';
 import { EmptySpotTrade } from './common/EmptySpotTrade';
 import FooterTrade from './common/FooterTrade';
 import Transactions from './common/Transactions';
+import { t } from 'i18next';
 
 export const Section = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -22,18 +23,18 @@ export default function NewTrade() {
   const tabs: TabItem[] = [
     {
       key: 'crypto',
-      label: 'Lệnh chờ (0)',
+      label: t('trade.history.tabs.orders') + ' (0)',
       content: <EmptySpotTrade />,
     },
     {
       key: 'account',
-      label: 'Tài sản',
+      label: t('trade.history.tabs.asset'),
       content: <EmptySpotTrade />,
     },
   ];
   return (
     <Box
-      component="main"
+      component='main'
       sx={{
         flexGrow: 1,
         px: 1,
@@ -48,22 +49,12 @@ export default function NewTrade() {
         <CurrencyInfo />
       </Box>
       <Box sx={{ height: 'calc(100% - 94px)', overflow: 'auto' }}>
-        <Grid
-          sx={{ py: '12px', px: 1 }}
-          container
-          spacing={'12px'}
-        >
-          <Grid
-            item
-            xs={6}
-          >
+        <Grid sx={{ py: '12px', px: 1 }} container spacing={'12px'}>
+          <Grid item xs={6}>
             <Transactions />
           </Grid>
-          <Grid
-            item
-            xs={6}
-          >
-            <ActionTrade type="SPOT" />
+          <Grid item xs={6}>
+            <ActionTrade type='SPOT' />
           </Grid>
         </Grid>
         <FooterTrade tabs={tabs} />

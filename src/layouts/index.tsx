@@ -37,10 +37,7 @@ const DefaultLayout = ({ children }: LayoutProps) => {
         >
           {children}
         </Box>
-        <Toaster
-          position="top-center"
-          duration={1000}
-        />
+        <Toaster position='top-center' duration={1000} />
         <BottomNav />
       </MobileContainer>
     </Box>

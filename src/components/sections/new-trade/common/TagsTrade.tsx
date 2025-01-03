@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material';
 import React from 'react';
 import { TypographyRegular } from '../NewTrade';
 import CurrencyIcon from 'src/assets/icons/CurrencyIcon';
+import { t } from 'i18next';
 
 export const Tag = ({ value }: { value: string }) => {
   return (
@@ -16,11 +17,7 @@ export const Tag = ({ value }: { value: string }) => {
         minWidth: 52,
       }}
     >
-      <Typography
-        variant="caption"
-        color={'textSecondary'}
-        className="font-normal"
-      >
+      <Typography variant='caption' color={'textSecondary'} className='font-normal'>
         {value}
       </Typography>
     </Box>
@@ -39,14 +36,14 @@ export default function TagsTrade() {
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'start', gap: 1 }}>
-        <Tag value="Cross" />
-        <Tag value="--" />
-        <Tag value="T..ng" />
-        <Tag value="B/R" />
+        <Tag value='Cross' />
+        <Tag value='--' />
+        <Tag value='T..ng' />
+        <Tag value='B/R' />
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-        <TypographyRegular>Mức ký quỹ</TypographyRegular>
-        <div className="flex items-center gap-[4px]">
+        <TypographyRegular>{t('wallet.mar_lev')}</TypographyRegular>
+        <div className='flex items-center gap-[4px]'>
           <CurrencyIcon />
           <TypographyRegular>999,000</TypographyRegular>
         </div>

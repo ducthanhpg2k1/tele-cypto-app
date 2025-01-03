@@ -74,7 +74,7 @@ export const createTheme = (config: ThemeConfig): Theme => {
       : createLightOptions({
           colorPreset: config.colorPreset,
           contrast: config.contrast,
-        })
+        }),
   );
 
   if (config.responsiveFontSizes) {

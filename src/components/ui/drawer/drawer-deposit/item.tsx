@@ -9,12 +9,8 @@ type Props = {
 
 const Item = (props: Props) => {
   return (
-    <Stack className="flex-row justify-between items-center w-full">
-      <Typography
-        variant="caption"
-        color={'#9E9E9E'}
-        className="font-normal text-[10px]"
-      >
+    <Stack className='flex-row justify-between items-center w-full'>
+      <Typography variant='caption' color={'#9E9E9E'} className='font-normal text-[10px]'>
         {t(props.label)}
       </Typography>
       {props.value}

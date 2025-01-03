@@ -1,4 +1,12 @@
-import { Box, FormControl, FormControlLabel, Radio, RadioGroup, SelectChangeEvent, Typography } from '@mui/material';
+import {
+  Box,
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  SelectChangeEvent,
+  Typography,
+} from '@mui/material';
 import React, { useState } from 'react';
 import { t } from 'i18next';
 import CustomSelect from '../CustomSelect';
@@ -27,19 +35,18 @@ const BLOCKCHAIN_TYPES = [
   },
 ];
 
-
 const ProjectEcosystem = () => {
   const [formValues, setFormValues] = useState({
-    introduction: "",
-    investor: "",
-    futureBusinessPlan: "",
-    numberOfUsers: "",
-    fdv: "",
-    tradingVolume: "",
-    exchanges: "",
-    otherExchanges: "",
-    specialListingArrangements: "",
-    additionalInformation: "",
+    introduction: '',
+    investor: '',
+    futureBusinessPlan: '',
+    numberOfUsers: '',
+    fdv: '',
+    tradingVolume: '',
+    exchanges: '',
+    otherExchanges: '',
+    specialListingArrangements: '',
+    additionalInformation: '',
   });
 
   const handleChange = (e: any) => {
@@ -55,7 +62,7 @@ const ProjectEcosystem = () => {
     <Box sx={sx.wrap}>
       <Box sx={sx.content}>
         <Typography sx={sx.title}>{t('listing.projectEcosystem.title')}</Typography>
-        
+
         <Box sx={sx.form}>
           <FormControl sx={sx.formItem}>
             <Typography sx={sx.label}>{t('listing.projectEcosystem.foundingTeam')}</Typography>
@@ -70,7 +77,9 @@ const ProjectEcosystem = () => {
             </Box>
           </FormControl>
           <FormControl sx={sx.formItem}>
-            <Typography sx={sx.label}>{t('listing.projectEcosystem.investorInformation')}</Typography>
+            <Typography sx={sx.label}>
+              {t('listing.projectEcosystem.investorInformation')}
+            </Typography>
             <Box sx={sx.boxSelect}>
               <CustomInput
                 name='investor'
@@ -81,7 +90,9 @@ const ProjectEcosystem = () => {
             </Box>
           </FormControl>
           <FormControl sx={sx.formItem}>
-            <Typography sx={sx.label}>{t('listing.projectEcosystem.futureBusinessPlan')}</Typography>
+            <Typography sx={sx.label}>
+              {t('listing.projectEcosystem.futureBusinessPlan')}
+            </Typography>
             <Box sx={sx.boxSelect}>
               <CustomInput
                 name='futureBusinessPlan'
@@ -147,7 +158,9 @@ const ProjectEcosystem = () => {
             </Box>
           </FormControl>
           <FormControl sx={sx.formItem}>
-            <Typography sx={sx.label}>{t('listing.projectEcosystem.specialListingArrangements')}</Typography>
+            <Typography sx={sx.label}>
+              {t('listing.projectEcosystem.specialListingArrangements')}
+            </Typography>
             <Box sx={sx.boxSelect}>
               <CustomInput
                 name='specialListingArrangements'
@@ -158,7 +171,9 @@ const ProjectEcosystem = () => {
             </Box>
           </FormControl>
           <FormControl sx={sx.formItem}>
-            <Typography sx={sx.label}>{t('listing.projectEcosystem.additionalInformation')}</Typography>
+            <Typography sx={sx.label}>
+              {t('listing.projectEcosystem.additionalInformation')}
+            </Typography>
             <Box sx={sx.boxInputMutiple}>
               <CustomInput
                 name='additionalInformation'
@@ -222,7 +237,7 @@ const sx = {
   title: {
     fontWeight: 600,
     fontSize: 16,
-    lineHeight: 1.5
+    lineHeight: 1.5,
   },
   form: {
     display: 'flex',
@@ -242,10 +257,10 @@ const sx = {
     fontSize: 12,
     fontWeight: 400,
     lineHeight: 1.5,
-    color: '#757575'
+    color: '#757575',
   },
   groupRadio: {
     display: 'flex',
     flexDirection: 'row',
-  }
+  },
 };

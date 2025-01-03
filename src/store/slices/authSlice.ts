@@ -18,7 +18,7 @@ export const loginUser = createAsyncThunk(
   async (credentials: { authCode: string }) => {
     const response = await login(credentials);
     return response;
-  }
+  },
 );
 
 const authSlice = createSlice({

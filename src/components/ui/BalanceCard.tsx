@@ -1,8 +1,9 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
-import { styled } from "@mui/system";
-import ArrowIcon from "src/assets/icons/ArrowIcon";
-import EyeIcon from "src/assets/icons/EyeIcon";
+import React from 'react';
+import { Box, Typography } from '@mui/material';
+import { styled } from '@mui/system';
+import ArrowIcon from 'src/assets/icons/ArrowIcon';
+import EyeIcon from 'src/assets/icons/EyeIcon';
+import { t } from 'i18next';
 
 // Styled components
 const Container = styled(Box)({
@@ -60,11 +61,8 @@ const BalanceCard = () => {
   return (
     <Container>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-        <CardHeader variant="body2">Tổng số dư</CardHeader>
-        <EyeIcon
-          size={16}
-          color="#9E9E9E"
-        />
+        <CardHeader variant='body2'>{t('wallet.totalBalance')}</CardHeader>
+        <EyeIcon size={16} color='#9E9E9E' />
       </Box>
       <TotalBalance>
         <BalanceText>1.023,5</BalanceText>

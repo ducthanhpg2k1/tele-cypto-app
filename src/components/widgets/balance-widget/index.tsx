@@ -28,21 +28,13 @@ const BalanceWidget: FC<BalanceWidgetProps> = ({ balance, currency = 'USDT', onD
 
   return (
     <WidgetContainer>
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        width="100%"
-      >
+      <Box display='flex' justifyContent='space-between' alignItems='center' width='100%'>
         <BalanceContainer>
           <HeaderContainer onClick={handleToggle}>
-            <TitleText className="text-[12px]">
+            <TitleText className='text-[12px]'>
               {t('balance.title')} ({currency})
             </TitleText>
-            <StyledIcon
-              $isexpanded={isExpanded ? 1 : 0}
-              className="w-4 h-4"
-            />
+            <StyledIcon $isexpanded={isExpanded ? 1 : 0} className='w-4 h-4' />
           </HeaderContainer>
 
           {isExpanded ? (
@@ -66,11 +58,7 @@ const BalanceWidget: FC<BalanceWidgetProps> = ({ balance, currency = 'USDT', onD
           )}
         </BalanceContainer>
 
-        <StyledButton
-          variant="contained"
-          color="primary"
-          onClick={onDeposit}
-        >
+        <StyledButton variant='contained' color='primary' onClick={onDeposit}>
           {t('balance.deposit')}
         </StyledButton>
       </Box>

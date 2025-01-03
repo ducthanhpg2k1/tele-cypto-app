@@ -9,6 +9,7 @@ import IconBotTrade from 'src/assets/icons/IconBotTrade';
 import IconTransaction from 'src/assets/icons/IconTransaction';
 import IconMarket from 'src/assets/icons/IconMarket';
 import { TAB_BOT_TRADE } from '..';
+import { t } from 'i18next';
 
 const NavPaper = styled(Paper)(({ theme }) => ({
   position: 'fixed',
@@ -49,23 +50,20 @@ const StyledBottomNavigationAction = styled(BottomNavigationAction)(({ theme }) 
   opacity: 1,
 }));
 
-
-
-const BottomNavBotTrade = ({ activeTab, onChangeTab }: { activeTab: TAB_BOT_TRADE, onChangeTab: (tab: TAB_BOT_TRADE) => void }) => {
+const BottomNavBotTrade = ({
+  activeTab,
+  onChangeTab,
+}: {
+  activeTab: TAB_BOT_TRADE;
+  onChangeTab: (tab: TAB_BOT_TRADE) => void;
+}) => {
   const theme = useTheme();
-
-
 
   return (
     <NavPaper elevation={3}>
-      <StyledBottomNavigation
-        value={activeTab}
-        onChange={(_, newValue) =>
-          onChangeTab(newValue)
-        }
-      >
+      <StyledBottomNavigation value={activeTab} onChange={(_, newValue) => onChangeTab(newValue)}>
         <StyledBottomNavigationAction
-          label="Bot giao dịch"
+          label={t('bot.header')}
           value={TAB_BOT_TRADE.BOT}
           showLabel
           icon={
@@ -75,7 +73,7 @@ const BottomNavBotTrade = ({ activeTab, onChangeTab }: { activeTab: TAB_BOT_TRAD
           }
         />
         <StyledBottomNavigationAction
-          label="Giao dịch"
+          label='Giao dịch'
           value={TAB_BOT_TRADE.TRANSACTION}
           showLabel
           icon={
@@ -88,7 +86,7 @@ const BottomNavBotTrade = ({ activeTab, onChangeTab }: { activeTab: TAB_BOT_TRAD
         />
 
         <StyledBottomNavigationAction
-          label="Tất cả lệnh"
+          label='Tất cả lệnh'
           value={TAB_BOT_TRADE.ALL_COMMANDS}
           showLabel
           icon={
@@ -100,7 +98,7 @@ const BottomNavBotTrade = ({ activeTab, onChangeTab }: { activeTab: TAB_BOT_TRAD
           }
         />
         <StyledBottomNavigationAction
-          label="Thị trường"
+          label='Thị trường'
           value={TAB_BOT_TRADE.MARKET}
           showLabel
           icon={
@@ -110,8 +108,8 @@ const BottomNavBotTrade = ({ activeTab, onChangeTab }: { activeTab: TAB_BOT_TRAD
           }
         />
       </StyledBottomNavigation>
-    </NavPaper >
+    </NavPaper>
   );
 };
 
-export default BottomNavBotTrade
+export default BottomNavBotTrade;

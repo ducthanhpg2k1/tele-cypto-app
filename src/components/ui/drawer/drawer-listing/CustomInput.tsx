@@ -10,21 +10,21 @@ type Props = {
 };
 const CustomInput = (props: Props) => {
   return (
-    <Stack className="flex-row w-full bg-[#F5F5F5] gap-1 items-start rounded-lg h-full">
+    <Stack className='flex-row w-full bg-[#F5F5F5] gap-1 items-start rounded-lg h-full'>
       <TextField
         name={props.name}
         fullWidth
         onChange={props.onChange}
         value={props.value}
         placeholder={props.placeholder}
-        variant="outlined"
+        variant='outlined'
         rows={props.rows}
         sx={{
           color: 'text.secondary',
           backgroundColor: '#F5F5F5',
           borderRadius: '8px',
           '& .MuiInputBase-input': {
-            padding: 0
+            padding: 0,
           },
           '& .MuiOutlinedInput-notchedOutline': {
             border: 'none',
@@ -38,7 +38,6 @@ const CustomInput = (props: Props) => {
           '& .MuiInputBase-input::placeholder': {
             color: '#9E9E9E',
             fontWeight: 400,
-            
           },
         }}
       />

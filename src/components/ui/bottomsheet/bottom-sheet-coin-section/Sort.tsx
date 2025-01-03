@@ -13,28 +13,16 @@ const Sort = (props: Props) => {
     props.onSort(order);
   };
   return (
-    <Stack className="flex-row w-full justify-between items-center">
-      <Stack className="flex-row gap-[2px] items-center text-[#9E9E9E]">
-        <ItemSort
-          name={CoinTradeSort[0].name}
-          onSort={handleSort}
-        />
+    <Stack className='flex-row w-full justify-between items-center'>
+      <Stack className='flex-row gap-[2px] items-center text-[#9E9E9E]'>
+        <ItemSort name={CoinTradeSort[0].name} onSort={handleSort} />
         /
-        <ItemSort
-          name={CoinTradeSort[1].name}
-          onSort={handleSort}
-        />
+        <ItemSort name={CoinTradeSort[1].name} onSort={handleSort} />
       </Stack>
-      <Stack className="flex-row gap-[2px] items-center text-[#9E9E9E]">
-        <ItemSort
-          name={CoinTradeSort[2].name}
-          onSort={handleSort}
-        />
+      <Stack className='flex-row gap-[2px] items-center text-[#9E9E9E]'>
+        <ItemSort name={CoinTradeSort[2].name} onSort={handleSort} />
         /
-        <ItemSort
-          name={CoinTradeSort[3].name}
-          onSort={handleSort}
-        />
+        <ItemSort name={CoinTradeSort[3].name} onSort={handleSort} />
       </Stack>
     </Stack>
   );

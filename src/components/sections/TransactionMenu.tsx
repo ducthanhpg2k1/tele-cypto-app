@@ -88,15 +88,12 @@ const TransactionMenu: React.FC<TransactionMenuProps> = () => {
         },
       },
     ],
-    []
+    [],
   );
   return (
     <SectionContainer>
       {transactionItems.map((e, index) => (
-        <TransactionItem
-          onClick={e.onClick}
-          key={index}
-        >
+        <TransactionItem onClick={e.onClick} key={index}>
           <IconBox>{e.icon}</IconBox>
           <LabelText>{e.label}</LabelText>
         </TransactionItem>

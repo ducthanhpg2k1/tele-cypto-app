@@ -95,16 +95,16 @@ export const BottomNav: FC = () => {
         }}
       >
         <StyledBottomNavigationAction
-          label="Home"
-          value="home"
+          label='Home'
+          value='home'
           showLabel
           icon={
             <HomeIcon color={currentValue === 'home' ? theme.palette.primary.main : '#9E9E9E'} />
           }
         />
         <StyledBottomNavigationAction
-          label="Market"
-          value="market"
+          label='Market'
+          value='market'
           showLabel
           icon={
             <MarketIcon
@@ -113,13 +113,13 @@ export const BottomNav: FC = () => {
           }
         />
         <StyledBottomNavigationAction
-          value="trade"
+          value='trade'
           icon={<Box sx={{ width: 64 }} />}
           sx={{ opacity: 0, pointerEvents: 'none' }}
         />
         <StyledBottomNavigationAction
-          label="Futures"
-          value="future"
+          label='Futures'
+          value='future'
           showLabel
           icon={
             <FutureIcon
@@ -128,8 +128,8 @@ export const BottomNav: FC = () => {
           }
         />
         <StyledBottomNavigationAction
-          label="Wallet"
-          value="wallet"
+          label='Wallet'
+          value='wallet'
           showLabel
           icon={
             <WalletIcon

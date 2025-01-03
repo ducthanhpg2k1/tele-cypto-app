@@ -17,15 +17,9 @@ const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement;
   },
-  ref: React.Ref<unknown>
+  ref: React.Ref<unknown>,
 ) {
-  return (
-    <Slide
-      direction="up"
-      ref={ref}
-      {...props}
-    />
-  );
+  return <Slide direction='up' ref={ref} {...props} />;
 });
 
 interface TabItem {
@@ -54,7 +48,7 @@ const BottomSheetBalanceSection = (_: any, ref: any) => {
         order === 'none'
           ? tab.data
           : [...tab.data].sort((a, b) =>
-              order === 'asc' ? a.from.localeCompare(b.from) : b.from.localeCompare(a.from)
+              order === 'asc' ? a.from.localeCompare(b.from) : b.from.localeCompare(a.from),
             ),
     }));
     setSortedTabs(updatedTabs);
@@ -64,9 +58,9 @@ const BottomSheetBalanceSection = (_: any, ref: any) => {
     key: tab.key,
     label: tab.label,
     content: (
-      <Stack className="gap-1.5 items-center h-[70dvh] pt-2 pr-1">
+      <Stack className='gap-1.5 items-center h-[70dvh] pt-2 pr-1'>
         <Sort onSort={handleSortTabs} />
-        <Stack className="w-full overflow-auto">
+        <Stack className='w-full overflow-auto'>
           {tab.data.map((e, index) => (
             <Item
               cross={e.cross}
@@ -119,13 +113,10 @@ const BottomSheetBalanceSection = (_: any, ref: any) => {
         },
       }}
     >
-      <DialogContent className="min-h-[85dvh]">
-        <Stack className="px-2 py-3 gap-2">
-          <InputSearch placeholder="Search" />
-          <Tabs
-            tabs={tabItems}
-            defaultTab={0}
-          />
+      <DialogContent className='min-h-[85dvh]'>
+        <Stack className='px-2 py-3 gap-2'>
+          <InputSearch placeholder='Search' />
+          <Tabs tabs={tabItems} defaultTab={0} />
         </Stack>
       </DialogContent>
     </Dialog>

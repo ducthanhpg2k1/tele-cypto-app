@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
+import { t } from 'i18next';
 import type { NextPage } from 'next';
 import { log } from 'node:console';
 import { useState } from 'react';
@@ -18,26 +19,25 @@ const Section = styled(Box)(({ theme }) => ({
 }));
 
 const WalletPage: NextPage = () => {
-  const [showChart, setShowChart] = useState<boolean>(false)
+  const [showChart, setShowChart] = useState<boolean>(false);
   const tabs: TabItem[] = [
-    { key: 'account-overview', label: 'Tổng quan về tài khoản', content: '' },
-    { key: 'spot-trading', label: 'Giao ngay', content: '' },
+    { key: 'account-overview', label: t('wallet.overview'), content: '' },
+    { key: 'spot-trading', label: t('navigation.quickActions.spot'), content: '' },
     { key: 'funding', label: 'Funding', content: '' },
     { key: 'earn', label: 'Earn', content: '' },
-    { key: 'copy-trading', label: 'Sao chép', content: '' },
-    { key: 'buy-crypto', label: 'Mua', content: '' },
+    { key: 'copy-trading', label: t('navigation.quickActions.copytrade'), content: '' },
+    { key: 'buy-crypto', label: t('trade.buy'), content: '' },
   ];
 
   const handleShowChart = () => {
-    setShowChart(!showChart)
-  }
+    setShowChart(!showChart);
+  };
 
   console.log(showChart, 'showChart');
 
-
   return (
     <Box
-      component="main"
+      component='main'
       sx={{
         flexGrow: 1,
         pt: 2,
@@ -50,10 +50,7 @@ const WalletPage: NextPage = () => {
       }}
     >
       <Section>
-        <ScrollableTabsButtonPrevent
-          tabs={tabs}
-          handleChange={(e, v) => console.log(v)}
-        />
+        <ScrollableTabsButtonPrevent tabs={tabs} handleChange={(e, v) => console.log(v)} />
       </Section>
       <BalanceDisplayPanel showChart={showChart} handleShowChart={handleShowChart} />
       <Section
@@ -70,23 +67,11 @@ const WalletPage: NextPage = () => {
             lineHeight: '20px',
           }}
         >
-          PNL của hôm nay +0 USDT(+0,00%)
+          PNL {t('wallet.today')} +0 USDT(+0,00%)
         </Typography>
-        <GoBackIcon
-          fill="#212121"
-          width={16}
-          height={16}
-          isFilled={false}
-        />
+        <GoBackIcon fill='#212121' width={16} height={16} isFilled={false} />
       </Section>
-      {
-        showChart ? (
-          <ViewChart />
-        ) : (
-          <TransactionMenu />
-
-        )
-      }
+      {showChart ? <ViewChart /> : <TransactionMenu />}
       <FinancialOverview />
     </Box>
   );

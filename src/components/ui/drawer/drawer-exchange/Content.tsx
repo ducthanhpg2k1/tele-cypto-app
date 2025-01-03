@@ -46,16 +46,12 @@ const Content = () => {
   return (
     <Box sx={sx.wrap}>
       <Box>
-        <div className="flex items-center justify-between w-full">
-          <div className="flex items-center gap-[2px]">
-            <Typography
-              variant="caption"
-              color="#424242"
-              fontWeight={400}
-            >
+        <div className='flex items-center justify-between w-full'>
+          <div className='flex items-center gap-[2px]'>
+            <Typography variant='caption' color='#424242' fontWeight={400}>
               {t('exchange.market')}
             </Typography>
-            <CaretDown color="#424242" />
+            <CaretDown color='#424242' />
           </div>
           <IconButton
             onClick={() => {
@@ -78,20 +74,12 @@ const Content = () => {
               justifyContent: 'center',
             }}
           >
-            <IconButton
-              sx={{ background: '#fff' }}
-              onClick={() => exChangeValue()}
-            >
-              <Image
-                src={'/assets/iconly/icon-transfer.svg'}
-                width={20}
-                height={20}
-                alt=""
-              />
+            <IconButton sx={{ background: '#fff' }} onClick={() => exChangeValue()}>
+              <Image src={'/assets/iconly/icon-transfer.svg'} width={20} height={20} alt='' />
             </IconButton>
           </Box>
           <CardExchange
-            type="FORM"
+            type='FORM'
             currency={data?.form.currency}
             value={data?.form.value}
             icon={data?.form.icon}
@@ -99,7 +87,7 @@ const Content = () => {
             onMaxValue={onMaxValue}
           />
           <CardExchange
-            type="TO"
+            type='TO'
             currency={data?.to.currency}
             value={data?.to.value}
             icon={data?.to.icon}
@@ -133,70 +121,40 @@ const CardExchange = ({
   return (
     <Box sx={sx.card}>
       <Box sx={sx.cardHeader}>
-        <Typography
-          variant="caption"
-          color={'#9E9E9E'}
-          className="font-normal"
-        >
+        <Typography variant='caption' color={'#9E9E9E'} className='font-normal'>
           {type === 'FORM' ? t('exchange.to') : t('exchange.end')}
         </Typography>
         {type === 'FORM' && (
-          <div className="flex items-center gap-[4px]">
-            <Typography
-              variant="caption"
-              color="#9e9e9e"
-              fontWeight={400}
-            >
+          <div className='flex items-center gap-[4px]'>
+            <Typography variant='caption' color='#9e9e9e' fontWeight={400}>
               {t('exchange.available')}
               &nbsp;
               {maxValue}
               &nbsp;
               {currency}
             </Typography>
-            <CaretDown
-              color="#757575"
-              width={14}
-              height={14}
-            />
+            <CaretDown color='#757575' width={14} height={14} />
           </div>
         )}
       </Box>
       <Box sx={sx.cardContent}>
-        <div className="flex items-center gap-[4px]">
-          <Image
-            src={icon}
-            width={20}
-            height={20}
-            alt=""
-            objectFit="cover"
-          />
-          <Typography
-            variant="body2"
-            color="#212121"
-            fontWeight={500}
-          >
+        <div className='flex items-center gap-[4px]'>
+          <Image src={icon} width={20} height={20} alt='' objectFit='cover' />
+          <Typography variant='body2' color='#212121' fontWeight={500}>
             {currency}
           </Typography>
-          <CaretDown color="#424242" />
+          <CaretDown color='#424242' />
         </div>
-        <Typography
-          variant="h5"
-          fontWeight={600}
-          color={'#212121'}
-        >
+        <Typography variant='h5' fontWeight={600} color={'#212121'}>
           {value}
         </Typography>
       </Box>
       {type === 'FORM' && (
         <div
-          className="w-full flex items-center justify-end"
+          className='w-full flex items-center justify-end'
           onClick={() => onMaxValue && onMaxValue()}
         >
-          <Typography
-            color="#177DFF"
-            variant="caption"
-            textAlign="right"
-          >
+          <Typography color='#177DFF' variant='caption' textAlign='right'>
             {t('exchange.max')}
           </Typography>
         </div>

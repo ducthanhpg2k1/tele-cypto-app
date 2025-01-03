@@ -66,9 +66,9 @@ export default function ScrollableTabsButtonPrevent({
         hasIndicator={hasIndicator}
         value={valueCustom || value}
         onChange={handleChangeTab}
-        variant="scrollable"
+        variant='scrollable'
         scrollButtons={false}
-        aria-label="scrollable prevent tabs"
+        aria-label='scrollable prevent tabs'
       >
         {tabs.map((tab, index) => (
           <TabCustom

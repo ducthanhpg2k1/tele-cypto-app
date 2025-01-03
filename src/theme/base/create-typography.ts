@@ -40,7 +40,7 @@ export const createTypography = (): TypographyOptions => {
       lineHeight: 2.5,
       textTransform: 'uppercase',
     },
-    
+
     h1: {
       fontWeight: 700,
       fontSize: '3.5rem',

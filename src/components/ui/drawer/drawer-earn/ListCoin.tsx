@@ -108,40 +108,21 @@ const tabsWrapper: TabItem[] = [
 // Reusable Component for Section Rows
 const SectionItemRow = ({ img, name, profit }: { img: string; name: string; profit: string }) => {
   return (
-    <Stack className="flex-row h-[54px] p-4 justify-between rounded-lg border-[1px] border-solid border-[#EEE]">
-      <Stack className="flex-row gap-1 items-center">
-        <Image
-          src={img}
-          alt=""
-          width={20}
-          height={20}
-        />
-        <Typography
-          variant="body2"
-          className="font-medium"
-        >
+    <Stack className='flex-row h-[54px] p-4 justify-between rounded-lg border-[1px] border-solid border-[#EEE]'>
+      <Stack className='flex-row gap-1 items-center'>
+        <Image src={img} alt='' width={20} height={20} />
+        <Typography variant='body2' className='font-medium'>
           {name}
         </Typography>
       </Stack>
-      <Stack className="flex-row gap-1 items-center">
-        <Typography
-          variant="caption"
-          className="font-normal text-[#9E9E9E]"
-        >
+      <Stack className='flex-row gap-1 items-center'>
+        <Typography variant='caption' className='font-normal text-[#9E9E9E]'>
           {t('earn.max')}
         </Typography>
-        <Typography
-          variant="subtitle2"
-          className="text-[#4AAF57]"
-        >
+        <Typography variant='subtitle2' className='text-[#4AAF57]'>
           {profit}
         </Typography>
-        <Image
-          src="/assets/iconly/icon-chart.svg"
-          alt=""
-          width={18}
-          height={18}
-        />
+        <Image src='/assets/iconly/icon-chart.svg' alt='' width={18} height={18} />
       </Stack>
     </Stack>
   );
@@ -163,39 +144,20 @@ const ListCoin: React.FC = () => {
           marginTop: '16px',
         }}
       >
-        <Stack className="flex-row items-center px-4 py-3 justify-between rounded-lg border-[1px] border-solid border-[#EEE]">
-          <Stack className="flex-row gap-0.5 items-center">
-            <Image
-              src="/assets/iconly/icon-circle.svg"
-              alt=""
-              width={20}
-              height={20}
-            />
-            <Typography
-              variant="caption"
-              className="font-normal text-[#9E9E9E] text-[10px]"
-            >
+        <Stack className='flex-row items-center px-4 py-3 justify-between rounded-lg border-[1px] border-solid border-[#EEE]'>
+          <Stack className='flex-row gap-0.5 items-center'>
+            <Image src='/assets/iconly/icon-circle.svg' alt='' width={20} height={20} />
+            <Typography variant='caption' className='font-normal text-[#9E9E9E] text-[10px]'>
               {t('earn.rewards')}
             </Typography>
-            <Image
-              src="/assets/iconly/icon-warning.svg"
-              alt=""
-              width={18}
-              height={18}
-            />
+            <Image src='/assets/iconly/icon-warning.svg' alt='' width={18} height={18} />
           </Stack>
-          <Typography
-            variant="caption"
-            className="font-semibold text-[#4AAF57]"
-          >
+          <Typography variant='caption' className='font-semibold text-[#4AAF57]'>
             54,5$
           </Typography>
         </Stack>
         {sectionItems.map((item, index) => (
-          <SectionItemRow
-            key={`${item.name}-${index}`}
-            {...item}
-          />
+          <SectionItemRow key={`${item.name}-${index}`} {...item} />
         ))}
       </Box>
     ),
@@ -203,20 +165,12 @@ const ListCoin: React.FC = () => {
   const tabList = tabsWrapper.map((tab) => ({
     key: tab.key,
     label: t(tab.label),
-    content: (
-      <Tabs
-        tabs={tabItems}
-        defaultTab={0}
-      />
-    ),
+    content: <Tabs tabs={tabItems} defaultTab={0} />,
   }));
 
   return (
     <>
-      <Tabs
-        tabs={tabList}
-        defaultTab={0}
-      />
+      <Tabs tabs={tabList} defaultTab={0} />
     </>
   );
 };

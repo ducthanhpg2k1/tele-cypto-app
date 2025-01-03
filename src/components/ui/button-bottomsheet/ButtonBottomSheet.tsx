@@ -35,33 +35,17 @@ export default function ButtonBottomSheet({
       }}
     >
       {iconPrefix && (
-        <Image
-          src={iconPrefix}
-          width={20}
-          height={20}
-          className="w-5 h-5 object-cover"
-          alt=""
-        />
+        <Image src={iconPrefix} width={20} height={20} className='w-5 h-5 object-cover' alt='' />
       )}
       {title && (
-        <Typography
-          variant={variant || 'caption'}
-          color={color || '#9E9E9E'}
-          style={styleLabel}
-        >
+        <Typography variant={variant || 'caption'} color={color || '#9E9E9E'} style={styleLabel}>
           {title}
         </Typography>
       )}
       {iconSuffix ? (
-        <Image
-          src={iconSuffix}
-          width={20}
-          height={20}
-          className="w-5 h-5 object-cover"
-          alt=""
-        />
+        <Image src={iconSuffix} width={20} height={20} className='w-5 h-5 object-cover' alt='' />
       ) : (
-        <CaretDown color="#9E9E9E" />
+        <CaretDown color='#9E9E9E' />
       )}
     </Box>
   );

@@ -60,11 +60,11 @@ const Input: React.FC<InputProps> = ({
   };
 
   return (
-    <Box className="w-full">
+    <Box className='w-full'>
       {(label || secondaryLabel) && (
-        <div className="flex justify-between items-center mb-1">
-          {label && <span className="text-gray-500 text-xs">{label}</span>}
-          {secondaryLabel && <span className="text-gray-400 text-xs">{secondaryLabel}</span>}
+        <div className='flex justify-between items-center mb-1'>
+          {label && <span className='text-gray-500 text-xs'>{label}</span>}
+          {secondaryLabel && <span className='text-gray-400 text-xs'>{secondaryLabel}</span>}
         </div>
       )}
       <input
@@ -93,7 +93,7 @@ const Input: React.FC<InputProps> = ({
           ${className}
         `}
       />
-      {error && <span className="text-red-500 text-xs mt-1">{error}</span>}
+      {error && <span className='text-red-500 text-xs mt-1'>{error}</span>}
     </Box>
   );
 };
