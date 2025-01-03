@@ -5,7 +5,7 @@
   "homepage": "#",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3333",
+    "dev": "next dev -p 3456",
     "build": "next build",
     "start": "next start",
     "export": "next export",
