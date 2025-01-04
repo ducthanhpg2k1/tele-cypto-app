@@ -10,6 +10,7 @@ interface ScrollableTabs extends TabsProps {
   hasIndicator?: boolean;
   handleChange?: (event: React.SyntheticEvent, value: any) => void;
   valueCustom?: number;
+  isValueCustom?:boolean
 }
 
 const TabsCustom = styled(Tabs, {
@@ -52,6 +53,7 @@ export default function ScrollableTabsButtonPrevent({
   hasIndicator = false,
   handleChange = () => {},
   valueCustom,
+  isValueCustom,
 }: ScrollableTabs) {
   const [value, setValue] = React.useState(defaultTab);
 
@@ -64,7 +66,7 @@ export default function ScrollableTabsButtonPrevent({
     <Box sx={{ width: '100%' }}>
       <TabsCustom
         hasIndicator={hasIndicator}
-        value={valueCustom || value}
+        value={isValueCustom  ? valueCustom : value}
         onChange={handleChangeTab}
         variant='scrollable'
         scrollButtons={false}

@@ -106,6 +106,7 @@ export default function NewTrade() {
           <ScrollableTabsButtonPrevent
             valueCustom={valueCustom}
             tabs={TAB_TRADES}
+            isValueCustom
             handleChange={(e, v) => handleChangeTab(v)}
           />
         </Section>
