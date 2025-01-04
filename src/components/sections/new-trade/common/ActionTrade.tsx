@@ -21,11 +21,15 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
   const [filterLimit, setFilterLimit] = useState(DATA_LIMIT[0].value);
   const [price, setPrice] = useState<number>(69464);
   const [quantity, setQuantity] = useState<number>(0);
+  const [totalUsdt, setTotalUsdt] = useState<number>();
 
   const [isAction, setIsAction] = useState<'sell' | 'buy'>('buy');
   const [sliderValue, setSliderValue] = useState<number>(0);
   const handlePriceChange = (value: number) => {
     setPrice(value);
+  };
+  const handleTotalUsdtChange = (value: number) => {
+    setTotalUsdt(value);
   };
   const handleChange = (event: Event, value: number | number[]) => {
     setSliderValue(value as number);
@@ -184,22 +188,31 @@ export default function ActionTrade({ type }: { type: 'FUTURE' | 'SPOT' }) {
         <SlideRanger min={0} max={100} step={1} />
       </Box>
       {type !== 'FUTURE' && (
-        <Button
-          sx={{
-            width: '100%',
-            py: '10px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyItems: 'center',
-            background: '#F5F5F5',
-            borderRadius: '6px',
-            mt: 2,
-          }}
+        <Box
+          display='flex'
+          alignItems='center'
+          justifyContent='space-between'
+          bgcolor='action.hover'
+          p={0}
+          px={1}
+          borderRadius={1}
+          sx={{ mt: '12px', minHeight: '42px' }}
         >
-          <Typography variant='body2' color={'#9E9E9E'} fontWeight={500}>
-            {t('trade.total')} (USDT)
-          </Typography>
-        </Button>
+          <Box
+            textAlign='center'
+            display={'flex'}
+            alignItems={'center'}
+            justifyContent={'center'}
+            flexDirection={'column'}
+          >
+
+            <input type='number' placeholder={`${t('trade.total')} (USDT)`} className='placeholder:text-[14px] placeholder:leading-6 placeholder:font-medium placeholder:text-[#9E9E9E] bg-transparent text-center w-full outline-none' value={totalUsdt} onChange={(e) => handleTotalUsdtChange(+e.target.value)} />
+
+
+          </Box>
+
+        </Box>
+
       )}
 
       <Stack className='mt-2 gap-1'>

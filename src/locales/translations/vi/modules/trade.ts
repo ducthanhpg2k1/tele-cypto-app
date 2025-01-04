@@ -35,6 +35,8 @@ export const trade = {
       positions: 'Vị thế',
       grid: 'Lưới Hợp đồng',
       asset: 'Tài sản',
+      position:'Vị thế'
+
     },
     orderTabs: {
       basic: 'Cơ bản',

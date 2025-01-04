@@ -39,6 +39,7 @@ export const trade = {
       positions: 'Positions',
       grid: 'Grid Contract',
       asset: 'Assets',
+      position:'Positions'
     },
     orderTabs: {
       basic: 'Basic',

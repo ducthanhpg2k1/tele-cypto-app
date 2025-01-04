@@ -10,9 +10,10 @@ const SectionContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   padding: '0px 8px',
+  width: '100%'
 }));
 
-export default function FooterTrade({ tabs, type }: { tabs: TabItem[]; type?: 'FUTURE' | 'SPOT' }) {
+export default function FooterTrade({ tabs, type }: {  tabs: TabItem[]; type?: 'FUTURE' | 'SPOT' }) {
   return (
     <SectionContainer flex={1}>
       {/* Tabs Section */}
@@ -37,7 +38,15 @@ export default function FooterTrade({ tabs, type }: { tabs: TabItem[]; type?: 'F
             alignItems: 'center',
             justifyContent: 'space-between',
             my: 1,
+            position: 'fixed',
+            borderLeftWidth: '0px !important',
+            borderRightWidth: '0px !important',
+            background: 'white',
+            bottom: '56px',
             marginBottom: '24px',
+            left: 0,
+            padding: '16px',
+            width: '100%'
           }}
         >
           <Typography variant='caption' color={'#212121'}>

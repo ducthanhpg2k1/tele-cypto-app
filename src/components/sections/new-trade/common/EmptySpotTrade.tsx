@@ -13,6 +13,7 @@ export const EmptySpotTrade = ({ isMargin }: { isMargin?: boolean }) => {
         gap: 1,
         my: 1,
         justifyContent: 'center',
+        px:2,
       }}
     >
       <Typography variant='caption' color={'#212121'}>
@@ -32,6 +33,7 @@ export const EmptySpotTrade = ({ isMargin }: { isMargin?: boolean }) => {
           gap={1.5}
           width={'100%'}
           justifyContent={'center'}
+          mt={1}
         >
           <Button
             sx={{

@@ -43,7 +43,7 @@ export default function NewTrade() {
     },
     {
       key: 'account',
-      label: t('trade.history.tabs.asset'),
+      label: valueCustom === 2 ? t('trade.history.tabs.position') + ' (0)' : t('trade.history.tabs.asset') + ' (0)',
       content: <EmptySpotTrade isMargin={valueCustom === 2} />,
     },
   ];
@@ -121,7 +121,10 @@ export default function NewTrade() {
           <ActionTrade type='SPOT' />
         </Grid>
       </Grid>
-      <FooterTrade tabs={tabs} />
+      <div className='pb-10'>
+        <FooterTrade tabs={tabs} />
+
+      </div>
     </Box>
   );
 }
