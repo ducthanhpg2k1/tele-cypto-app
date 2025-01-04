@@ -6,11 +6,11 @@ import Paper from '@mui/material/Paper';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CenterIcon from 'src/assets/icons/CenterIcon';
-import FutureIcon from 'src/assets/icons/FutureIcon';
 import MarketIcon from 'src/assets/icons/MarketIcon';
 import HomeIcon from 'src/assets/icons/HomeIcon';
 import WalletIcon from 'src/assets/icons/WalletIcon';
 import { ROUTE_PATH } from 'src/constants/route';
+import { FutureMenuIcon } from 'src/assets/icons/FutureMenuIcon';
 
 const NavPaper = styled(Paper)(({ theme }) => ({
   position: 'fixed',
@@ -127,7 +127,7 @@ export const BottomNav: FC = () => {
           value='future'
           showLabel
           icon={
-            <FutureIcon
+            <FutureMenuIcon
               color={currentValue === 'future' ? theme.palette.primary.main : '#9E9E9E'}
             />
           }
