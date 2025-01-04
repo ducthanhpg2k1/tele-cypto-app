@@ -168,7 +168,7 @@ const CardExchange = ({
             fontSize: '1.5rem',
             fontWeight: 600,
             color: '#212121',
-            width: `fit-content`,
+            width: `100%`,
             border: 'none',
             outline: 'none',
             background: 'transparent',

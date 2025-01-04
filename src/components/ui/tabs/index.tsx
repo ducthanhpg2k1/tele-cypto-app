@@ -93,7 +93,7 @@ export const Tabs = ({
           transition: 'transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s',
         }}
         resistance
-        style={{ height: '100%' }}
+        style={{  height: '100%' }}
       >
         {tabs.map((tab, index) => (
           <TabPanel key={tab.key} value={value} index={index} dir={theme.direction}>

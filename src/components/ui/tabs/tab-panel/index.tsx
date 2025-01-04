@@ -11,7 +11,7 @@ export const TabPanel: React.FC<TabPanelProps> = (props) => {
       id={`scrollable-tabpanel-${index}`}
       aria-labelledby={`scrollable-tab-${index}`}
       dir={dir}
-      style={{ height: '100%' }}
+      style={{ overflow: 'auto', height: '100%' }}
       {...other}
     >
       {value === index && <>{children}</>}
