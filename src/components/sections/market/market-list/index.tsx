@@ -67,7 +67,7 @@ export function MarketList({ showmore = false }: MarketListProps) {
             <MenuItem value='spot'>{t('market.spot')}</MenuItem>
           </Select>
 
-          <Box sx={{ width: 80, textAlign: 'right' }}>
+          <Box sx={{ width: 90, textAlign: 'right' }}>
             <Typography variant='body2' color={'#9E9E9E'} className='text-[12px]'>
               {t('market.price')}
             </Typography>

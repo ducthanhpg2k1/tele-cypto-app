@@ -27,7 +27,7 @@ export const MarketTicker = ({ data, dollarEquivalent }: MarketTickerProps) => {
       }}
     >
       <Box display='flex' justifyContent='space-between' alignItems='center'>
-        <Box display='flex' alignItems='center'>
+        <Box display='flex' alignItems='center' minWidth={70.55} textAlign='left'>
           <Typography variant='body2' sx={{ fontWeight: 600, color: '#212121' }}>
             {data.pairInfo.baseToken}
           </Typography>
@@ -39,7 +39,10 @@ export const MarketTicker = ({ data, dollarEquivalent }: MarketTickerProps) => {
           <Typography variant='body2' sx={{ fontWeight: 500, color: '#212121' }}>
             {data.stats.closePrice}
           </Typography>
-          <Typography variant='caption' sx={{ color: '#9E9E9E', fontWeight: 400 }}>
+          <Typography
+            variant='caption'
+            sx={{ color: '#9E9E9E', fontWeight: 400, width: 80, textAlign: 'right' }}
+          >
             ≈ {dollarEquivalent} $
           </Typography>
         </Box>

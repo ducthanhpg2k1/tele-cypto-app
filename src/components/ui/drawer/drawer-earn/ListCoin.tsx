@@ -215,7 +215,7 @@ const ListCoin: React.FC = () => {
 
   return (
     <div>
-      <Tabs isNoScroll hideIndicator tabs={tabList} defaultTab={0} />
+      <Tabs isNoScroll hideIndicator tabs={tabList} defaultTab={0} size='large' />
     </div>
   );
 };
