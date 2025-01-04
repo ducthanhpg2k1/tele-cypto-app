@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import InputSearch from 'src/components/ui/input-search/InputSearch';
+import { useTranslation } from 'react-i18next';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -65,6 +66,7 @@ const DATA_TRADING = [
 const ModalTradingPair = (props: any, ref: any) => {
   const { handleClickTop, value } = props
   const [open, setOpen] = useState<boolean>(false);
+  const { t } = useTranslation();
 
   const handleClose = () => {
     setOpen(false);
@@ -105,14 +107,15 @@ const ModalTradingPair = (props: any, ref: any) => {
           <div className='flex justify-between items-center gap-4'>
             <InputSearch placeholder='Search' />
             <Typography className='text-xs' color={'#177DFF'} fontWeight={500}>
-              Huỷ bỏ
+              {t('bot.cancel_new')}
             </Typography>
           </div>
           <Typography className='text-xs' color={'#9E9E9E'} fontWeight={400}>
-            Danh sách cặp giao dịch
+            {t('bot.list_transaction')}
           </Typography>
           <Typography variant='body2' color={'#212121'} fontWeight={500}>
-            Tất cả
+            {t('bot.tabs.all')}
+
           </Typography>
           {
             DATA_TRADING?.map((item) => {

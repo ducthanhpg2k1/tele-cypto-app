@@ -29,16 +29,4 @@ const Content = ({ type, showSection }: { type?: string; showSection?: boolean }
   );
 };
 
-const sx = {
-  wrap: {
-    display: 'flex',
-    flexDirection: 'column',
-    // justifyContent: 'space-between',
-    overflow: 'auto',
-    height: '100%',
-    paddingRight: '1px',
-    marginBottom: '24px',
-  },
-};
-
 export default Content;

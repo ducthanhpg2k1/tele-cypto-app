@@ -52,6 +52,9 @@ export const bot = {
     decrement: 'Decrement',
   },
   marketBot: 'Market Bot',
+  desSpot: 'Buy low and sell high. 24/7 availability',
+  desFuture: 'Automate your long and short orders',
+
   gridSpot: 'Grid Spot',
   gridFuture: 'Grid Future',
   topPNL: 'Top PNL',
@@ -103,6 +106,16 @@ export const bot = {
   min_30: '30m',
   days32: '3d 12h 10m',
   cancel: 'Cancel Activate',
+  cancel_new: 'Cancel',
+  list_transaction: 'List transaction',
+  filter: 'Filter',
+  day_new: 'Day',
+  to: 'to',
+  reset: 'Reset',
+  save: 'Save',
+  most_matched:'Most matched',
+  commands:'Commands',
+  top_coppy: 'Top Coppy',
   no_sup:
     'The system only supports displaying transaction history within the past 3 months. For more data, visit the web and export reports.',
 };

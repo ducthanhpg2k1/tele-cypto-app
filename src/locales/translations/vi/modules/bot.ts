@@ -57,6 +57,9 @@ export const bot = {
     'The system only supports displaying transaction history within the past 3 months. For more data, visit the web and export reports.',
   marketBot: 'Thị trường Bot',
   gridSpot: 'Lưới Spot',
+  desSpot:'Mua thấp và bán cao. Khả năng sử dụng 24/7',
+  desFuture:'Tự động hoá lệnh long và short của bạn',
+  
   gridFuture: 'Lưới hợp đồng tương lai',
   topPNL: 'Top PNL',
   trailing: 'Trailing',
@@ -104,4 +107,17 @@ export const bot = {
   min_15: '15ph',
   min_30: '30ph',
   cancel: 'Hủy kích hoạt',
+
+  cancel_new:'Hủy bỏ',
+  list_transaction:'Danh sách cặp giao dịch',
+  filter:'Bộ lọc',
+  day_new:'Ngày',
+  to:'đến',
+  reset:'Đặt lại',
+  save:'Xác nhận',
+  top_coppy:'Top được sao chép',
+  most_matched:'Khớp nhiều nhất',
+  commands:'Tất cả lệnh',
+
+  
 };

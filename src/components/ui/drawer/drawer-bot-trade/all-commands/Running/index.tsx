@@ -28,7 +28,7 @@ const CardRunning = ({ handleClickMarketBot }: { handleClickMarketBot: VoidFunct
               <div className='flex justify-between items-center'>
                 <div className='flex flex-col gap-[2px]'>
                   <Typography className='text-xs' color={'#757575'} fontWeight={400}>
-                    ROI
+                    {t('bot.card.roi')}
                   </Typography>
                   <Typography className='text-xs' color={'#4AAF57'} fontWeight={500}>
                     42,66%

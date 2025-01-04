@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -32,7 +33,7 @@ const DATA_SURF = [
 const ModalTrailingUp = (props: any, ref: any) => {
   const { handleClick, value } = props;
   const [open, setOpen] = useState<boolean>(false);
-
+  const { t } = useTranslation()
   const handleClose = () => {
     setOpen(false);
   };
@@ -70,7 +71,8 @@ const ModalTrailingUp = (props: any, ref: any) => {
       <DialogContent className='h-max'>
         <div className='flex flex-col gap-6 py-6 px-4'>
           <Typography variant='body1' color={'#212121'} fontWeight={600}>
-            Trailing Up
+
+            {t('bot.trailing_up')}
           </Typography>
           <div className='grid grid-cols-2 gap-y-4 gap-x-3'>
             {DATA_SURF?.map((item) => {

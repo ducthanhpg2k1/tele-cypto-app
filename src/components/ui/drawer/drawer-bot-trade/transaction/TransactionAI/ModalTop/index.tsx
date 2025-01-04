@@ -3,6 +3,7 @@ import { TransitionProps } from '@mui/material/transitions';
 import Image from 'next/image';
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import DoneIcon from '@mui/icons-material/Done';
+import { useTranslation } from 'react-i18next';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -14,32 +15,37 @@ const Transition = React.forwardRef(function Transition(
 });
 
 
-const DATA_TOP = [
-  {
-    id: 1,
-    title: 'Top ROI',
 
-  },
-  {
-    id: 2,
-    title: 'Top PNL',
-
-  },
-  {
-    id: 3,
-    title: 'Top được sao chép',
-
-  },
-  {
-    id: 4,
-    title: 'Khớp nhiều nhất',
-
-  }
-]
 
 const ModalTop = (props: any, ref: any) => {
   const { handleClickTop, value } = props
   const [open, setOpen] = useState<boolean>(false);
+
+  const { t } = useTranslation()
+
+
+  const DATA_TOP = [
+    {
+      id: 1,
+      title: t('bot.topToi'),
+
+    },
+    {
+      id: 2,
+      title: t('bot.topPNL'),
+
+    },
+    {
+      id: 3,
+      title: t('bot.top_coppy'),
+
+    },
+    {
+      id: 4,
+      title: t('bot.most_matched'),
+
+    }
+  ]
 
   const handleClose = () => {
     setOpen(false);

@@ -57,7 +57,7 @@ const SettingPrice = () => {
         </div>
 
         <CustomInput
-          placeholder='Giá trần'
+          placeholder={t('bot.ceiling_price')}
           endContent={
             <Typography variant='body1' className='font-semibold text-[14px]'>
               BNB

@@ -2,6 +2,7 @@ import { Dialog, DialogContent, Slide, Typography } from '@mui/material';
 import { TransitionProps } from '@mui/material/transitions';
 import Image from 'next/image';
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -13,24 +14,27 @@ const Transition = React.forwardRef(function Transition(
 });
 
 
-const DATA_BOT_TRADING = [
-  {
-    id: 1,
-    title: 'Lưới Spot',
-    des: 'Mua thấp và bán cao. Khả năng sử dụng 24/7',
-    icon: '/images/ic-spot.png'
-  },
-  {
-    id: 2,
-    title: 'Lưới Hợp đồng tương lai',
-    des: 'Tự động hoá lệnh long và short của bạn',
-    icon: '/images/ic-grid.png'
 
-  }
-]
 
 const ModalTradingBot = (_: any, ref: any) => {
   const [open, setOpen] = useState<boolean>(false);
+  const { t } = useTranslation();
+
+  const DATA_BOT_TRADING = [
+    {
+      id: 1,
+      title: t('bot.gridSpot'),
+      des: t('bot.desSpot'),
+      icon: '/images/ic-spot.png'
+    },
+    {
+      id: 2,
+      title: t('bot.gridFuture'),
+      des:t('bot.desFuture'),
+      icon: '/images/ic-grid.png'
+  
+    }
+  ]
 
   const handleClose = () => {
     setOpen(false);

@@ -5,6 +5,7 @@ import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import DoneIcon from '@mui/icons-material/Done';
 import clsx from 'clsx';
 import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -15,20 +16,23 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction='up' ref={ref} {...props} />;
 });
 
-const DATA_SURF = [
-  {
-    id: 1,
-    title: 'Lưới Spot',
-  },
-  {
-    id: 2,
-    title: 'Lưới Hợp đồng tương lai',
-  },
-];
+
 
 const ModalSurfSpot = (props: any, ref: any) => {
   const { handleClickSurf, value } = props;
   const [open, setOpen] = useState<boolean>(false);
+  const { t } = useTranslation();
+
+  const DATA_SURF = [
+    {
+      id: 1,
+      title: t('bot.gridSpot'),
+    },
+    {
+      id: 2,
+      title: t('bot.gridFuture'),
+    },
+  ];
 
   const handleClose = () => {
     setOpen(false);

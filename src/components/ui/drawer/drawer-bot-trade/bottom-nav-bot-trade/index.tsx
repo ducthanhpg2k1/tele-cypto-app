@@ -73,7 +73,7 @@ const BottomNavBotTrade = ({
           }
         />
         <StyledBottomNavigationAction
-          label='Giao dịch'
+          label={t('bot.transaction')}
           value={TAB_BOT_TRADE.TRANSACTION}
           showLabel
           icon={
@@ -86,7 +86,7 @@ const BottomNavBotTrade = ({
         />
 
         <StyledBottomNavigationAction
-          label='Tất cả lệnh'
+          label={t('bot.commands')}
           value={TAB_BOT_TRADE.ALL_COMMANDS}
           showLabel
           icon={
@@ -98,7 +98,7 @@ const BottomNavBotTrade = ({
           }
         />
         <StyledBottomNavigationAction
-          label='Thị trường'
+          label={t('bot.market')}
           value={TAB_BOT_TRADE.MARKET}
           showLabel
           icon={

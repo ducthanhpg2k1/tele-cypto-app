@@ -8,6 +8,7 @@ import Button from 'src/components/ui/button';
 import { t } from 'i18next';
 import CustomPickerWheel from 'src/components/ui/picker-wheel';
 import dayjs from 'dayjs';
+import { useTranslation } from 'react-i18next';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -49,6 +50,7 @@ const ModalFilter = (props: any, ref: any) => {
 
   const [valueDateOne, setValueDateOne] = useState(new Date())
   const [valueDateTwo, setValueDateTwo] = useState(new Date())
+  const { t } = useTranslation()
 
   const handleClose = () => {
     setOpen(false);
@@ -95,12 +97,12 @@ const ModalFilter = (props: any, ref: any) => {
       <DialogContent className='h-max'>
         <div className='flex flex-col gap-6 py-6 px-4'>
           <Typography variant='body1' color={'#212121'} fontWeight={600}>
-            Bộ lọc
+            {t('bot.filter')}
           </Typography>
           <div className='flex flex-col gap-5'>
             <div className='flex flex-col gap-3'>
               <Typography className='text-xs' color={'#9E9E9E'} fontWeight={400}>
-                Ngày
+                {t('bot.day_new')}
               </Typography>
               <div className='grid grid-cols-4 gap-3'>
                 {DATA_SURF?.map((item) => {
@@ -146,7 +148,7 @@ const ModalFilter = (props: any, ref: any) => {
                 </Typography>
               </div>
               <Typography className='text-xs' color={'#757575'} fontWeight={400}>
-                đến
+                {t('bot.to')}
               </Typography>
               <div
                 onClick={() => {
@@ -181,10 +183,10 @@ const ModalFilter = (props: any, ref: any) => {
 
           <div className='flex items-center gap-4'>
             <Button onClick={handleClose} fullWidth variant='blue' className='h-12 font-semibold'>
-              <Typography className='text-[14px]'>Đặt lại</Typography>
+              <Typography className='text-[14px]'>{t('bot.reset')}</Typography>
             </Button>
             <Button onClick={handleClose} fullWidth className='h-12 font-semibold'>
-              <Typography className='text-[14px]'>Xác nhận</Typography>
+              <Typography className='text-[14px]'>{t('bot.save')}</Typography>
             </Button>
           </div>
         </div>

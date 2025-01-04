@@ -3,6 +3,7 @@ import { TransitionProps } from '@mui/material/transitions';
 import clsx from 'clsx';
 import Image from 'next/image';
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'src/components/ui/button';
 
 const Transition = React.forwardRef(function Transition(
@@ -21,7 +22,9 @@ const dataROI = ["Tất cả", ">100%", "50% -100%", "10% -50%", "0% -10%"];
 
 const ModalFilter = (_: any, ref: any) => {
   const [open, setOpen] = useState<boolean>(false);
-  const [active, setActive] = useState("Tất cả");
+  const { t } = useTranslation()
+
+  const [active, setActive] = useState(t('bot.tabs.all'));
   const handleClose = () => {
     setOpen(false);
   };
@@ -59,11 +62,11 @@ const ModalFilter = (_: any, ref: any) => {
       <DialogContent className='h-max'>
         <div className='flex flex-col gap-4 py-6 px-4'>
           <Typography variant='body1' color={'#212121'} fontWeight={600}>
-            Bộ lọc
+            {t('bot.filter')}
           </Typography>
           <div className='flex flex-col gap-3'>
             <Typography className='text-xs' color={'#9E9E9E'} fontWeight={600}>
-              Thời gian hoạt động
+              {t('bot.uptime')}
             </Typography>
             <div className="flex gap-2" style={{
               flexWrap: 'wrap'
@@ -92,7 +95,8 @@ const ModalFilter = (_: any, ref: any) => {
           </div>
           <div className='flex flex-col gap-3'>
             <Typography className='text-xs' color={'#9E9E9E'} fontWeight={600}>
-              ROI
+              {t('bot.card.roi')}
+
             </Typography>
             <div className="flex gap-2" style={{
               flexWrap: 'wrap'
@@ -126,14 +130,14 @@ const ModalFilter = (_: any, ref: any) => {
               variant='blue'
               className='h-12 font-semibold'
             >
-              <Typography className='text-[14px]'>Đặt lại</Typography>
+              <Typography className='text-[14px]'>{t('bot.reset')}</Typography>
             </Button>
             <Button
               onClick={handleClose}
               fullWidth
               className='h-12 font-semibold'
             >
-              <Typography className='text-[14px]'>Xác nhận</Typography>
+              <Typography className='text-[14px]'>{t('bot.save')}</Typography>
             </Button>
           </div>
         </div>
