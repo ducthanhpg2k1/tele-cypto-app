@@ -19,4 +19,5 @@ export interface TabPanelProps {
   value: number;
   index: number;
   dir?: Direction;
+  isNoScroll?:boolean
 }

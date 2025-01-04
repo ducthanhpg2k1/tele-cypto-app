@@ -49,6 +49,31 @@ export const mockDataEarn = [
     name: 'USDT',
     profit: '9,4%',
   },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'USDT',
+    profit: '9,4%',
+  },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'USDT',
+    profit: '9,4%',
+  },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'USDT',
+    profit: '9,4%',
+  },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'USDT',
+    profit: '9,4%',
+  },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'USDT',
+    profit: '9,4%',
+  },
 ];
 export const mockDataWaleet = [
   {

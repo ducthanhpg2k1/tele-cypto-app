@@ -15,6 +15,7 @@ interface ITabProps extends TabsProps {
   contentHeaderTab?: ReactNode;
   isFixedTab?: boolean;
   onSwipeTab?: (index: number) => void;
+  isNoScroll?:boolean
 }
 export const Tabs = ({
   contentHeaderTab,
@@ -24,6 +25,7 @@ export const Tabs = ({
   onChaneTab,
   children,
   onSwipeTab,
+  isNoScroll,
   hideIndicator,
   size,
 }: ITabProps) => {
@@ -96,7 +98,7 @@ export const Tabs = ({
         style={{  height: '100%' }}
       >
         {tabs.map((tab, index) => (
-          <TabPanel key={tab.key} value={value} index={index} dir={theme.direction}>
+          <TabPanel isNoScroll={isNoScroll} key={tab.key} value={value} index={index} dir={theme.direction}>
             {loadedTabs.has(index) && tab.content}
           </TabPanel>
         ))}

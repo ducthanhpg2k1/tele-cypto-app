@@ -93,6 +93,51 @@ const sectionItems = [
     name: 'BNB',
     profit: '9,4%',
   },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'BNB',
+    profit: '9,4%',
+  },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'BNB',
+    profit: '9,4%',
+  },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'BNB',
+    profit: '9,4%',
+  },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'BNB',
+    profit: '9,4%',
+  },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'BNB',
+    profit: '9,4%',
+  },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'BNB',
+    profit: '9,4%',
+  },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'BNB',
+    profit: '9,4%',
+  },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'BNB',
+    profit: '9,4%',
+  },
+  {
+    img: '/assets/iconly/icon-bnb.svg',
+    name: 'BNB',
+    profit: '9,4%',
+  },
 ];
 
 const tabs: TabItem[] = [
@@ -165,13 +210,13 @@ const ListCoin: React.FC = () => {
   const tabList = tabsWrapper.map((tab) => ({
     key: tab.key,
     label: t(tab.label),
-    content: <Tabs tabs={tabItems} defaultTab={0} />,
+    content: <Tabs isNoScroll tabs={tabItems} defaultTab={0} />,
   }));
 
   return (
-    <>
-      <Tabs hideIndicator tabs={tabList} defaultTab={0} />
-    </>
+    <div>
+      <Tabs isNoScroll hideIndicator tabs={tabList} defaultTab={0} />
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { Box, IconButton, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { t } from 'i18next';
@@ -10,6 +10,8 @@ import Content from './Content';
 import InputSearch from 'src/components/ui/input-search/InputSearch';
 
 const DrawerEarn = forwardRef<DrawerHandle, {}>((_, ref) => {
+
+
   return (
     <CustomDrawer
       anchor='right'
@@ -22,7 +24,7 @@ const DrawerEarn = forwardRef<DrawerHandle, {}>((_, ref) => {
       showTimeIcon
       showSearch
     >
-      <Content />
+      <Content  />
     </CustomDrawer>
   );
 });

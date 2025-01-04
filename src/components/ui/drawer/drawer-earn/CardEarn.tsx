@@ -2,8 +2,6 @@ import { Typography, Stack, Box } from '@mui/material';
 import { t } from 'i18next';
 import Image from 'next/image';
 import React from 'react';
-import CopyInviteIcon from 'src/assets/icons/CopyInvite';
-import CopyTradeIcon from 'src/assets/icons/CopyTradeIcon';
 
 type Props = {
   img: string;
