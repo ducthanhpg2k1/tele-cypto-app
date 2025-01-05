@@ -12,8 +12,9 @@ export const EmptySpotTrade = ({ isMargin }: { isMargin?: boolean }) => {
         flexDirection: 'column',
         gap: 1,
         my: 1,
-        justifyContent: 'center',
+        justifyContent: 'start',
         px:2,
+        minHeight:'calc(100dvh - 250px)'
       }}
     >
       <Typography variant='caption' color={'#212121'}>
