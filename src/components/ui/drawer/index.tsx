@@ -12,6 +12,8 @@ import CustomTab from '../custom-tab';
 import HeaderIconShare from 'src/assets/icons/HeaderIconShare';
 import HeaderIconProfile from 'src/assets/icons/HeaderIconProfile';
 import HeaderIconFilter from 'src/assets/icons/HeaderIconFilter';
+import IconFilterNew from 'src/assets/icons/IconFilterNew';
+import IconNotification from 'src/assets/icons/IconNotification';
 
 export type DrawerHandle = {
   onOpen: () => void;
@@ -28,15 +30,16 @@ type Props = Omit<DrawerProps, 'open'> & {
   showTimeIcon?: boolean;
   isCustomHeader?: boolean;
   showEllipseCircle?: boolean;
-  isCopyTrade?: boolean
-  contentCenter?: ReactNode
-  isProfile?: boolean
-  handleClickIconProfile?: VoidFunction,
-  isMyProfile?: boolean,
-  onScrollContent?: any,
-  isFilter?:boolean,
-  handleClickFilter?:VoidFunction
-
+  isCopyTrade?: boolean;
+  contentCenter?: ReactNode;
+  isProfile?: boolean;
+  handleClickIconProfile?: VoidFunction;
+  isMyProfile?: boolean;
+  onScrollContent?: any;
+  isFilter?: boolean;
+  handleClickFilter?: VoidFunction;
+  showFilterNew?: boolean;
+  showNotification?: boolean;
 };
 
 const CustomDrawer = forwardRef<DrawerHandle, Props>(
@@ -56,8 +59,10 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
       isProfile,
       isMyProfile,
       onScrollContent,
+      showFilterNew,
       handleClickIconProfile,
       handleClickFilter,
+      showNotification,
       isFilter,
       ...rest
     },
@@ -113,20 +118,34 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
               >
                 <ArrowBackIcon />
               </IconButton>
-              {
-                isCopyTrade && (
-                  <>{contentCenter}</>
-                )
-              }
-              {
-                !isCopyTrade && (
-                  <Typography variant='body2' fontWeight={700} color={'#212121'}>
-                    {label}
-                  </Typography>
-                )
-              }
+              {isCopyTrade || (contentCenter && <>{contentCenter}</>)}
+              {!isCopyTrade && (
+                <Typography variant='body2' fontWeight={700} color={'#212121'}>
+                  {label}
+                </Typography>
+              )}
 
               <div className='flex items-center gap-1 absolute right-[12px]'>
+                {showFilterNew && (
+                  <div
+                    onClick={() => {
+                      //  to do prop action
+                      console.log('Help clicked');
+                    }}
+                  >
+                    <IconFilterNew />
+                  </div>
+                )}
+                {showNotification && (
+                  <div
+                    onClick={() => {
+                      //  to do prop action
+                      console.log('Help clicked');
+                    }}
+                  >
+                    <IconNotification />
+                  </div>
+                )}
                 {showHelpIcon && (
                   <div
                     onClick={() => {
@@ -148,40 +167,28 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
                   </div>
                 )}
                 {isMyProfile && (
-                  <div
-                    className='flex items-center gap-1'
-                  >
+                  <div className='flex items-center gap-1'>
                     <HeaderIconSearch />
                     <HeaderIconShare />
                   </div>
                 )}
                 {isProfile && (
-                  <div
-                    className='flex items-center gap-1'
-                  >
+                  <div className='flex items-center gap-1'>
                     <HeaderIconShare />
                     <div onClick={handleClickIconProfile}>
                       <HeaderIconProfile />
-
                     </div>
-
                   </div>
                 )}
                 {isFilter && (
-                  <div
-                  onClick={handleClickFilter}
-                  >
+                  <div onClick={handleClickFilter}>
                     <HeaderIconFilter />
-
                   </div>
                 )}
                 {isCopyTrade && (
-                  <div
-                    className='flex items-center gap-1'
-                  >
+                  <div className='flex items-center gap-1'>
                     <HeaderIconSearch />
                     <HeaderIconNote />
-
                   </div>
                 )}
                 {showEllipseCircle && (
@@ -210,7 +217,9 @@ const CustomDrawer = forwardRef<DrawerHandle, Props>(
             )}
           </DrawerHeader>
         )}
-        <DrawerWrapperContent onScroll={onScrollContent} showSearch={showSearch || false}>{children}</DrawerWrapperContent>
+        <DrawerWrapperContent onScroll={onScrollContent} showSearch={showSearch || false}>
+          {children}
+        </DrawerWrapperContent>
       </Drawer>
     );
   },

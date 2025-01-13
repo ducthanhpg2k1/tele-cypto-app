@@ -7,10 +7,14 @@ type Props = {
   img: string;
   name: string;
   profit: string;
+  onClickCard: VoidFunction;
 };
 const CardEarn = (props: Props) => {
   return (
-    <Stack className='min-w-[250px] flex p-3 flex-col gap-2 items-start border-[1px] border-solid rounded-lg border-gray-200 h-full'>
+    <Stack
+      onClick={props.onClickCard}
+      className='min-w-[250px] flex p-3 flex-col gap-2 items-start border-[1px] border-solid rounded-lg border-gray-200 h-full'
+    >
       <Stack className='w-full flex-row justify-between items-center'>
         <Typography
           variant='caption'

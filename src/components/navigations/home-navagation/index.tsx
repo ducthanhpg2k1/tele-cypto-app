@@ -59,6 +59,7 @@ import DrawerExchange from 'src/components/ui/drawer/drawer-exchange';
 import DrawerMore from 'src/components/ui/drawer/drawer-more/DrawerMore';
 import DrawerListing from 'src/components/ui/drawer/drawer-listing';
 import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade';
+import DrawerLanchpad from 'src/components/ui/drawer/drawer-lanchpad';
 
 const STORAGE_KEY = 'quick_actions';
 export const MAX_ACTIVE_ITEMS = 7;
@@ -117,6 +118,9 @@ const getIconComponent = (iconName: IconName): JSX.Element => {
 
 const NavigationMenu = (): JSX.Element => {
   const refEarn = useRef<DrawerHandle | null>(null);
+  const refLanchpad = useRef<DrawerHandle | null>(null);
+
+  
   const refInvite = useRef<DrawerHandle | null>(null);
   const refMore = useRef<DrawerHandle | null>(null);
   const refTransfer = useRef<DrawerHandle | null>(null);
@@ -179,7 +183,7 @@ const NavigationMenu = (): JSX.Element => {
         return refEarn.current?.onOpen();
       }
       case ALL_MENU_ITEMS[5].id: {
-        return console.log('launchpad');
+        return refLanchpad.current?.onOpen();
       }
       case ALL_MENU_ITEMS[6].id: {
         return refNoti.current?.onOpen();
@@ -400,6 +404,8 @@ const NavigationMenu = (): JSX.Element => {
       <DrawerExchange ref={refExchange} />
       <DrawerListing ref={refListing} />
       <DrawerCopyTrade ref={refCopyTrade} />
+      <DrawerLanchpad ref={refLanchpad} />
+
     </Box>
   );
 };

@@ -7,6 +7,7 @@ type Props = {
   value?: string;
   placeholder?: string;
   endContent?: ReactNode;
+  type?:string;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement> | undefined;
 };
 const CustomInput = (props: Props) => {
@@ -16,6 +17,7 @@ const CustomInput = (props: Props) => {
         fullWidth
         onChange={props.onChange}
         value={props.value}
+        type={props.type}
         placeholder={props.placeholder}
         variant='outlined'
         sx={{

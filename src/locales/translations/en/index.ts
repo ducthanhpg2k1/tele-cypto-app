@@ -19,6 +19,7 @@ import { listing } from './modules/listing';
 import { wallet } from './modules/wallet';
 import { copyTrade } from './modules/copyTrade';
 import { depositView } from './modules/depositView';
+import { lanchpad } from './modules/lanchpad';
 
 export const en = {
   balance,
@@ -42,4 +43,5 @@ export const en = {
   wallet,
   copyTrade,
   depositView,
+  lanchpad,
 };

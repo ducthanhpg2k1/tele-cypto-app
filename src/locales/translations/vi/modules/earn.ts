@@ -9,4 +9,24 @@ export const earn = {
   popular: 'Phổ biến',
   rewards: 'Phần thưởng bị bỏ lỡ (dựa trên tài sản)',
   max: 'Tối đa',
+  quantity: 'Số lượng',
+  register_usdt: 'Đăng kí USDT',
+  special_offers: 'Ưu đãi đặc biệt',
+  available: 'Khả dụng',
+  summary: 'Tổng kết',
+  total_locked_rewards: 'Tổng số phần thưởng đã khoá',
+  first_allocation_date: 'Ngày phân bổ đầu tiên',
+  interest_calculation_ending_date: 'Ngày kết thúc tính lãi',
+  change_to: 'Đổi sang',
+  flexible_product: 'Sản phẩm linh hoạt Simple Earn',
+  confirm_transfer:"Xác nhận chuyển",
+
+  note_flexible_product_1:
+    '* APR Tiết kiệm Cố định không phải là lợi nhuận thực tế hoặc lợi nhận dự đoán tính bằng tiền pháp định',
+  note_confirm:"Tôi đã đọc và đồng ý với thoả thuận của Simple Telegrex",
+  note_flexible_product_2:
+    'Khi bạn rút sớm, tài sản của bạn sẽ được hoàn trả vào Ví Spot trong vòng',
+  product_rules: 'Quy tắc sản phẩm',
+  personal_limit: 'Hạn mức cá nhân còn lại',
+  text_note: '* Áp dụng lãi suất năm cố định. Xem quy định về sản phẩm để biết thêm chi tiết',
 };
