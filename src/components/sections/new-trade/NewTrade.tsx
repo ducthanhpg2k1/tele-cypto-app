@@ -70,10 +70,10 @@ export default function NewTrade() {
     if (value === 4) {
       refDrawerCopyTrade.current?.onOpen();
     }
-    if(value === 2) {
-      refBottomSheetMargin.current?.onOpen()
-    }
-    if (![0, 2, 3, 4].includes(value)) {
+    // if(value === 2) {
+    //   refBottomSheetMargin.current?.onOpen()
+    // }
+    if (![0, 3, 4].includes(value)) {
       setValueCustom(value);
     }
   };
@@ -129,7 +129,7 @@ export default function NewTrade() {
         </Grid>
       </Grid>
       <div className='pb-10'>
-        <FooterTrade tabs={tabs} />
+        <FooterTrade refBottomSheetMargin={refBottomSheetMargin} tabs={tabs} />
 
       </div>
     </Box>

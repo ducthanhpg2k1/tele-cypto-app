@@ -24,7 +24,7 @@ const Invite = () => {
           );
         })}
       </Stack>
-      <ListCoin />
+      <ListCoin onClickRow={() => refRegisterUsdt.current.onOpen()} />
 
       <DrawerRegisterUsdt ref={refRegisterUsdt} />
     </>

@@ -11,4 +11,6 @@ export const lanchpad = {
   most_featured: 'Nổi bật nhất',
   latest: 'Mới nhất',
   share_your_ideas: 'Chia sẻ ý tưởng của bạn',
+  coming_soon:"Sắp diễn ra",
+  ended:"Đã kết thúc"
 };

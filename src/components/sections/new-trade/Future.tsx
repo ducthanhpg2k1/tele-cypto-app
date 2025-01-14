@@ -17,6 +17,7 @@ import TradeCTAButton from 'src/components/ui/button/TradeCTAButton';
 import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade';
 import { t } from 'i18next';
 import TagsFuture from './common/TagsFuture';
+import BottomSheetMargin from 'src/components/ui/bottomsheet/bottom-sheet-margin';
 
 export const Section = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -36,6 +37,8 @@ export default function NewTrade() {
   const [valueCustom, setValueCustom] = useState(0);
   const refBotTrade = useRef<DrawerHandle | null>(null);
   const refExchange = useRef<DrawerHandle | null>(null);
+  const refBottomSheetMargin = useRef<DrawerHandle | null>(null);
+
   const refDrawerCopyTrade = useRef<DrawerHandle | null>(null);
 
   const tabsFuture: TabItem[] = [
@@ -67,11 +70,11 @@ export default function NewTrade() {
   const handleChangeTab = (value: number) => {
     if (value === 1) {
       refDrawerCopyTrade.current?.onOpen();
-      return
+      return;
     }
     if (value === 2) {
-      refBotTrade.current?.onOpen(); 
-      return
+      refBotTrade.current?.onOpen();
+      return;
     }
     // if (![1, 2].includes(value)) {
     //   setValueCustom(value);
@@ -93,6 +96,8 @@ export default function NewTrade() {
       <DrawerBotTrade ref={refBotTrade} />
       <DrawerCopyTrade ref={refDrawerCopyTrade} />
       <DrawerExchange ref={refExchange} />
+      <BottomSheetMargin ref={refBottomSheetMargin} />
+
       <Box
         sx={{
           px: 1,
@@ -147,7 +152,7 @@ export default function NewTrade() {
           <ActionTrade type='FUTURE' />
         </Grid>
       </Grid>
-      <FooterTrade tabs={tabsFuture} type='FUTURE' />
+      <FooterTrade refBottomSheetMargin={refBottomSheetMargin} tabs={tabsFuture} type='FUTURE' />
     </Box>
   );
 }

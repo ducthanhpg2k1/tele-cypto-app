@@ -10,5 +10,7 @@ export const lanchpad = {
   key_points: 'Key points',
   most_featured: 'Most featured',
   latest: 'Latest',
-  share_your_ideas:"Share your ideas"
+  share_your_ideas: 'Share your ideas',
+  coming_soon: 'Coming Soon',
+  ended: 'Ended',
 };

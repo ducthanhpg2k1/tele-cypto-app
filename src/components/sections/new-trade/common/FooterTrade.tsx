@@ -13,7 +13,15 @@ const SectionContainer = styled(Box)(({ theme }) => ({
   width: '100%',
 }));
 
-export default function FooterTrade({ tabs, type }: {  tabs: TabItem[]; type?: 'FUTURE' | 'SPOT' }) {
+export default function FooterTrade({
+  tabs,
+  type,
+  refBottomSheetMargin,
+}: {
+  refBottomSheetMargin: any;
+  tabs: TabItem[];
+  type?: 'FUTURE' | 'SPOT';
+}) {
   return (
     <SectionContainer flex={1}>
       {/* Tabs Section */}
@@ -27,7 +35,9 @@ export default function FooterTrade({ tabs, type }: {  tabs: TabItem[]; type?: '
         }}
       >
         <Tabs tabs={tabs}>
-          <SecurityTime />
+          <div onClick={() => refBottomSheetMargin.current.onOpen()}>
+            <SecurityTime />
+          </div>
         </Tabs>
       </Box>
 

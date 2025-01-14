@@ -42,8 +42,10 @@ const Comment = () => {
             <div
               onClick={() => setValueAction(item)}
               key={item}
-              className={clsx('py-[10px] transition-all px-3 bg-[#F5F5F5] rounded-md', {
-                '!bg-[#177DFF]': item === valueAction,
+              className={clsx('py-[10px] transition-all px-3 rounded-md', {
+                'bg-[#177DFF]': item === valueAction,
+                'bg-[#F5F5F5]': item !== valueAction,
+
               })}
             >
               <Typography

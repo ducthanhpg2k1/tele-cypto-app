@@ -151,30 +151,42 @@ const tabsWrapper: TabItem[] = [
 ];
 
 // Reusable Component for Section Rows
-const SectionItemRow = ({ img, name, profit }: { img: string; name: string; profit: string }) => {
+const SectionItemRow = ({
+  onClick,
+  img,
+  name,
+  profit,
+}: {
+  onClick: VoidFunction;
+  img: string;
+  name: string;
+  profit: string;
+}) => {
   return (
-    <Stack className='flex-row h-[54px] p-4 justify-between rounded-lg border-[1px] border-solid border-[#EEE]'>
-      <Stack className='flex-row gap-1 items-center'>
-        <Image src={img} alt='' width={20} height={20} />
-        <Typography variant='body2' className='font-medium'>
-          {name}
-        </Typography>
+    <div onClick={onClick}>
+      <Stack className='flex-row h-[54px] p-4 justify-between rounded-lg border-[1px] border-solid border-[#EEE]'>
+        <Stack className='flex-row gap-1 items-center'>
+          <Image src={img} alt='' width={20} height={20} />
+          <Typography variant='body2' className='font-medium'>
+            {name}
+          </Typography>
+        </Stack>
+        <Stack className='flex-row gap-1 items-center'>
+          <Typography variant='caption' className='font-normal text-[#9E9E9E]'>
+            {t('earn.max')}
+          </Typography>
+          <Typography variant='subtitle2' className='text-[#4AAF57]'>
+            {profit}
+          </Typography>
+          <Image src='/assets/iconly/icon-chart.svg' alt='' width={18} height={18} />
+        </Stack>
       </Stack>
-      <Stack className='flex-row gap-1 items-center'>
-        <Typography variant='caption' className='font-normal text-[#9E9E9E]'>
-          {t('earn.max')}
-        </Typography>
-        <Typography variant='subtitle2' className='text-[#4AAF57]'>
-          {profit}
-        </Typography>
-        <Image src='/assets/iconly/icon-chart.svg' alt='' width={18} height={18} />
-      </Stack>
-    </Stack>
+    </div>
   );
 };
 
 // Main Component
-const ListCoin: React.FC = () => {
+const ListCoin = ({ onClickRow }: { onClickRow: VoidFunction }) => {
   const tabItems = tabs.map((tab) => ({
     key: tab.key,
     label: t(tab.label),
@@ -202,7 +214,7 @@ const ListCoin: React.FC = () => {
           </Typography>
         </Stack>
         {sectionItems.map((item, index) => (
-          <SectionItemRow key={`${item.name}-${index}`} {...item} />
+          <SectionItemRow onClick={onClickRow} key={`${item.name}-${index}`} {...item} />
         ))}
       </Box>
     ),

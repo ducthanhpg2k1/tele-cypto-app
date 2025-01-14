@@ -89,8 +89,8 @@ const Content = () => {
           classNameWrapper='flex-row items-center gap-[8px]'
           classNameLabel='font-normal'
         />
-        <Button fullWidth className='h-12 font-semibold'>
-          <Typography className='text-[14px]'>{t('earn.confirm_transfer')}</Typography>
+        <Button fullWidth className='h-12 bg-[#177DFF] font-semibold'>
+          <Typography className='text-[14px]' fontWeight={600} color={'#ffffff'}>{t('earn.confirm_transfer')}</Typography>
         </Button>
       </div>
       

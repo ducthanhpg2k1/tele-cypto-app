@@ -39,10 +39,10 @@ export const trade = {
   fee_hmstr: 'Fee (HMSTR)',
   total_usdt: 'Total (USDT)',
   transfer_money: 'Transfer Money',
-  lovely: 'Lovely',
+  lovely: 'Favourites',
   deposit: 'Deposit',
-  bot_trade: 'Bot Trade',
-  copy_transction: 'Copy Transction',
+  bot_trade: 'Trade bot',
+  copy_transction: 'Copy Trade',
 
   closed: 'Closed',
   closed_volume: 'Closed volume',

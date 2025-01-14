@@ -5,15 +5,18 @@ import { t } from 'i18next';
 type Props = {
   img: string;
   title: string;
+  onClick: VoidFunction;
 };
 const ItemChoice = (props: Props) => {
   return (
-    <Stack className='gap-1.5 items-start min-w-[150px]'>
-      <Image src={props.img} alt='' width={150} height={75} />
-      <Typography variant='subtitle2' className='text-[12px]'>
-        {t(props.title)}
-      </Typography>
-    </Stack>
+    <div onClick={props.onClick}>
+      <Stack className='gap-1.5 items-start min-w-[150px]'>
+        <Image src={props.img} alt='' width={150} height={75} />
+        <Typography variant='subtitle2' className='text-[12px]'>
+          {t(props.title)}
+        </Typography>
+      </Stack>
+    </div>
   );
 };
 
