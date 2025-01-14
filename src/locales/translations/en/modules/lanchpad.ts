@@ -1,8 +1,14 @@
 export const lanchpad = {
-    lanchpad:"Lanchpad",
-    show_locked: "Show is locked",
-    amount_raised:"Amount raised",
-    project_has_implemented:"Project has been implemented",
-    going_on:"Going on"
-
-}
+  lanchpad: 'Lanchpad',
+  show_locked: 'Show is locked',
+  amount_raised: 'Amount raised',
+  project_has_implemented: 'Project has been implemented',
+  going_on: 'Going on',
+  start_date: 'Start date',
+  end_date: 'End date',
+  monitor: 'Monitor',
+  key_points: 'Key points',
+  most_featured: 'Most featured',
+  latest: 'Latest',
+  share_your_ideas:"Share your ideas"
+};

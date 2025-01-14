@@ -119,7 +119,7 @@ const ChartLine = () => {
     ]);
   }, [filter]);
   return (
-    <div className='flex flex-col '>
+    <div className='flex flex-col'>
       <Chart options={options} width={'100%'} series={dataSeries} type='area' height={200} />
       <div className='grid grid-cols-5 items-center gap-[16px]'>
         {DATA_FILTER.map((item) => {

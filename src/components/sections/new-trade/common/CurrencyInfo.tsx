@@ -7,9 +7,14 @@ import { TypographyRegular } from '../NewTrade';
 import IconStars from 'src/assets/icons/IconStars';
 import IconInfinity from 'src/assets/icons/IconInfinity';
 import BottomSheetCoinSection from 'src/components/ui/bottomsheet/bottom-sheet-coin-section/BottomSheetCoinSection';
+import BottomSheetMore from 'src/components/ui/bottomsheet/bottom-sheet-more';
+import DrawerDetailInformation from 'src/components/ui/drawer/drawer-detail-information';
 
 export default function CurrencyInfo({ type }: { type?: 'FUTURE' | 'SPOT' }) {
   const refDrawerCoinSection = useRef<any>();
+  const refDrawerMore = useRef<any>();
+  const refDrawerDetailInformation = useRef<any>();
+
   return (
     <Box
       sx={{
@@ -52,11 +57,19 @@ export default function CurrencyInfo({ type }: { type?: 'FUTURE' | 'SPOT' }) {
       </Box>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         {type === 'FUTURE' && <IconStars className='w-6 h-6 color-[#212121]' />}
-        <ChartIcon className='w-6 h-6 color-[#212121]' />
+        <div onClick={() => refDrawerDetailInformation.current.onOpen()}>
+          <ChartIcon className='w-6 h-6 color-[#212121]' />
+        </div>
+
         {type === 'FUTURE' && <IconInfinity className='w-6 h-6 color-[#212121]' />}
-        <ThreeDotIcon className='w-6 h-6 ' fill='#212121' />
+        <div onClick={() => refDrawerMore.current.onOpen()}>
+          <ThreeDotIcon className='w-6 h-6 ' fill='#212121' />
+        </div>
       </Box>
+
+      <BottomSheetMore ref={refDrawerMore} />
       <BottomSheetCoinSection ref={refDrawerCoinSection} />
+      <DrawerDetailInformation ref={refDrawerDetailInformation} />
     </Box>
   );
 }

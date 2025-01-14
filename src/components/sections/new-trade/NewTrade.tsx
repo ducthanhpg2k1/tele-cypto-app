@@ -13,7 +13,9 @@ import DrawerBotTrade from 'src/components/ui/drawer/drawer-bot-trade';
 import DrawerExchange from 'src/components/ui/drawer/drawer-exchange';
 import { DrawerHandle } from 'src/components/ui/drawer';
 import DrawerCopyTrade from 'src/components/ui/drawer/drawer-copy-trade';
+
 import { t } from 'i18next';
+import BottomSheetMargin from 'src/components/ui/bottomsheet/bottom-sheet-margin';
 
 export const Section = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -34,7 +36,9 @@ export default function NewTrade() {
   const refBotTrade = useRef<DrawerHandle | null>(null);
   const refExchange = useRef<DrawerHandle | null>(null);
   const refDrawerCopyTrade = useRef<DrawerHandle | null>(null);
+  const refBottomSheetMargin = useRef<any>(null);
 
+  
   const tabs: TabItem[] = [
     {
       key: 'crypto',
@@ -66,7 +70,10 @@ export default function NewTrade() {
     if (value === 4) {
       refDrawerCopyTrade.current?.onOpen();
     }
-    if (![0, 3, 4].includes(value)) {
+    if(value === 2) {
+      refBottomSheetMargin.current?.onOpen()
+    }
+    if (![0, 2, 3, 4].includes(value)) {
       setValueCustom(value);
     }
   };
@@ -86,7 +93,7 @@ export default function NewTrade() {
       <DrawerBotTrade ref={refBotTrade} />
       <DrawerExchange ref={refExchange} />
       <DrawerCopyTrade ref={refDrawerCopyTrade} />
-
+      <BottomSheetMargin  ref={refBottomSheetMargin}/>
       <Box
         sx={{
           px: 1,

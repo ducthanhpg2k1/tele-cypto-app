@@ -7,8 +7,10 @@ type Props = {
   value?: string;
   placeholder?: string;
   endContent?: ReactNode;
-  type?:string;
+  type?: string;
+  className?: string;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement> | undefined;
+  isInputSmall?: boolean;
 };
 const CustomInput = (props: Props) => {
   return (
@@ -17,6 +19,7 @@ const CustomInput = (props: Props) => {
         fullWidth
         onChange={props.onChange}
         value={props.value}
+        className={props.className}
         type={props.type}
         placeholder={props.placeholder}
         variant='outlined'
@@ -24,6 +27,11 @@ const CustomInput = (props: Props) => {
           color: 'text.secondary',
           backgroundColor: '#F5F5F5',
           borderRadius: '8px',
+          '& .MuiInputBase-input': props.isInputSmall
+            ? {
+                padding: '8px',
+              }
+            : {},
           '& .MuiInputBase-input::placeholder': {
             color: '#9E9E9E',
             fontWeight: 500,
