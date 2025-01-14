@@ -6,6 +6,8 @@ import { EmptySpotTrade } from './common/EmptySpotTrade';
 import FooterTrade from './common/FooterTrade';
 import Transactions from './common/Transactions';
 import { t } from 'i18next';
+import { useRef } from 'react';
+import BottomSheetMargin from 'src/components/ui/bottomsheet/bottom-sheet-margin';
 
 export const Section = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -32,6 +34,8 @@ export default function NewTrade() {
       content: <EmptySpotTrade />,
     },
   ];
+  const refBottomSheetMargin = useRef<any>(null);
+
   return (
     <Box
       component='main'
@@ -57,7 +61,8 @@ export default function NewTrade() {
             <ActionTrade type='SPOT' />
           </Grid>
         </Grid>
-        <FooterTrade tabs={tabs} />
+        <FooterTrade refBottomSheetMargin={refBottomSheetMargin} tabs={tabs} />
+        <BottomSheetMargin ref={refBottomSheetMargin} />
       </Box>
     </Box>
   );
