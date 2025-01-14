@@ -1,6 +1,6 @@
 import React from 'react';
 import CardFlexible from './CardFlexible';
-import {  IconButton, TextField, Typography } from '@mui/material';
+import {  Button, IconButton, TextField, Typography } from '@mui/material';
 import { t } from 'i18next';
 import { Box } from '@mui/system';
 import { styled } from '@mui/material/styles';
@@ -8,7 +8,6 @@ import CustomInput from '../drawer-transfer/CustomInput';
 import Image from 'next/image';
 import TabContent from './TabContent';
 import CustomCheckbox from '../../checkbox';
-import Button from '../../button';
 
 const StyledButton = styled(Box)(({ theme }) => ({
   position: 'absolute',
