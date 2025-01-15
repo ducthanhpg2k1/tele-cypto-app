@@ -1,7 +1,8 @@
 import { Typography } from '@mui/material';
+import clsx from 'clsx';
 import { t } from 'i18next';
 import dynamic from 'next/dynamic';
-
+import { useState } from 'react';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 const options: any = {
@@ -69,7 +70,10 @@ const options: any = {
 
 const DATA_TIME = ['15m', '1h', '4h', '1 ngày'];
 
+
 const ChartLinePrice = () => {
+const [activeDateFilter, setActiveDateFilter] = useState<string>('');
+
   const series = [
     {
       name: 'Dữ liệu',
@@ -87,9 +91,20 @@ const ChartLinePrice = () => {
             <div className='flex items-center gap-4'>
               {DATA_TIME?.map((item) => {
                 return (
-                  <Typography className='text-[10px] leading-3' color={'#9E9E9E'} fontWeight={400}>
-                    {item}
-                  </Typography>
+                  <div
+                    onClick={() => setActiveDateFilter(item)}
+                    className={clsx('px-0.5 py-0.5 rounded', {
+                      'bg-[#F5F5F5]': item === activeDateFilter,
+                    })}
+                  >
+                    <Typography
+                      className='text-[10px] leading-3'
+                      color={'#9E9E9E'}
+                      fontWeight={400}
+                    >
+                      {item}
+                    </Typography>
+                  </div>
                 );
               })}
             </div>

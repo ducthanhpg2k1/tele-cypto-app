@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { Typography } from '@mui/material';
 import clsx from 'clsx';
@@ -111,7 +111,13 @@ const StockChart = () => {
       value: '1,78%',
     },
   ];
+  const [selectedItems, setSelectedItems] = useState<any>([]);
 
+  const handleItemClick = (item: any) => {
+    setSelectedItems((prev: any) =>
+      prev.includes(item) ? prev.filter((i: any) => i !== item) : [...prev, item],
+    );
+  };
   return (
     <div className='w-full'>
       <div className='flex items-center gap-3'>
@@ -131,8 +137,11 @@ const StockChart = () => {
         {DATA_FILTER?.map((item) => {
           return (
             <Typography
-              className={clsx('text-[12px] text-[#9E9E9E] leading-3', {
-                '!text-[#212121] font-medium': item === 'MA' || item === 'VOL',
+              onClick={() => handleItemClick(item)}
+              className={clsx('text-[12px]  leading-3', {
+                'text-[#212121] font-medium': selectedItems.includes(item),
+                'text-[#9E9E9E]': !selectedItems.includes(item),
+
               })}
             >
               {item}
