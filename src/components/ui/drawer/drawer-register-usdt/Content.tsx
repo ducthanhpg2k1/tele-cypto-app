@@ -86,7 +86,7 @@ const Content = () => {
         <CustomCheckbox
           label={t('earn.note_confirm')}
           variantLabel='body2'
-          classNameWrapper='flex-row items-center gap-[8px]'
+          classNameWrapper='flex-row items-start gap-[8px]'
           classNameLabel='font-normal'
         />
         <Button fullWidth className='h-12 bg-[#177DFF] font-semibold'>

@@ -29,7 +29,7 @@ const CardFlexible = () => {
               {t('earn.max')}
             </Typography>
           </div>
-          {activeCard === index && (
+          {index === 1 && (
             <div className='bg-[#E8F2FF] w-max rounded py-0.5 px-[6px] flex justify-center items-baseline'>
               <Typography className='font-normal text-[#177DFF] text-[10px] leading-3'>
                 {t('earn.special_offers')}

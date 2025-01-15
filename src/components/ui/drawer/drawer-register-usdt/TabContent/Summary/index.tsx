@@ -24,7 +24,7 @@ const Summary = () => {
         <div className='flex items-start gap-0.5'>
           <p className='font-normal text-[#9E9E9E] text-[12px] leading-5'>*</p>
           <p className='font-normal text-[#9E9E9E] text-[12px] leading-5'>
-            {t('earn.note_flexible_product_2')} <span className='text-[#212121]'>72 giờ</span>
+            {t('earn.note_flexible_product_2')} <span className='text-[#212121]'>  {`72 ${t('earn.hours')}`}</span>
           </p>
         </div>
       </div>

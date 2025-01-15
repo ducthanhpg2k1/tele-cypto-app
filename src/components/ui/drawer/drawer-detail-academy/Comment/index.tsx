@@ -37,7 +37,7 @@ const Comment = () => {
           </Typography>
         </div>
         <div className='flex items-center gap-0.5'>
-          <div onClick={() => setActiveBookmark(!activeLike)}>
+          <div onClick={() => setActiveBookmark(!activeBookmark)}>
             <IconBookmark active={activeBookmark}/>
           </div>
 

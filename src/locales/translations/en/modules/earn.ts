@@ -9,6 +9,7 @@ export const earn = {
   popular: 'Popular',
   rewards: 'Missed rewards (based on assets)',
   max: 'Max',
+  hours:'hours',
   register_usdt: 'Register USDT',
   special_offers: 'Special offers',
   quantity: 'Quantity',

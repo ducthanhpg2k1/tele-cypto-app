@@ -94,7 +94,7 @@ const ChartLinePrice = () => {
               })}
             </div>
             <div className='flex items-center gap-[2px]'>
-              <Typography className='text-[10px] leading-3' color={'#212121'} fontWeight={500}>
+              <Typography className='text-[10px] leading-3' color={'#9E9E9E'} fontWeight={500}>
                 {t('trade.more')}
               </Typography>
               <IconCaretDown />
@@ -103,7 +103,7 @@ const ChartLinePrice = () => {
         </div>
 
         <div className='flex items-center gap-4'>
-          <Typography className='text-[10px] leading-3' color={'#212121'} fontWeight={500}>
+          <Typography className='text-[10px] leading-3' color={'#9E9E9E'} fontWeight={500}>
             {t('trade.depth')}
           </Typography>
           <IconMenuFilter />

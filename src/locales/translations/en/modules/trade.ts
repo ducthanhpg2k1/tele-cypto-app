@@ -38,7 +38,7 @@ export const trade = {
   role: 'Role',
   fee_hmstr: 'Fee (HMSTR)',
   total_usdt: 'Total (USDT)',
-  transfer_money: 'Transfer Money',
+  transfer_money: 'Transfer',
   lovely: 'Favourites',
   deposit: 'Deposit',
   bot_trade: 'Trade bot',

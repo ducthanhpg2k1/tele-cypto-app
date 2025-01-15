@@ -20,6 +20,7 @@ export const earn = {
   change_to: 'Đổi sang',
   flexible_product: 'Sản phẩm linh hoạt Simple Earn',
   confirm_transfer:"Xác nhận chuyển",
+  hours:'giờ',
 
   note_flexible_product_1:
     '* APR Tiết kiệm Cố định không phải là lợi nhuận thực tế hoặc lợi nhận dự đoán tính bằng tiền pháp định',
