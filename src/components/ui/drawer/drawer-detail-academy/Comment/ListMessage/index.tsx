@@ -1,8 +1,11 @@
 import { Typography } from '@mui/material';
 import clsx from 'clsx';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const ListMessage = ({ item, index }: any) => {
+  const [activeLike, setActiveLike] = useState(false);
+
   return (
     <div
       className={clsx('flex justify-between gap-3 items-start', {
@@ -36,7 +39,10 @@ const ListMessage = ({ item, index }: any) => {
         </div>
       </div>
       <div className='flex flex-col items-center gap-0.5'>
-        <IconLikeDefault />
+        <div onClick={() => setActiveLike(!activeLike)}>
+          <IconLikeDefault active={activeLike} />
+        </div>
+
         <Typography className='text-[12px] leading-5 text-[#616161] font-medium'>10</Typography>
       </div>
     </div>
@@ -44,12 +50,12 @@ const ListMessage = ({ item, index }: any) => {
 };
 export default ListMessage;
 
-export const IconLikeDefault = () => {
+export const IconLikeDefault = ({ active }: { active?: boolean }) => {
   return (
     <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
         d='M10.0009 3.77415C11.9584 2.01665 14.9834 2.07498 16.8693 3.96415C18.7543 5.85415 18.8193 8.86415 17.0659 10.8275L9.99925 17.9042L2.93425 10.8275C1.18092 8.86415 1.24675 5.84915 3.13092 3.96415C5.01842 2.07748 8.03759 2.01415 10.0009 3.77415Z'
-        fill='#BDBDBD'
+        fill={active ? '#F54336' : '#BDBDBD'}
       />
     </svg>
   );

@@ -31,7 +31,9 @@ const Content = () => {
   ];
   return (
     <div className='flex flex-col gap-6 h-full'>
-      <Tabs tabs={tabGrids} />
+      <div>
+        <Tabs tabs={tabGrids} />
+      </div>
 
       <div className='bg-white sticky z-50 pt-3 left-0 right-0 bottom-[-8px] flex items-center justify-between gap-4'>
         <div className='flex flex-col gap-0.5'>
@@ -44,10 +46,14 @@ const Content = () => {
         </div>
         <div className='w-full flex items-center gap-4'>
           <Button fullWidth className='min-h-10 bg-[#4AAF57] rounded-md'>
-            <Typography color={'#FFFFFF'} className='text-[14px]' fontWeight={500}>{t('trade.buy')}</Typography>
+            <Typography color={'#FFFFFF'} className='text-[14px]' fontWeight={500}>
+              {t('trade.buy')}
+            </Typography>
           </Button>
           <Button fullWidth className='min-h-10 bg-[#F54336]  rounded-md'>
-            <Typography color={'#FFFFFF'} className='text-[14px]' fontWeight={500}>{t('trade.sell')}</Typography>
+            <Typography color={'#FFFFFF'} className='text-[14px]' fontWeight={500}>
+              {t('trade.sell')}
+            </Typography>
           </Button>
         </div>
       </div>

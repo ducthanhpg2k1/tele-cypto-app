@@ -26,15 +26,15 @@ const Price = () => {
             </Typography>
           </div>
           <div className='py-0.5 px-[6px] rounded flex items-center gap-0.5 bg-[#E8F2FF]'>
-            <Typography className='text-[12px] leading-3' color={'#177DFF'} fontWeight={400}>
+            <Typography className='text-[10px] leading-3' color={'#177DFF'} fontWeight={400}>
               POW
             </Typography>
             <div className='w-[1px] h-1 bg-[#177DFF33]' />
-            <Typography className='text-[12px] leading-3' color={'#177DFF'} fontWeight={400}>
+            <Typography className='text-[10px] leading-3' color={'#177DFF'} fontWeight={400}>
               KL
             </Typography>
             <div className='w-[1px] h-1 bg-[#177DFF33]' />
-            <Typography className='text-[12px] leading-3' color={'#177DFF'} fontWeight={400}>
+            <Typography className='text-[10px] leading-3' color={'#177DFF'} fontWeight={400}>
               Price Protection
             </Typography>
             <IconArrowRight />

@@ -90,7 +90,7 @@ const BottomSheetMore = (_: any, ref: any) => {
             {t('trade.features')}
           </Typography>
 
-          <div className='grid grid-cols-3 gap-6'>
+          <div className='grid grid-cols-3 gap-6 px-4'>
             {DATA_MORE?.map((item) => {
               return (
                 <div key={item?.id} className='flex flex-col items-center gap-3'>

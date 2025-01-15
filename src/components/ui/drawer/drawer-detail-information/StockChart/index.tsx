@@ -125,7 +125,7 @@ const StockChart = () => {
           MA(5): 39,55
         </Typography>
       </div>
-      <ReactApexChart options={options} series={series} type='bar' height={200} />
+      <ReactApexChart options={options} series={series} type='bar' height={150} />
 
       <div className='flex justify-between border-b border-b-[#EEEEEE] border-t border-t-[#EEEEEE] py-3 items-center gap-3'>
         {DATA_FILTER?.map((item) => {

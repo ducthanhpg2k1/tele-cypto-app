@@ -14,6 +14,9 @@ const messages = [
 ];
 
 const Comment = () => {
+  const [activeLike, setActiveLike] = useState(false);
+  const [activeBookmark, setActiveBookmark] = useState(false);
+
   const DATA_ACTION = [t('lanchpad.most_featured'), t('lanchpad.latest')];
 
   const [valueAction, setValueAction] = useState(t('lanchpad.most_featured'));
@@ -22,7 +25,9 @@ const Comment = () => {
     <div className='flex flex-col gap-4'>
       <div className='flex justify-between items-center'>
         <div className='flex items-center gap-0.5'>
-          <IconLike />
+          <div onClick={() => setActiveLike(!activeLike)}>
+            <IconLike active={activeLike} />
+          </div>
           <Typography className='text-[12px] leading-5 text-[#BDBDBD] font-normal'>100K</Typography>
         </div>
         <div className='flex items-center gap-0.5'>
@@ -32,7 +37,10 @@ const Comment = () => {
           </Typography>
         </div>
         <div className='flex items-center gap-0.5'>
-          <IconBookmark />
+          <div onClick={() => setActiveBookmark(!activeLike)}>
+            <IconBookmark active={activeBookmark}/>
+          </div>
+
           <Typography className='text-[12px] leading-5 text-[#BDBDBD] font-normal'>32</Typography>
         </div>
       </div>
@@ -45,7 +53,6 @@ const Comment = () => {
               className={clsx('py-[10px] transition-all px-3 rounded-md', {
                 'bg-[#177DFF]': item === valueAction,
                 'bg-[#F5F5F5]': item !== valueAction,
-
               })}
             >
               <Typography

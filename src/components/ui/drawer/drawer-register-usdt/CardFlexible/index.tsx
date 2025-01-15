@@ -1,16 +1,20 @@
 import { Typography } from '@mui/material';
 import clsx from 'clsx';
 import { t } from 'i18next';
+import { useState } from 'react';
 
 const CardFlexible = () => {
+  const [activeCard,setActiveCard] = useState(1)
   return (
     <div className='flex items-center gap-3'>
       {[...Array(2)].map((_, index) => (
         <div
+        onClick={()=>setActiveCard(index)}
           className={clsx(
-            'border h-full min-w-[120px] border-[#EEEEEE] p-1 rounded-lg flex flex-col gap-0.5',
+            'border h-full min-w-[120px] transition-all p-1 rounded-lg flex flex-col gap-0.5',
             {
-              'border-[#177DFF]': index === 1,
+              'border-[#177DFF]': activeCard == index,
+
             },
           )}
         >
@@ -25,7 +29,7 @@ const CardFlexible = () => {
               {t('earn.max')}
             </Typography>
           </div>
-          {index === 1 && (
+          {activeCard === index && (
             <div className='bg-[#E8F2FF] w-max rounded py-0.5 px-[6px] flex justify-center items-baseline'>
               <Typography className='font-normal text-[#177DFF] text-[10px] leading-3'>
                 {t('earn.special_offers')}
