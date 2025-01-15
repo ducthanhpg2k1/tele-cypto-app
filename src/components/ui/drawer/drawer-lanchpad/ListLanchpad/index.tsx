@@ -101,6 +101,7 @@ const ListLanchpad = () => {
       {[...Array(3)].map((_, index) => {
         return (
           <div
+            onClick={() => refDetailAcademy.current.onOpen()}
             className={clsx('flex flex-col gap-4 pb-4 border-b border-b-[#EEEEEE]', {
               'border-b-0': index === 2,
             })}
