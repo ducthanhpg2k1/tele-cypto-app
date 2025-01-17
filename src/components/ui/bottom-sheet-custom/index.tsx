@@ -13,8 +13,13 @@ const BottomSheetCustom = ({
   children: ReactNode;
   className?: string;
 }) => {
+  
   return (
-    <Sheet isOpen={isOpen} onClose={onClose}>
+    <Sheet
+      detent='content-height'
+      isOpen={isOpen}
+      onClose={onClose}
+    >
       <Sheet.Container
         className={clsx('h-max', {
           [className]: className,
