@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { t } from 'i18next';
 import { Tabs } from '../../tabs';
 import { TabItem } from '../../tabs/types';
 import Price from './Price';
 import { Button, Typography } from '@mui/material';
+import clsx from 'clsx';
 
 const Content = () => {
+  const [activeTab, setActiveTab] = useState(0);
   const tabGrids: TabItem[] = [
     {
       label: t('trade.price'),
@@ -29,10 +31,17 @@ const Content = () => {
       content: <></>,
     },
   ];
+  const onChaneTab = (value: any) => {
+    setActiveTab(value);
+  };
   return (
     <div className='flex flex-col gap-6 h-full'>
-      <div>
-        <Tabs tabs={tabGrids} />
+      <div
+        className={clsx('', {
+          'min-h-[calc(100dvh-160px)]': activeTab !==0,
+        })}
+      >
+        <Tabs onChaneTab={onChaneTab} tabs={tabGrids} />
       </div>
 
       <div className='bg-white sticky z-50 pt-3 left-0 right-0 bottom-[-8px] flex items-center justify-between gap-4'>
