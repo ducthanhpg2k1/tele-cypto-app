@@ -11,7 +11,7 @@ const Price = () => {
   const [activeTab, setActiveTab] = useState(t('trade.order_book'));
 
   return (
-    <div className='mt-4 flex flex-col gap-4'>
+    <div className='mt-4 flex flex-col gap-4 pb-10'>
       <div className='flex justify-between items-center gap-5'>
         <div className='flex flex-col gap-0.5'>
           <Typography className='text-[24px] leading-8' color={'#4AAF57'} fontWeight={700}>

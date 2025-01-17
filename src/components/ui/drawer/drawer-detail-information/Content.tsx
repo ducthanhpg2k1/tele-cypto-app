@@ -35,16 +35,17 @@ const Content = () => {
     setActiveTab(value);
   };
   return (
-    <div className='flex flex-col gap-6 h-full'>
-      <div
-        className={clsx('', {
-          'min-h-[calc(100dvh-160px)]': activeTab !==0,
-        })}
-      >
-        <Tabs onChaneTab={onChaneTab} tabs={tabGrids} />
-      </div>
+    <div className='flex flex-col gap-6 h-full justify-between'>
+      <Tabs onChaneTab={onChaneTab} tabs={tabGrids} />
 
-      <div className='bg-white sticky z-50 pt-3 left-0 right-0 bottom-[-8px] flex items-center justify-between gap-4'>
+      <div
+        className={clsx(
+          'bg-white sticky z-50 pt-3 left-0 right-0 bottom-[-8px] flex items-center justify-between gap-4',
+          {
+            '!mb-[-10px]': activeTab !== 0,
+          },
+        )}
+      >
         <div className='flex flex-col gap-0.5'>
           <div className='bg-[#212121] w-6 h-6 flex justify-center items-center rounded-full'>
             <IconMore />
