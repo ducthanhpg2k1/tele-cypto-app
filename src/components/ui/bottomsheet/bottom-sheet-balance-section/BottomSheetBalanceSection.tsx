@@ -5,14 +5,8 @@ import { DrawerHandle } from 'src/components/ui/drawer';
 import DrawerDeposit from '../../drawer/drawer-deposit';
 import DrawerTransfer from '../../drawer/drawer-transfer';
 import DepositView from './DepositView';
-const Transition = React.forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement;
-  },
-  ref: React.Ref<unknown>,
-) {
-  return <Slide direction='up' ref={ref} {...props} />;
-});
+import BottomSheetCustom from '../../bottom-sheet-custom';
+
 
 const BottomSheetBalanceSection = (_: any, ref: any) => {
   const refTransfer = React.useRef<DrawerHandle | null>(null);
@@ -45,30 +39,9 @@ const BottomSheetBalanceSection = (_: any, ref: any) => {
     <>
       <DrawerDeposit ref={refDeposit} />
       <DrawerTransfer ref={refTransfer} />
-      <Dialog
-        fullWidth
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={Transition}
-        sx={{
-          '& .MuiDialog-container': {
-            alignItems: 'flex-end',
-          },
-          '& .MuiDialog-paper': {
-            width: '100%',
-            margin: 0,
-            maxWidth: 'none',
-            borderRadius: '20px 20px 0 0',
-          },
-          '& .MuiDialogContent-root': {
-            padding: 0,
-          },
-        }}
-      >
-        <DialogContent>
-          <DepositView onAction={onAction} />
-        </DialogContent>
-      </Dialog>
+      <BottomSheetCustom isOpen={open} onClose={handleClose}>
+        <DepositView onAction={onAction} />
+      </BottomSheetCustom>
     </>
   );
 };

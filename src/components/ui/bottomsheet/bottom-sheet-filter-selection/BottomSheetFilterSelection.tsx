@@ -3,6 +3,7 @@ import { TransitionProps } from '@mui/material/transitions';
 import Image from 'next/image';
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import DoneIcon from '@mui/icons-material/Done';
+import BottomSheetCustom from '../../bottom-sheet-custom';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -38,28 +39,8 @@ const BottomSheetFilterSelection = (
   }));
 
   return (
-    <Dialog
-      fullWidth
-      open={open}
-      onClose={handleClose}
-      TransitionComponent={Transition}
-      sx={{
-        '& .MuiDialog-container': {
-          alignItems: 'flex-end',
-        },
-        '& .MuiDialog-paper': {
-          width: '100%',
-          margin: 0,
-          maxWidth: 'none',
-          borderRadius: '20px 20px 0 0',
-        },
-        '& .MuiDialogContent-root': {
-          padding: 0,
-        },
-      }}
-    >
-      <DialogContent className='h-max'>
-        <div className='flex flex-col gap-6 py-6 px-4'>
+    <BottomSheetCustom isOpen={open} onClose={handleClose}>
+        <div className='flex flex-col gap-6 pb-6 px-4'>
           {data?.map((item: { title: string; id: number; value: number }) => {
             return (
               <div
@@ -79,8 +60,7 @@ const BottomSheetFilterSelection = (
             );
           })}
         </div>
-      </DialogContent>
-    </Dialog>
+    </BottomSheetCustom>
   );
 };
 

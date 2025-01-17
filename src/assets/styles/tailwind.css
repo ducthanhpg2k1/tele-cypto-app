@@ -215,3 +215,13 @@ input::placeholder {
   border: none !important;
   background: #F5F5F5;
 }
+
+.react-modal-sheet-header {
+  height: 30px !important;
+}
+
+.react-modal-sheet-container  {
+border-top-left-radius: 24px !important;
+border-top-right-radius: 24px !important;
+
+}

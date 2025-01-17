@@ -6,6 +6,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import clsx from 'clsx';
 import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
+import BottomSheetCustom from 'src/components/ui/bottom-sheet-custom';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -15,8 +16,6 @@ const Transition = React.forwardRef(function Transition(
 ) {
   return <Slide direction='up' ref={ref} {...props} />;
 });
-
-
 
 const ModalSurfSpot = (props: any, ref: any) => {
   const { handleClickSurf, value } = props;
@@ -48,59 +47,38 @@ const ModalSurfSpot = (props: any, ref: any) => {
   }));
 
   return (
-    <Dialog
-      fullWidth
-      open={open}
-      onClose={handleClose}
-      TransitionComponent={Transition}
-      sx={{
-        '& .MuiDialog-container': {
-          alignItems: 'flex-end',
-        },
-        '& .MuiDialog-paper': {
-          width: '100%',
-          margin: 0,
-          maxWidth: 'none',
-          borderRadius: '20px 20px 0 0',
-        },
-        '& .MuiDialogContent-root': {
-          padding: 0,
-        },
-      }}
-    >
-      <DialogContent className='h-max'>
-        <div className='flex flex-col gap-6 py-6 px-4'>
-          <Typography variant='body1' color={'#212121'} fontWeight={600}>
-            {t('bot.header')}
-          </Typography>
-          <div className='flex items-center gap-3'>
-            {DATA_SURF?.map((item) => {
-              return (
-                <div
-                  key={item?.id}
-                  onClick={() => {
-                    handleClickSurf(item?.title);
-                    handleClose();
-                  }}
-                  style={{
-                    background: item?.title === value ? '#E8F2FF' : '#F5F5F5',
-                  }}
-                  className={clsx('w-full min-h-9 rounded-md flex justify-center items-center')}
+    <BottomSheetCustom isOpen={open} onClose={handleClose}>
+      <div className='flex flex-col gap-6 pb-6 px-4'>
+        <Typography variant='body1' color={'#212121'} fontWeight={600}>
+          {t('bot.header')}
+        </Typography>
+        <div className='flex items-center gap-3'>
+          {DATA_SURF?.map((item) => {
+            return (
+              <div
+                key={item?.id}
+                onClick={() => {
+                  handleClickSurf(item?.title);
+                  handleClose();
+                }}
+                style={{
+                  background: item?.title === value ? '#E8F2FF' : '#F5F5F5',
+                }}
+                className={clsx('w-full min-h-9 rounded-md flex justify-center items-center')}
+              >
+                <Typography
+                  className='text-xs'
+                  color={item?.title === value ? '#177DFF' : '#212121'}
+                  fontWeight={400}
                 >
-                  <Typography
-                    className='text-xs'
-                    color={item?.title === value ? '#177DFF' : '#212121'}
-                    fontWeight={400}
-                  >
-                    {item?.title}
-                  </Typography>
-                </div>
-              );
-            })}
-          </div>
+                  {item?.title}
+                </Typography>
+              </div>
+            );
+          })}
         </div>
-      </DialogContent>
-    </Dialog>
+      </div>
+    </BottomSheetCustom>
   );
 };
 

@@ -12,6 +12,7 @@ import {
 } from 'src/constants';
 import Item from './Item';
 import Sort from './Sort';
+import BottomSheetCustom from '../../bottom-sheet-custom';
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -93,33 +94,12 @@ const BottomSheetBalanceSection = (_: any, ref: any) => {
   }));
 
   return (
-    <Dialog
-      fullWidth
-      open={open}
-      onClose={handleClose}
-      TransitionComponent={Transition}
-      sx={{
-        '& .MuiDialog-container': {
-          alignItems: 'flex-end',
-        },
-        '& .MuiDialog-paper': {
-          width: '100%',
-          margin: 0,
-          maxWidth: 'none',
-          borderRadius: '20px 20px 0 0',
-        },
-        '& .MuiDialogContent-root': {
-          padding: 0,
-        },
-      }}
-    >
-      <DialogContent className='min-h-[85dvh]'>
-        <Stack className='px-2 py-3 gap-2'>
-          <InputSearch placeholder='Search' />
-          <Tabs tabs={tabItems} defaultTab={0} />
-        </Stack>
-      </DialogContent>
-    </Dialog>
+    <BottomSheetCustom className='min-h-[85dvh]' isOpen={open} onClose={handleClose}>
+      <Stack className='px-2 pb-3 gap-2'>
+        <InputSearch placeholder='Search' />
+        <Tabs tabs={tabItems} defaultTab={0} />
+      </Stack>
+    </BottomSheetCustom>
   );
 };
 

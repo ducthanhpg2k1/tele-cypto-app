@@ -52,7 +52,7 @@ const Container = styled('div')(({ theme }) => ({
   background: theme.palette.background.paper,
   display: 'flex',
   flexDirection: 'column',
-  padding: 24,
+  paddingBottom: 24,
   paddingLeft: 16,
   paddingRight: 16,
   justifyContent: 'center',

@@ -9,15 +9,7 @@ import OpenOrders from './OpenOrders';
 import CommandHistory from './CommandHistory';
 import PositionHistory from './PositionHistory';
 import TransactionHistory from './TransactionHistory';
-
-const Transition = React.forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement;
-  },
-  ref: React.Ref<unknown>,
-) {
-  return <Slide direction='up' ref={ref} {...props} />;
-});
+import BottomSheetCustom from '../../bottom-sheet-custom';
 
 const BottomSheetMargin = (props: {}, ref: any) => {
   const [open, setOpen] = useState<boolean>(false);
@@ -59,34 +51,14 @@ const BottomSheetMargin = (props: {}, ref: any) => {
   }));
 
   return (
-    <Dialog
-      fullWidth
-      open={open}
-      onClose={handleClose}
-      TransitionComponent={Transition}
-      sx={{
-        '& .MuiDialog-container': {
-          alignItems: 'flex-end',
-        },
-        '& .MuiDialog-paper': {
-          width: '100%',
-          margin: 0,
-          height: '90dvh',
-          maxWidth: 'none',
-          borderRadius: '20px 20px 0 0',
-        },
-        '& .MuiDialogContent-root': {
-          padding: 0,
-        },
-      }}
-    >
-      <DialogContent className='h-max'>
-        <div className='flex flex-col gap-6 py-6 px-4 h-full'>
-          <InputSearch placeholder='Search' />
-          <Tabs tabs={tabGrids} />
+    <BottomSheetCustom className='min-h-[90dvh]' isOpen={open} onClose={handleClose}>
+      <div className='flex flex-col gap-1 pb-6 px-4 h-[calc(90dvh-30px)]'>
+        <div>
+          <InputSearch className='max-h-[34px]' placeholder='Search' />
         </div>
-      </DialogContent>
-    </Dialog>
+        <Tabs tabs={tabGrids} />
+      </div>
+    </BottomSheetCustom>
   );
 };
 
